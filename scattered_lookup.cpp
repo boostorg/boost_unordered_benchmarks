@@ -145,19 +145,11 @@ void test(
 
 #include "container_defs.hpp"
 
-#if ((SIZE_MAX>>16)>>16)==0 
-#define IN_32BIT_ARCHITECTURE
-#endif
-
 int main()
 {
   using container_t1=absl::flat_hash_map<boost::uint64_t,boost::uint64_t>;
   using container_t2=boost::unordered_flat_map<boost::uint64_t,boost::uint64_t>;
-#if defined(IN_32BIT_ARCHITECTURE)
-  using container_t3=foa_xmx_unordered_rc15_map<boost::uint64_t,boost::uint64_t>;
-#else
-  using container_t3=foa_xmx33_unordered_rc15_map<boost::uint64_t,boost::uint64_t>;
-#endif
+  using container_t3=boost::unordered_map<boost::uint64_t,boost::uint64_t>;
 
   test<
     scattered_lookup,
@@ -169,7 +161,7 @@ int main()
     data,
     "absl::flat_hash_map",
     "boost::unordered_flat_map",
-    "foa_unordered_rc15_map"
+    "boost::unordered_map"
   );
 
   test<
@@ -182,6 +174,6 @@ int main()
     unsuccessful_data,
     "absl::flat_hash_map",
     "boost::unordered_flat_map",
-    "foa_unordered_rc15_map"
+    "boost::unordered_map"
   );
 }
