@@ -153,7 +153,7 @@ int main()
 {
   using container_t1=absl::flat_hash_map<boost::uint64_t,boost::uint64_t>;
   using container_t2=boost::unordered_flat_map<boost::uint64_t,boost::uint64_t>;
-#if defined(IN_32BIT_ARCHITECTURE)
+#if !defined(IN_32BIT_ARCHITECTURE)
   using container_t3=foa_xmx_unordered_rc15_map<boost::uint64_t,boost::uint64_t>;
 #else
   using container_t3=foa_xmx33_unordered_rc15_map<boost::uint64_t,boost::uint64_t>;
