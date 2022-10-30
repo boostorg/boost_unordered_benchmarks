@@ -148,7 +148,10 @@ void test(
   }
 }
 
-#include "container_defs.hpp"
+#include "absl/container/node_hash_map.h"
+#include "absl/container/flat_hash_map.h"
+#include <boost/unordered/unordered_flat_map.hpp>
+#include <boost/unordered/unordered_map.hpp>
 
 int main()
 {
@@ -168,3 +171,8 @@ int main()
     "boost::unordered_map"
   );
 }
+
+#include "absl/container/internal/raw_hash_set.cc"
+#include "absl/hash/internal/hash.cc"
+#include "absl/hash/internal/low_level_hash.cc"
+#include "absl/hash/internal/city.cc"
