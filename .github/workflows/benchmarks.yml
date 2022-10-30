@@ -194,7 +194,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           git clone https://github.com/boostorg/boost.git boost-root
           cd boost-root
-          git checkout boost-1.80.0
+          git checkout develop
           git submodule update --init
           ./bootstrap.sh
           ./b2 -d0 headers
@@ -305,7 +305,7 @@ jobs:
           cd %GITHUB_WORKSPACE%
           git clone https://github.com/boostorg/boost.git boost-root
           cd boost-root
-          git checkout boost-1.80.0
+          git checkout develop
           git submodule update --init
           cmd /c bootstrap.bat
           .\b2.exe -d0 headers
