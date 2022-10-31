@@ -1,0 +1,346 @@
+name: benchmarks
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - master
+      - feature/*
+
+jobs:
+  posix:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - compiler: g++-11
+            architecture: -m64
+            sourcefile: unique_running_insertion.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG
+            outputfile: benchmark
+            reportdir: gcc
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: g++-11
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: g++-11
+            architecture: -m64
+            sourcefile: unique_scattered_erasure.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG
+            outputfile: benchmark
+            reportdir: gcc
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: g++-11
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: g++-11
+            architecture: -m64
+            sourcefile: unique_scattered_lookup.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG
+            outputfile: benchmark
+            reportdir: gcc
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: g++-11
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: g++-11
+            architecture: -m64
+            sourcefile: non_unique_running_insertion.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG
+            outputfile: benchmark
+            reportdir: gcc
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: g++-11
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: g++-11
+            architecture: -m64
+            sourcefile: non_unique_scattered_erasure.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG
+            outputfile: benchmark
+            reportdir: gcc
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: g++-11
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: g++-11
+            architecture: -m64
+            sourcefile: non_unique_scattered_erasure_by_key.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG
+            outputfile: benchmark
+            reportdir: gcc
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: g++-11
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: g++-11
+            architecture: -m64
+            sourcefile: non_unique_scattered_lookup.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG
+            outputfile: benchmark
+            reportdir: gcc
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: g++-11
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: clang++-12
+            architecture: -m64
+            sourcefile: unique_running_insertion.cpp
+            compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
+            outputfile: benchmark
+            reportdir: clang_libcpp
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: libc++-12-dev libc++abi-12-dev
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: clang++-12
+            architecture: -m64
+            sourcefile: unique_scattered_erasure.cpp
+            compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
+            outputfile: benchmark
+            reportdir: clang_libcpp
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: libc++-12-dev libc++abi-12-dev
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: clang++-12
+            architecture: -m64
+            sourcefile: unique_scattered_lookup.cpp
+            compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
+            outputfile: benchmark
+            reportdir: clang_libcpp
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: libc++-12-dev libc++abi-12-dev
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: clang++-12
+            architecture: -m64
+            sourcefile: non_unique_running_insertion.cpp
+            compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
+            outputfile: benchmark
+            reportdir: clang_libcpp
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: libc++-12-dev libc++abi-12-dev
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: clang++-12
+            architecture: -m64
+            sourcefile: non_unique_scattered_erasure.cpp
+            compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
+            outputfile: benchmark
+            reportdir: clang_libcpp
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: libc++-12-dev libc++abi-12-dev
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: clang++-12
+            architecture: -m64
+            sourcefile: non_unique_scattered_erasure_by_key.cpp
+            compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
+            outputfile: benchmark
+            reportdir: clang_libcpp
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: libc++-12-dev libc++abi-12-dev
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+          - compiler: clang++-12
+            architecture: -m64
+            sourcefile: non_unique_scattered_lookup.cpp
+            compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
+            outputfile: benchmark
+            reportdir: clang_libcpp
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: libc++-12-dev libc++abi-12-dev
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            
+    runs-on: ${{matrix.os}}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install packages
+        if: matrix.install
+        run: |
+          # sudo -E apt-add-repository -y ppa:ubuntu-toolchain-r/test
+          if uname -p | grep -q 'x86_64'; then sudo dpkg --add-architecture i386 ; fi
+          sudo apt-get update
+          sudo apt-get install -y ${{matrix.install}}
+      - name: Install Boost
+        run: |
+          cd $GITHUB_WORKSPACE
+          git clone -b feature/first-in-group-v2 https://github.com/cmazakas/unordered.git unordered
+          git clone https://github.com/boostorg/boost.git boost-root
+          cd boost-root
+          git submodule update --init
+          git rm --ignore-unmatch libs/unordered/
+          mkdir libs/unordered
+          cp -r ../unordered/* libs/unordered
+          ./bootstrap.sh
+          ./b2 -d0 headers
+      - name: Compile
+        run: |
+          cd $GITHUB_WORKSPACE
+          ${{matrix.compiler}} --version
+          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root
+      - name: Set reportfile name
+        run: |
+          echo "REPORT_FILE=${{matrix.reportdir}}/${{matrix.sourcefile}}.csv" >> $GITHUB_ENV
+      - name: Run benchmarks
+        run: |
+          if [ -n "${{matrix.command}}" ]; then
+            echo "running benchmarks and saving to "${REPORT_FILE}
+            ${{matrix.command}} | tee ${REPORT_FILE}
+          else
+            echo "running benchmarks and saving to "${REPORT_FILE}
+            ./${{matrix.outputfile}} | tee ${REPORT_FILE}
+          fi
+
+      - name: Push benchmark results to repo
+        run: |
+          git config --global user.name 'joaquintides'
+          git config --global user.email 'joaquintides@users.noreply.github.com'
+          git add ${REPORT_FILE}
+          git stash -- ${REPORT_FILE}
+          git pull
+          git stash pop
+          git add ${REPORT_FILE}
+          git commit -m "updated benchmark results"
+          git push
+       
+  windows:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - compiler: cl
+            architecture: x64
+            sourcefile: unique_running_insertion.cpp
+            compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs
+            # os: windows-2019
+            os: [self-hosted, Windows, X64]
+          - compiler: cl
+            architecture: x64
+            sourcefile: unique_scattered_erasure.cpp
+            compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs
+            # os: windows-2019
+            os: [self-hosted, Windows, X64]
+          - compiler: cl
+            architecture: x64
+            sourcefile: unique_scattered_lookup.cpp
+            compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs
+            # os: windows-2019
+            os: [self-hosted, Windows, X64]
+          - compiler: cl
+            architecture: x64
+            sourcefile: non_unique_running_insertion.cpp
+            compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs
+            # os: windows-2019
+            os: [self-hosted, Windows, X64]
+          - compiler: cl
+            architecture: x64
+            sourcefile: non_unique_scattered_erasure.cpp
+            compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs
+            # os: windows-2019
+            os: [self-hosted, Windows, X64]
+          - compiler: cl
+            architecture: x64
+            sourcefile: non_unique_scattered_erasure_by_key.cpp
+            compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs
+            # os: windows-2019
+            os: [self-hosted, Windows, X64]
+          - compiler: cl
+            architecture: x64
+            sourcefile: non_unique_scattered_lookup.cpp
+            compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs
+            # os: windows-2019
+            os: [self-hosted, Windows, X64]
+
+    runs-on: ${{matrix.os}}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Boost
+        shell: cmd
+        run: |
+          cd %GITHUB_WORKSPACE%
+          git clone -b feature/fca-unordered-in-progress https://github.com/boostorg/unordered.git unordered
+          git clone https://github.com/boostorg/boost.git boost-root
+          cd boost-root
+          git submodule update --init
+          git rm --ignore-unmatch libs\unordered\
+          xcopy  ..\unordered libs\unordered /E /I         
+          cmd /c bootstrap.bat
+          .\b2.exe -d0 headers
+      - name: Compile
+        shell: cmd
+        run: |
+          cd %GITHUB_WORKSPACE%
+          # call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
+          call "C:\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
+          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root
+          echo %INCLUDE%
+          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.compileroptions}}
+      - name: Set reportfile name
+        shell: powershell
+        run: |
+          echo "REPORT_FILE=${{matrix.reportdir}}\${{matrix.sourcefile}}.csv" >> $env:GITHUB_ENV
+      - name: Run benchmark
+        shell: powershell
+        run: |
+          echo "running benchmarks and saving to $env:REPORT_FILE"
+          ./${{matrix.outputfile}} | tee $env:REPORT_FILE
+      - name: Push benchmark results to repo
+        shell: powershell
+        run: |
+          git config --global user.name 'joaquintides'
+          git config --global user.email 'joaquintides@users.noreply.github.com'
+          git add $env:REPORT_FILE
+          git stash -- $env:REPORT_FILE
+          git pull
+          git stash pop
+          git add $env:REPORT_FILE
+          git commit -m "updated benchmark results"
+          git push
+
+  final:
+    needs: [posix,windows]
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Python2
+        uses: actions/setup-python@v2
+        with:
+          python-version: '2.7.18'
+      - name: Install Python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install openpyxl
+      - name: Fast-forward repo 
+        run: |
+          git pull
+      - name: Run data feeding script
+        run: |
+          ./insert_data.sh
+      - name: Push modified Excel files to repo
+        run: |
+          git config --global user.name 'joaquintides'
+          git config --global user.email 'joaquintides@users.noreply.github.com'
+          git commit -am "updated Excel files"
+          git push
