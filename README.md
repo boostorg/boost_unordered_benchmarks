@@ -1,4 +1,4 @@
-# boost::unordered_set benchmarks
+# `boost::unordered_set` benchmarks
 Automated benchmarks of `boost::unordered_set` against several
 standard-compliant implementations of unordered associative containers.
 
