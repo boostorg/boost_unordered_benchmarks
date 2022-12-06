@@ -72,7 +72,7 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x64
             os: [self-hosted, linux, x64]
-            install: g++-11
+            install: g++-11 unzip
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
           - name: gcc-x64
             compiler: g++-11
@@ -83,9 +83,8 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x64
             os: [self-hosted, linux, x64]
-            install: g++-11
+            install: g++-11 unzip
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-
             
           - name: clang-x64
             compiler: clang++-12
@@ -141,6 +140,7 @@ jobs:
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
+            install: unzip
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
           - name: clang-x64
             compiler: clang++-12
@@ -151,6 +151,7 @@ jobs:
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
+            install: unzip
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
 
           - name: clang-arm64
@@ -285,7 +286,7 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
-            install: g++-11
+            install: g++-11 unzip
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
           - name: gcc-x86
             compiler: g++-11
@@ -296,7 +297,7 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
-            install: g++-11
+            install: g++-11 unzip
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
 
           - name: clang-x86
@@ -353,6 +354,7 @@ jobs:
             outputfile: benchmark
             reportdir: clang-x86
             os: [self-hosted, linux, x64]
+            install: unzip
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
           - name: clang-x86
             compiler: clang++-12
@@ -363,6 +365,7 @@ jobs:
             outputfile: benchmark
             reportdir: clang-x86
             os: [self-hosted, linux, x64]
+            install: unzip
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
 
                         
@@ -370,7 +373,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Install packages
+        if: matrix.install
+        run: |
+          # sudo -E apt-add-repository -y ppa:ubuntu-toolchain-r/test
+          if uname -p | grep -q 'x86_64'; then sudo dpkg --add-architecture i386 ; fi
+          sudo apt-get update
+          sudo apt-get install -y ${{matrix.install}}
       - name: Download large data files
+        if: matrix.download-datafiles
         run: |
           cd $GITHUB_WORKSPACE
           curl http://mattmahoney.net/dc/enwik9.zip --output enwik9.zip
@@ -379,13 +390,6 @@ jobs:
           curl http://mattmahoney.net/dc/enwik8.zip --output enwik8.zip
           unzip enwik8.zip
           rm enwik8.zip
-      - name: Install packages
-        if: matrix.install
-        run: |
-          # sudo -E apt-add-repository -y ppa:ubuntu-toolchain-r/test
-          if uname -p | grep -q 'x86_64'; then sudo dpkg --add-architecture i386 ; fi
-          sudo apt-get update
-          sudo apt-get install -y ${{matrix.install}}
       - name: Install Boost
         run: |
           cd $GITHUB_WORKSPACE
