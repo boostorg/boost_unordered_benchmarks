@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches:
-      - boost_unordered_aggregate
+      - boost_unordered_aggregate_mulx
 
 jobs:
   posix:
@@ -397,6 +397,7 @@ jobs:
           cd boost-root
           git checkout develop
           git submodule update --init
+          git -C libs/unordered checkout feature/mixing-policy
           ./bootstrap.sh
           ./b2 -d0 headers
       - name: Install Abseil
@@ -585,6 +586,7 @@ jobs:
           cd boost-root
           git checkout develop
           git submodule update --init
+          git -C libs/unordered checkout feature/mixing-policy
           cmd /c bootstrap.bat
           .\b2.exe -d0 headers
       - name: Install Abseil
