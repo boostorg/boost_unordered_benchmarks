@@ -1,19 +1,17 @@
 Hash speed test:
 
-                                               mul31_hash : q= 8665560251243871362, 281 ms
-                                            mul31_x4_hash : q= 8665560251243871362, 90 ms
-                                            mul31_x8_hash : q= 8665560251243871362, 92 ms
-                                               fnv1a_hash : q=13344893198920703814, 130 ms
-                                 boost::hash<std::string> : q= 5891163676063809377, 103 ms
-                                   std::hash<std::string> : q=  807107870837508558, 55 ms
-     absl::lts_20220623::hash_internal::Hash<std::string> : q=16338153334375017826, 74 ms
+                                               mul31_hash : q= 8665560251243871362, 200 ms
+                                            mul31_x4_hash : q= 8665560251243871362, 89 ms
+                                            mul31_x8_hash : q= 8665560251243871362, 91 ms
+                                               fnv1a_hash : q=13344893198920703814, 129 ms
+                                 boost::hash<std::string> : q= 5891163676063809377, 101 ms
+                                   std::hash<std::string> : q=  807107870837508558, 53 ms
+     absl::lts_20220623::hash_internal::Hash<std::string> : q=  837877686825894031, 74 ms
  ankerl::unordered_dense::v1_3_1::hash<std::string, void> : q=14677989072308481893, 53 ms
-                                             mulxp0_hash_ : q=15982269720029360535, 70 ms
-                                             mulxp1_hash_ : q= 1385109790319757315, 81 ms
-                                             mulxp2_hash_ : q=10717675796376795447, 72 ms
-                                             mulxp3_hash_ : q=10232575483738221623, 62 ms
+                                             mulxp1_hash_ : q= 1385109790319757315, 80 ms
+                                             mulxp3_hash_ : q=10232575483738221623, 61 ms
                                            mulxp1_hash32_ : q=   18015848073856681, 73 ms
-                                           mulxp3_hash32_ : q=   18011540263550675, 77 ms
+                                           mulxp3_hash32_ : q=   18011540263550675, 76 ms
 
 Hash collision test:
 
@@ -25,27 +23,24 @@ Hash collision test:
                                    std::hash<std::string> : c=0
      absl::lts_20220623::hash_internal::Hash<std::string> : c=0
  ankerl::unordered_dense::v1_3_1::hash<std::string, void> : c=0
-                                             mulxp0_hash_ : c=0
                                              mulxp1_hash_ : c=0
-                                             mulxp2_hash_ : c=0
                                              mulxp3_hash_ : c=0
                                            mulxp1_hash32_ : c=8153
                                            mulxp3_hash32_ : c=8053
 
 Container speed test:
+---
 
-                                               mul31_hash : n=786433, m=7, c=141342, q=524775,  170 +  700 =  870 ms
-                                            mul31_x4_hash : n=786433, m=7, c=141342, q=524775,  127 +  554 =  681 ms
-                                            mul31_x8_hash : n=786433, m=7, c=141342, q=524775,  133 +  556 =  689 ms
-                                               fnv1a_hash : n=786433, m=7, c=141361, q=524775,  146 +  689 =  835 ms
-                                 boost::hash<std::string> : n=786433, m=8, c=141759, q=524775,  138 +  606 =  744 ms
-                                   std::hash<std::string> : n=786433, m=8, c=141905, q=524775,  119 +  443 =  562 ms
-     absl::lts_20220623::hash_internal::Hash<std::string> : n=786433, m=7, c=141526, q=524775,  127 +  508 =  635 ms
- ankerl::unordered_dense::v1_3_1::hash<std::string, void> : n=786433, m=7, c=141756, q=524775,  111 +  416 =  527 ms
-                                             mulxp0_hash_ : n=786433, m=8, c=141631, q=524775,  115 +  485 =  600 ms
-                                             mulxp1_hash_ : n=786433, m=7, c=141767, q=524775,  117 +  507 =  624 ms
-                                             mulxp2_hash_ : n=786433, m=8, c=141724, q=524775,  123 +  489 =  612 ms
-                                             mulxp3_hash_ : n=786433, m=8, c=141708, q=524775,  111 +  468 =  579 ms
-                                           mulxp1_hash32_ : n=786433, m=7, c=141249, q=524775,  118 +  481 =  599 ms
-                                           mulxp3_hash32_ : n=786433, m=9, c=141718, q=524775,  121 +  505 =  626 ms
+                                               mul31_hash : n=786433, m=7, c=141342, q=524775,  311 +  770 = 1081 ms
+                                            mul31_x4_hash : n=786433, m=7, c=141342, q=524775,  132 +  611 =  743 ms
+                                            mul31_x8_hash : n=786433, m=7, c=141342, q=524775,  195 +  720 =  915 ms
+                                               fnv1a_hash : n=786433, m=7, c=141361, q=524775,  329 +  709 = 1038 ms
+                                 boost::hash<std::string> : n=786433, m=8, c=141759, q=524775,  141 +  797 =  938 ms
+                                   std::hash<std::string> : n=786433, m=8, c=141905, q=524775,  134 +  475 =  609 ms
+     absl::lts_20220623::hash_internal::Hash<std::string> : n=786433, m=7, c=141663, q=524775,  138 +  664 =  802 ms
+ ankerl::unordered_dense::v1_3_1::hash<std::string, void> : n=786433, m=7, c=141756, q=524775,  124 +  426 =  550 ms
+                                             mulxp1_hash_ : n=786433, m=7, c=141767, q=524775,  135 +  529 =  664 ms
+                                             mulxp3_hash_ : n=786433, m=8, c=141708, q=524775,  119 +  482 =  601 ms
+                                           mulxp1_hash32_ : n=786433, m=7, c=141249, q=524775,  171 +  525 =  696 ms
+                                           mulxp3_hash32_ : n=786433, m=9, c=141718, q=524775,  118 +  540 =  658 ms
 
