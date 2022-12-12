@@ -1,15 +1,15 @@
-cset: --> last message, executed args into cpuset "/user", new pid is: 3352895
-enwik8: 14480868 words, 6941 ms
+cset: --> last message, executed args into cpuset "/user", new pid is: 3442495
+enwik8: 14480868 words, 6940 ms
 
 boost::hash:
 
-Word count: 587 ms (s=14480868, size=354032)
+Word count: 588 ms (s=14480868, size=354032)
 
-Contains: 380 ms (s=7961072, size=354032)
+Contains: 379 ms (s=7961072, size=354032)
 
-Count: 380 ms (s=7961072, size=354032)
+Count: 379 ms (s=7961072, size=354032)
 
-Total: 1349 ms
+Total: 1347 ms
 
 std::hash:
 
@@ -19,7 +19,7 @@ Contains: 389 ms (s=7961072, size=354032)
 
 Count: 390 ms (s=7961072, size=354032)
 
-Total: 1419 ms
+Total: 1420 ms
 
 fnv1a_hash:
 
@@ -27,7 +27,7 @@ Word count: 562 ms (s=14480868, size=354032)
 
 Contains: 335 ms (s=7961072, size=354032)
 
-Count: 323 ms (s=7961072, size=354032)
+Count: 324 ms (s=7961072, size=354032)
 
 Total: 1222 ms
 
@@ -35,11 +35,11 @@ absl::Hash:
 
 Word count: 612 ms (s=14480868, size=354032)
 
-Contains: 372 ms (s=7961072, size=354032)
+Contains: 370 ms (s=7961072, size=354032)
 
-Count: 367 ms (s=7961072, size=354032)
+Count: 363 ms (s=7961072, size=354032)
 
-Total: 1352 ms
+Total: 1346 ms
 
 ankerl::unordered_dense::hash:
 
@@ -47,29 +47,29 @@ Word count: 660 ms (s=14480868, size=354032)
 
 Contains: 418 ms (s=7961072, size=354032)
 
-Count: 427 ms (s=7961072, size=354032)
+Count: 424 ms (s=7961072, size=354032)
 
-Total: 1506 ms
+Total: 1503 ms
 
 mulxp1_hash:
 
-Word count: 811 ms (s=14480868, size=354032)
+Word count: 808 ms (s=14480868, size=354032)
 
 Contains: 520 ms (s=7961072, size=354032)
 
 Count: 518 ms (s=7961072, size=354032)
 
-Total: 1849 ms
+Total: 1847 ms
 
 mulxp3_hash:
 
-Word count: 762 ms (s=14480868, size=354032)
+Word count: 761 ms (s=14480868, size=354032)
 
-Contains: 497 ms (s=7961072, size=354032)
+Contains: 495 ms (s=7961072, size=354032)
 
-Count: 505 ms (s=7961072, size=354032)
+Count: 500 ms (s=7961072, size=354032)
 
-Total: 1766 ms
+Total: 1758 ms
 
 mulxp1_hash32:
 
@@ -85,20 +85,20 @@ mulxp3_hash32:
 
 Word count: 589 ms (s=14480868, size=354032)
 
-Contains: 352 ms (s=7961072, size=354032)
+Contains: 350 ms (s=7961072, size=354032)
 
 Count: 354 ms (s=7961072, size=354032)
 
-Total: 1295 ms
+Total: 1294 ms
 
 ---
 
-                   boost::hash:  1349 ms
-                     std::hash:  1419 ms
+                   boost::hash:  1347 ms
+                     std::hash:  1420 ms
                     fnv1a_hash:  1222 ms
-                    absl::Hash:  1352 ms
- ankerl::unordered_dense::hash:  1506 ms
-                   mulxp1_hash:  1849 ms
-                   mulxp3_hash:  1766 ms
+                    absl::Hash:  1346 ms
+ ankerl::unordered_dense::hash:  1503 ms
+                   mulxp1_hash:  1847 ms
+                   mulxp3_hash:  1758 ms
                  mulxp1_hash32:  1326 ms
-                 mulxp3_hash32:  1295 ms
+                 mulxp3_hash32:  1294 ms
