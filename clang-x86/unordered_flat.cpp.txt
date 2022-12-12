@@ -1,174 +1,174 @@
-cset: --> last message, executed args into cpuset "/user", new pid is: 3299607
+cset: --> last message, executed args into cpuset "/user", new pid is: 3390742
 boost::hash:
 
 Consecutive insert: 462 ms (s=0, size=2000000)
-Random insert: 881 ms (s=0, size=3999508)
+Random insert: 884 ms (s=0, size=3999508)
 
-Consecutive lookup: 3463 ms (s=2642269824, size=3999508)
+Consecutive lookup: 3455 ms (s=2642269824, size=3999508)
 Random lookup: 5101 ms (s=371793592, size=3999508)
 
 Iterate and erase odd elements: 182 ms (s=0, size=1999753)
 
-Consecutive lookup: 2581 ms (s=1326134912, size=1999753)
-Random lookup: 3532 ms (s=391433336, size=1999753)
+Consecutive lookup: 2619 ms (s=1326134912, size=1999753)
+Random lookup: 3579 ms (s=391433336, size=1999753)
 
-Consecutive erase: 210 ms (s=0, size=999753)
-Random erase: 288 ms (s=0, size=0)
+Consecutive erase: 214 ms (s=0, size=999753)
+Random erase: 290 ms (s=0, size=0)
 
-Total: 16703 ms
+Total: 16790 ms
 
 std::hash:
 
 Consecutive insert: 537 ms (s=0, size=2000000)
-Random insert: 811 ms (s=0, size=3999508)
+Random insert: 815 ms (s=0, size=3999508)
 
-Consecutive lookup: 3344 ms (s=2642269824, size=3999508)
-Random lookup: 4466 ms (s=371793592, size=3999508)
+Consecutive lookup: 3324 ms (s=2642269824, size=3999508)
+Random lookup: 4402 ms (s=371793592, size=3999508)
 
-Iterate and erase odd elements: 182 ms (s=0, size=1999753)
+Iterate and erase odd elements: 183 ms (s=0, size=1999753)
 
-Consecutive lookup: 2457 ms (s=1326134912, size=1999753)
-Random lookup: 3158 ms (s=391433336, size=1999753)
+Consecutive lookup: 2456 ms (s=1326134912, size=1999753)
+Random lookup: 3153 ms (s=391433336, size=1999753)
 
 Consecutive erase: 201 ms (s=0, size=999753)
-Random erase: 268 ms (s=0, size=0)
+Random erase: 269 ms (s=0, size=0)
 
-Total: 15428 ms
+Total: 15344 ms
 
 fnv1a_hash:
 
 Consecutive insert: 538 ms (s=0, size=2000000)
-Random insert: 874 ms (s=0, size=3999508)
+Random insert: 877 ms (s=0, size=3999508)
 
-Consecutive lookup: 3395 ms (s=2642269824, size=3999508)
-Random lookup: 4712 ms (s=371793592, size=3999508)
+Consecutive lookup: 3397 ms (s=2642269824, size=3999508)
+Random lookup: 4652 ms (s=371793592, size=3999508)
 
-Iterate and erase odd elements: 185 ms (s=0, size=1999753)
+Iterate and erase odd elements: 186 ms (s=0, size=1999753)
 
-Consecutive lookup: 2552 ms (s=1326134912, size=1999753)
-Random lookup: 3374 ms (s=391433336, size=1999753)
+Consecutive lookup: 2558 ms (s=1326134912, size=1999753)
+Random lookup: 3352 ms (s=391433336, size=1999753)
 
-Consecutive erase: 212 ms (s=0, size=999753)
-Random erase: 282 ms (s=0, size=0)
+Consecutive erase: 211 ms (s=0, size=999753)
+Random erase: 281 ms (s=0, size=0)
 
-Total: 16129 ms
+Total: 16055 ms
 
 absl::Hash:
 
-Consecutive insert: 621 ms (s=0, size=2000000)
-Random insert: 892 ms (s=0, size=3999508)
+Consecutive insert: 622 ms (s=0, size=2000000)
+Random insert: 896 ms (s=0, size=3999508)
 
-Consecutive lookup: 4751 ms (s=2642269824, size=3999508)
-Random lookup: 5458 ms (s=371793592, size=3999508)
+Consecutive lookup: 4733 ms (s=2642269824, size=3999508)
+Random lookup: 5474 ms (s=371793592, size=3999508)
 
-Iterate and erase odd elements: 184 ms (s=0, size=1999753)
+Iterate and erase odd elements: 182 ms (s=0, size=1999753)
 
-Consecutive lookup: 3246 ms (s=1326134912, size=1999753)
-Random lookup: 3918 ms (s=391433336, size=1999753)
+Consecutive lookup: 3241 ms (s=1326134912, size=1999753)
+Random lookup: 3917 ms (s=391433336, size=1999753)
 
-Consecutive erase: 250 ms (s=0, size=999753)
-Random erase: 312 ms (s=0, size=0)
+Consecutive erase: 249 ms (s=0, size=999753)
+Random erase: 311 ms (s=0, size=0)
 
-Total: 19636 ms
+Total: 19628 ms
 
 ankerl::unordered_dense::hash:
 
-Consecutive insert: 536 ms (s=0, size=2000000)
-Random insert: 811 ms (s=0, size=3999508)
+Consecutive insert: 537 ms (s=0, size=2000000)
+Random insert: 808 ms (s=0, size=3999508)
 
-Consecutive lookup: 4330 ms (s=2642269824, size=3999508)
-Random lookup: 5081 ms (s=371793592, size=3999508)
+Consecutive lookup: 4325 ms (s=2642269824, size=3999508)
+Random lookup: 5096 ms (s=371793592, size=3999508)
 
-Iterate and erase odd elements: 187 ms (s=0, size=1999753)
+Iterate and erase odd elements: 183 ms (s=0, size=1999753)
 
 Consecutive lookup: 2696 ms (s=1326134912, size=1999753)
-Random lookup: 3475 ms (s=391433336, size=1999753)
+Random lookup: 3464 ms (s=391433336, size=1999753)
 
-Consecutive erase: 216 ms (s=0, size=999753)
-Random erase: 281 ms (s=0, size=0)
+Consecutive erase: 217 ms (s=0, size=999753)
+Random erase: 278 ms (s=0, size=0)
 
-Total: 17617 ms
+Total: 17608 ms
 
 mulxp1_hash:
 
 Consecutive insert: 593 ms (s=0, size=2000000)
-Random insert: 886 ms (s=0, size=3999508)
+Random insert: 888 ms (s=0, size=3999508)
 
-Consecutive lookup: 4897 ms (s=2642269824, size=3999508)
-Random lookup: 6019 ms (s=371793592, size=3999508)
-
-Iterate and erase odd elements: 183 ms (s=0, size=1999753)
-
-Consecutive lookup: 3385 ms (s=1326134912, size=1999753)
-Random lookup: 4515 ms (s=391433336, size=1999753)
-
-Consecutive erase: 259 ms (s=0, size=999753)
-Random erase: 323 ms (s=0, size=0)
-
-Total: 21065 ms
-
-mulxp3_hash:
-
-Consecutive insert: 552 ms (s=0, size=2000000)
-Random insert: 826 ms (s=0, size=3999508)
-
-Consecutive lookup: 4622 ms (s=2642269824, size=3999508)
-Random lookup: 5437 ms (s=371793592, size=3999508)
-
-Iterate and erase odd elements: 182 ms (s=0, size=1999753)
-
-Consecutive lookup: 3091 ms (s=1326134912, size=1999753)
-Random lookup: 3918 ms (s=391433336, size=1999753)
-
-Consecutive erase: 242 ms (s=0, size=999753)
-Random erase: 298 ms (s=0, size=0)
-
-Total: 19171 ms
-
-mulxp1_hash32:
-
-Consecutive insert: 535 ms (s=0, size=2000000)
-Random insert: 804 ms (s=0, size=3999508)
-
-Consecutive lookup: 3329 ms (s=2642269824, size=3999508)
-Random lookup: 4786 ms (s=371793592, size=3999508)
+Consecutive lookup: 4906 ms (s=2642269824, size=3999508)
+Random lookup: 6039 ms (s=371793592, size=3999508)
 
 Iterate and erase odd elements: 185 ms (s=0, size=1999753)
 
-Consecutive lookup: 2420 ms (s=1326134912, size=1999753)
-Random lookup: 3204 ms (s=391433336, size=1999753)
+Consecutive lookup: 3422 ms (s=1326134912, size=1999753)
+Random lookup: 4511 ms (s=391433336, size=1999753)
 
-Consecutive erase: 205 ms (s=0, size=999753)
-Random erase: 270 ms (s=0, size=0)
+Consecutive erase: 261 ms (s=0, size=999753)
+Random erase: 324 ms (s=0, size=0)
 
-Total: 15740 ms
+Total: 21133 ms
 
-mulxp3_hash32:
+mulxp3_hash:
 
-Consecutive insert: 526 ms (s=0, size=2000000)
-Random insert: 792 ms (s=0, size=3999508)
+Consecutive insert: 553 ms (s=0, size=2000000)
+Random insert: 828 ms (s=0, size=3999508)
 
-Consecutive lookup: 3427 ms (s=2642269824, size=3999508)
-Random lookup: 4987 ms (s=371793592, size=3999508)
+Consecutive lookup: 4624 ms (s=2642269824, size=3999508)
+Random lookup: 5467 ms (s=371793592, size=3999508)
 
 Iterate and erase odd elements: 184 ms (s=0, size=1999753)
 
-Consecutive lookup: 2510 ms (s=1326134912, size=1999753)
-Random lookup: 3313 ms (s=391433336, size=1999753)
+Consecutive lookup: 3092 ms (s=1326134912, size=1999753)
+Random lookup: 3934 ms (s=391433336, size=1999753)
 
-Consecutive erase: 204 ms (s=0, size=999753)
+Consecutive erase: 242 ms (s=0, size=999753)
+Random erase: 304 ms (s=0, size=0)
+
+Total: 19232 ms
+
+mulxp1_hash32:
+
+Consecutive insert: 536 ms (s=0, size=2000000)
+Random insert: 804 ms (s=0, size=3999508)
+
+Consecutive lookup: 3316 ms (s=2642269824, size=3999508)
+Random lookup: 4763 ms (s=371793592, size=3999508)
+
+Iterate and erase odd elements: 187 ms (s=0, size=1999753)
+
+Consecutive lookup: 2414 ms (s=1326134912, size=1999753)
+Random lookup: 3180 ms (s=391433336, size=1999753)
+
+Consecutive erase: 203 ms (s=0, size=999753)
+Random erase: 269 ms (s=0, size=0)
+
+Total: 15675 ms
+
+mulxp3_hash32:
+
+Consecutive insert: 527 ms (s=0, size=2000000)
+Random insert: 798 ms (s=0, size=3999508)
+
+Consecutive lookup: 3449 ms (s=2642269824, size=3999508)
+Random lookup: 5004 ms (s=371793592, size=3999508)
+
+Iterate and erase odd elements: 183 ms (s=0, size=1999753)
+
+Consecutive lookup: 2527 ms (s=1326134912, size=1999753)
+Random lookup: 3330 ms (s=391433336, size=1999753)
+
+Consecutive erase: 206 ms (s=0, size=999753)
 Random erase: 267 ms (s=0, size=0)
 
-Total: 16214 ms
+Total: 16294 ms
 
 ---
 
-                   boost::hash: 16703 ms
-                     std::hash: 15428 ms
-                    fnv1a_hash: 16129 ms
-                    absl::Hash: 19636 ms
- ankerl::unordered_dense::hash: 17617 ms
-                   mulxp1_hash: 21065 ms
-                   mulxp3_hash: 19171 ms
-                 mulxp1_hash32: 15740 ms
-                 mulxp3_hash32: 16214 ms
+                   boost::hash: 16790 ms
+                     std::hash: 15344 ms
+                    fnv1a_hash: 16055 ms
+                    absl::Hash: 19628 ms
+ ankerl::unordered_dense::hash: 17608 ms
+                   mulxp1_hash: 21133 ms
+                   mulxp3_hash: 19232 ms
+                 mulxp1_hash32: 15675 ms
+                 mulxp3_hash32: 16294 ms
