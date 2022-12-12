@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches:
-      - boost_unordered_aggregate_mulx
+      - boost_container_hash
 
 jobs:
   posix:
@@ -16,8 +16,8 @@ jobs:
           - name: gcc-x64
             compiler: g++-11
             architecture: -m64
-            sourcefile: string.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            sourcefile: unordered.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: gcc-x64
             os: [self-hosted, linux, x64]
@@ -26,38 +26,8 @@ jobs:
           - name: gcc-x64
             compiler: g++-11
             architecture: -m64
-            sourcefile: string_view.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: gcc-x64
-            os: [self-hosted, linux, x64]
-            install: g++-11
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: gcc-x64
-            compiler: g++-11
-            architecture: -m64
-            sourcefile: uint32.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: gcc-x64
-            os: [self-hosted, linux, x64]
-            install: g++-11
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: gcc-x64
-            compiler: g++-11
-            architecture: -m64
-            sourcefile: uint64.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: gcc-x64
-            os: [self-hosted, linux, x64]
-            install: g++-11
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: gcc-x64
-            compiler: g++-11
-            architecture: -m64
-            sourcefile: uuid.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            sourcefile: unordered_flat.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: gcc-x64
             os: [self-hosted, linux, x64]
@@ -68,18 +38,7 @@ jobs:
             architecture: -m64
             sourcefile: word_count.cpp
             download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: gcc-x64
-            os: [self-hosted, linux, x64]
-            install: g++-11 unzip
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: gcc-x64
-            compiler: g++-11
-            architecture: -m64
-            sourcefile: word_size.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: gcc-x64
             os: [self-hosted, linux, x64]
@@ -89,8 +48,8 @@ jobs:
           - name: clang-x64
             compiler: clang++-12
             architecture: -m64
-            sourcefile: string.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            sourcefile: unordered.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
@@ -98,35 +57,8 @@ jobs:
           - name: clang-x64
             compiler: clang++-12
             architecture: -m64
-            sourcefile: string_view.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: clang-x64
-            os: [self-hosted, linux, x64]
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: clang-x64
-            compiler: clang++-12
-            architecture: -m64
-            sourcefile: uint32.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: clang-x64
-            os: [self-hosted, linux, x64]
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: clang-x64
-            compiler: clang++-12
-            architecture: -m64
-            sourcefile: uint64.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: clang-x64
-            os: [self-hosted, linux, x64]
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: clang-x64
-            compiler: clang++-12
-            architecture: -m64
-            sourcefile: uuid.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            sourcefile: unordered_flat.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
@@ -136,18 +68,7 @@ jobs:
             architecture: -m64
             sourcefile: word_count.cpp
             download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: clang-x64
-            os: [self-hosted, linux, x64]
-            install: unzip
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: clang-x64
-            compiler: clang++-12
-            architecture: -m64
-            sourcefile: word_size.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
@@ -157,81 +78,40 @@ jobs:
           - name: clang-arm64
             compiler: clang++
             architecture: -m64
-            sourcefile: string.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            sourcefile: unordered.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: clang-arm64
             os: [self-hosted, macOS, ARM64]
             command: ./benchmark
-            xcode_version: 13.4.1            
+            xcode_version: 13.4.1
           - name: clang-arm64
             compiler: clang++
             architecture: -m64
-            sourcefile: string_view.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            sourcefile: unordered_flat.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: clang-arm64
             os: [self-hosted, macOS, ARM64]
             command: ./benchmark
-            xcode_version: 13.4.1            
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            sourcefile: uint32.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: clang-arm64
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            sourcefile: uint64.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: clang-arm64
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            sourcefile: uuid.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: clang-arm64
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
+            xcode_version: 13.4.1
           - name: clang-arm64
             compiler: clang++
             architecture: -m64
             sourcefile: word_count.cpp
             download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: clang-arm64
             os: [self-hosted, macOS, ARM64]
             command: ./benchmark
-            xcode_version: 13.4.1            
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            download-datafiles: true
-            sourcefile: word_size.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: clang-arm64
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
+            xcode_version: 13.4.1
 
           - name: gcc-x86
             compiler: g++-11
             architecture: -m32
-            sourcefile: string.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            sourcefile: unordered.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
@@ -240,38 +120,8 @@ jobs:
           - name: gcc-x86
             compiler: g++-11
             architecture: -m32
-            sourcefile: string_view.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: gcc-x86
-            os: [self-hosted, linux, x64]
-            install: g++-11
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: gcc-x86
-            compiler: g++-11
-            architecture: -m32
-            sourcefile: uint32.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: gcc-x86
-            os: [self-hosted, linux, x64]
-            install: g++-11
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: gcc-x86
-            compiler: g++-11
-            architecture: -m32
-            sourcefile: uint64.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: gcc-x86
-            os: [self-hosted, linux, x64]
-            install: g++-11
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: gcc-x86
-            compiler: g++-11
-            architecture: -m32
-            sourcefile: uuid.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            sourcefile: unordered_flat.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
@@ -282,18 +132,7 @@ jobs:
             architecture: -m32
             sourcefile: word_count.cpp
             download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: gcc-x86
-            os: [self-hosted, linux, x64]
-            install: g++-11 unzip
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: gcc-x86
-            compiler: g++-11
-            architecture: -m32
-            sourcefile: word_size.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
@@ -303,8 +142,8 @@ jobs:
           - name: clang-x86
             compiler: clang++-12
             architecture: -m32
-            sourcefile: string.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            sourcefile: unordered.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: clang-x86
             os: [self-hosted, linux, x64]
@@ -312,35 +151,8 @@ jobs:
           - name: clang-x86
             compiler: clang++-12
             architecture: -m32
-            sourcefile: string_view.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: clang-x86
-            os: [self-hosted, linux, x64]
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: clang-x86
-            compiler: clang++-12
-            architecture: -m32
-            sourcefile: uint32.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: clang-x86
-            os: [self-hosted, linux, x64]
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: clang-x86
-            compiler: clang++-12
-            architecture: -m32
-            sourcefile: uint64.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: clang-x86
-            os: [self-hosted, linux, x64]
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: clang-x86
-            compiler: clang++-12
-            architecture: -m32
-            sourcefile: uuid.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            sourcefile: unordered_flat.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: clang-x86
             os: [self-hosted, linux, x64]
@@ -350,24 +162,12 @@ jobs:
             architecture: -m32
             sourcefile: word_count.cpp
             download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_MULXP_HASH
             outputfile: benchmark
             reportdir: clang-x86
             os: [self-hosted, linux, x64]
             install: unzip
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - name: clang-x86
-            compiler: clang++-12
-            architecture: -m32
-            sourcefile: word_size.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
-            outputfile: benchmark
-            reportdir: clang-x86
-            os: [self-hosted, linux, x64]
-            install: unzip
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-
                         
     runs-on: ${{matrix.os}}
 
@@ -408,11 +208,15 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           git clone -b v1.3.1 https://github.com/martinus/unordered_dense.git ankerl-unordered_dense-root
+      - name: Install mulxp_hash
+        run: |
+          cd $GITHUB_WORKSPACE
+          git clone https://github.com/pdimov/mulxp_hash.git mulxp_hash-root
       - name: Compile
         run: |
           cd $GITHUB_WORKSPACE
           ${{matrix.compiler}} --version
-          ${{matrix.compiler}} $GITHUB_WORKSPACE/boost-root/libs/unordered/benchmark/${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root -I$GITHUB_WORKSPACE/abseil-root -I$GITHUB_WORKSPACE/ankerl-unordered_dense-root/include
+          ${{matrix.compiler}} $GITHUB_WORKSPACE/boost-root/libs/unordered/benchmark/${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root -I$GITHUB_WORKSPACE/abseil-root -I$GITHUB_WORKSPACE/ankerl-unordered_dense-root/include -I$GITHUB_WORKSPACE/mulxp_hash-root
       - name: Set reportfile name
         run: |
           echo "REPORT_FILE=${{matrix.reportdir}}/${{matrix.sourcefile}}.txt" >> $GITHUB_ENV
@@ -448,40 +252,16 @@ jobs:
           - name: vs-x64
             compiler: cl
             architecture: x64
-            sourcefile: string.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
+            sourcefile: unordered.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D HAVE_MULXP_HASH /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs-x64
             os: [self-hosted, Windows, X64]
           - name: vs-x64
             compiler: cl
             architecture: x64
-            sourcefile: string_view.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x64
-            os: [self-hosted, Windows, X64]
-          - name: vs-x64
-            compiler: cl
-            architecture: x64
-            sourcefile: uint32.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x64
-            os: [self-hosted, Windows, X64]
-          - name: vs-x64
-            compiler: cl
-            architecture: x64
-            sourcefile: uint64.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x64
-            os: [self-hosted, Windows, X64]
-          - name: vs-x64
-            compiler: cl
-            architecture: x64
-            sourcefile: uuid.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
+            sourcefile: unordered_flat.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D HAVE_MULXP_HASH /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs-x64
             os: [self-hosted, Windows, X64]
@@ -490,16 +270,7 @@ jobs:
             architecture: x64
             sourcefile: word_count.cpp
             download-datafiles: true
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x64
-            os: [self-hosted, Windows, X64]
-          - name: vs-x64
-            compiler: cl
-            architecture: x64
-            sourcefile: word_size.cpp
-            download-datafiles: true
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D HAVE_MULXP_HASH /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs-x64
             os: [self-hosted, Windows, X64]
@@ -507,40 +278,16 @@ jobs:
           - name: vs-x86
             compiler: cl
             architecture: x86
-            sourcefile: string.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
+            sourcefile: unordered.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D HAVE_MULXP_HASH /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs-x86
             os: [self-hosted, Windows, X64]
           - name: vs-x86
             compiler: cl
             architecture: x86
-            sourcefile: string_view.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            os: [self-hosted, Windows, X64]
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: uint32.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            os: [self-hosted, Windows, X64]
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: uint64.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            os: [self-hosted, Windows, X64]
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: uuid.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
+            sourcefile: unordered_flat.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D HAVE_MULXP_HASH /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs-x86
             os: [self-hosted, Windows, X64]
@@ -549,16 +296,7 @@ jobs:
             architecture: x86
             sourcefile: word_count.cpp
             download-datafiles: true
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            os: [self-hosted, Windows, X64]
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: word_size.cpp
-            download-datafiles: true
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /EHsc /MD /Fe:benchmark.exe
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D HAVE_MULXP_HASH /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs-x86
             os: [self-hosted, Windows, X64]
@@ -599,13 +337,18 @@ jobs:
         run: |
           cd %GITHUB_WORKSPACE%
           git clone -b v1.3.1 https://github.com/martinus/unordered_dense.git ankerl-unordered_dense-root
+      - name: Install ankerl::unordered_dense
+        shell: cmd
+        run: |
+          cd %GITHUB_WORKSPACE%
+          git clone https://github.com/pdimov/mulxp_hash.git mulxp_hash-root
       - name: Compile
         shell: cmd
         run: |
           cd %GITHUB_WORKSPACE%
           # call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
           call "C:\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
-          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\abseil-root;%GITHUB_WORKSPACE%\ankerl-unordered_dense-root\include
+          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\abseil-root;%GITHUB_WORKSPACE%\ankerl-unordered_dense-root\include;%GITHUB_WORKSPACE%\mulxp_hash-root
           echo %INCLUDE%
           ${{matrix.compiler}} %GITHUB_WORKSPACE%\boost-root\libs\unordered\benchmark\${{matrix.sourcefile}} ${{matrix.compileroptions}}
       - name: Set reportfile name
