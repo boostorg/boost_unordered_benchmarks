@@ -1,10 +1,10 @@
-cset: --> last message, executed args into cpuset "/user", new pid is: 3362440
+cset: --> last message, executed args into cpuset "/user", new pid is: 3488065
 Hash speed test:
 
                                                mul31_hash : q= 8665560251243871362, 158 ms
-                                            mul31_x4_hash : q= 8665560251243871362, 138 ms
-                                            mul31_x8_hash : q= 8665560251243871362, 133 ms
-                                               fnv1a_hash : q=13344893198920703814, 189 ms
+                                            mul31_x4_hash : q= 8665560251243871362, 137 ms
+                                            mul31_x8_hash : q= 8665560251243871362, 129 ms
+                                               fnv1a_hash : q=13344893198920703814, 190 ms
                                  boost::hash<std::string> : q= 5891163676063809377, 171 ms
                                    std::hash<std::string> : q= 3628842812788136324, 120 ms
      absl::lts_20220623::hash_internal::Hash<std::string> : q=12033061667903434979, 93 ms
@@ -32,16 +32,16 @@ Hash collision test:
 Container speed test:
 ---
 
-                                               mul31_hash : n=786433, m=7, c=141342, q=524775,  188 + 1022 = 1210 ms
-                                            mul31_x4_hash : n=786433, m=7, c=141342, q=524775,  180 +  984 = 1164 ms
+                                               mul31_hash : n=786433, m=7, c=141342, q=524775,  188 + 1020 = 1208 ms
+                                            mul31_x4_hash : n=786433, m=7, c=141342, q=524775,  180 +  990 = 1170 ms
                                             mul31_x8_hash : n=786433, m=7, c=141342, q=524775,  175 +  974 = 1149 ms
-                                               fnv1a_hash : n=786433, m=7, c=141361, q=524775,  188 + 1040 = 1228 ms
+                                               fnv1a_hash : n=786433, m=7, c=141361, q=524775,  188 + 1041 = 1229 ms
                                  boost::hash<std::string> : n=786433, m=8, c=141759, q=524775,  195 + 1038 = 1233 ms
                                    std::hash<std::string> : n=786433, m=7, c=141786, q=524775,  171 +  836 = 1007 ms
-     absl::lts_20220623::hash_internal::Hash<std::string> : n=786433, m=7, c=141746, q=524775,  165 +  806 =  971 ms
- ankerl::unordered_dense::v1_3_1::hash<std::string, void> : n=786433, m=7, c=141756, q=524775,  155 +  742 =  897 ms
-                                             mulxp1_hash_ : n=786433, m=7, c=141767, q=524775,  167 +  846 = 1013 ms
-                                             mulxp3_hash_ : n=786433, m=8, c=141708, q=524775,  161 +  789 =  950 ms
-                                           mulxp1_hash32_ : n=786433, m=7, c=141249, q=524775,  171 +  854 = 1025 ms
-                                           mulxp3_hash32_ : n=786433, m=9, c=141718, q=524775,  168 +  860 = 1028 ms
+     absl::lts_20220623::hash_internal::Hash<std::string> : n=786433, m=7, c=141746, q=524775,  165 +  809 =  974 ms
+ ankerl::unordered_dense::v1_3_1::hash<std::string, void> : n=786433, m=7, c=141756, q=524775,  155 +  744 =  899 ms
+                                             mulxp1_hash_ : n=786433, m=7, c=141767, q=524775,  168 +  846 = 1014 ms
+                                             mulxp3_hash_ : n=786433, m=8, c=141708, q=524775,  162 +  791 =  953 ms
+                                           mulxp1_hash32_ : n=786433, m=7, c=141249, q=524775,  171 +  855 = 1026 ms
+                                           mulxp3_hash32_ : n=786433, m=9, c=141718, q=524775,  169 +  861 = 1030 ms
 
