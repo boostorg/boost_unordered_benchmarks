@@ -201,10 +201,22 @@ public:
   }
 
   template<typename K>
+  BOOST_FORCEINLINE std::size_t count(const K& x)const
+  {
+    return contains(x)?1:0;
+  }
+
+  template<typename K>
   BOOST_FORCEINLINE iterator find(const K& x){return t.find(x);}
 
   template<typename K>
   BOOST_FORCEINLINE const_iterator find(const K& x)const{return t.find(x);}
+
+  template<typename K>
+  BOOST_FORCEINLINE bool contains(const K& x)const
+  {
+    return const_iterator{t.find(x)}!=end();
+  }
 
   float max_load_factor()const noexcept{return t.max_load_factor();}
   void rehash(std::size_t n){t.rehash(n);}
