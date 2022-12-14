@@ -181,30 +181,30 @@ public:
   BOOST_FORCEINLINE
   void erase(const_iterator pos)noexcept{return t.erase(pos.base());}
 
-  template<typename Key>
+  template<typename K>
   BOOST_FORCEINLINE
-  auto erase(Key&& x) -> typename std::enable_if<
-    !std::is_convertible<Key,iterator>::value&&
-    !std::is_convertible<Key,const_iterator>::value, std::size_t>::type
+  auto erase(K&& x) -> typename std::enable_if<
+    !std::is_convertible<K,iterator>::value&&
+    !std::is_convertible<K,const_iterator>::value, std::size_t>::type
   {
-    return t.erase(std::forward<Key>(x));
+    return t.erase(std::forward<K>(x));
   }
 
-  BOOST_FORCEINLINE mapped_type& operator[](const key_type& key)
+  BOOST_FORCEINLINE mapped_type& operator[](const key_type& x)
   {
-    return (*(t.try_emplace(key).first))->second;
+    return (*(t.try_emplace(x).first))->second;
   }
 
-  BOOST_FORCEINLINE mapped_type& operator[](key_type&& key)
+  BOOST_FORCEINLINE mapped_type& operator[](key_type&& x)
   {
-    return (*(t.try_emplace(std::move(key)).first))->second;
+    return (*(t.try_emplace(std::move(x)).first))->second;
   }
 
-  template<typename Key>
-  BOOST_FORCEINLINE iterator find(const Key& x){return t.find(x);}
+  template<typename K>
+  BOOST_FORCEINLINE iterator find(const K& x){return t.find(x);}
 
-  template<typename Key>
-  BOOST_FORCEINLINE const_iterator find(const Key& x)const{return t.find(x);}
+  template<typename K>
+  BOOST_FORCEINLINE const_iterator find(const K& x)const{return t.find(x);}
 
   float max_load_factor()const noexcept{return t.max_load_factor();}
   void rehash(std::size_t n){t.rehash(n);}
