@@ -19,9 +19,6 @@
 #include <utility>
 #include <type_traits>
 
-template<typename> struct moved_ptr;
-template<typename T>struct moved_ptr<T*>{T* p;};
-
 template<typename Allocator>
 class ptr_allocator_adaptor
 {
@@ -71,14 +68,15 @@ public:
     ptr_alloc_traits::deallocate(pal,p,n);
   }
 
-  void construct(value_type* p,moved_ptr<value_type> x)
+  void construct(value_type* p,const value_type& x)
   {
-    *p=x.p;
+    this->construct(p,*x);
   }
 
-  void construct(value_type* p,value_type q)
+  void construct(value_type* p,value_type&& x)
   {
-    this->construct(p,*q);
+    *p=x;
+    x=nullptr;
   }
 
   template<typename... Args>
@@ -115,16 +113,10 @@ class poc_unordered_node_map
     using key_type=Key;
     using init_type=std::pair<const Key,T>*;
     using value_type=init_type;
-    using moved_type=moved_ptr<value_type>;
 
-    static const key_type& extract(value_type p){return p->first;}
+    static const key_type& extract(value_type x){return x->first;}
 
-    static moved_type move(value_type& p)
-    {
-      moved_type x{p};
-      p=nullptr;
-      return x;
-    }
+    static value_type&& move(value_type& x){return std::move(x);}
   };
 
   using table_type=boost::unordered::detail::foa::table<
