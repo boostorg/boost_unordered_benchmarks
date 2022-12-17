@@ -16,6 +16,7 @@
 #include <boost/iterator/indirect_iterator.hpp>
 #include <boost/unordered/detail/foa.hpp>
 #include <memory>
+#include <memory_resource>
 #include <utility>
 #include <type_traits>
 
@@ -39,6 +40,7 @@ public:
   };
 
   ptr_allocator_adaptor()=default;
+  ptr_allocator_adaptor(const Allocator& al_):al{al_}{}
 
   template<typename Allocator2>
   ptr_allocator_adaptor(const ptr_allocator_adaptor<Allocator2>& x)noexcept:
@@ -134,6 +136,10 @@ public:
   using const_iterator=
     boost::indirect_iterator<typename table_type::const_iterator>;
 
+  poc_unordered_node_map()=default;
+  poc_unordered_node_map(const Allocator& al):
+    t{0,Hash{},Pred{},ptr_allocator_adaptor<Allocator>(al)}{}
+
   iterator       begin(){return t.begin();}
   const_iterator begin()const{return t.begin();}
   iterator       end(){return t.end();}
@@ -212,6 +218,26 @@ public:
 
   float max_load_factor()const noexcept{return t.max_load_factor();}
   void rehash(std::size_t n){t.rehash(n);}
+};
+
+template<
+  typename Key,typename T,
+  typename Hash=boost::hash<Key>,typename Pred=std::equal_to<Key>
+>
+class poc_pool_unordered_node_map:
+  private std::pmr::unsynchronized_pool_resource,
+  public poc_unordered_node_map<
+    Key,T,Hash,Pred,
+    std::pmr::polymorphic_allocator<std::pair<const Key,T>>
+  >
+{
+  using super=poc_unordered_node_map<
+    Key,T,Hash,Pred,
+    std::pmr::polymorphic_allocator<std::pair<const Key,T>>>;
+public:
+  poc_pool_unordered_node_map():
+    super{std::pmr::polymorphic_allocator<std::pair<const Key,T>>(this)}
+  {}
 };
 
 #endif
