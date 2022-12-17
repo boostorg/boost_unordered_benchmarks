@@ -1,214 +1,244 @@
-enwik9: 141176630 words, 85111 ms
+enwik9: 141176630 words, 82948 ms
 
 std::unordered_map:
 
-Word count: 17509 ms (s=141176630, size=1418655)
+Word count: 16999 ms (s=141176630, size=1418655)
 
 Memory: 90300672 bytes in 1418657 allocations
 
-Contains: 9729 ms (s=97891799, size=1418655)
+Contains: 9455 ms (s=97891799, size=1418655)
 
-Count: 9683 ms (s=97891799, size=1418655)
+Count: 9274 ms (s=97891799, size=1418655)
 
 Iterate and find max element: 104 ms (s=6498257, size=1418655)
 
-Total: 37027 ms
+Total: 35833 ms
 
 boost::unordered_map:
 
-Word count: 17730 ms (s=141176630, size=1418655)
+Word count: 17655 ms (s=141176630, size=1418655)
 
 Memory: 58766384 bytes in 1418657 allocations
 
-Contains: 12633 ms (s=97891799, size=1418655)
+Contains: 12323 ms (s=97891799, size=1418655)
 
-Count: 12355 ms (s=97891799, size=1418655)
+Count: 12395 ms (s=97891799, size=1418655)
 
 Iterate and find max element: 68 ms (s=6498257, size=1418655)
 
-Total: 42788 ms
+Total: 42443 ms
 
 boost::unordered_flat_map:
 
-Word count: 11810 ms (s=141176630, size=1418655)
+Word count: 11769 ms (s=141176630, size=1418655)
 
 Memory: 49283064 bytes in 1 allocations
 
-Contains: 7379 ms (s=97891799, size=1418655)
+Contains: 7015 ms (s=97891799, size=1418655)
 
-Count: 7415 ms (s=97891799, size=1418655)
+Count: 7058 ms (s=97891799, size=1418655)
 
-Iterate and find max element: 10 ms (s=6498257, size=1418655)
+Iterate and find max element: 11 ms (s=6498257, size=1418655)
 
-Total: 26615 ms
+Total: 25855 ms
 
 poc_unordered_node_map:
 
-Word count: 14745 ms (s=141176630, size=1418655)
+Word count: 15493 ms (s=141176630, size=1418655)
 
 Memory: 51873520 bytes in 1418656 allocations
 
-Contains: 8437 ms (s=97891799, size=1418655)
+Contains: 8743 ms (s=97891799, size=1418655)
 
-Count: 8356 ms (s=97891799, size=1418655)
+Count: 8430 ms (s=97891799, size=1418655)
 
 Iterate and find max element: 48 ms (s=6498257, size=1418655)
 
-Total: 31589 ms
+Total: 32716 ms
+
+poc_pool_unordered_node_map:
+
+Word count: 14162 ms (s=141176630, size=1418655)
+
+Memory: 0 bytes in 0 allocations
+
+Contains: 8406 ms (s=97891799, size=1418655)
+
+Count: 8429 ms (s=97891799, size=1418655)
+
+Iterate and find max element: 47 ms (s=6498257, size=1418655)
+
+Total: 31045 ms
 
 ankerl::unordered_dense::map:
 
-Word count: 11191 ms (s=141176630, size=1418655)
+Word count: 11218 ms (s=141176630, size=1418655)
 
 Memory: 54572488 bytes in 2 allocations
 
-Contains: 8178 ms (s=97891799, size=1418655)
+Contains: 8288 ms (s=97891799, size=1418655)
 
-Count: 8164 ms (s=97891799, size=1418655)
+Count: 8282 ms (s=97891799, size=1418655)
 
 Iterate and find max element: 3 ms (s=6498257, size=1418655)
 
-Total: 27538 ms
+Total: 27793 ms
 
 absl::node_hash_map:
 
-Word count: 16318 ms (s=141176630, size=1418655)
+Word count: 16397 ms (s=141176630, size=1418655)
 
 Memory: 52922096 bytes in 1418656 allocations
 
-Contains: 14022 ms (s=97891799, size=1418655)
+Contains: 13388 ms (s=97891799, size=1418655)
 
-Count: 13789 ms (s=97891799, size=1418655)
+Count: 13416 ms (s=97891799, size=1418655)
 
-Iterate and find max element: 58 ms (s=6498257, size=1418655)
+Iterate and find max element: 60 ms (s=6498257, size=1418655)
 
-Total: 44189 ms
+Total: 43262 ms
 
 absl::flat_hash_map:
 
-Word count: 13327 ms (s=141176630, size=1418655)
+Word count: 13373 ms (s=141176630, size=1418655)
 
 Memory: 52428792 bytes in 1 allocations
 
-Contains: 11483 ms (s=97891799, size=1418655)
+Contains: 11309 ms (s=97891799, size=1418655)
 
-Count: 11469 ms (s=97891799, size=1418655)
+Count: 11112 ms (s=97891799, size=1418655)
 
 Iterate and find max element: 7 ms (s=6498257, size=1418655)
 
-Total: 36287 ms
+Total: 35803 ms
 
 std::unordered_map, FNV-1a:
 
-Word count: 15173 ms (s=141176630, size=1418655)
+Word count: 14751 ms (s=141176630, size=1418655)
 
 Memory: 90300672 bytes in 1418657 allocations
 
-Contains: 9528 ms (s=97891799, size=1418655)
+Contains: 9324 ms (s=97891799, size=1418655)
 
-Count: 9558 ms (s=97891799, size=1418655)
+Count: 9311 ms (s=97891799, size=1418655)
 
-Iterate and find max element: 110 ms (s=6498257, size=1418655)
+Iterate and find max element: 106 ms (s=6498257, size=1418655)
 
-Total: 34371 ms
+Total: 33494 ms
 
 boost::unordered_map, FNV-1a:
 
-Word count: 17299 ms (s=141176630, size=1418655)
+Word count: 16969 ms (s=141176630, size=1418655)
 
 Memory: 58766384 bytes in 1418657 allocations
 
-Contains: 11158 ms (s=97891799, size=1418655)
+Contains: 11108 ms (s=97891799, size=1418655)
 
-Count: 11194 ms (s=97891799, size=1418655)
+Count: 11426 ms (s=97891799, size=1418655)
 
-Iterate and find max element: 65 ms (s=6498257, size=1418655)
+Iterate and find max element: 69 ms (s=6498257, size=1418655)
 
-Total: 39717 ms
+Total: 39573 ms
 
 boost::unordered_flat_map, FNV-1a:
 
-Word count: 10852 ms (s=141176630, size=1418655)
+Word count: 10949 ms (s=141176630, size=1418655)
 
 Memory: 49283064 bytes in 1 allocations
 
-Contains: 6147 ms (s=97891799, size=1418655)
+Contains: 6096 ms (s=97891799, size=1418655)
 
-Count: 6130 ms (s=97891799, size=1418655)
+Count: 6246 ms (s=97891799, size=1418655)
 
 Iterate and find max element: 10 ms (s=6498257, size=1418655)
 
-Total: 23140 ms
+Total: 23302 ms
 
 poc_unordered_node_map, FNV-1a:
 
-Word count: 14036 ms (s=141176630, size=1418655)
+Word count: 14021 ms (s=141176630, size=1418655)
 
 Memory: 51873520 bytes in 1418656 allocations
 
-Contains: 7606 ms (s=97891799, size=1418655)
+Contains: 7688 ms (s=97891799, size=1418655)
 
-Count: 7571 ms (s=97891799, size=1418655)
-
-Iterate and find max element: 51 ms (s=6498257, size=1418655)
-
-Total: 29265 ms
-
-ankerl::unordered_dense::map, FNV-1a:
-
-Word count: 16629 ms (s=141176630, size=1418655)
-
-Memory: 54572488 bytes in 2 allocations
-
-Contains: 13762 ms (s=97891799, size=1418655)
-
-Count: 13791 ms (s=97891799, size=1418655)
-
-Iterate and find max element: 3 ms (s=6498257, size=1418655)
-
-Total: 44187 ms
-
-absl::node_hash_map, FNV-1a:
-
-Word count: 14558 ms (s=141176630, size=1418655)
-
-Memory: 52922096 bytes in 1418656 allocations
-
-Contains: 9889 ms (s=97891799, size=1418655)
-
-Count: 9863 ms (s=97891799, size=1418655)
+Count: 7631 ms (s=97891799, size=1418655)
 
 Iterate and find max element: 53 ms (s=6498257, size=1418655)
 
-Total: 34365 ms
+Total: 29395 ms
+
+poc_pool_unordered_node_map, FNV-1a:
+
+Word count: 13218 ms (s=141176630, size=1418655)
+
+Memory: 0 bytes in 0 allocations
+
+Contains: 7674 ms (s=97891799, size=1418655)
+
+Count: 7459 ms (s=97891799, size=1418655)
+
+Iterate and find max element: 48 ms (s=6498257, size=1418655)
+
+Total: 28400 ms
+
+ankerl::unordered_dense::map, FNV-1a:
+
+Word count: 16389 ms (s=141176630, size=1418655)
+
+Memory: 54572488 bytes in 2 allocations
+
+Contains: 13809 ms (s=97891799, size=1418655)
+
+Count: 13706 ms (s=97891799, size=1418655)
+
+Iterate and find max element: 3 ms (s=6498257, size=1418655)
+
+Total: 43908 ms
+
+absl::node_hash_map, FNV-1a:
+
+Word count: 14504 ms (s=141176630, size=1418655)
+
+Memory: 52922096 bytes in 1418656 allocations
+
+Contains: 9860 ms (s=97891799, size=1418655)
+
+Count: 9696 ms (s=97891799, size=1418655)
+
+Iterate and find max element: 56 ms (s=6498257, size=1418655)
+
+Total: 34117 ms
 
 absl::flat_hash_map, FNV-1a:
 
-Word count: 11530 ms (s=141176630, size=1418655)
+Word count: 11548 ms (s=141176630, size=1418655)
 
 Memory: 52428792 bytes in 1 allocations
 
-Contains: 7952 ms (s=97891799, size=1418655)
+Contains: 7866 ms (s=97891799, size=1418655)
 
-Count: 8011 ms (s=97891799, size=1418655)
+Count: 8127 ms (s=97891799, size=1418655)
 
-Iterate and find max element: 8 ms (s=6498257, size=1418655)
+Iterate and find max element: 7 ms (s=6498257, size=1418655)
 
-Total: 27502 ms
+Total: 27549 ms
 
 ---
 
-                  std::unordered_map: 37027 ms,  90300672 bytes in 1418657 allocations
-                boost::unordered_map: 42788 ms,  58766384 bytes in 1418657 allocations
-           boost::unordered_flat_map: 26615 ms,  49283064 bytes in 1 allocations
-              poc_unordered_node_map: 31589 ms,  51873520 bytes in 1418656 allocations
-        ankerl::unordered_dense::map: 27538 ms,  54572488 bytes in 2 allocations
-                 absl::node_hash_map: 44189 ms,  52922096 bytes in 1418656 allocations
-                 absl::flat_hash_map: 36287 ms,  52428792 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 34371 ms,  90300672 bytes in 1418657 allocations
-        boost::unordered_map, FNV-1a: 39717 ms,  58766384 bytes in 1418657 allocations
-   boost::unordered_flat_map, FNV-1a: 23140 ms,  49283064 bytes in 1 allocations
-      poc_unordered_node_map, FNV-1a: 29265 ms,  51873520 bytes in 1418656 allocations
-ankerl::unordered_dense::map, FNV-1a: 44187 ms,  54572488 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 34365 ms,  52922096 bytes in 1418656 allocations
-         absl::flat_hash_map, FNV-1a: 27502 ms,  52428792 bytes in 1 allocations
+                  std::unordered_map: 35833 ms,  90300672 bytes in 1418657 allocations
+                boost::unordered_map: 42443 ms,  58766384 bytes in 1418657 allocations
+           boost::unordered_flat_map: 25855 ms,  49283064 bytes in 1 allocations
+              poc_unordered_node_map: 32716 ms,  51873520 bytes in 1418656 allocations
+         poc_pool_unordered_node_map: 31045 ms,         0 bytes in 0 allocations
+        ankerl::unordered_dense::map: 27793 ms,  54572488 bytes in 2 allocations
+                 absl::node_hash_map: 43262 ms,  52922096 bytes in 1418656 allocations
+                 absl::flat_hash_map: 35803 ms,  52428792 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 33494 ms,  90300672 bytes in 1418657 allocations
+        boost::unordered_map, FNV-1a: 39573 ms,  58766384 bytes in 1418657 allocations
+   boost::unordered_flat_map, FNV-1a: 23302 ms,  49283064 bytes in 1 allocations
+      poc_unordered_node_map, FNV-1a: 29395 ms,  51873520 bytes in 1418656 allocations
+ poc_pool_unordered_node_map, FNV-1a: 28400 ms,         0 bytes in 0 allocations
+ankerl::unordered_dense::map, FNV-1a: 43908 ms,  54572488 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 34117 ms,  52922096 bytes in 1418656 allocations
+         absl::flat_hash_map, FNV-1a: 27549 ms,  52428792 bytes in 1 allocations
