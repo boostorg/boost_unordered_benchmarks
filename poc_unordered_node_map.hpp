@@ -124,34 +124,34 @@ public:
   BOOST_FORCEINLINE std::pair<iterator,bool>
   insert(const init_type& x)
   {
-    return t.try_emplace(x.first,x.second);
+    return t.insert(x);
   }
 
   BOOST_FORCEINLINE std::pair<iterator,bool>
   insert(init_type&& x)
   {
-    return t.try_emplace(std::move(x.first),std::move(x.second));
+    return t.insert(std::move(x));
   }
 
   template<typename=void>
   BOOST_FORCEINLINE std::pair<iterator,bool>
   insert(const value_type& x)
   {
-    return t.try_emplace(x.first,x.second);
+    return t.insert(x);
   }
 
   template<typename=void>
   BOOST_FORCEINLINE std::pair<iterator,bool>
   insert(value_type&& x)
   {
-    return t.try_emplace(x.first,std::move(x.second));
+    return t.insert(std::move(x));
   }
 
   BOOST_FORCEINLINE
-  void erase(iterator pos)noexcept{return t.erase(pos.base());}
+  void erase(iterator pos)noexcept{return t.erase(pos);}
 
   BOOST_FORCEINLINE
-  void erase(const_iterator pos)noexcept{return t.erase(pos.base());}
+  void erase(const_iterator pos)noexcept{return t.erase(pos);}
 
   template<typename K>
   BOOST_FORCEINLINE
