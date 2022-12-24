@@ -11,94 +11,84 @@
 #ifndef POC_BOOST_UNORDERED_NODE_MAP_HPP
 #define POC_BOOST_UNORDERED_NODE_MAP_HPP
 
+// TODO fix headers
 #include <boost/config.hpp>
 #include <boost/container_hash/hash.hpp>
-#include <boost/iterator/indirect_iterator.hpp>
-#include <boost/unordered/detail/foa.hpp>
 #include <memory>
-#include <memory_resource>
 #include <utility>
 #include <type_traits>
+#include "foa2.hpp"
 
-template<typename Allocator>
-class ptr_allocator_adaptor
+template<typename T>
+struct internal_ptr // TODO EXPLAIN
 {
-  using alloc_traits=std::allocator_traits<Allocator>;
-  using ptr_allocator=typename alloc_traits::template rebind_alloc<
-    typename Allocator::value_type*>;
-  using ptr_alloc_traits=std::allocator_traits<ptr_allocator>;
+  T* p;
+};
 
-  Allocator al;
+template<typename Key,typename T>
+struct poc_unordered_node_map_type_policy
+{
+  using key_type=Key;
+  using raw_key_type=typename std::remove_const<Key>::type;
+  using raw_mapped_type=typename std::remove_const<T>::type;
 
-public:
-  using value_type=typename Allocator::value_type*;
+  using init_type=std::pair<raw_key_type,raw_mapped_type>;
+  using value_type=std::pair<const Key,T>;
+  using element_type=internal_ptr<value_type>;
 
-  template<typename U> struct rebind
+  template <class K,class V>
+  static const raw_key_type& extract(const std::pair<K,V>& kv)
   {
-    using other=ptr_allocator_adaptor<
-      typename alloc_traits::template rebind_alloc<U>>;
-  };
-
-  ptr_allocator_adaptor()=default;
-  ptr_allocator_adaptor(const Allocator& al_):al{al_}{}
-
-  template<typename Allocator2>
-  ptr_allocator_adaptor(const ptr_allocator_adaptor<Allocator2>& x)noexcept:
-    al{x.al}{}
-
-  template<typename Allocator2>
-  bool operator==(const ptr_allocator_adaptor<Allocator2>& x)const noexcept
-  {
-    return al==x.al;
+    return kv.first;
   }
 
-  template<typename Allocator2>
-  bool operator!=(const ptr_allocator_adaptor<Allocator2>& x)const noexcept
+  static value_type& value_from(const element_type& x)
   {
-    return al!=x.al;
+    return *(x.p);
   }
 
-  value_type* allocate(std::size_t n)
+  static element_type&& move(element_type& x)
   {
-    ptr_allocator pal=al;
-    return ptr_alloc_traits::allocate(pal,n);
+    return std::move(x);
   }
 
-  void deallocate(value_type* p,std::size_t n)noexcept
+  template<typename Allocator>
+  static void construct(Allocator& al,element_type* p,const element_type& x)
   {
-    ptr_allocator pal=al;
-    ptr_alloc_traits::deallocate(pal,p,n);
+    construct(al,p,*x);
   }
 
-  void construct(value_type* p,const value_type& x)
+  template<typename Allocator>
+  static void construct(Allocator&,element_type* p,element_type&& x)
   {
-    this->construct(p,*x);
+    p->p=x.p;
+    x.p=nullptr;
   }
 
-  void construct(value_type* p,value_type&& x)
+  template<typename Allocator,typename... Args>
+  static void construct(Allocator& al,element_type* p,Args&&... args)
   {
-    *p=x;
-    x=nullptr;
-  }
+    using alloc_traits=boost::allocator_traits<Allocator>;
 
-  template<typename... Args>
-  void construct(value_type* p,Args&&... args)
-  {
-    *p=alloc_traits::allocate(al,1);
-    try{
-      alloc_traits::construct(al,*p,std::forward<Args>(args)...);
+    p->p=alloc_traits::allocate(al,1);
+    BOOST_TRY{
+      alloc_traits::construct(al,p->p,std::forward<Args>(args)...);
     }
-    catch(...){
-      alloc_traits::deallocate(al,*p,1);
-      throw;
+    BOOST_CATCH(...){
+      alloc_traits::deallocate(al,p->p,1);
+      BOOST_RETHROW
     }
+    BOOST_CATCH_END
   }
 
-  void destroy(value_type* p)noexcept
+  template<typename Allocator>
+  static void destroy(Allocator& al,element_type* p)noexcept
   {
-    if(*p){
-      alloc_traits::destroy(al,*p);
-      alloc_traits::deallocate(al,*p,1);
+    using alloc_traits=boost::allocator_traits<Allocator>;
+
+    if(p->p){
+      alloc_traits::destroy(al,p->p);
+      alloc_traits::deallocate(al,p->p,1);
     }
   }
 };
@@ -110,19 +100,8 @@ template<
 >
 class poc_unordered_node_map
 {
-  struct type_policy
-  {
-    using key_type=Key;
-    using init_type=std::pair<const Key,T>*;
-    using value_type=init_type;
-
-    static const key_type& extract(value_type x){return x->first;}
-
-    static value_type&& move(value_type& x){return std::move(x);}
-  };
-
-  using table_type=boost::unordered::detail::foa::table<
-    type_policy,Hash,Pred,ptr_allocator_adaptor<Allocator>>;
+  using table_type=boost::unordered::detail::foa2::table<
+    poc_unordered_node_map_type_policy<Key,T>,Hash,Pred,Allocator>;
 
   table_type t;
 
@@ -131,14 +110,8 @@ public:
   using mapped_type=T;
   using init_type=std::pair<Key,T>;
   using value_type=std::pair<const Key,T>;
-  using iterator=
-    boost::indirect_iterator<typename table_type::iterator>;
-  using const_iterator=
-    boost::indirect_iterator<typename table_type::const_iterator>;
-
-  poc_unordered_node_map()=default;
-  poc_unordered_node_map(const Allocator& al):
-    t{0,Hash{},Pred{},ptr_allocator_adaptor<Allocator>(al)}{}
+  using iterator=typename table_type::iterator;
+  using const_iterator=typename table_type::const_iterator;
 
   iterator       begin(){return t.begin();}
   const_iterator begin()const{return t.begin();}
@@ -190,12 +163,12 @@ public:
 
   BOOST_FORCEINLINE mapped_type& operator[](const key_type& x)
   {
-    return (*(t.try_emplace(x).first))->second;
+    return t.try_emplace(x).first->second;
   }
 
   BOOST_FORCEINLINE mapped_type& operator[](key_type&& x)
   {
-    return (*(t.try_emplace(std::move(x)).first))->second;
+    return t.try_emplace(std::move(x)).first->second;
   }
 
   template<typename K>
@@ -220,25 +193,4 @@ public:
   void rehash(std::size_t n){t.rehash(n);}
 };
 
-template<
-  typename Key,typename T,
-  typename Hash=boost::hash<Key>,typename Pred=std::equal_to<Key>
->
-class poc_pool_unordered_node_map:
-  private std::pmr::unsynchronized_pool_resource,
-  public poc_unordered_node_map<
-    Key,T,Hash,Pred,
-    std::pmr::polymorphic_allocator<std::pair<const Key,T>>
-  >
-{
-  using super=poc_unordered_node_map<
-    Key,T,Hash,Pred,
-    std::pmr::polymorphic_allocator<std::pair<const Key,T>>>;
-public:
-  poc_pool_unordered_node_map():
-    super{std::pmr::polymorphic_allocator<std::pair<const Key,T>>(this)}
-  {}
-};
-
 #endif
-
