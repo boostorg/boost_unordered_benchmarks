@@ -114,6 +114,9 @@ public:
   using iterator=typename table_type::iterator;
   using const_iterator=typename table_type::const_iterator;
 
+  poc_unordered_node_map()=default;
+  poc_unordered_node_map(const Allocator& al):t{0,Hash{},Pred{},al}{}
+
   iterator       begin(){return t.begin();}
   const_iterator begin()const{return t.begin();}
   iterator       end(){return t.end();}
