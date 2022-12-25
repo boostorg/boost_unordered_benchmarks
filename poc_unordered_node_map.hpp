@@ -11,7 +11,6 @@
 #ifndef POC_BOOST_UNORDERED_NODE_MAP_HPP
 #define POC_BOOST_UNORDERED_NODE_MAP_HPP
 
-// TODO fix headers
 #include <boost/config.hpp>
 #include <boost/container_hash/hash.hpp>
 #include <memory>
@@ -21,29 +20,16 @@
 #include "foa2.hpp"
 
 template<typename T>
-struct internal_ptr // TODO EXPLAIN
+struct poc_unordered_node_policy
 {
-  T* p;
-};
+  using value_type=T;
 
-template<typename Key,typename T>
-struct poc_unordered_node_map_type_policy
-{
-  using key_type=Key;
-  using raw_key_type=typename std::remove_const<Key>::type;
-  using raw_mapped_type=typename std::remove_const<T>::type;
+  /* We don't use T* directly to avoid ambiguities in element construction
+   * if value_type had a value_type(value_type*) ctor.
+   */
+  struct element_type{value_type* p;};
 
-  using init_type=std::pair<raw_key_type,raw_mapped_type>;
-  using value_type=std::pair<const Key,T>;
-  using element_type=internal_ptr<value_type>;
-
-  template <class K,class V>
-  static const raw_key_type& extract(const std::pair<K,V>& kv)
-  {
-    return kv.first;
-  }
-
-  static value_type& value_from(const element_type& x)
+  static value_type& value_from(element_type& x)
   {
     return *(x.p);
   }
@@ -56,7 +42,7 @@ struct poc_unordered_node_map_type_policy
   template<typename Allocator>
   static void construct(Allocator& al,element_type* p,const element_type& x)
   {
-    construct(al,p,*x);
+    construct(al,p,*(x.p));
   }
 
   template<typename Allocator>
@@ -91,6 +77,30 @@ struct poc_unordered_node_map_type_policy
       alloc_traits::destroy(al,p->p);
       alloc_traits::deallocate(al,p->p,1);
     }
+  }
+};
+
+template<typename Key,typename T>
+struct poc_unordered_node_map_type_policy:
+  poc_unordered_node_policy<std::pair<const Key,T>>
+{
+  using key_type=Key;
+  using raw_key_type=typename std::remove_const<Key>::type;
+  using raw_mapped_type=typename std::remove_const<T>::type;
+
+  using init_type=std::pair<raw_key_type,raw_mapped_type>;
+  using typename poc_unordered_node_policy<std::pair<const Key,T>>::
+    element_type;
+
+  template <class K,class V>
+  static const raw_key_type& extract(const std::pair<K,V>& kv)
+  {
+    return kv.first;
+  }
+
+  static const raw_key_type& extract(const element_type& x)
+  {
+    return extract(*(x.p));
   }
 };
 

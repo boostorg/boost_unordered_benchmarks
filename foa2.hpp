@@ -84,7 +84,8 @@ namespace foa2{
 static const std::size_t default_bucket_count = 0;
 
 /* foa::table is an open-addressing hash table serving as the foundational core
- * of boost::unordered_flat_[map|set]. Its main internal design aspects are:
+ * of boost::unordered_[flat|node]_[map|set]. Its main internal design aspects
+ * are:
  * 
  *   - Element slots are logically split into groups of size N=15. The number
  *     of groups is always a power of two, so the number of allocated slots
@@ -788,6 +789,9 @@ class table;
  * representation is that iterator increment is relatively slow.
  * 
  * p = nullptr is conventionally used to mark end() iterators.
+ * TypePolicy encodes the element type and the actual value_type, which are
+ * different for node conainers. See below for a full explanation of type
+ * policies.
  */
 
 /* internal conversion from const_iterator to iterator */
@@ -797,7 +801,9 @@ template<typename TypePolicy,typename Group,bool Const>
 class table_iterator
 {
   using type_policy=TypePolicy;
-  using table_element_type=typename type_policy::element_type; // TODO EXPLAIN NAMING
+
+  /* "element_type" is taken by the homonym pointer trait */
+  using table_element_type=typename type_policy::element_type;
 
 public:
   using difference_type=std::ptrdiff_t;
@@ -1098,19 +1104,20 @@ _STL_RESTORE_DEPRECATED_WARNING
 
 /* foa::table interface departs in a number of ways from that of C++ unordered
  * associative containers because it's not for end-user consumption
- * (boost::unordered_flat_[map|set] wrappers complete it as appropriate) and,
- * more importantly, because of fundamental restrictions imposed by open
+ * (boost::unordered_[flat|node]_[map|set] wrappers complete it as appropriate)
+ * and, more importantly, because of fundamental restrictions imposed by open
  * addressing:
  * 
  *   - value_type must be moveable.
- *   - Pointer stability is not kept under rehashing.
+ *   - Pointer stability is not kept under rehashing (flat containers).
  *   - begin() is not O(1).
  *   - No bucket API.
  *   - Load factor is fixed and can't be set by the user.
- *   - No extract API.
+ *   - No extract API (implemented externally by wrapping node containers).
  * 
  * The TypePolicy template parameter is used to generate instantiations
- * suitable for either maps or sets, and introduces non-standard init_type:
+ * suitable for each container, and introduces API-public, non-standard
+ * init_type:
  * 
  *   - TypePolicy::key_type and TypePolicy::value_type have the obvious
  *     meaning.
@@ -1120,17 +1127,31 @@ _STL_RESTORE_DEPRECATED_WARNING
  *     produces a cheaply moveable std::string&& ("hello") rather than
  *     a copyable const std::string&&. foa::table::insert is extended to accept
  *     both init_type and value_type references.
- *   - TypePolicy::move(value_type&) returns a temporary object for value
- *     transfer on rehashing, move copy/assignment, and merge. For maps, this
- *     object is a std::pair<Key&&,T&&>, which is generally cheaper to move
+ *   - element_type is the type actually stored in buckets --value_type for
+ *     flat containers and (something equvalent to) value_type* for node
+ *     containers.
+ *   - TypePolicy::value_from returns a reference to the value_type contained
+ *     in an element_type object; for flat containers, this is the identity,
+ *     whereas node containers dereference the stored pointer.
+ *   - TypePolicy::move(element_type&) returns a temporary object for value
+ *     transfer on rehashing, move copy/assignment, and merge. In general
+ *     this resolves to std::move, except for flat maps, where the object
+ *     returned is a std::pair<Key&&,T&&>, which is generally cheaper to move
  *     than std::pair<const Key,T>&& because of the constness in Key.
- *   - TypePolicy::extract returns a const reference to the key part of
- *     a value of type value_type, init_type or
+ *   - TypePolicy::construct(Allocator&,element_type*,Args&&...), where
+ *     Allocator::value_type is value_type, constructs an element from the
+ *     given arguments. For flat containers, this resolves to
+ *     std::allocator_traits<Allocator>::construct, whereas node containers
+ *     additionally do node allocation and/or transfer as appropriate.
+ *   - TypePolicy::destroy(Allocator&,element_type*) is the destroying
+ *     counterpart of the above.
+ *   - TypePolicy::extract returns a const reference to the key part of a const
+ *     reference to value_type, init_type, element_type or
  *     decltype(TypePolicy::move(...)).
  * 
- *  try_emplace, erase and find support heterogenous lookup by default, that is,
- *  without checking for any ::is_transparent typedefs --the checking is done by
- *  boost::unordered_flat_[map|set].
+ *  try_emplace, erase and find support heterogenous lookup by default, that
+ *  is, without checking for any ::is_transparent typedefs --the checking is
+ *  done by boost::unordered_[flat|node]_[map|set].
  * 
  *  At the moment, we're not supporting allocators with fancy pointers.
  *  Allocator::pointer must be convertible to/from regular pointers.
@@ -1600,7 +1621,7 @@ private:
       std::forward_as_tuple(std::forward<Args>(args)...));
   }
 
-  /* This overload allows boost::unordered_flat_set to internally use
+  /* This overload allows boost::unordered_[flat|node]_set to internally use
    * try_emplace to implement heterogeneous insert (P2363).
    */
 
@@ -1654,13 +1675,13 @@ private:
       x,
       std::integral_constant<
         bool,
+        std::is_same<element_type,value_type>::value&&
 #if BOOST_WORKAROUND(BOOST_LIBSTDCXX_VERSION,<50000)
         /* std::is_trivially_copy_constructible not provided */
-        boost::has_trivial_copy<element_type>::value
+        boost::has_trivial_copy<calue_type>::value
 #else
-        std::is_trivially_copy_constructible<element_type>::value
+        std::is_trivially_copy_constructible<value_type>::value
 #endif
-        // TODO ADJUST THIS WITH ELEMENT_TYPE
         &&(
           is_std_allocator<Allocator>::value||
           !alloc_has_construct<Allocator,value_type*,const value_type&>::value)
@@ -1735,12 +1756,6 @@ private:
     ->decltype(type_policy::extract(x))
   {
     return type_policy::extract(x);
-  }
-
-  static inline auto key_from(const element_type& x)
-    ->decltype(type_policy::extract(type_policy::value_from(x)))
-  {
-    return type_policy::extract(type_policy::value_from(x));
   }
 
   template<typename Key,typename... Args>
