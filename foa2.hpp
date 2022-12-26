@@ -789,8 +789,9 @@ class table;
  * representation is that iterator increment is relatively slow.
  * 
  * p = nullptr is conventionally used to mark end() iterators.
+ *
  * TypePolicy encodes the element type and the actual value_type, which are
- * different for node conainers. See below for a full explanation of type
+ * different for node containers. See below for a full explanation of type
  * policies.
  */
 
@@ -1108,7 +1109,7 @@ _STL_RESTORE_DEPRECATED_WARNING
  * and, more importantly, because of fundamental restrictions imposed by open
  * addressing:
  * 
- *   - value_type must be moveable.
+ *   - value_type must be moveable (flat containers).
  *   - Pointer stability is not kept under rehashing (flat containers).
  *   - begin() is not O(1).
  *   - No bucket API.
@@ -1128,7 +1129,7 @@ _STL_RESTORE_DEPRECATED_WARNING
  *     a copyable const std::string&&. foa::table::insert is extended to accept
  *     both init_type and value_type references.
  *   - element_type is the type actually stored in buckets --value_type for
- *     flat containers and (something equvalent to) value_type* for node
+ *     flat containers and (something equivalent to) value_type* for node
  *     containers.
  *   - TypePolicy::value_from returns a reference to the value_type contained
  *     in an element_type object; for flat containers, this is the identity,
@@ -1678,7 +1679,7 @@ private:
         std::is_same<element_type,value_type>::value&&
 #if BOOST_WORKAROUND(BOOST_LIBSTDCXX_VERSION,<50000)
         /* std::is_trivially_copy_constructible not provided */
-        boost::has_trivial_copy<calue_type>::value
+        boost::has_trivial_copy<value_type>::value
 #else
         std::is_trivially_copy_constructible<value_type>::value
 #endif
@@ -1968,11 +1969,11 @@ private:
     }
   }
 
-  template<typename Value>
-  void unchecked_insert(Value&& x)
+  template<typename Element>
+  void unchecked_insert(Element&& x)
   {
     auto hash=hash_for(key_from(x));
-    unchecked_emplace_at(position_for(hash),hash,std::forward<Value>(x));
+    unchecked_emplace_at(position_for(hash),hash,std::forward<Element>(x));
   }
 
   void nosize_transfer_element(
