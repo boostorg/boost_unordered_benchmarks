@@ -1979,12 +1979,19 @@ private:
   void nosize_transfer_element(
     element_type* p,const arrays_type& arrays_,std::size_t& num_destroyed)
   {
+    using moved_element_type=
+      decltype(type_policy::move(std::declval<element_type&>()));
+
     nosize_transfer_element(
       p,hash_for(key_from(*p)),arrays_,num_destroyed,
       std::integral_constant< /* std::move_if_noexcept semantics */
         bool,
-        std::is_nothrow_move_constructible<init_type>::value||
-        !std::is_copy_constructible<init_type>::value>{});
+
+        /* Node containers: nothrow move-constructible checks to true even
+         * though type_policy::construct is used in place of actual move ctor.
+         */
+        std::is_nothrow_constructible<element_type,moved_element_type>::value||
+        !std::is_copy_constructible<element_type>::value>{});
   }
 
   void nosize_transfer_element(

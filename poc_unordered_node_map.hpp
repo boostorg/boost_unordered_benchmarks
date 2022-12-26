@@ -46,7 +46,7 @@ struct poc_unordered_node_policy
   }
 
   template<typename Allocator>
-  static void construct(Allocator&,element_type* p,element_type&& x)
+  static void construct(Allocator&,element_type* p,element_type&& x)noexcept
   {
     p->p=x.p;
     x.p=nullptr;
