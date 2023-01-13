@@ -24,8 +24,8 @@
 #include "rw_spinlock.hpp"
 #include "cfoa.hpp"
 #include "cuckoohash_map.hh"
-#include "oneapi/tbb/concurrent_hash_map.h"
-#include "oneapi/tbb/spin_rw_mutex.h"
+#include <oneapi/tbb/concurrent_hash_map.h>
+#include <oneapi/tbb/spin_rw_mutex.h>
 #include "gtl/phmap.hpp"
 
 int const Th = 16; // number of threads
