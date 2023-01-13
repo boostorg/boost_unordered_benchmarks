@@ -67,9 +67,9 @@ jobs:
           ./bootstrap.sh
           ./b2 -d0 headers
       - name: Install oneTBB
-         run: |
+        run: |
           cd $GITHUB_WORKSPACE
-         git clone https://github.com/Microsoft/vcpkg.git
+          git clone https://github.com/Microsoft/vcpkg.git
           cd vcpkg
           ./bootstrap-vcpkg.sh
           ./vcpkg integrate install
