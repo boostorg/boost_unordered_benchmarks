@@ -22,7 +22,7 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x64
             os: [self-hosted, linux, x64]
-            install: g++-11 curl zip unzip tar
+            install: g++-11 curl zip unzip tar pkg-config
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
             
           - name: clang-x64
@@ -34,7 +34,7 @@ jobs:
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
-            install: curl zip unzip tar
+            install: curl zip unzip tar pkg-config
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
                         
     runs-on: ${{matrix.os}}
