@@ -43,7 +43,7 @@
 #include <type_traits>
 #include <utility>
 #include "rw_spinlock.hpp"
-#include <oneapi/tbb/spin_rw_mutex.h>
+#include "oneapi/tbb/spin_rw_mutex.h"
 
 #if defined(__SSE2__)||\
     defined(_M_X64)||(defined(_M_IX86_FP)&&_M_IX86_FP>=2)
