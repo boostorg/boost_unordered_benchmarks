@@ -76,11 +76,19 @@ jobs:
           ./bootstrap-vcpkg.sh -disableMetrics
           ./vcpkg integrate install
           ./vcpkg install tbb         
+      - name: Install libcuckoo
+        run: |
+          cd $GITHUB_WORKSPACE
+          git clone https://github.com/efficient/libcuckoo.git libcuckoo-root
+      - name: Install gtl
+        run: |
+          cd $GITHUB_WORKSPACE
+          git clone https://github.com/greg7mdp/gtl.git gtl-root
       - name: Compile
         run: |
           cd $GITHUB_WORKSPACE
           ${{matrix.compiler}} --version
-          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root -I$GITHUB_WORKSPACE/vcpkg/installed/x64-linux/include -L$GITHUB_WORKSPACE/vcpkg/installed/x64-linux/lib -llibtbb.a -llibtbbmalloc.a
+          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root -I$GITHUB_WORKSPACE/vcpkg/installed/x64-linux/include -I$GITHUB_WORKSPACE/libcuckoo-root/libkcuckoo -I$GITHUB_WORKSPACE/gtl-root/include -L$GITHUB_WORKSPACE/vcpkg/installed/x64-linux/lib -llibtbb.a -llibtbbmalloc.a
       - name: Set reportfile name
         run: |
           echo "REPORT_FILE=${{matrix.reportdir}}/${{matrix.sourcefile}}.txt" >> $GITHUB_ENV
