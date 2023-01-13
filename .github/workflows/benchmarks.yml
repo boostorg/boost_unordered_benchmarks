@@ -1,0 +1,131 @@
+name: benchmarks
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - parallel_hashmap_benchmark
+
+jobs:
+  posix:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: gcc-x64
+            compiler: g++-11
+            architecture: -m64
+            sourcefile: main.cpp
+            download-datafiles: true
+            compileroptions: -std=c++2a -O3 -DNDEBUG
+            outputfile: benchmark
+            reportdir: gcc-x64
+            os: [self-hosted, linux, x64]
+            install: g++-11
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            
+          - name: clang-x64
+            compiler: clang++-12
+            architecture: -m64
+            sourcefile: main.cpp
+            download-datafiles: true
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            outputfile: benchmark
+            reportdir: clang-x64
+            os: [self-hosted, linux, x64]
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+                        
+    runs-on: ${{matrix.os}}
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install packages
+        if: matrix.install
+        run: |
+          # sudo -E apt-add-repository -y ppa:ubuntu-toolchain-r/test
+          if uname -p | grep -q 'x86_64'; then sudo dpkg --add-architecture i386 ; fi
+          sudo apt-get update
+          sudo apt-get install -y ${{matrix.install}}
+      - name: Download large data files
+        if: matrix.download-datafiles
+        run: |
+          cd $GITHUB_WORKSPACE
+          curl http://mattmahoney.net/dc/enwik9.zip --output enwik9.zip
+          unzip enwik9.zip
+          rm enwik9.zip
+          curl http://mattmahoney.net/dc/enwik8.zip --output enwik8.zip
+          unzip enwik8.zip
+          rm enwik8.zip
+      - name: Install Boost
+        run: |
+          cd $GITHUB_WORKSPACE
+          git clone https://github.com/boostorg/boost.git boost-root
+          cd boost-root
+          git checkout develop
+          git submodule update --init
+          ./bootstrap.sh
+          ./b2 -d0 headers
+      - name: Install oneTBB
+         run: |
+          cd $GITHUB_WORKSPACE
+         git clone https://github.com/Microsoft/vcpkg.git
+          cd vcpkg
+          ./bootstrap-vcpkg.sh
+          ./vcpkg integrate install
+          ./vcpkg install tbb         
+      - name: Compile
+        run: |
+          cd $GITHUB_WORKSPACE
+          ${{matrix.compiler}} --version
+          ${{matrix.compiler}} $GITHUB_WORKSPACE/boost-root/libs/unordered/benchmark/${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root 
+      - name: Set reportfile name
+        run: |
+          echo "REPORT_FILE=${{matrix.reportdir}}/${{matrix.sourcefile}}.txt" >> $GITHUB_ENV
+      - name: Run benchmarks
+        run: |
+          if [ -n "${{matrix.xcode_version}}" ]; then
+              DEVELOPER_DIR=/Applications/Xcode-${{matrix.xcode_version}}.app/Contents/Developer
+          fi        
+          if [ -n "${{matrix.command}}" ]; then
+            echo "running benchmarks and saving to "${REPORT_FILE}
+            ${{matrix.command}} | tee ${REPORT_FILE}
+          else
+            echo "running benchmarks and saving to "${REPORT_FILE}
+            ./${{matrix.outputfile}} | tee ${REPORT_FILE}
+          fi
+      - name: Push benchmark results to repo
+        run: |
+          git config --global user.name 'joaquintides'
+          git config --global user.email 'joaquintides@users.noreply.github.com'
+          git add ${REPORT_FILE}
+          git stash -- ${REPORT_FILE}
+          git pull
+          git stash pop
+          git add ${REPORT_FILE}
+          git commit -m "updated benchmark results"
+          git push
+          
+  final:
+    needs: [posix]
+    
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Python2
+        uses: actions/setup-python@v2
+        with:
+          python-version: '2.7.18'
+      - name: Fast-forward repo 
+        run: |
+          git pull
+      - name: Run data feeding script
+        run: |
+          ./insert_data.sh
+      - name: Push modified README.md to repo
+        run: |
+          git config --global user.name 'joaquintides'
+          git config --global user.email 'joaquintides@users.noreply.github.com'
+          git commit -am "updated README.md"
+          git push          
