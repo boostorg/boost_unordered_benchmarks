@@ -72,7 +72,8 @@ jobs:
           cd $GITHUB_WORKSPACE
           git clone https://github.com/Microsoft/vcpkg.git
           cd vcpkg
-          ./bootstrap-vcpkg.sh
+          mkdir .vcpkg
+          ./bootstrap-vcpkg.sh -disableMetrics
           ./vcpkg integrate install
           ./vcpkg install tbb         
       - name: Compile
