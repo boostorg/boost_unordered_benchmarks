@@ -80,7 +80,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           ${{matrix.compiler}} --version
-          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root 
+          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root I$GITHUB_WORKSPACE/vcpkg/installed/x64-linux/include -L$GITHUB_WORKSPACE/vcpkg/installed/x64-linux/lib -llibtbb.a -llibtbbmalloc.a
       - name: Set reportfile name
         run: |
           echo "REPORT_FILE=${{matrix.reportdir}}/${{matrix.sourcefile}}.txt" >> $GITHUB_ENV
