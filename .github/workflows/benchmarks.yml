@@ -82,12 +82,15 @@ jobs:
       - name: Install oneTBB
         run: |
           if [ -n "${{matrix.xcode_version}}" ]; then
+            export PATH=/opt/homebrew/bin:$PATH
             cd ~
+            mkdir -p .vcpkg
+            touch .vcpkg/vcpkg.path.txt
           else
             cd $GITHUB_WORKSPACE
+            mkdir -p .vcpkg
+            touch .vcpkg/vcpkg.path.txt
           fi
-          mkdir -p .vcpkg
-          touch .vcpkg/vcpkg.path.txt
           cd $GITHUB_WORKSPACE
           git clone https://github.com/Microsoft/vcpkg.git
           cd vcpkg
