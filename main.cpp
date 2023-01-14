@@ -1040,7 +1040,7 @@ int main()
     test<parallel<cfoa_map_type>>( "concurrent foa" );
     test<parallel<cfoa_tbb_map_type>>( "concurrent foa, tbb::spin_rw_mutex" );
     test<parallel<cfoa_shm_map_type>>( "concurrent foa, std::shared_mutex" );
-    // test<parallel<cuckoo_map_type>>( "libcuckoo::cuckoohash_map" );
+    test<parallel<cuckoo_map_type>>( "libcuckoo::cuckoohash_map" );
     test<parallel<tbb_map_type>>( "tbb::concurrent_hash_map" );
     test<parallel<gtl_map_type<std::mutex>>>( "gtl::parallel_flat_hash_map<std::mutex>" );
     test<parallel<gtl_map_type<std::shared_mutex>>>( "gtl::parallel_flat_hash_map<std::shared_mutex>" );
