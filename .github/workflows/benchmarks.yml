@@ -82,11 +82,13 @@ jobs:
       - name: Install oneTBB
         run: |
           if [ -n "${{matrix.xcode_version}}" ]; then
+            export VCPKG_OUTPUT_PATH=$GITHUB_WORKSPACE/vcpkg/installed/arm64-osx
             export PATH=/opt/homebrew/bin:$PATH
             cd ~
             mkdir -p .vcpkg
             touch .vcpkg/vcpkg.path.txt
           else
+            export VCPKG_OUTPUT_PATH=$GITHUB_WORKSPACE/vcpkg/installed/x64-linux
             cd $GITHUB_WORKSPACE
             mkdir -p .vcpkg
             touch .vcpkg/vcpkg.path.txt
@@ -109,7 +111,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           ${{matrix.compiler}} --version
-          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root -I$GITHUB_WORKSPACE/vcpkg/installed/x64-linux/include -I$GITHUB_WORKSPACE/libcuckoo-root/libcuckoo -I$GITHUB_WORKSPACE/gtl-root/include -L$GITHUB_WORKSPACE/vcpkg/installed/x64-linux/lib -pthread -ltbb -ltbbmalloc
+          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root -I$VCPKG_OUTPUT_PATH/include -I$GITHUB_WORKSPACE/libcuckoo-root/libcuckoo -I$GITHUB_WORKSPACE/gtl-root/include -L$VCPKG_OUTPUT_PATH/lib -pthread -ltbb -ltbbmalloc
       - name: Set reportfile name
         run: |
           echo "REPORT_FILE=${{matrix.reportdir}}/${{matrix.sourcefile}}.txt" >> $GITHUB_ENV
