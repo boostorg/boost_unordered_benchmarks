@@ -30,13 +30,26 @@ jobs:
             architecture: -m64
             sourcefile: main.cpp
             download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE
+            compileroptions: -std=c++2a -O3 -DNDEBUG 
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
             install: curl zip unzip tar pkg-config
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-                        
+
+          - name: clang-arm64
+            compiler: clang++
+            architecture: -m64
+            sourcefile: main.cpp
+            download-datafiles: true
+            compileroptions: -std=c++2a -O3 -DNDEBUG 
+            outputfile: benchmark
+            reportdir: clang-arm64
+            os: [self-hosted, macOS, ARM64]
+            install: curl zip unzip tar pkg-config
+            command: ./benchmark
+            xcode_version: 13.4.1            
+                                    
     runs-on: ${{matrix.os}}
 
     steps:
