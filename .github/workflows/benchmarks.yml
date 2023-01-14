@@ -81,7 +81,11 @@ jobs:
  #         ./b2 -d0 headers
       - name: Install oneTBB
         run: |
-          cd ~
+          if [ -n "${{matrix.xcode_version}}" ]; then
+            cd ~
+          else
+            cd $GITHUB_WORKSPACE
+          fi
           mkdir .vcpkg
           touch .vcpkg/vcpkg.path.txt
           cd $GITHUB_WORKSPACE
