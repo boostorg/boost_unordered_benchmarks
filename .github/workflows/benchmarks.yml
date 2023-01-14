@@ -41,7 +41,7 @@ jobs:
             compiler: clang++
             architecture: -m64
             sourcefile: main.cpp
-            download-datafiles: true
+            download-datafiles: false
             compileroptions: -std=c++2a -O3 -DNDEBUG 
             outputfile: benchmark
             reportdir: clang-arm64
@@ -84,6 +84,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           git clone https://github.com/Microsoft/vcpkg.git
           mkdir .vcpkg
+          touch .vcpkg/vcpkg.path.txt
           cd vcpkg
           ./bootstrap-vcpkg.sh -disableMetrics
           ./vcpkg integrate install
