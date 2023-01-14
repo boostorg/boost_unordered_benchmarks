@@ -70,15 +70,15 @@ jobs:
           curl http://mattmahoney.net/dc/enwik8.zip --output enwik8.zip
           unzip enwik8.zip
           rm enwik8.zip
- #     - name: Install Boost
- #       run: |
- #         cd $GITHUB_WORKSPACE
- #         git clone https://github.com/boostorg/boost.git boost-root
- #         cd boost-root
- #         git checkout develop
- #         git submodule update --init
- #         ./bootstrap.sh
- #         ./b2 -d0 headers
+      - name: Install Boost
+        run: |
+          cd $GITHUB_WORKSPACE
+          git clone https://github.com/boostorg/boost.git boost-root
+          cd boost-root
+          git checkout develop
+          git submodule update --init
+          ./bootstrap.sh
+          ./b2 -d0 headers
       - name: Install oneTBB
         run: |
           if [ -n "${{matrix.xcode_version}}" ]; then
