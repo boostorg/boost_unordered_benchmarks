@@ -83,8 +83,8 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           git clone https://github.com/Microsoft/vcpkg.git
-          cd vcpkg
           mkdir .vcpkg
+          cd vcpkg
           ./bootstrap-vcpkg.sh -disableMetrics
           ./vcpkg integrate install
           ./vcpkg install tbb         
