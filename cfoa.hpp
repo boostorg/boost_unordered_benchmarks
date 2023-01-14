@@ -349,6 +349,16 @@ struct group15
     vst1q_u8(reinterpret_cast<uint8_t*>(m),vdupq_n_s8(0));
   }
 
+  inline std::atomic_uchar& at(std::size_t pos)
+  {
+    return m[pos];
+  }
+
+  inline const std::atomic_uchar& at(std::size_t pos)const
+  {
+    return m[pos];
+  }
+
   inline void set(std::size_t pos,std::size_t hash)
   {
     BOOST_ASSERT(pos<N);
@@ -473,16 +483,6 @@ private:
     uint64x2_t t64=vpaddlq_u32(vpaddlq_u16(x));
     return int(vgetq_lane_u64(t64,0))+int(vgetq_lane_u64(t64,1));
 #endif
-  }
-
-  inline std::atomic_uchar& at(std::size_t pos)
-  {
-    return reinterpret_cast<unsigned char*>(&m)[pos];
-  }
-
-  inline const std::atomic_uchar& at(std::size_t pos)const
-  {
-    return reinterpret_cast<const unsigned char*>(&m)[pos];
   }
 
   inline std::atomic_uchar& overflow()
