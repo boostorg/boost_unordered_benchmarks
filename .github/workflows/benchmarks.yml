@@ -82,13 +82,13 @@ jobs:
       - name: Install oneTBB
         run: |
           if [ -n "${{matrix.xcode_version}}" ]; then
-            export VCPKG_OUTPUT_PATH=$GITHUB_WORKSPACE/vcpkg/installed/arm64-osx
+            echo "VCPKG_OUTPUT_PATH=$GITHUB_WORKSPACE/vcpkg/installed/arm64-osx" >> $GITHUB_ENV
             export PATH=/opt/homebrew/bin:$PATH
             cd ~
             mkdir -p .vcpkg
             touch .vcpkg/vcpkg.path.txt
           else
-            export VCPKG_OUTPUT_PATH=$GITHUB_WORKSPACE/vcpkg/installed/x64-linux
+            echo "VCPKG_OUTPUT_PATH=$GITHUB_WORKSPACE/vcpkg/installed/x64-linux" >> $GITHUB_ENV
             cd $GITHUB_WORKSPACE
             mkdir -p .vcpkg
             touch .vcpkg/vcpkg.path.txt
