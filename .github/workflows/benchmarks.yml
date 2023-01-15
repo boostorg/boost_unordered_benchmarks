@@ -18,7 +18,7 @@ jobs:
             architecture: -m64
             sourcefile: main.cpp
             download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_EMBEDDED_GROUP_ACCESS
             outputfile: benchmark
             reportdir: gcc-x64
             os: [self-hosted, linux, x64]
@@ -30,7 +30,7 @@ jobs:
             architecture: -m64
             sourcefile: main.cpp
             download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG 
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_EMBEDDED_GROUP_ACCESS
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
@@ -42,7 +42,7 @@ jobs:
             architecture: -m64
             sourcefile: main.cpp
             download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DNUM_THREADS=8
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_EMBEDDED_GROUP_ACCESS -DNUM_THREADS=8
             outputfile: benchmark
             reportdir: clang-arm64
             os: [self-hosted, macOS, ARM64]
