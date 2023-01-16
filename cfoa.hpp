@@ -185,7 +185,7 @@ struct protected_group:Group,group_access
   };
 };
 
-#if defined(xxBOOST_UNORDERED_SSE2)
+#if defined(BOOST_UNORDERED_SSE2)
 
 static_assert(sizeof(std::atomic<unsigned char>)==1);
 
