@@ -94,10 +94,10 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           for URL in ${{matrix.download-datafiles}}; do
-            FILENAME="${URL##*/}"
-            curl URL --output FILENAME
-            unzip FILENAME
-            rm FILENAME
+            $FILENAME="${URL##*/}"
+            curl $URL --output $FILENAME
+            unzip $FILENAME
+            rm $FILENAME
           done
       - name: Install Boost
         run: |
