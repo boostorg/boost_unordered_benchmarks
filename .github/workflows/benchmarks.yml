@@ -65,6 +65,19 @@ jobs:
             install: g++-11 curl zip unzip tar pkg-config
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
 
+          - name: clang-x86
+            compiler: clang++-12
+            architecture: -m32
+            vcpkgtriplet: x86-linux 
+            sourcefile: main.cpp
+            download-datafiles: true
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_EMBEDDED_GROUP_ACCESS
+            outputfile: benchmark
+            reportdir: clang-x86
+            os: [self-hosted, linux, x64]
+            install: curl zip unzip tar pkg-config
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+
     runs-on: ${{matrix.os}}
 
     steps:
