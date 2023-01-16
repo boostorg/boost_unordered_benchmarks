@@ -49,6 +49,19 @@ jobs:
             command: ./benchmark
             xcode_version: 13.4.1            
                                     
+          - name: gcc-x86
+            compiler: g++-11
+            architecture: -m32
+            vcpkgoptions: port:x86-linux 
+            sourcefile: main.cpp
+            download-datafiles: true
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_EMBEDDED_GROUP_ACCESS
+            outputfile: benchmark
+            reportdir: gcc-x86
+            os: [self-hosted, linux, x64]
+            install: g++-11 curl zip unzip tar pkg-config
+            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+
     runs-on: ${{matrix.os}}
 
     steps:
@@ -95,10 +108,11 @@ jobs:
           fi
           cd $GITHUB_WORKSPACE
           git clone https://github.com/Microsoft/vcpkg.git
+          cp x86-linux.cmake vcpkg/triplets
           cd vcpkg
           ./bootstrap-vcpkg.sh -disableMetrics
           ./vcpkg integrate install
-          ./vcpkg install tbb         
+          ./vcpkg install tbb ${{matrix.vcpkgoptions}}
       - name: Install libcuckoo
         run: |
           cd $GITHUB_WORKSPACE
