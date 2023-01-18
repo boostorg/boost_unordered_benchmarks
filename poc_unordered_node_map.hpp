@@ -14,7 +14,11 @@
 #include <boost/config.hpp>
 #include <boost/container_hash/hash.hpp>
 #include <memory>
+
+#ifdef HAVE_MEMORY_RESOURCE
 #include <memory_resource>
+#endif
+
 #include <utility>
 #include <type_traits>
 #include "foa2.hpp"
@@ -207,6 +211,7 @@ public:
   void rehash(std::size_t n){t.rehash(n);}
 };
 
+#ifdef HAVE_MEMORY_RESOURCE
 template<
   typename Key,typename T,
   typename Hash=boost::hash<Key>,typename Pred=std::equal_to<Key>
@@ -226,5 +231,6 @@ public:
     super{std::pmr::polymorphic_allocator<std::pair<const Key,T>>(this)}
   {}
 };
+#endif
 
 #endif

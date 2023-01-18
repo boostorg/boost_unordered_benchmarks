@@ -7,6 +7,7 @@
 
 #include <boost/unordered_map.hpp>
 #include <boost/unordered/unordered_flat_map.hpp>
+#include <boost/unordered/unordered_node_map.hpp>
 #include <boost/core/detail/splitmix64.hpp>
 #include <boost/config.hpp>
 #include "poc_unordered_node_map.hpp"
@@ -276,6 +277,9 @@ template<class K, class V> using boost_unordered_map =
 template<class K, class V> using boost_unordered_flat_map =
     boost::unordered_flat_map<K, V, boost::hash<K>, std::equal_to<K>, allocator_for<K, V>>;
 
+template<class K, class V> using boost_unordered_node_map =
+    boost::unordered_node_map<K, V, boost::hash<K>, std::equal_to<K>, allocator_for<K, V>>;
+
 template<class K, class V> using poc_unordered_node_map_ =
     poc_unordered_node_map<K, V, boost::hash<K>, std::equal_to<K>, allocator_for<K, V>>;
 
@@ -352,11 +356,18 @@ template<class K, class V> using boost_unordered_map_fnv1a =
 template<class K, class V> using boost_unordered_flat_map_fnv1a =
     boost::unordered_flat_map<K, V, fnv1a_hash, std::equal_to<K>, allocator_for<K, V>>;
 
+template<class K, class V> using boost_unordered_node_map_fnv1a =
+    boost::unordered_node_map<K, V, fnv1a_hash, std::equal_to<K>, allocator_for<K, V>>;
+
 template<class K, class V> using poc_unordered_node_map_fnv1a =
     poc_unordered_node_map<K, V, fnv1a_hash, std::equal_to<K>, allocator_for<K, V>>;
 
+#ifdef HAVE_MEMORY_RESOURCE
+
 template<class K, class V> using poc_pool_unordered_node_map_fnv1a =
     poc_pool_unordered_node_map<K, V, fnv1a_hash>;
+
+#endif
 
 #ifdef HAVE_ABSEIL
 
@@ -384,9 +395,15 @@ int main()
     test<std_unordered_map>( "std::unordered_map" );
     test<boost_unordered_map>( "boost::unordered_map" );
     test<boost_unordered_flat_map>( "boost::unordered_flat_map" );
+    test<boost_unordered_node_map>( "boost::unordered_node_map" );
     test<poc_unordered_node_map_>( "poc_unordered_node_map" );
+
+#ifdef HAVE_MEMORY_RESOURCE
+
     test<poc_pool_unordered_node_map>( "poc_pool_unordered_node_map" );
-    
+
+#endif
+
 #ifdef HAVE_ANKERL_UNORDERED_DENSE
 
     test<ankerl_unordered_dense_map>( "ankerl::unordered_dense::map" );
@@ -403,8 +420,14 @@ int main()
     test<std_unordered_map_fnv1a>( "std::unordered_map, FNV-1a" );
     test<boost_unordered_map_fnv1a>( "boost::unordered_map, FNV-1a" );
     test<boost_unordered_flat_map_fnv1a>( "boost::unordered_flat_map, FNV-1a" );
+    test<boost_unordered_node_map_fnv1a>( "boost::unordered_node_map, FNV-1a" );
     test<poc_unordered_node_map_fnv1a>( "poc_unordered_node_map, FNV-1a" );
+
+#ifdef HAVE_MEMORY_RESOURCE
+
     test<poc_pool_unordered_node_map_fnv1a>( "poc_pool_unordered_node_map, FNV-1a" );
+
+#endif
 
 #ifdef HAVE_ANKERL_UNORDERED_DENSE
 

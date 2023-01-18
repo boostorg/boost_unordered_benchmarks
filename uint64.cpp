@@ -7,6 +7,7 @@
 
 #include <boost/unordered_map.hpp>
 #include <boost/unordered/unordered_flat_map.hpp>
+#include <boost/unordered/unordered_node_map.hpp>
 #include <boost/endian/conversion.hpp>
 #include <boost/core/detail/splitmix64.hpp>
 #include <boost/config.hpp>
@@ -293,6 +294,9 @@ template<class K, class V> using boost_unordered_map =
 template<class K, class V> using boost_unordered_flat_map =
     boost::unordered_flat_map<K, V, boost::hash<K>, std::equal_to<K>, allocator_for<K, V>>;
 
+template<class K, class V> using boost_unordered_node_map =
+    boost::unordered_node_map<K, V, boost::hash<K>, std::equal_to<K>, allocator_for<K, V>>;
+
 template<class K, class V> using poc_unordered_node_map_ =
     poc_unordered_node_map<K, V, boost::hash<K>, std::equal_to<K>, allocator_for<K, V>>;
 
@@ -330,8 +334,14 @@ int main()
 
     test<boost_unordered_map>( "boost::unordered_map" );
     test<boost_unordered_flat_map>( "boost::unordered_flat_map" );
+    test<boost_unordered_node_map>( "boost::unordered_node_map" );
     test<poc_unordered_node_map_>( "poc_unordered_node_map" );
+
+#ifdef HAVE_MEMORY_RESOURCE
+
     test<poc_pool_unordered_node_map>( "poc_pool_unordered_node_map" );
+
+#endif
 
 #ifdef HAVE_ANKERL_UNORDERED_DENSE
 
