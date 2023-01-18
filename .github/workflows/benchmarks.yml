@@ -402,7 +402,7 @@ jobs:
       - name: Install Boost.Unordered branch feature/unordered_node_map
         run: |
            cd $GITHUB_WORKSPACE
-           git clone -b feature/quadratic_range_copy_fix https://github.com/cmazakas/unordered.git boost_unordered-root
+           git clone -b feature/unordered_node_map https://github.com/cmazakas/unordered.git boost_unordered-root
       - name: Install Abseil
         run: |
           cd $GITHUB_WORKSPACE
@@ -591,7 +591,7 @@ jobs:
           git submodule update --init
           cmd /c bootstrap.bat
           .\b2.exe -d0 headers
-      - name: Install Boost.Unordered branch feature/quadratic_range_copy_fix
+      - name: Install Boost.Unordered branch feature/unordered_node_map
         shell: cmd
         run: |
           cd %GITHUB_WORKSPACE%
