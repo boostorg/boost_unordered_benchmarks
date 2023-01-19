@@ -424,6 +424,7 @@ int main()
     test<std_unordered_map_fnv1a>( "std::unordered_map, FNV-1a" );
     test<boost_unordered_map_fnv1a>( "boost::unordered_map, FNV-1a" );
     test<boost_unordered_flat_map_fnv1a>( "boost::unordered_flat_map, FNV-1a" );
+    test<boost_unordered_node_map_fnv1a>( "boost::unordered_node_map, FNV-1a" );
     test<poc_unordered_node_map_fnv1a>( "poc_unordered_node_map, FNV-1a" );
 
 #ifdef HAVE_MEMORY_RESOURCE
