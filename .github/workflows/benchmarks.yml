@@ -183,6 +183,17 @@ jobs:
             reportdir: vs-x64
             os: [self-hosted, Windows, X64]
             
+          - name: vs-x86
+            compiler: cl
+            architecture: x86
+            vcpkgtriplet: x86-windows 
+            sourcefile: main.cpp
+            download-datafiles: http://mattmahoney.net/dc/enwik8.zip
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "CFOA_EMBEDDED_GROUP_ACCESS" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x86
+            os: [self-hosted, Windows, X64]
+
     runs-on: ${{matrix.os}}
 
     steps:
@@ -211,7 +222,7 @@ jobs:
       - name: Install oneTBB
         shell: cmd
         run: |
-          cd %GITHUB_WORKSPACE
+          cd %GITHUB_WORKSPACE%
           git clone https://github.com/Microsoft/vcpkg.git
           cd vcpkg
           .\bootstrap-vcpkg.bat -disableMetrics
@@ -221,12 +232,12 @@ jobs:
       - name: Install libcuckoo
         shell: cmd
         run: |
-          cd %GITHUB_WORKSPACE
+          cd %GITHUB_WORKSPACE%
           git clone https://github.com/efficient/libcuckoo.git libcuckoo-root
       - name: Install gtl
         shell: cmd
         run: |
-          cd %GITHUB_WORKSPACE
+          cd %GITHUB_WORKSPACE%
           git clone https://github.com/greg7mdp/gtl.git gtl-root
       - name: Compile
         shell: cmd
@@ -234,7 +245,7 @@ jobs:
           cd %GITHUB_WORKSPACE%
           # call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
           call "C:\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
-          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE\vcpkg\installed\${{matrix.vcpkgtriplet}}\include;%GITHUB_WORKSPACE\libcuckoo-root\libcuckoo;%GITHUB_WORKSPACE\gtl-root\include
+          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\vcpkg\installed\${{matrix.vcpkgtriplet}}\include;%GITHUB_WORKSPACE%\libcuckoo-root\libcuckoo;%GITHUB_WORKSPACE%\gtl-root\include
           echo %INCLUDE%
           ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.compileroptions}}
       - name: Set reportfile name
