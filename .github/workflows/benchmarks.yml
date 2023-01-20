@@ -167,8 +167,100 @@ jobs:
           git commit -m "updated benchmark results"
           git push
           
+  windows:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: vs-x64
+            compiler: cl
+            architecture: x64
+            vcpkgtriplet: x64-windows 
+            sourcefile: main.cpp
+            download-datafiles: http://mattmahoney.net/dc/enwik9.zip
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "CFOA_EMBEDDED_GROUP_ACCESS" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x64
+            os: [self-hosted, Windows, X64]
+            
+    runs-on: ${{matrix.os}}
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download large data files
+        if: matrix.download-datafiles
+        shell: powershell
+        run: |
+          cd $env:GITHUB_WORKSPACE
+          Invoke-WebRequest -Uri http://mattmahoney.net/dc/enwik9.zip -OutFile enwik9.zip
+          Expand-Archive enwik9.zip -DestinationPath .
+          rm enwik9.zip
+          Invoke-WebRequest -Uri http://mattmahoney.net/dc/enwik8.zip -OutFile enwik8.zip
+          Expand-Archive enwik8.zip -DestinationPath .
+          rm enwik8.zip
+      - name: Install Boost
+        shell: cmd
+        run: |
+          cd %GITHUB_WORKSPACE%
+          git clone https://github.com/boostorg/boost.git boost-root
+          cd boost-root
+          git checkout develop
+          git submodule update --init
+          cmd /c bootstrap.bat
+          .\b2.exe -d0 headers
+      - name: Install oneTBB
+        shell: cmd
+        run: |
+          cd %GITHUB_WORKSPACE
+          git clone https://github.com/Microsoft/vcpkg.git
+          cd vcpkg
+          .\bootstrap-vcpkg.bat -disableMetrics
+          .\vcpkg integrate install
+          .\vcpkg install tbb:${{matrix.vcpkgtriplet}}
+          cp installed\${{matrix.vcpkgtriplet}}\lib\tbb12.* %GITHUB_WORKSPACE
+      - name: Install libcuckoo
+        shell: cmd
+        run: |
+          cd %GITHUB_WORKSPACE
+          git clone https://github.com/efficient/libcuckoo.git libcuckoo-root
+      - name: Install gtl
+        shell: cmd
+        run: |
+          cd %GITHUB_WORKSPACE
+          git clone https://github.com/greg7mdp/gtl.git gtl-root
+      - name: Compile
+        shell: cmd
+        run: |
+          cd %GITHUB_WORKSPACE%
+          # call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
+          call "C:\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
+          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE\vcpkg\installed\${{matrix.vcpkgtriplet}}\include;%GITHUB_WORKSPACE\libcuckoo-root\libcuckoo;%GITHUB_WORKSPACE\gtl-root\include
+          echo %INCLUDE%
+          ${{matrix.compiler}} %GITHUB_WORKSPACE%\boost-root\libs\unordered\benchmark\${{matrix.sourcefile}} ${{matrix.compileroptions}}
+      - name: Set reportfile name
+        shell: powershell
+        run: |
+          echo "REPORT_FILE=${{matrix.reportdir}}\${{matrix.sourcefile}}.txt" >> $env:GITHUB_ENV
+      - name: Run benchmark
+        shell: powershell
+        run: |
+          echo "running benchmarks and saving to $env:REPORT_FILE"
+          ./${{matrix.outputfile}} | Set-Content $env:REPORT_FILE -Passthru
+      - name: Push benchmark results to repo
+        shell: powershell
+        run: |
+          git config --global user.name 'joaquintides'
+          git config --global user.email 'joaquintides@users.noreply.github.com'
+          git add $env:REPORT_FILE
+          git stash -- $env:REPORT_FILE
+          git pull
+          git stash pop
+          git add $env:REPORT_FILE
+          git commit -m "updated benchmark results"
+          git push
+                      
   final:
-    needs: [posix]
+    needs: [posix,windows]
     
     runs-on: ubuntu-20.04
     
