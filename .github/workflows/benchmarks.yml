@@ -236,7 +236,7 @@ jobs:
           call "C:\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
           set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE\vcpkg\installed\${{matrix.vcpkgtriplet}}\include;%GITHUB_WORKSPACE\libcuckoo-root\libcuckoo;%GITHUB_WORKSPACE\gtl-root\include
           echo %INCLUDE%
-          ${{matrix.compiler}} %GITHUB_WORKSPACE%\boost-root\libs\unordered\benchmark\${{matrix.sourcefile}} ${{matrix.compileroptions}}
+          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.compileroptions}}
       - name: Set reportfile name
         shell: powershell
         run: |
