@@ -203,12 +203,13 @@ jobs:
         shell: powershell
         run: |
           cd $env:GITHUB_WORKSPACE
-          Invoke-WebRequest -Uri http://mattmahoney.net/dc/enwik9.zip -OutFile enwik9.zip
-          Expand-Archive enwik9.zip -DestinationPath .
-          rm enwik9.zip
-          Invoke-WebRequest -Uri http://mattmahoney.net/dc/enwik8.zip -OutFile enwik8.zip
-          Expand-Archive enwik8.zip -DestinationPath .
-          rm enwik8.zip
+          Foreach ($Url in ${{download-datafiles}})
+          {
+            $Filename=$Url.Substring($Url.lastIndexOf("/")+1)
+            Invoke-WebRequest -Uri $Url -OutFile $Filename
+            Expand-Archive $Filename -DestinationPath .
+            rm $Filename           
+          }
       - name: Install Boost
         shell: cmd
         run: |
@@ -228,7 +229,7 @@ jobs:
           .\bootstrap-vcpkg.bat -disableMetrics
           .\vcpkg integrate install
           .\vcpkg install tbb:${{matrix.vcpkgtriplet}}
-          cp installed\${{matrix.vcpkgtriplet}}\lib\tbb12.* %GITHUB_WORKSPACE
+#          cp installed\${{matrix.vcpkgtriplet}}\lib\tbb12.* %GITHUB_WORKSPACE
       - name: Install libcuckoo
         shell: cmd
         run: |
@@ -245,7 +246,7 @@ jobs:
           cd %GITHUB_WORKSPACE%
           # call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
           call "C:\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
-          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\vcpkg\installed\${{matrix.vcpkgtriplet}}\include;%GITHUB_WORKSPACE%\libcuckoo-root\libcuckoo;%GITHUB_WORKSPACE%\gtl-root\include
+          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%VCPKG_PATH%\vcpkg\installed\${{matrix.vcpkgtriplet}}\include;%GITHUB_WORKSPACE%\libcuckoo-root\libcuckoo;%GITHUB_WORKSPACE%\gtl-root\include
           echo %INCLUDE%
           ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.compileroptions}}
       - name: Set reportfile name
