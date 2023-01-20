@@ -205,14 +205,10 @@ struct group15
       reinterpret_cast<__m128i*>(m),_mm_setzero_si128());
   }
 
-  inline std::atomic_uchar& at(std::size_t pos)
+  bool occupied(std::size_t pos)const
   {
-    return m[pos];
-  }
-
-  inline const std::atomic_uchar& at(std::size_t pos)const
-  {
-    return m[pos];
+    BOOST_ASSERT(pos<N);
+    return at(pos).load(std::memory_order_acquire)!=0;
   }
 
   inline void set(std::size_t pos,std::size_t hash)
@@ -224,12 +220,13 @@ struct group15
   inline void reset(std::size_t pos)
   {
     BOOST_ASSERT(pos<N);
-    at(pos)=available_;
+    at(pos).store(available_,std::memory_order_release);
   }
 
   static inline void reset(unsigned char* pc)
   {
-    *pc=available_;
+    reinterpret_cast<std::atomic_uchar*>(pc)->
+      store(available_,std::memory_order_release);
   }
 
   inline int match(std::size_t hash)const
@@ -243,12 +240,13 @@ struct group15
   {
     static constexpr unsigned char shift[]={1,2,4,8,16,32,64,128};
 
-    return !(overflow()&shift[hash%8]);
+    return !(overflow().load(std::memory_order_acquire)&shift[hash%8]);
   }
 
   inline void mark_overflow(std::size_t hash)
   {
-    overflow()|=static_cast<unsigned char>(1<<(hash%8));
+    overflow().fetch_or(
+      static_cast<unsigned char>(1<<(hash%8)),std::memory_order_release);
   }
 
   static inline bool maybe_caused_overflow(unsigned char* pc)
@@ -320,6 +318,16 @@ private:
     return narrow_cast<unsigned char>(match_word(hash));
   }
 
+  inline std::atomic_uchar& at(std::size_t pos)
+  {
+    return m[pos];
+  }
+
+  inline const std::atomic_uchar& at(std::size_t pos)const
+  {
+    return m[pos];
+  }
+
   inline std::atomic_uchar& overflow()
   {
     return at(N);
@@ -351,42 +359,28 @@ struct group15
     vst1q_u8(reinterpret_cast<uint8_t*>(m),vdupq_n_s8(0));
   }
 
-  inline std::atomic_uchar& at(std::size_t pos)
+  bool occupied(std::size_t pos)const
   {
-    return m[pos];
-  }
-
-  inline const std::atomic_uchar& at(std::size_t pos)const
-  {
-    return m[pos];
+    BOOST_ASSERT(pos<N);
+    return at(pos).load(std::memory_order_acquire)!=0;
   }
 
   inline void set(std::size_t pos,std::size_t hash)
   {
     BOOST_ASSERT(pos<N);
-    at(pos)=reduced_hash(hash);
-  }
-
-  inline void set_sentinel()
-  {
-    at(N-1)=sentinel_;
-  }
-
-  inline bool is_sentinel(std::size_t pos)const
-  {
-    BOOST_ASSERT(pos<N);
-    return pos==N-1&&at(N-1)==sentinel_;
+    at(pos).store(reduced_hash(hash),std::memory_order_release);
   }
 
   inline void reset(std::size_t pos)
   {
     BOOST_ASSERT(pos<N);
-    at(pos)=available_;
+    at(pos).store(available_,std::memory_order_release);
   }
 
   static inline void reset(unsigned char* pc)
   {
-    *pc=available_;
+    reinterpret_cast<std::atomic_uchar*>(pc)->
+      store(available_,std::memory_order_release);
   }
 
   inline int match(std::size_t hash)const
@@ -400,12 +394,13 @@ struct group15
   {
     static constexpr unsigned char shift[]={1,2,4,8,16,32,64,128};
 
-    return !(overflow()&shift[hash%8]);
+    return !(overflow().load(std::memory_order_acquire)&shift[hash%8]);
   }
 
   inline void mark_overflow(std::size_t hash)
   {
-    overflow()|=static_cast<unsigned char>(1<<(hash%8));
+    overflow().fetch_or(
+      static_cast<unsigned char>(1<<(hash%8)),std::memory_order_release);
   }
 
   static inline bool maybe_caused_overflow(unsigned char* pc)
@@ -427,11 +422,6 @@ struct group15
     return simde_mm_movemask_epi8(vcgtq_u8(
       vreinterpretq_u8_s8(vld1q_u8(reinterpret_cast<const uint8_t*>(m))),
       vdupq_n_u8(0)))&0x7FFF;
-  }
-
-  inline int match_really_occupied()const /* excluding sentinel */
-  {
-    return at(N-1)==sentinel_?match_occupied()&0x3FFF:match_occupied();
   }
 
 private:
@@ -487,6 +477,16 @@ private:
 #endif
   }
 
+  inline std::atomic_uchar& at(std::size_t pos)
+  {
+    return m[pos];
+  }
+
+  inline const std::atomic_uchar& at(std::size_t pos)const
+  {
+    return m[pos];
+  }
+
   inline std::atomic_uchar& overflow()
   {
     return at(N);
@@ -516,9 +516,11 @@ struct group15
 
   inline void initialize(){m[0]=0;m[1]=0;}
 
-  inline bool at(std::size_t pos)
+  inline bool occupied(std::size_t pos)
   {
-    boost::uint64_t x=m[0]|m[1];
+    boost::uint64_t x=
+      m[0].load(std::memory_order_acquire)|
+      m[1].load(std::memory_order_acquire);
     return (x&(0x0001000100010001ull<<pos))!=0;
   }
 
@@ -526,20 +528,6 @@ struct group15
   {
     BOOST_ASSERT(pos<N);
     set_impl(pos,reduced_hash(hash));
-  }
-
-  inline void set_sentinel()
-  {
-    set_impl(N-1,sentinel_);
-  }
-
-  inline bool is_sentinel(std::size_t pos)const
-  {
-    BOOST_ASSERT(pos<N);
-    return 
-      pos==N-1&&
-      (m[0] & boost::uint64_t(0x4000400040004000ull))==boost::uint64_t(0x4000ull)&&
-      (m[1] & boost::uint64_t(0x4000400040004000ull))==0;
   }
 
   inline void reset(std::size_t pos)
@@ -562,11 +550,13 @@ struct group15
 
   inline bool is_not_overflowed(std::size_t hash)const
   {
+    // TODO: should be do an atomic load?
     return !(reinterpret_cast<const boost::uint16_t*>(m)[hash%8] & 0x8000u);
   }
 
   inline void mark_overflow(std::size_t hash)
   {
+    // TODO: should be do an atomic load?
     reinterpret_cast<boost::uint16_t*>(m)[hash%8]|=0x8000u;
   }
 
@@ -574,14 +564,16 @@ struct group15
   {
     std::size_t     pos=reinterpret_cast<uintptr_t>(pc)%sizeof(group15);
     group15        *pg=reinterpret_cast<group15*>(pc-pos);
-    boost::uint64_t x=((pg->m[0])>>pos)&0x000100010001ull;
+    boost::uint64_t x=(pg->m[0].load(std::memory_order_acquire)>>pos)&
+                      0x000100010001ull;
     boost::uint32_t y=narrow_cast<boost::uint32_t>(x|(x>>15)|(x>>30));
     return !pg->is_not_overflowed(y);
   };
 
   inline int match_available()const
   {
-    boost::uint64_t x=~(m[0]|m[1]);
+    boost::uint64_t x=~(m[0].load(std::memory_order_relaxed)|
+                        m[1].load(std::memory_order_relaxed));
     boost::uint32_t y=static_cast<boost::uint32_t>(x&(x>>32));
     y&=y>>16;
     return y&0x7FFF;
@@ -589,7 +581,8 @@ struct group15
 
   inline int match_occupied()const
   {
-    boost::uint64_t x=m[0]|m[1];
+    boost::uint64_t x=m[0].load(std::memory_order_relaxed)|
+                      m[1].load(std::memory_order_relaxed);
     boost::uint32_t y=narrow_cast<boost::uint32_t>(x|(x>>32));
     y|=y>>16;
     return y&0x7FFF;
@@ -658,8 +651,8 @@ private:
     };
 
     BOOST_ASSERT(pos<16&&n<16);
-    x|=   mask[n]<<pos;
-    x&=~(imask[n]<<pos);
+    x.fetch_or(mask[n]<<pos,std::memory_order_release);
+    x.fetch_and(~(imask[n]<<pos),std::memory_order_release);
   }
 
   inline int match_impl(std::size_t n)const
@@ -675,8 +668,8 @@ private:
     };
 
     BOOST_ASSERT(n<256);
-    boost::uint64_t x=m[0]^mask[n&0xFu];
-                    x=~((m[1]^mask[n>>4])|x);
+    boost::uint64_t x=m[0].load(std::memory_order_relaxed)^mask[n&0xFu];
+                    x=~((m[1].load(std::memory_order_relaxed)^mask[n>>4])|x);
     boost::uint32_t y=static_cast<boost::uint32_t>(x&(x>>32));
                     y&=y>>16;
     return          y&0x7FFF;
@@ -1961,9 +1954,7 @@ private:
         auto lck=shared_access(pos);
         do{
           auto n=unchecked_countr_zero(mask);
-          if(
-            pg->at(n).load(std::memory_order_acquire )!=0&&
-            BOOST_LIKELY(bool(pred()(x,key_from(p[n]))))){
+          if(BOOST_LIKELY(pg->occupied(n)&&bool(pred()(x,key_from(p[n]))))){
             f(p[n]);
             return true;
           }
@@ -2004,7 +1995,7 @@ private:
             auto lck=exclusive_access(pos);
             do{
               auto n=unchecked_countr_zero(mask);
-              if(pg->at(n)==0){
+              if(BOOST_LIKELY(!pg->occupied(n))){
                 pg->set(n,hash);
                 if(BOOST_UNLIKELY(counter(pos0)++!=group_counter)){
                   /* some other thread inserted from p0, need to start over */
