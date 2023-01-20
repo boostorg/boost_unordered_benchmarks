@@ -234,7 +234,6 @@ struct group15
 
   inline int match(std::size_t hash)const
   {
-    std::atomic_thread_fence(std::memory_order_acquire);
     auto w=_mm_load_si128(reinterpret_cast<const __m128i*>(m));
     return
       _mm_movemask_epi8(_mm_cmpeq_epi8(w,_mm_set1_epi32(match_word(hash))))&0x7FFF;
