@@ -218,7 +218,7 @@ struct group15
   inline void set(std::size_t pos,std::size_t hash)
   {
     BOOST_ASSERT(pos<N);
-    at(pos)=reduced_hash(hash);
+    at(pos).store(reduced_hash(hash),std::memory_order_release);
   }
 
   inline void reset(std::size_t pos)
@@ -234,6 +234,7 @@ struct group15
 
   inline int match(std::size_t hash)const
   {
+    std::atomic_thread_fence(std::memory_order_acquire);
     auto w=_mm_load_si128(reinterpret_cast<const __m128i*>(m));
     return
       _mm_movemask_epi8(_mm_cmpeq_epi8(w,_mm_set1_epi32(match_word(hash))))&0x7FFF;
@@ -1962,7 +1963,7 @@ private:
         do{
           auto n=unchecked_countr_zero(mask);
           if(
-            pg->at(n)!=0&&
+            pg->at(n).load(std::memory_order_acquire )!=0&&
             BOOST_LIKELY(bool(pred()(x,key_from(p[n]))))){
             f(p[n]);
             return true;
