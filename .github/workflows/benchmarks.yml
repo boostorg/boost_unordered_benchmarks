@@ -203,7 +203,7 @@ jobs:
         shell: powershell
         run: |
           cd $env:GITHUB_WORKSPACE
-          Foreach ($Url in ${{download-datafiles}})
+          Foreach ($Url in ${{matrix.download-datafiles}})
           {
             $Filename=$Url.Substring($Url.lastIndexOf("/")+1)
             Invoke-WebRequest -Uri $Url -OutFile $Filename
