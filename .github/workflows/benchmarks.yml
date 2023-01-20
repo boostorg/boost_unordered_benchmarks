@@ -177,7 +177,7 @@ jobs:
             architecture: x64
             vcpkgtriplet: x64-windows 
             sourcefile: main.cpp
-            download-datafiles: "http://mattmahoney.net/dc/enwik9.zip"
+            download-datafiles: http://mattmahoney.net/dc/enwik9.zip
             compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "CFOA_EMBEDDED_GROUP_ACCESS" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs-x64
@@ -188,7 +188,7 @@ jobs:
             architecture: x86
             vcpkgtriplet: x86-windows 
             sourcefile: main.cpp
-            download-datafiles: "http://mattmahoney.net/dc/enwik8.zip"
+            download-datafiles: http://mattmahoney.net/dc/enwik8.zip
             compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "CFOA_EMBEDDED_GROUP_ACCESS" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs-x86
@@ -203,9 +203,10 @@ jobs:
         shell: powershell
         run: |
           cd $env:GITHUB_WORKSPACE
-          Foreach ($Url in ${{matrix.download-datafiles}})
+          Foreach ($Url in "${{matrix.download-datafiles}}".split())
           {
-            $Filename=$Url.Substring($Url.lastIndexOf("/")+1)
+            $Url=$Url.trim()
+            $Filename=$Url.substring($Url.lastIndexOf("/")+1)
             Invoke-WebRequest -Uri $Url -OutFile $Filename
             Expand-Archive $Filename -DestinationPath .
             rm $Filename           
