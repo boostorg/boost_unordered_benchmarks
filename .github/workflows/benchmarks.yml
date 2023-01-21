@@ -221,16 +221,18 @@ jobs:
           git submodule update --init
           cmd /c bootstrap.bat
           .\b2.exe -d0 headers
-      - name: Install oneTBB
+      - name: Install oneTBB part 1
         shell: cmd
         run: |
           cd %GITHUB_WORKSPACE%
           git clone https://github.com/Microsoft/vcpkg.git
           cd vcpkg
           .\bootstrap-vcpkg.bat -disableMetrics
-          echo before install
+      - name: Install oneTBB part 2
+        shell: cmd
+        run: |
+          cd %GITHUB_WORKSPACE%\vcpkg
           .\vcpkg install tbb:${{matrix.vcpkgtriplet}}
-          echo after install
           cp installed\${{matrix.vcpkgtriplet}}\lib\tbb12.* %GITHUB_WORKSPACE%
       - name: Install libcuckoo
         shell: cmd
