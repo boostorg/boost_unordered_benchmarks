@@ -229,7 +229,8 @@ jobs:
           cd vcpkg
           cmd /c bootstrap-vcpkg.bat -disableMetrics
           .\vcpkg.exe install tbb:${{matrix.vcpkgtriplet}}
-          copy installed\${{matrix.vcpkgtriplet}}\lib\tbb12.* %GITHUB_WORKSPACE%
+          copy installed\${{matrix.vcpkgtriplet}}\lib\tbb12.lib %GITHUB_WORKSPACE%
+          copy installed\${{matrix.vcpkgtriplet}}\bin\tbb12.dll %GITHUB_WORKSPACE%
       - name: Install libcuckoo
         shell: cmd
         run: |
