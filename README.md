@@ -21,108 +21,108 @@ of Boost.Unordered [source code](https://github.com/boostorg/unordered/tree/deve
 <!--gcc-x64/string.cpp.txt-->
 ```
 string.cpp
-                  std::unordered_map: 31352 ms, 271711224 bytes in 3999509 allocations
-                boost::unordered_map: 22742 ms, 245453904 bytes in 3999510 allocations
-           boost::unordered_flat_map: 12267 ms, 322961400 bytes in 1 allocations
-           boost::unordered_node_map: 12743 ms, 231283496 bytes in 3999509 allocations
-              poc_unordered_node_map: 12509 ms, 231283496 bytes in 3999509 allocations
-        ankerl::unordered_dense::map:  9127 ms, 234881024 bytes in 2 allocations
-                 absl::node_hash_map: 12111 ms, 235477800 bytes in 3999509 allocations
-                 absl::flat_hash_map: 11722 ms, 343932904 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 35100 ms, 271711224 bytes in 3999509 allocations
-        boost::unordered_map, FNV-1a: 25158 ms, 245453904 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a: 13948 ms, 322961400 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 14098 ms, 231283496 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a: 13896 ms, 231283496 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 17461 ms, 234881024 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 17248 ms, 235477800 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a: 16137 ms, 343932904 bytes in 1 allocations
+                  std::unordered_map: 31446 ms, 271711224 bytes in 3999509 allocations
+                boost::unordered_map: 22589 ms, 245453904 bytes in 3999510 allocations
+           boost::unordered_flat_map: 12268 ms, 322961400 bytes in 1 allocations
+           boost::unordered_node_map: 12476 ms, 231283496 bytes in 3999509 allocations
+              poc_unordered_node_map: 12480 ms, 231283496 bytes in 3999509 allocations
+        ankerl::unordered_dense::map:  9192 ms, 234881024 bytes in 2 allocations
+                 absl::node_hash_map: 12136 ms, 235477800 bytes in 3999509 allocations
+                 absl::flat_hash_map: 11741 ms, 343932904 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 35170 ms, 271711224 bytes in 3999509 allocations
+        boost::unordered_map, FNV-1a: 25191 ms, 245453904 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a: 13819 ms, 322961400 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 14064 ms, 231283496 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a: 13868 ms, 231283496 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 17483 ms, 234881024 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 17259 ms, 235477800 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a: 16120 ms, 343932904 bytes in 1 allocations
 ```
 <!--gcc-x64/string.cpp.txt-->
 
 <!--gcc-x64/string_view.cpp.txt-->
 ```
 string_view.cpp
-                  std::unordered_map: 30242 ms, 207719096 bytes in 3999509 allocations
-                boost::unordered_map: 23304 ms, 181461776 bytes in 3999510 allocations
-           boost::unordered_flat_map: 11664 ms, 197132280 bytes in 1 allocations
-           boost::unordered_node_map: 12389 ms, 167291368 bytes in 3999509 allocations
-              poc_unordered_node_map: 12637 ms, 167291368 bytes in 3999509 allocations
-        ankerl::unordered_dense::map:  9093 ms, 167772160 bytes in 2 allocations
-                 absl::node_hash_map: 11818 ms, 171485672 bytes in 3999509 allocations
-                 absl::flat_hash_map: 10751 ms, 209715192 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 33561 ms, 207719096 bytes in 3999509 allocations
-        boost::unordered_map, FNV-1a: 26264 ms, 181461776 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a: 13149 ms, 197132280 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 13901 ms, 167291368 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a: 14197 ms, 167291368 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 17263 ms, 167772160 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 16862 ms, 171485672 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a: 15806 ms, 209715192 bytes in 1 allocations
+                  std::unordered_map: 30314 ms, 207719096 bytes in 3999509 allocations
+                boost::unordered_map: 23340 ms, 181461776 bytes in 3999510 allocations
+           boost::unordered_flat_map: 11685 ms, 197132280 bytes in 1 allocations
+           boost::unordered_node_map: 12410 ms, 167291368 bytes in 3999509 allocations
+              poc_unordered_node_map: 12641 ms, 167291368 bytes in 3999509 allocations
+        ankerl::unordered_dense::map:  8984 ms, 167772160 bytes in 2 allocations
+                 absl::node_hash_map: 11766 ms, 171485672 bytes in 3999509 allocations
+                 absl::flat_hash_map: 10807 ms, 209715192 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 33663 ms, 207719096 bytes in 3999509 allocations
+        boost::unordered_map, FNV-1a: 26319 ms, 181461776 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a: 13152 ms, 197132280 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 13815 ms, 167291368 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a: 14053 ms, 167291368 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 17299 ms, 167772160 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 16597 ms, 171485672 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a: 15763 ms, 209715192 bytes in 1 allocations
 ```
 <!--gcc-x64/string_view.cpp.txt-->
 
 <!--gcc-x64/uint32.cpp.txt-->
 ```
 uint32.cpp
-          std::unordered_map: 10568 ms, 192888392 bytes in 5996681 allocations
-        boost::unordered_map:  9190 ms, 149424400 bytes in 5996682 allocations
-   boost::unordered_flat_map:  4461 ms,  71303176 bytes in 1 allocations
-   boost::unordered_node_map:  6487 ms, 119276616 bytes in 5996681 allocations
-      poc_unordered_node_map:  6520 ms, 119276616 bytes in 5996681 allocations
-ankerl::unordered_dense::map:  7405 ms, 134217728 bytes in 2 allocations
-         absl::node_hash_map:  8252 ms, 123470920 bytes in 5996681 allocations
-         absl::flat_hash_map:  5602 ms,  75497480 bytes in 1 allocations
+          std::unordered_map: 10567 ms, 192888392 bytes in 5996681 allocations
+        boost::unordered_map:  9174 ms, 149424400 bytes in 5996682 allocations
+   boost::unordered_flat_map:  4478 ms,  71303176 bytes in 1 allocations
+   boost::unordered_node_map:  6522 ms, 119276616 bytes in 5996681 allocations
+      poc_unordered_node_map:  6537 ms, 119276616 bytes in 5996681 allocations
+ankerl::unordered_dense::map:  7391 ms, 134217728 bytes in 2 allocations
+         absl::node_hash_map:  8244 ms, 123470920 bytes in 5996681 allocations
+         absl::flat_hash_map:  5594 ms,  75497480 bytes in 1 allocations
 ```
 <!--gcc-x64/uint32.cpp.txt-->
 
 <!--gcc-x64/uint64.cpp.txt-->
 ```
 uint64.cpp
-          std::unordered_map: 11422 ms, 240941512 bytes in 6000001 allocations
-        boost::unordered_map:  9589 ms, 197477520 bytes in 6000002 allocations
-   boost::unordered_flat_map:  4615 ms, 134217728 bytes in 1 allocations
-   boost::unordered_node_map:  6249 ms, 167303176 bytes in 6000001 allocations
-      poc_unordered_node_map:  6238 ms, 167303176 bytes in 6000001 allocations
-ankerl::unordered_dense::map:  7291 ms, 201326592 bytes in 2 allocations
-         absl::node_hash_map:  8379 ms, 171497480 bytes in 6000001 allocations
-         absl::flat_hash_map:  5887 ms, 142606336 bytes in 1 allocations
+          std::unordered_map: 11400 ms, 240941512 bytes in 6000001 allocations
+        boost::unordered_map:  9563 ms, 197477520 bytes in 6000002 allocations
+   boost::unordered_flat_map:  4602 ms, 134217728 bytes in 1 allocations
+   boost::unordered_node_map:  6280 ms, 167303176 bytes in 6000001 allocations
+      poc_unordered_node_map:  6234 ms, 167303176 bytes in 6000001 allocations
+ankerl::unordered_dense::map:  7308 ms, 201326592 bytes in 2 allocations
+         absl::node_hash_map:  8356 ms, 171497480 bytes in 6000001 allocations
+         absl::flat_hash_map:  5880 ms, 142606336 bytes in 1 allocations
 ```
 <!--gcc-x64/uint64.cpp.txt-->
 
 <!--gcc-x64/uuid.cpp.txt-->
 ```
 uuid.cpp
-          std::unordered_map: 27406 ms, 288941512 bytes in 6000001 allocations
-        boost::unordered_map: 23102 ms, 245477520 bytes in 6000002 allocations
-   boost::unordered_flat_map:  9063 ms, 197132280 bytes in 1 allocations
-   boost::unordered_node_map: 10643 ms, 215303176 bytes in 6000001 allocations
-      poc_unordered_node_map: 10631 ms, 215303176 bytes in 6000001 allocations
-ankerl::unordered_dense::map: 13899 ms, 268435456 bytes in 2 allocations
-         absl::node_hash_map: 12885 ms, 219497480 bytes in 6000001 allocations
-         absl::flat_hash_map: 10828 ms, 209715192 bytes in 1 allocations
+          std::unordered_map: 27449 ms, 288941512 bytes in 6000001 allocations
+        boost::unordered_map: 22985 ms, 245477520 bytes in 6000002 allocations
+   boost::unordered_flat_map:  9024 ms, 197132280 bytes in 1 allocations
+   boost::unordered_node_map: 10613 ms, 215303176 bytes in 6000001 allocations
+      poc_unordered_node_map: 10647 ms, 215303176 bytes in 6000001 allocations
+ankerl::unordered_dense::map: 13852 ms, 268435456 bytes in 2 allocations
+         absl::node_hash_map: 12833 ms, 219497480 bytes in 6000001 allocations
+         absl::flat_hash_map: 10843 ms, 209715192 bytes in 1 allocations
 ```
 <!--gcc-x64/uuid.cpp.txt-->
 
 <!--gcc-x64/word_count.cpp.txt-->
 ```
 word_count.cpp
-                  std::unordered_map: 28288 ms,  68323424 bytes in 1418656 allocations
-                boost::unordered_map: 21243 ms,  58766384 bytes in 1418657 allocations
-           boost::unordered_flat_map: 12130 ms,  49283064 bytes in 1 allocations
-           boost::unordered_node_map: 14049 ms,  51873520 bytes in 1418656 allocations
-              poc_unordered_node_map: 14073 ms,  51873520 bytes in 1418656 allocations
-        ankerl::unordered_dense::map: 14012 ms,  67108864 bytes in 2 allocations
-                 absl::node_hash_map: 13500 ms,  52922096 bytes in 1418656 allocations
-                 absl::flat_hash_map: 11523 ms,  52428792 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 27588 ms,  68323424 bytes in 1418656 allocations
-        boost::unordered_map, FNV-1a: 20305 ms,  58766384 bytes in 1418657 allocations
-   boost::unordered_flat_map, FNV-1a: 11706 ms,  49283064 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 13584 ms,  51873520 bytes in 1418656 allocations
-      poc_unordered_node_map, FNV-1a: 13597 ms,  51873520 bytes in 1418656 allocations
-ankerl::unordered_dense::map, FNV-1a: 25201 ms,  67108864 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 13929 ms,  52922096 bytes in 1418656 allocations
-         absl::flat_hash_map, FNV-1a: 11979 ms,  52428792 bytes in 1 allocations
+                  std::unordered_map: 28182 ms,  68323424 bytes in 1418656 allocations
+                boost::unordered_map: 21178 ms,  58766384 bytes in 1418657 allocations
+           boost::unordered_flat_map: 12048 ms,  49283064 bytes in 1 allocations
+           boost::unordered_node_map: 13975 ms,  51873520 bytes in 1418656 allocations
+              poc_unordered_node_map: 13989 ms,  51873520 bytes in 1418656 allocations
+        ankerl::unordered_dense::map: 13941 ms,  67108864 bytes in 2 allocations
+                 absl::node_hash_map: 13405 ms,  52922096 bytes in 1418656 allocations
+                 absl::flat_hash_map: 11459 ms,  52428792 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 27535 ms,  68323424 bytes in 1418656 allocations
+        boost::unordered_map, FNV-1a: 20111 ms,  58766384 bytes in 1418657 allocations
+   boost::unordered_flat_map, FNV-1a: 11672 ms,  49283064 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 13581 ms,  51873520 bytes in 1418656 allocations
+      poc_unordered_node_map, FNV-1a: 13492 ms,  51873520 bytes in 1418656 allocations
+ankerl::unordered_dense::map, FNV-1a: 25026 ms,  67108864 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 13634 ms,  52922096 bytes in 1418656 allocations
+         absl::flat_hash_map, FNV-1a: 11906 ms,  52428792 bytes in 1 allocations
 ```
 <!--gcc-x64/word_count.cpp.txt-->
 
@@ -130,13 +130,13 @@ ankerl::unordered_dense::map, FNV-1a: 25201 ms,  67108864 bytes in 2 allocations
 ```
 word_size.cpp
           std::unordered_map:  1291 ms,      3728 bytes in 114 allocations
-        boost::unordered_map:   694 ms,      4392 bytes in 115 allocations
+        boost::unordered_map:   692 ms,      4392 bytes in 115 allocations
    boost::unordered_flat_map:   797 ms,      4096 bytes in 1 allocations
    boost::unordered_node_map:   811 ms,      3992 bytes in 114 allocations
-      poc_unordered_node_map:   784 ms,      3992 bytes in 114 allocations
-ankerl::unordered_dense::map:   644 ms,      4096 bytes in 2 allocations
-         absl::node_hash_map:   530 ms,      4120 bytes in 114 allocations
-         absl::flat_hash_map:   511 ms,      4352 bytes in 1 allocations
+      poc_unordered_node_map:   783 ms,      3992 bytes in 114 allocations
+ankerl::unordered_dense::map:   637 ms,      4096 bytes in 2 allocations
+         absl::node_hash_map:   527 ms,      4120 bytes in 114 allocations
+         absl::flat_hash_map:   510 ms,      4352 bytes in 1 allocations
 ```
 <!--gcc-x64/word_size.cpp.txt-->
 
@@ -144,120 +144,120 @@ ankerl::unordered_dense::map:   644 ms,      4096 bytes in 2 allocations
 <!--clang-x64/string.cpp.txt-->
 ```
 string.cpp
-                  std::unordered_map: 32086 ms, 271711224 bytes in 3999509 allocations
-                boost::unordered_map: 24553 ms, 245453904 bytes in 3999510 allocations
-           boost::unordered_flat_map: 12507 ms, 322961400 bytes in 1 allocations
-           boost::unordered_node_map: 12764 ms, 231283496 bytes in 3999509 allocations
-              poc_unordered_node_map: 12587 ms, 231283496 bytes in 3999509 allocations
-        ankerl::unordered_dense::map: 11422 ms, 234881024 bytes in 2 allocations
-                 absl::node_hash_map: 14220 ms, 235477800 bytes in 3999509 allocations
-                 absl::flat_hash_map: 14063 ms, 343932904 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 34115 ms, 271711224 bytes in 3999509 allocations
-        boost::unordered_map, FNV-1a: 23398 ms, 245453904 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a: 12175 ms, 322961400 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 12300 ms, 231283496 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a: 12147 ms, 231283496 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 16297 ms, 234881024 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 16777 ms, 235477800 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a: 15488 ms, 343932904 bytes in 1 allocations
+                  std::unordered_map: 32228 ms, 271711224 bytes in 3999509 allocations
+                boost::unordered_map: 24765 ms, 245453904 bytes in 3999510 allocations
+           boost::unordered_flat_map: 12514 ms, 322961400 bytes in 1 allocations
+           boost::unordered_node_map: 12878 ms, 231283496 bytes in 3999509 allocations
+              poc_unordered_node_map: 12664 ms, 231283496 bytes in 3999509 allocations
+        ankerl::unordered_dense::map: 11483 ms, 234881024 bytes in 2 allocations
+                 absl::node_hash_map: 14262 ms, 235477800 bytes in 3999509 allocations
+                 absl::flat_hash_map: 14087 ms, 343932904 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 34303 ms, 271711224 bytes in 3999509 allocations
+        boost::unordered_map, FNV-1a: 23502 ms, 245453904 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a: 12245 ms, 322961400 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 12343 ms, 231283496 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a: 12183 ms, 231283496 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 16352 ms, 234881024 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 16820 ms, 235477800 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a: 15538 ms, 343932904 bytes in 1 allocations
 ```
 <!--clang-x64/string.cpp.txt-->
 
 <!--clang-x64/string_view.cpp.txt-->
 ```
 string_view.cpp
-                  std::unordered_map: 34085 ms, 207719096 bytes in 3999509 allocations
-                boost::unordered_map: 27007 ms, 181461776 bytes in 3999510 allocations
-           boost::unordered_flat_map: 12726 ms, 197132280 bytes in 1 allocations
-           boost::unordered_node_map: 13576 ms, 167291368 bytes in 3999509 allocations
-              poc_unordered_node_map: 13912 ms, 167291368 bytes in 3999509 allocations
-        ankerl::unordered_dense::map: 12648 ms, 167772160 bytes in 2 allocations
-                 absl::node_hash_map: 15366 ms, 171485672 bytes in 3999509 allocations
-                 absl::flat_hash_map: 14213 ms, 209715192 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 34622 ms, 207719096 bytes in 3999509 allocations
-        boost::unordered_map, FNV-1a: 26543 ms, 181461776 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a: 12810 ms, 197132280 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 13291 ms, 167291368 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a: 13561 ms, 167291368 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 17717 ms, 167772160 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 17951 ms, 171485672 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a: 16531 ms, 209715192 bytes in 1 allocations
+                  std::unordered_map: 33663 ms, 207719096 bytes in 3999509 allocations
+                boost::unordered_map: 26884 ms, 181461776 bytes in 3999510 allocations
+           boost::unordered_flat_map: 12565 ms, 197132280 bytes in 1 allocations
+           boost::unordered_node_map: 13459 ms, 167291368 bytes in 3999509 allocations
+              poc_unordered_node_map: 13741 ms, 167291368 bytes in 3999509 allocations
+        ankerl::unordered_dense::map: 12614 ms, 167772160 bytes in 2 allocations
+                 absl::node_hash_map: 15243 ms, 171485672 bytes in 3999509 allocations
+                 absl::flat_hash_map: 14227 ms, 209715192 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 34432 ms, 207719096 bytes in 3999509 allocations
+        boost::unordered_map, FNV-1a: 26462 ms, 181461776 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a: 12725 ms, 197132280 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 13197 ms, 167291368 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a: 13522 ms, 167291368 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 17703 ms, 167772160 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 17836 ms, 171485672 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a: 16467 ms, 209715192 bytes in 1 allocations
 ```
 <!--clang-x64/string_view.cpp.txt-->
 
 <!--clang-x64/uint32.cpp.txt-->
 ```
 uint32.cpp
-          std::unordered_map: 11210 ms, 192888392 bytes in 5996681 allocations
-        boost::unordered_map:  9282 ms, 149424400 bytes in 5996682 allocations
-   boost::unordered_flat_map:  4508 ms,  71303176 bytes in 1 allocations
-   boost::unordered_node_map:  6592 ms, 119276616 bytes in 5996681 allocations
-      poc_unordered_node_map:  6594 ms, 119276616 bytes in 5996681 allocations
-ankerl::unordered_dense::map:  7216 ms, 134217728 bytes in 2 allocations
-         absl::node_hash_map:  8540 ms, 123470920 bytes in 5996681 allocations
-         absl::flat_hash_map:  5809 ms,  75497480 bytes in 1 allocations
+          std::unordered_map: 11145 ms, 192888392 bytes in 5996681 allocations
+        boost::unordered_map:  9201 ms, 149424400 bytes in 5996682 allocations
+   boost::unordered_flat_map:  4449 ms,  71303176 bytes in 1 allocations
+   boost::unordered_node_map:  6533 ms, 119276616 bytes in 5996681 allocations
+      poc_unordered_node_map:  6517 ms, 119276616 bytes in 5996681 allocations
+ankerl::unordered_dense::map:  7226 ms, 134217728 bytes in 2 allocations
+         absl::node_hash_map:  8489 ms, 123470920 bytes in 5996681 allocations
+         absl::flat_hash_map:  5772 ms,  75497480 bytes in 1 allocations
 ```
 <!--clang-x64/uint32.cpp.txt-->
 
 <!--clang-x64/uint64.cpp.txt-->
 ```
 uint64.cpp
-          std::unordered_map: 12926 ms, 240941512 bytes in 6000001 allocations
-        boost::unordered_map:  9589 ms, 197477520 bytes in 6000002 allocations
+          std::unordered_map: 12894 ms, 240941512 bytes in 6000001 allocations
+        boost::unordered_map:  9569 ms, 197477520 bytes in 6000002 allocations
    boost::unordered_flat_map:  4802 ms, 134217728 bytes in 1 allocations
-   boost::unordered_node_map:  6254 ms, 167303176 bytes in 6000001 allocations
-      poc_unordered_node_map:  6293 ms, 167303176 bytes in 6000001 allocations
-ankerl::unordered_dense::map:  7023 ms, 201326592 bytes in 2 allocations
-         absl::node_hash_map:  8921 ms, 171497480 bytes in 6000001 allocations
-         absl::flat_hash_map:  6274 ms, 142606336 bytes in 1 allocations
+   boost::unordered_node_map:  6243 ms, 167303176 bytes in 6000001 allocations
+      poc_unordered_node_map:  6291 ms, 167303176 bytes in 6000001 allocations
+ankerl::unordered_dense::map:  7057 ms, 201326592 bytes in 2 allocations
+         absl::node_hash_map:  8881 ms, 171497480 bytes in 6000001 allocations
+         absl::flat_hash_map:  6314 ms, 142606336 bytes in 1 allocations
 ```
 <!--clang-x64/uint64.cpp.txt-->
 
 <!--clang-x64/uuid.cpp.txt-->
 ```
 uuid.cpp
-          std::unordered_map: 33390 ms, 288941512 bytes in 6000001 allocations
-        boost::unordered_map: 27613 ms, 245477520 bytes in 6000002 allocations
-   boost::unordered_flat_map: 10397 ms, 197132280 bytes in 1 allocations
-   boost::unordered_node_map: 11654 ms, 215303176 bytes in 6000001 allocations
-      poc_unordered_node_map: 11619 ms, 215303176 bytes in 6000001 allocations
-ankerl::unordered_dense::map: 15481 ms, 268435456 bytes in 2 allocations
-         absl::node_hash_map: 15519 ms, 219497480 bytes in 6000001 allocations
-         absl::flat_hash_map: 12512 ms, 209715192 bytes in 1 allocations
+          std::unordered_map: 29871 ms, 288941512 bytes in 6000001 allocations
+        boost::unordered_map: 25442 ms, 245477520 bytes in 6000002 allocations
+   boost::unordered_flat_map:  9276 ms, 197132280 bytes in 1 allocations
+   boost::unordered_node_map: 10655 ms, 215303176 bytes in 6000001 allocations
+      poc_unordered_node_map: 10685 ms, 215303176 bytes in 6000001 allocations
+ankerl::unordered_dense::map: 14158 ms, 268435456 bytes in 2 allocations
+         absl::node_hash_map: 14366 ms, 219497480 bytes in 6000001 allocations
+         absl::flat_hash_map: 11690 ms, 209715192 bytes in 1 allocations
 ```
 <!--clang-x64/uuid.cpp.txt-->
 
 <!--clang-x64/word_count.cpp.txt-->
 ```
 word_count.cpp
-                  std::unordered_map: 32221 ms,  68323424 bytes in 1418656 allocations
-                boost::unordered_map: 24329 ms,  58766384 bytes in 1418657 allocations
-           boost::unordered_flat_map: 12788 ms,  49283064 bytes in 1 allocations
-           boost::unordered_node_map: 14666 ms,  51873520 bytes in 1418656 allocations
-              poc_unordered_node_map: 14653 ms,  51873520 bytes in 1418656 allocations
-        ankerl::unordered_dense::map: 17044 ms,  67108864 bytes in 2 allocations
-                 absl::node_hash_map: 16752 ms,  52922096 bytes in 1418656 allocations
-                 absl::flat_hash_map: 14246 ms,  52428792 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 29565 ms,  68323424 bytes in 1418656 allocations
-        boost::unordered_map, FNV-1a: 23637 ms,  58766384 bytes in 1418657 allocations
-   boost::unordered_flat_map, FNV-1a: 13220 ms,  49283064 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 14813 ms,  51873520 bytes in 1418656 allocations
-      poc_unordered_node_map, FNV-1a: 14768 ms,  51873520 bytes in 1418656 allocations
-ankerl::unordered_dense::map, FNV-1a: 26973 ms,  67108864 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 16970 ms,  52922096 bytes in 1418656 allocations
-         absl::flat_hash_map, FNV-1a: 14677 ms,  52428792 bytes in 1 allocations
+                  std::unordered_map: 31158 ms,  68323424 bytes in 1418656 allocations
+                boost::unordered_map: 23508 ms,  58766384 bytes in 1418657 allocations
+           boost::unordered_flat_map: 12365 ms,  49283064 bytes in 1 allocations
+           boost::unordered_node_map: 14187 ms,  51873520 bytes in 1418656 allocations
+              poc_unordered_node_map: 14151 ms,  51873520 bytes in 1418656 allocations
+        ankerl::unordered_dense::map: 16514 ms,  67108864 bytes in 2 allocations
+                 absl::node_hash_map: 16266 ms,  52922096 bytes in 1418656 allocations
+                 absl::flat_hash_map: 13910 ms,  52428792 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 28430 ms,  68323424 bytes in 1418656 allocations
+        boost::unordered_map, FNV-1a: 22747 ms,  58766384 bytes in 1418657 allocations
+   boost::unordered_flat_map, FNV-1a: 12899 ms,  49283064 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 14296 ms,  51873520 bytes in 1418656 allocations
+      poc_unordered_node_map, FNV-1a: 14350 ms,  51873520 bytes in 1418656 allocations
+ankerl::unordered_dense::map, FNV-1a: 26436 ms,  67108864 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 16465 ms,  52922096 bytes in 1418656 allocations
+         absl::flat_hash_map, FNV-1a: 14319 ms,  52428792 bytes in 1 allocations
 ```
 <!--clang-x64/word_count.cpp.txt-->
 
 <!--clang-x64/word_size.cpp.txt-->
 ```
 word_size.cpp
-          std::unordered_map:  1435 ms,      3728 bytes in 114 allocations
-        boost::unordered_map:  1013 ms,      4392 bytes in 115 allocations
-   boost::unordered_flat_map:   917 ms,      4096 bytes in 1 allocations
-   boost::unordered_node_map:   942 ms,      3992 bytes in 114 allocations
-      poc_unordered_node_map:   927 ms,      3992 bytes in 114 allocations
-ankerl::unordered_dense::map:   873 ms,      4096 bytes in 2 allocations
+          std::unordered_map:  1433 ms,      3728 bytes in 114 allocations
+        boost::unordered_map:  1017 ms,      4392 bytes in 115 allocations
+   boost::unordered_flat_map:   918 ms,      4096 bytes in 1 allocations
+   boost::unordered_node_map:   944 ms,      3992 bytes in 114 allocations
+      poc_unordered_node_map:   926 ms,      3992 bytes in 114 allocations
+ankerl::unordered_dense::map:   874 ms,      4096 bytes in 2 allocations
          absl::node_hash_map:   963 ms,      4120 bytes in 114 allocations
          absl::flat_hash_map:   656 ms,      4352 bytes in 1 allocations
 ```
@@ -267,122 +267,122 @@ ankerl::unordered_dense::map:   873 ms,      4096 bytes in 2 allocations
 <!--vs-x64/string.cpp.txt-->
 ```
 string.cpp
-                  std::unordered_map: 38343 ms, 291081368 bytes in 3999510 allocations
-                boost::unordered_map: 38603 ms, 245453904 bytes in 3999510 allocations
-           boost::unordered_flat_map: 23616 ms, 322961400 bytes in 1 allocations
-           boost::unordered_node_map: 23451 ms, 231283496 bytes in 3999509 allocations
-              poc_unordered_node_map: 23481 ms, 231283496 bytes in 3999509 allocations
-        ankerl::unordered_dense::map: 17445 ms, 279707224 bytes in 2 allocations
-                 absl::node_hash_map: 30145 ms, 235477800 bytes in 3999509 allocations
-                 absl::flat_hash_map: 30713 ms, 343932904 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 38362 ms, 291081368 bytes in 3999510 allocations
-        boost::unordered_map, FNV-1a: 38268 ms, 245453904 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a: 24106 ms, 322961400 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 23993 ms, 231283496 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a: 24128 ms, 231283496 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 24158 ms, 279707224 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 30825 ms, 235477800 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a: 31588 ms, 343932904 bytes in 1 allocations
+                  std::unordered_map: 37935 ms, 291081368 bytes in 3999510 allocations
+                boost::unordered_map: 37986 ms, 245453904 bytes in 3999510 allocations
+           boost::unordered_flat_map: 23322 ms, 322961400 bytes in 1 allocations
+           boost::unordered_node_map: 23104 ms, 231283496 bytes in 3999509 allocations
+              poc_unordered_node_map: 23039 ms, 231283496 bytes in 3999509 allocations
+        ankerl::unordered_dense::map: 17624 ms, 279707224 bytes in 2 allocations
+                 absl::node_hash_map: 29576 ms, 235477800 bytes in 3999509 allocations
+                 absl::flat_hash_map: 30580 ms, 343932904 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 37889 ms, 291081368 bytes in 3999510 allocations
+        boost::unordered_map, FNV-1a: 38194 ms, 245453904 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a: 23920 ms, 322961400 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 23864 ms, 231283496 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a: 23900 ms, 231283496 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 23330 ms, 279707224 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 30003 ms, 235477800 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a: 31030 ms, 343932904 bytes in 1 allocations
 ```
 <!--vs-x64/string.cpp.txt-->
 
 <!--vs-x64/string_view.cpp.txt-->
 ```
 string_view.cpp
-                  std::unordered_map: 35082 ms, 227089224 bytes in 3999510 allocations
-                boost::unordered_map: 38337 ms, 181461776 bytes in 3999510 allocations
-           boost::unordered_flat_map: 21174 ms, 197132280 bytes in 1 allocations
-           boost::unordered_node_map: 23189 ms, 167291368 bytes in 3999509 allocations
-              poc_unordered_node_map: 23386 ms, 167291368 bytes in 3999509 allocations
-        ankerl::unordered_dense::map: 17717 ms, 194667880 bytes in 2 allocations
-                 absl::node_hash_map: 30396 ms, 171485672 bytes in 3999509 allocations
-                 absl::flat_hash_map: 29241 ms, 209715192 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 35277 ms, 227089224 bytes in 3999510 allocations
-        boost::unordered_map, FNV-1a: 38947 ms, 181461776 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a: 21944 ms, 197132280 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 24077 ms, 167291368 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a: 24209 ms, 167291368 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 22793 ms, 194667880 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 30398 ms, 171485672 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a: 28840 ms, 209715192 bytes in 1 allocations
+                  std::unordered_map: 34723 ms, 227089224 bytes in 3999510 allocations
+                boost::unordered_map: 37880 ms, 181461776 bytes in 3999510 allocations
+           boost::unordered_flat_map: 20828 ms, 197132280 bytes in 1 allocations
+           boost::unordered_node_map: 22861 ms, 167291368 bytes in 3999509 allocations
+              poc_unordered_node_map: 22925 ms, 167291368 bytes in 3999509 allocations
+        ankerl::unordered_dense::map: 16651 ms, 194667880 bytes in 2 allocations
+                 absl::node_hash_map: 29690 ms, 171485672 bytes in 3999509 allocations
+                 absl::flat_hash_map: 28604 ms, 209715192 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 34628 ms, 227089224 bytes in 3999510 allocations
+        boost::unordered_map, FNV-1a: 38787 ms, 181461776 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a: 21680 ms, 197132280 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 23860 ms, 167291368 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a: 23768 ms, 167291368 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 22382 ms, 194667880 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 30165 ms, 171485672 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a: 28372 ms, 209715192 bytes in 1 allocations
 ```
 <!--vs-x64/string_view.cpp.txt-->
 
 <!--vs-x64/uint32.cpp.txt-->
 ```
 uint32.cpp
-          std::unordered_map: 21194 ms, 278138072 bytes in 5996682 allocations
-        boost::unordered_map: 14994 ms, 149424400 bytes in 5996682 allocations
-   boost::unordered_flat_map: 10914 ms,  71303176 bytes in 1 allocations
-   boost::unordered_node_map: 14026 ms, 119276616 bytes in 5996681 allocations
-      poc_unordered_node_map: 13979 ms, 119276616 bytes in 5996681 allocations
-ankerl::unordered_dense::map: 12734 ms, 130888368 bytes in 2 allocations
-         absl::node_hash_map: 17400 ms, 123470920 bytes in 5996681 allocations
-         absl::flat_hash_map: 12773 ms,  75497480 bytes in 1 allocations
+          std::unordered_map: 21050 ms, 278138072 bytes in 5996682 allocations
+        boost::unordered_map: 14835 ms, 149424400 bytes in 5996682 allocations
+   boost::unordered_flat_map: 11052 ms,  71303176 bytes in 1 allocations
+   boost::unordered_node_map: 13763 ms, 119276616 bytes in 5996681 allocations
+      poc_unordered_node_map: 13966 ms, 119276616 bytes in 5996681 allocations
+ankerl::unordered_dense::map: 12976 ms, 130888368 bytes in 2 allocations
+         absl::node_hash_map: 17463 ms, 123470920 bytes in 5996681 allocations
+         absl::flat_hash_map: 12782 ms,  75497480 bytes in 1 allocations
 ```
 <!--vs-x64/uint32.cpp.txt-->
 
 <!--vs-x64/uint64.cpp.txt-->
 ```
 uint64.cpp
-          std::unordered_map: 26242 ms, 326217760 bytes in 6000002 allocations
-        boost::unordered_map: 21286 ms, 197477520 bytes in 6000002 allocations
-   boost::unordered_flat_map: 12611 ms, 134217728 bytes in 1 allocations
-   boost::unordered_node_map: 14668 ms, 167303176 bytes in 6000001 allocations
-      poc_unordered_node_map: 14779 ms, 167303176 bytes in 6000001 allocations
-ankerl::unordered_dense::map: 12306 ms, 194667872 bytes in 2 allocations
-         absl::node_hash_map: 18529 ms, 171497480 bytes in 6000001 allocations
-         absl::flat_hash_map: 14978 ms, 142606336 bytes in 1 allocations
+          std::unordered_map: 25599 ms, 326217760 bytes in 6000002 allocations
+        boost::unordered_map: 18659 ms, 197477520 bytes in 6000002 allocations
+   boost::unordered_flat_map: 12281 ms, 134217728 bytes in 1 allocations
+   boost::unordered_node_map: 14418 ms, 167303176 bytes in 6000001 allocations
+      poc_unordered_node_map: 14605 ms, 167303176 bytes in 6000001 allocations
+ankerl::unordered_dense::map: 11813 ms, 194667872 bytes in 2 allocations
+         absl::node_hash_map: 18876 ms, 171497480 bytes in 6000001 allocations
+         absl::flat_hash_map: 15372 ms, 142606336 bytes in 1 allocations
 ```
 <!--vs-x64/uint64.cpp.txt-->
 
 <!--vs-x64/uuid.cpp.txt-->
 ```
 uuid.cpp
-          std::unordered_map: 29367 ms, 374217768 bytes in 6000002 allocations
-        boost::unordered_map: 40717 ms, 245477520 bytes in 6000002 allocations
-   boost::unordered_flat_map: 15786 ms, 197132280 bytes in 1 allocations
-   boost::unordered_node_map: 18203 ms, 215303176 bytes in 6000001 allocations
-      poc_unordered_node_map: 18034 ms, 215303176 bytes in 6000001 allocations
-ankerl::unordered_dense::map: 19100 ms, 258447376 bytes in 2 allocations
-         absl::node_hash_map: 30096 ms, 219497480 bytes in 6000001 allocations
-         absl::flat_hash_map: 26585 ms, 209715192 bytes in 1 allocations
+          std::unordered_map: 28855 ms, 374217768 bytes in 6000002 allocations
+        boost::unordered_map: 41240 ms, 245477520 bytes in 6000002 allocations
+   boost::unordered_flat_map: 16190 ms, 197132280 bytes in 1 allocations
+   boost::unordered_node_map: 18017 ms, 215303176 bytes in 6000001 allocations
+      poc_unordered_node_map: 18154 ms, 215303176 bytes in 6000001 allocations
+ankerl::unordered_dense::map: 19950 ms, 258447376 bytes in 2 allocations
+         absl::node_hash_map: 29900 ms, 219497480 bytes in 6000001 allocations
+         absl::flat_hash_map: 26775 ms, 209715192 bytes in 1 allocations
 ```
 <!--vs-x64/uuid.cpp.txt-->
 
 <!--vs-x64/word_count.cpp.txt-->
 ```
 word_count.cpp
-                  std::unordered_map: 35558 ms,  90300672 bytes in 1418657 allocations
-                boost::unordered_map: 42938 ms,  58766384 bytes in 1418657 allocations
-           boost::unordered_flat_map: 26022 ms,  49283064 bytes in 1 allocations
-           boost::unordered_node_map: 32823 ms,  51873520 bytes in 1418656 allocations
-              poc_unordered_node_map: 32139 ms,  51873520 bytes in 1418656 allocations
-        ankerl::unordered_dense::map: 27871 ms,  54572488 bytes in 2 allocations
-                 absl::node_hash_map: 43211 ms,  52922096 bytes in 1418656 allocations
-                 absl::flat_hash_map: 36126 ms,  52428792 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 34280 ms,  90300672 bytes in 1418657 allocations
-        boost::unordered_map, FNV-1a: 39861 ms,  58766384 bytes in 1418657 allocations
-   boost::unordered_flat_map, FNV-1a: 23236 ms,  49283064 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 29422 ms,  51873520 bytes in 1418656 allocations
-      poc_unordered_node_map, FNV-1a: 29309 ms,  51873520 bytes in 1418656 allocations
-ankerl::unordered_dense::map, FNV-1a: 44400 ms,  54572488 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 33931 ms,  52922096 bytes in 1418656 allocations
-         absl::flat_hash_map, FNV-1a: 27440 ms,  52428792 bytes in 1 allocations
+                  std::unordered_map: 35024 ms,  90300672 bytes in 1418657 allocations
+                boost::unordered_map: 42172 ms,  58766384 bytes in 1418657 allocations
+           boost::unordered_flat_map: 26013 ms,  49283064 bytes in 1 allocations
+           boost::unordered_node_map: 32007 ms,  51873520 bytes in 1418656 allocations
+              poc_unordered_node_map: 32142 ms,  51873520 bytes in 1418656 allocations
+        ankerl::unordered_dense::map: 28050 ms,  54572488 bytes in 2 allocations
+                 absl::node_hash_map: 43994 ms,  52922096 bytes in 1418656 allocations
+                 absl::flat_hash_map: 36428 ms,  52428792 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 33782 ms,  90300672 bytes in 1418657 allocations
+        boost::unordered_map, FNV-1a: 39151 ms,  58766384 bytes in 1418657 allocations
+   boost::unordered_flat_map, FNV-1a: 23358 ms,  49283064 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 29053 ms,  51873520 bytes in 1418656 allocations
+      poc_unordered_node_map, FNV-1a: 29247 ms,  51873520 bytes in 1418656 allocations
+ankerl::unordered_dense::map, FNV-1a: 43720 ms,  54572488 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 34303 ms,  52922096 bytes in 1418656 allocations
+         absl::flat_hash_map, FNV-1a: 27294 ms,  52428792 bytes in 1 allocations
 ```
 <!--vs-x64/word_count.cpp.txt-->
 
 <!--vs-x64/word_size.cpp.txt-->
 ```
 word_size.cpp
-          std::unordered_map:  1273 ms,     11840 bytes in 115 allocations
-        boost::unordered_map:  2474 ms,      4392 bytes in 115 allocations
-   boost::unordered_flat_map:  1757 ms,      4096 bytes in 1 allocations
-   boost::unordered_node_map:  2239 ms,      3992 bytes in 114 allocations
-      poc_unordered_node_map:  2210 ms,      3992 bytes in 114 allocations
-ankerl::unordered_dense::map:  1124 ms,      4304 bytes in 2 allocations
-         absl::node_hash_map:  2566 ms,      4120 bytes in 114 allocations
-         absl::flat_hash_map:  2239 ms,      4352 bytes in 1 allocations
+          std::unordered_map:  1294 ms,     11840 bytes in 115 allocations
+        boost::unordered_map:  2523 ms,      4392 bytes in 115 allocations
+   boost::unordered_flat_map:  1765 ms,      4096 bytes in 1 allocations
+   boost::unordered_node_map:  1969 ms,      3992 bytes in 114 allocations
+      poc_unordered_node_map:  1956 ms,      3992 bytes in 114 allocations
+ankerl::unordered_dense::map:  1117 ms,      4304 bytes in 2 allocations
+         absl::node_hash_map:  2667 ms,      4120 bytes in 114 allocations
+         absl::flat_hash_map:  2291 ms,      4352 bytes in 1 allocations
 ```
 <!--vs-x64/word_size.cpp.txt-->
 
@@ -391,71 +391,71 @@ ankerl::unordered_dense::map:  1124 ms,      4304 bytes in 2 allocations
 <!--clang-arm64/string.cpp.txt-->
 ```
 string.cpp
-                  std::unordered_map: 15630 ms, 244656248 bytes in 3999509 allocations
-                boost::unordered_map: 14272 ms, 213457840 bytes in 3999510 allocations
-           boost::unordered_flat_map:  7298 ms, 260046848 bytes in 1 allocations
-           boost::unordered_node_map:  7570 ms, 199287432 bytes in 3999509 allocations
-              poc_unordered_node_map:  7826 ms, 199287432 bytes in 3999509 allocations
-        ankerl::unordered_dense::map:  7145 ms, 201326592 bytes in 2 allocations
-                 absl::node_hash_map:  8344 ms, 203481728 bytes in 3999509 allocations
-                 absl::flat_hash_map:  7901 ms, 276824040 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 21145 ms, 244656248 bytes in 3999509 allocations
-        boost::unordered_map, FNV-1a: 16150 ms, 213457840 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a:  8178 ms, 260046848 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a:  8416 ms, 199287432 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a:  8659 ms, 199287432 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 10717 ms, 201326592 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 10005 ms, 203481728 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a:  9379 ms, 276824040 bytes in 1 allocations
+                  std::unordered_map: 15555 ms, 244656248 bytes in 3999509 allocations
+                boost::unordered_map: 14231 ms, 213457840 bytes in 3999510 allocations
+           boost::unordered_flat_map:  7249 ms, 260046848 bytes in 1 allocations
+           boost::unordered_node_map:  7612 ms, 199287432 bytes in 3999509 allocations
+              poc_unordered_node_map:  7821 ms, 199287432 bytes in 3999509 allocations
+        ankerl::unordered_dense::map:  7068 ms, 201326592 bytes in 2 allocations
+                 absl::node_hash_map:  8497 ms, 203481728 bytes in 3999509 allocations
+                 absl::flat_hash_map:  7741 ms, 276824040 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 21195 ms, 244656248 bytes in 3999509 allocations
+        boost::unordered_map, FNV-1a: 16152 ms, 213457840 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a:  8119 ms, 260046848 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a:  8427 ms, 199287432 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a:  8765 ms, 199287432 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 10663 ms, 201326592 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a:  9748 ms, 203481728 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a:  9309 ms, 276824040 bytes in 1 allocations
 ```
 <!--clang-arm64/string.cpp.txt-->
 
 <!--clang-arm64/string_view.cpp.txt-->
 ```
 string_view.cpp
-                  std::unordered_map: 14010 ms, 212660184 bytes in 3999509 allocations
-                boost::unordered_map: 13401 ms, 181461776 bytes in 3999510 allocations
-           boost::unordered_flat_map:  6390 ms, 197132280 bytes in 1 allocations
-           boost::unordered_node_map:  7023 ms, 167291368 bytes in 3999509 allocations
-              poc_unordered_node_map:  7509 ms, 167291368 bytes in 3999509 allocations
-        ankerl::unordered_dense::map:  6578 ms, 167772160 bytes in 2 allocations
-                 absl::node_hash_map:  8208 ms, 171485664 bytes in 3999509 allocations
-                 absl::flat_hash_map:  7283 ms, 209715184 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 20248 ms, 212660184 bytes in 3999509 allocations
-        boost::unordered_map, FNV-1a: 15664 ms, 181461776 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a:  7827 ms, 197132280 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a:  8384 ms, 167291368 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a:  8852 ms, 167291368 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 10411 ms, 167772160 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a:  8926 ms, 171485664 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a:  8119 ms, 209715184 bytes in 1 allocations
+                  std::unordered_map: 14064 ms, 212660184 bytes in 3999509 allocations
+                boost::unordered_map: 13406 ms, 181461776 bytes in 3999510 allocations
+           boost::unordered_flat_map:  6429 ms, 197132280 bytes in 1 allocations
+           boost::unordered_node_map:  6935 ms, 167291368 bytes in 3999509 allocations
+              poc_unordered_node_map:  7470 ms, 167291368 bytes in 3999509 allocations
+        ankerl::unordered_dense::map:  6581 ms, 167772160 bytes in 2 allocations
+                 absl::node_hash_map:  8230 ms, 171485664 bytes in 3999509 allocations
+                 absl::flat_hash_map:  7326 ms, 209715184 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 20199 ms, 212660184 bytes in 3999509 allocations
+        boost::unordered_map, FNV-1a: 15662 ms, 181461776 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a:  7862 ms, 197132280 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a:  8327 ms, 167291368 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a:  8836 ms, 167291368 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 10423 ms, 167772160 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a:  8845 ms, 171485664 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a:  8109 ms, 209715184 bytes in 1 allocations
 ```
 <!--clang-arm64/string_view.cpp.txt-->
 
 <!--clang-arm64/uint32.cpp.txt-->
 ```
 uint32.cpp
-          std::unordered_map:  7725 ms, 196600184 bytes in 5996681 allocations
-        boost::unordered_map:  4738 ms, 149424400 bytes in 5996682 allocations
-   boost::unordered_flat_map:  2145 ms,  71303176 bytes in 1 allocations
-   boost::unordered_node_map:  3130 ms, 119276616 bytes in 5996681 allocations
-      poc_unordered_node_map:  3142 ms, 119276616 bytes in 5996681 allocations
-ankerl::unordered_dense::map:  4056 ms, 134217728 bytes in 2 allocations
-         absl::node_hash_map:  3617 ms, 123470912 bytes in 5996681 allocations
-         absl::flat_hash_map:  2590 ms,  75497472 bytes in 1 allocations
+          std::unordered_map:  7762 ms, 196600184 bytes in 5996681 allocations
+        boost::unordered_map:  4745 ms, 149424400 bytes in 5996682 allocations
+   boost::unordered_flat_map:  2109 ms,  71303176 bytes in 1 allocations
+   boost::unordered_node_map:  3139 ms, 119276616 bytes in 5996681 allocations
+      poc_unordered_node_map:  3121 ms, 119276616 bytes in 5996681 allocations
+ankerl::unordered_dense::map:  4057 ms, 134217728 bytes in 2 allocations
+         absl::node_hash_map:  3610 ms, 123470912 bytes in 5996681 allocations
+         absl::flat_hash_map:  2513 ms,  75497472 bytes in 1 allocations
 ```
 <!--clang-arm64/uint32.cpp.txt-->
 
 <!--clang-arm64/uint64.cpp.txt-->
 ```
 uint64.cpp
-          std::unordered_map:  7777 ms, 244679864 bytes in 6000001 allocations
-        boost::unordered_map:  5064 ms, 197477520 bytes in 6000002 allocations
-   boost::unordered_flat_map:  2095 ms, 134217728 bytes in 1 allocations
-   boost::unordered_node_map:  2979 ms, 167303176 bytes in 6000001 allocations
-      poc_unordered_node_map:  3037 ms, 167303176 bytes in 6000001 allocations
-ankerl::unordered_dense::map:  3726 ms, 201326592 bytes in 2 allocations
-         absl::node_hash_map:  4036 ms, 171497472 bytes in 6000001 allocations
+          std::unordered_map:  7757 ms, 244679864 bytes in 6000001 allocations
+        boost::unordered_map:  5054 ms, 197477520 bytes in 6000002 allocations
+   boost::unordered_flat_map:  2067 ms, 134217728 bytes in 1 allocations
+   boost::unordered_node_map:  3021 ms, 167303176 bytes in 6000001 allocations
+      poc_unordered_node_map:  3023 ms, 167303176 bytes in 6000001 allocations
+ankerl::unordered_dense::map:  3667 ms, 201326592 bytes in 2 allocations
+         absl::node_hash_map:  4014 ms, 171497472 bytes in 6000001 allocations
          absl::flat_hash_map:  3074 ms, 142606328 bytes in 1 allocations
 ```
 <!--clang-arm64/uint64.cpp.txt-->
@@ -463,50 +463,50 @@ ankerl::unordered_dense::map:  3726 ms, 201326592 bytes in 2 allocations
 <!--clang-arm64/uuid.cpp.txt-->
 ```
 uuid.cpp
-          std::unordered_map: 14994 ms, 292679864 bytes in 6000001 allocations
-        boost::unordered_map: 12445 ms, 245477520 bytes in 6000002 allocations
-   boost::unordered_flat_map:  4086 ms, 197132280 bytes in 1 allocations
-   boost::unordered_node_map:  5064 ms, 215303176 bytes in 6000001 allocations
-      poc_unordered_node_map:  5160 ms, 215303176 bytes in 6000001 allocations
-ankerl::unordered_dense::map:  7613 ms, 268435456 bytes in 2 allocations
-         absl::node_hash_map:  5892 ms, 219497472 bytes in 6000001 allocations
-         absl::flat_hash_map:  4865 ms, 209715184 bytes in 1 allocations
+          std::unordered_map: 15052 ms, 292679864 bytes in 6000001 allocations
+        boost::unordered_map: 12480 ms, 245477520 bytes in 6000002 allocations
+   boost::unordered_flat_map:  4061 ms, 197132280 bytes in 1 allocations
+   boost::unordered_node_map:  4940 ms, 215303176 bytes in 6000001 allocations
+      poc_unordered_node_map:  5182 ms, 215303176 bytes in 6000001 allocations
+ankerl::unordered_dense::map:  7692 ms, 268435456 bytes in 2 allocations
+         absl::node_hash_map:  5907 ms, 219497472 bytes in 6000001 allocations
+         absl::flat_hash_map:  4889 ms, 209715184 bytes in 1 allocations
 ```
 <!--clang-arm64/uuid.cpp.txt-->
 
 <!--clang-arm64/word_count.cpp.txt-->
 ```
 word_count.cpp
-                  std::unordered_map: 16841 ms,  69916096 bytes in 1418656 allocations
-                boost::unordered_map: 15019 ms,  58766384 bytes in 1418657 allocations
-           boost::unordered_flat_map:  7371 ms,  49283064 bytes in 1 allocations
-           boost::unordered_node_map:  8244 ms,  51873520 bytes in 1418656 allocations
-              poc_unordered_node_map:  8167 ms,  51873520 bytes in 1418656 allocations
-        ankerl::unordered_dense::map: 10994 ms,  67108864 bytes in 2 allocations
-                 absl::node_hash_map:  9208 ms,  52922088 bytes in 1418656 allocations
-                 absl::flat_hash_map:  8526 ms,  52428784 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 16293 ms,  69916096 bytes in 1418656 allocations
-        boost::unordered_map, FNV-1a: 14237 ms,  58766384 bytes in 1418657 allocations
-   boost::unordered_flat_map, FNV-1a:  7611 ms,  49283064 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a:  8514 ms,  51873520 bytes in 1418656 allocations
-      poc_unordered_node_map, FNV-1a:  8514 ms,  51873520 bytes in 1418656 allocations
-ankerl::unordered_dense::map, FNV-1a: 24340 ms,  67108864 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a:  8629 ms,  52922088 bytes in 1418656 allocations
-         absl::flat_hash_map, FNV-1a:  7564 ms,  52428784 bytes in 1 allocations
+                  std::unordered_map: 16884 ms,  69916096 bytes in 1418656 allocations
+                boost::unordered_map: 15033 ms,  58766384 bytes in 1418657 allocations
+           boost::unordered_flat_map:  7361 ms,  49283064 bytes in 1 allocations
+           boost::unordered_node_map:  8247 ms,  51873520 bytes in 1418656 allocations
+              poc_unordered_node_map:  8201 ms,  51873520 bytes in 1418656 allocations
+        ankerl::unordered_dense::map: 11013 ms,  67108864 bytes in 2 allocations
+                 absl::node_hash_map:  9227 ms,  52922088 bytes in 1418656 allocations
+                 absl::flat_hash_map:  8512 ms,  52428784 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 16228 ms,  69916096 bytes in 1418656 allocations
+        boost::unordered_map, FNV-1a: 14251 ms,  58766384 bytes in 1418657 allocations
+   boost::unordered_flat_map, FNV-1a:  7624 ms,  49283064 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a:  8499 ms,  51873520 bytes in 1418656 allocations
+      poc_unordered_node_map, FNV-1a:  8555 ms,  51873520 bytes in 1418656 allocations
+ankerl::unordered_dense::map, FNV-1a: 24324 ms,  67108864 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a:  8621 ms,  52922088 bytes in 1418656 allocations
+         absl::flat_hash_map, FNV-1a:  7793 ms,  52428784 bytes in 1 allocations
 ```
 <!--clang-arm64/word_count.cpp.txt-->
 
 <!--clang-arm64/word_size.cpp.txt-->
 ```
 word_size.cpp
-          std::unordered_map:   415 ms,      5192 bytes in 114 allocations
-        boost::unordered_map:   611 ms,      4392 bytes in 115 allocations
-   boost::unordered_flat_map:   496 ms,      4096 bytes in 1 allocations
-   boost::unordered_node_map:   551 ms,      3992 bytes in 114 allocations
-      poc_unordered_node_map:   538 ms,      3992 bytes in 114 allocations
-ankerl::unordered_dense::map:   398 ms,      4096 bytes in 2 allocations
-         absl::node_hash_map:   274 ms,      4112 bytes in 114 allocations
-         absl::flat_hash_map:   317 ms,      4344 bytes in 1 allocations
+          std::unordered_map:   516 ms,      5192 bytes in 114 allocations
+        boost::unordered_map:   608 ms,      4392 bytes in 115 allocations
+   boost::unordered_flat_map:   494 ms,      4096 bytes in 1 allocations
+   boost::unordered_node_map:   552 ms,      3992 bytes in 114 allocations
+      poc_unordered_node_map:   537 ms,      3992 bytes in 114 allocations
+ankerl::unordered_dense::map:   399 ms,      4096 bytes in 2 allocations
+         absl::node_hash_map:   273 ms,      4112 bytes in 114 allocations
+         absl::flat_hash_map:   318 ms,      4344 bytes in 1 allocations
 ```
 <!--clang-arm64/word_size.cpp.txt-->
 
@@ -515,107 +515,107 @@ ankerl::unordered_dense::map:   398 ms,      4096 bytes in 2 allocations
 <!--gcc-x86/string.cpp.txt-->
 ```
 string.cpp
-                  std::unordered_map: 30885 ms, 167851676 bytes in 3999509 allocations
-                boost::unordered_map: 22831 ms, 156295880 bytes in 3999510 allocations
-           boost::unordered_flat_map: 15601 ms, 228589564 bytes in 1 allocations
-           boost::unordered_node_map: 16339 ms, 151832124 bytes in 3999509 allocations
-              poc_unordered_node_map: 16155 ms, 151832124 bytes in 3999509 allocations
-        ankerl::unordered_dense::map: 25168 ms, 184549376 bytes in 2 allocations
-                 absl::node_hash_map: 17035 ms, 153929268 bytes in 3999509 allocations
-                 absl::flat_hash_map: 16889 ms, 243269612 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 34632 ms, 167851676 bytes in 3999509 allocations
-        boost::unordered_map, FNV-1a: 25581 ms, 156295880 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a: 17342 ms, 228589564 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 17856 ms, 151832124 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a: 17667 ms, 151832124 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 19614 ms, 184549376 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 17887 ms, 153929268 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a: 17780 ms, 243269612 bytes in 1 allocations
+                  std::unordered_map: 30851 ms, 167851676 bytes in 3999509 allocations
+                boost::unordered_map: 22733 ms, 156295880 bytes in 3999510 allocations
+           boost::unordered_flat_map: 15532 ms, 228589564 bytes in 1 allocations
+           boost::unordered_node_map: 16234 ms, 151832124 bytes in 3999509 allocations
+              poc_unordered_node_map: 16119 ms, 151832124 bytes in 3999509 allocations
+        ankerl::unordered_dense::map: 24409 ms, 184549376 bytes in 2 allocations
+                 absl::node_hash_map: 17075 ms, 153929268 bytes in 3999509 allocations
+                 absl::flat_hash_map: 16791 ms, 243269612 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 34499 ms, 167851676 bytes in 3999509 allocations
+        boost::unordered_map, FNV-1a: 25430 ms, 156295880 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a: 17077 ms, 228589564 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 17847 ms, 151832124 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a: 17674 ms, 151832124 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 18990 ms, 184549376 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 17944 ms, 153929268 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a: 17750 ms, 243269612 bytes in 1 allocations
 ```
 <!--gcc-x86/string.cpp.txt-->
 
 <!--gcc-x86/string_view.cpp.txt-->
 ```
 string_view.cpp
-                  std::unordered_map: 28363 ms, 103859548 bytes in 3999509 allocations
-                boost::unordered_map: 22706 ms,  92303752 bytes in 3999510 allocations
-           boost::unordered_flat_map: 15216 ms, 102760452 bytes in 1 allocations
-           boost::unordered_node_map: 15968 ms,  87839996 bytes in 3999509 allocations
-              poc_unordered_node_map: 16141 ms,  87839996 bytes in 3999509 allocations
-        ankerl::unordered_dense::map: 24643 ms, 117440512 bytes in 2 allocations
-                 absl::node_hash_map: 16906 ms,  89937140 bytes in 3999509 allocations
-                 absl::flat_hash_map: 16352 ms, 109051900 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 32195 ms, 103859548 bytes in 3999509 allocations
-        boost::unordered_map, FNV-1a: 25974 ms,  92303752 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a: 16571 ms, 102760452 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 17275 ms,  87839996 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a: 17481 ms,  87839996 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 19548 ms, 117440512 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 17658 ms,  89937140 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a: 17125 ms, 109051900 bytes in 1 allocations
+                  std::unordered_map: 28445 ms, 103859548 bytes in 3999509 allocations
+                boost::unordered_map: 22747 ms,  92303752 bytes in 3999510 allocations
+           boost::unordered_flat_map: 15045 ms, 102760452 bytes in 1 allocations
+           boost::unordered_node_map: 15924 ms,  87839996 bytes in 3999509 allocations
+              poc_unordered_node_map: 16149 ms,  87839996 bytes in 3999509 allocations
+        ankerl::unordered_dense::map: 24416 ms, 117440512 bytes in 2 allocations
+                 absl::node_hash_map: 16956 ms,  89937140 bytes in 3999509 allocations
+                 absl::flat_hash_map: 16386 ms, 109051900 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 32336 ms, 103859548 bytes in 3999509 allocations
+        boost::unordered_map, FNV-1a: 26027 ms,  92303752 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a: 16601 ms, 102760452 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 17347 ms,  87839996 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a: 17597 ms,  87839996 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 19422 ms, 117440512 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 17661 ms,  89937140 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a: 17101 ms, 109051900 bytes in 1 allocations
 ```
 <!--gcc-x86/string_view.cpp.txt-->
 
 <!--gcc-x86/uint32.cpp.txt-->
 ```
 uint32.cpp
-          std::unordered_map: 10915 ms, 120430916 bytes in 5996681 allocations
-        boost::unordered_map: 11256 ms, 100271784 bytes in 5996682 allocations
-   boost::unordered_flat_map:  8635 ms,  71303176 bytes in 1 allocations
-   boost::unordered_node_map: 10853 ms,  87819340 bytes in 5996681 allocations
-      poc_unordered_node_map: 10847 ms,  87819340 bytes in 5996681 allocations
-ankerl::unordered_dense::map: 12559 ms, 134217728 bytes in 2 allocations
-         absl::node_hash_map: 13824 ms,  89916484 bytes in 5996681 allocations
-         absl::flat_hash_map: 12110 ms,  75497472 bytes in 1 allocations
+          std::unordered_map: 10859 ms, 120430916 bytes in 5996681 allocations
+        boost::unordered_map: 11188 ms, 100271784 bytes in 5996682 allocations
+   boost::unordered_flat_map:  8576 ms,  71303176 bytes in 1 allocations
+   boost::unordered_node_map: 10828 ms,  87819340 bytes in 5996681 allocations
+      poc_unordered_node_map: 10833 ms,  87819340 bytes in 5996681 allocations
+ankerl::unordered_dense::map: 12372 ms, 134217728 bytes in 2 allocations
+         absl::node_hash_map: 13795 ms,  89916484 bytes in 5996681 allocations
+         absl::flat_hash_map: 11991 ms,  75497472 bytes in 1 allocations
 ```
 <!--gcc-x86/uint32.cpp.txt-->
 
 <!--gcc-x86/uint64.cpp.txt-->
 ```
 uint64.cpp
-        boost::unordered_map: 17786 ms, 148311624 bytes in 6000002 allocations
-   boost::unordered_flat_map: 10773 ms, 134217728 bytes in 1 allocations
-   boost::unordered_node_map: 12532 ms, 135845900 bytes in 6000001 allocations
-      poc_unordered_node_map: 12527 ms, 135845900 bytes in 6000001 allocations
-ankerl::unordered_dense::map: 14956 ms, 201326592 bytes in 2 allocations
-         absl::node_hash_map: 14605 ms, 137943044 bytes in 6000001 allocations
-         absl::flat_hash_map: 13649 ms, 142606328 bytes in 1 allocations
+        boost::unordered_map: 17752 ms, 148311624 bytes in 6000002 allocations
+   boost::unordered_flat_map: 10819 ms, 134217728 bytes in 1 allocations
+   boost::unordered_node_map: 12530 ms, 135845900 bytes in 6000001 allocations
+      poc_unordered_node_map: 12505 ms, 135845900 bytes in 6000001 allocations
+ankerl::unordered_dense::map: 15110 ms, 201326592 bytes in 2 allocations
+         absl::node_hash_map: 14667 ms, 137943044 bytes in 6000001 allocations
+         absl::flat_hash_map: 13872 ms, 142606328 bytes in 1 allocations
 ```
 <!--gcc-x86/uint64.cpp.txt-->
 
 <!--gcc-x86/uuid.cpp.txt-->
 ```
 uuid.cpp
-          std::unordered_map: 33727 ms, 216470756 bytes in 6000001 allocations
-        boost::unordered_map: 30924 ms, 196311624 bytes in 6000002 allocations
-   boost::unordered_flat_map: 16424 ms, 197132280 bytes in 1 allocations
-   boost::unordered_node_map: 17855 ms, 183845900 bytes in 6000001 allocations
-      poc_unordered_node_map: 17643 ms, 183845900 bytes in 6000001 allocations
-ankerl::unordered_dense::map: 20589 ms, 268435456 bytes in 2 allocations
-         absl::node_hash_map: 20182 ms, 185943044 bytes in 6000001 allocations
-         absl::flat_hash_map: 18743 ms, 209715184 bytes in 1 allocations
+          std::unordered_map: 33757 ms, 216470756 bytes in 6000001 allocations
+        boost::unordered_map: 30907 ms, 196311624 bytes in 6000002 allocations
+   boost::unordered_flat_map: 16467 ms, 197132280 bytes in 1 allocations
+   boost::unordered_node_map: 17835 ms, 183845900 bytes in 6000001 allocations
+      poc_unordered_node_map: 17674 ms, 183845900 bytes in 6000001 allocations
+ankerl::unordered_dense::map: 20639 ms, 268435456 bytes in 2 allocations
+         absl::node_hash_map: 20432 ms, 185943044 bytes in 6000001 allocations
+         absl::flat_hash_map: 18575 ms, 209715184 bytes in 1 allocations
 ```
 <!--gcc-x86/uuid.cpp.txt-->
 
 <!--gcc-x86/word_count.cpp.txt-->
 ```
 word_count.cpp
-                  std::unordered_map:  2001 ms,   9931428 bytes in 354033 allocations
-                boost::unordered_map:  1989 ms,   7434104 bytes in 354034 allocations
-           boost::unordered_flat_map:  1342 ms,   6422532 bytes in 1 allocations
+                  std::unordered_map:  1943 ms,   9931428 bytes in 354033 allocations
+                boost::unordered_map:  1990 ms,   7434104 bytes in 354034 allocations
+           boost::unordered_flat_map:  1333 ms,   6422532 bytes in 1 allocations
            boost::unordered_node_map:  1453 ms,   6738764 bytes in 354033 allocations
-              poc_unordered_node_map:  1448 ms,   6738764 bytes in 354033 allocations
-        ankerl::unordered_dense::map:  1899 ms,  10485760 bytes in 2 allocations
-                 absl::node_hash_map:  1582 ms,   6869828 bytes in 354033 allocations
-                 absl::flat_hash_map:  1476 ms,   6815740 bytes in 1 allocations
-          std::unordered_map, FNV-1a:  1805 ms,   9931428 bytes in 354033 allocations
-        boost::unordered_map, FNV-1a:  1858 ms,   7434104 bytes in 354034 allocations
-   boost::unordered_flat_map, FNV-1a:  1224 ms,   6422532 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a:  1326 ms,   6738764 bytes in 354033 allocations
-      poc_unordered_node_map, FNV-1a:  1337 ms,   6738764 bytes in 354033 allocations
-ankerl::unordered_dense::map, FNV-1a:  1497 ms,  10485760 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a:  1486 ms,   6869828 bytes in 354033 allocations
-         absl::flat_hash_map, FNV-1a:  1351 ms,   6815740 bytes in 1 allocations
+              poc_unordered_node_map:  1449 ms,   6738764 bytes in 354033 allocations
+        ankerl::unordered_dense::map:  1886 ms,  10485760 bytes in 2 allocations
+                 absl::node_hash_map:  1576 ms,   6869828 bytes in 354033 allocations
+                 absl::flat_hash_map:  1471 ms,   6815740 bytes in 1 allocations
+          std::unordered_map, FNV-1a:  1807 ms,   9931428 bytes in 354033 allocations
+        boost::unordered_map, FNV-1a:  1859 ms,   7434104 bytes in 354034 allocations
+   boost::unordered_flat_map, FNV-1a:  1214 ms,   6422532 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a:  1327 ms,   6738764 bytes in 354033 allocations
+      poc_unordered_node_map, FNV-1a:  1335 ms,   6738764 bytes in 354033 allocations
+ankerl::unordered_dense::map, FNV-1a:  1496 ms,  10485760 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a:  1477 ms,   6869828 bytes in 354033 allocations
+         absl::flat_hash_map, FNV-1a:  1335 ms,   6815740 bytes in 1 allocations
 ```
 <!--gcc-x86/word_count.cpp.txt-->
 
@@ -625,11 +625,11 @@ word_size.cpp
           std::unordered_map:   106 ms,       932 bytes in 59 allocations
         boost::unordered_map:   109 ms,      1152 bytes in 60 allocations
    boost::unordered_flat_map:   123 ms,      1096 bytes in 1 allocations
-   boost::unordered_node_map:   144 ms,      1084 bytes in 59 allocations
-      poc_unordered_node_map:   134 ms,      1084 bytes in 59 allocations
+   boost::unordered_node_map:   138 ms,      1084 bytes in 59 allocations
+      poc_unordered_node_map:   140 ms,      1084 bytes in 59 allocations
 ankerl::unordered_dense::map:   163 ms,      1536 bytes in 2 allocations
          absl::node_hash_map:   154 ms,      1108 bytes in 59 allocations
-         absl::flat_hash_map:   133 ms,      1152 bytes in 1 allocations
+         absl::flat_hash_map:   137 ms,      1152 bytes in 1 allocations
 ```
 <!--gcc-x86/word_size.cpp.txt-->
 
@@ -637,107 +637,107 @@ ankerl::unordered_dense::map:   163 ms,      1536 bytes in 2 allocations
 <!--clang-x86/string.cpp.txt-->
 ```
 string.cpp
-                  std::unordered_map: 32228 ms, 167851676 bytes in 3999509 allocations
-                boost::unordered_map: 22597 ms, 156295880 bytes in 3999510 allocations
-           boost::unordered_flat_map: 16779 ms, 228589564 bytes in 1 allocations
-           boost::unordered_node_map: 17082 ms, 151832124 bytes in 3999509 allocations
-              poc_unordered_node_map: 16964 ms, 151832124 bytes in 3999509 allocations
-        ankerl::unordered_dense::map: 19959 ms, 184549376 bytes in 2 allocations
-                 absl::node_hash_map: 20430 ms, 153929268 bytes in 3999509 allocations
-                 absl::flat_hash_map: 20569 ms, 243269612 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 32352 ms, 167851676 bytes in 3999509 allocations
-        boost::unordered_map, FNV-1a: 25342 ms, 156295880 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a: 15910 ms, 228589564 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 16287 ms, 151832124 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a: 16181 ms, 151832124 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 20096 ms, 184549376 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 18933 ms, 153929268 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a: 18642 ms, 243269612 bytes in 1 allocations
+                  std::unordered_map: 32301 ms, 167851676 bytes in 3999509 allocations
+                boost::unordered_map: 22640 ms, 156295880 bytes in 3999510 allocations
+           boost::unordered_flat_map: 16630 ms, 228589564 bytes in 1 allocations
+           boost::unordered_node_map: 17105 ms, 151832124 bytes in 3999509 allocations
+              poc_unordered_node_map: 17047 ms, 151832124 bytes in 3999509 allocations
+        ankerl::unordered_dense::map: 20001 ms, 184549376 bytes in 2 allocations
+                 absl::node_hash_map: 20456 ms, 153929268 bytes in 3999509 allocations
+                 absl::flat_hash_map: 20549 ms, 243269612 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 32403 ms, 167851676 bytes in 3999509 allocations
+        boost::unordered_map, FNV-1a: 25338 ms, 156295880 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a: 15833 ms, 228589564 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 16288 ms, 151832124 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a: 16182 ms, 151832124 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 20124 ms, 184549376 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 18968 ms, 153929268 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a: 18622 ms, 243269612 bytes in 1 allocations
 ```
 <!--clang-x86/string.cpp.txt-->
 
 <!--clang-x86/string_view.cpp.txt-->
 ```
 string_view.cpp
-                  std::unordered_map: 30501 ms, 103859548 bytes in 3999509 allocations
-                boost::unordered_map: 22748 ms,  92303752 bytes in 3999510 allocations
-           boost::unordered_flat_map: 15139 ms, 102760452 bytes in 1 allocations
-           boost::unordered_node_map: 16248 ms,  87839996 bytes in 3999509 allocations
-              poc_unordered_node_map: 16478 ms,  87839996 bytes in 3999509 allocations
-        ankerl::unordered_dense::map: 19770 ms, 117440512 bytes in 2 allocations
-                 absl::node_hash_map: 20340 ms,  89937140 bytes in 3999509 allocations
-                 absl::flat_hash_map: 19992 ms, 109051900 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 30441 ms, 103859548 bytes in 3999509 allocations
-        boost::unordered_map, FNV-1a: 22442 ms,  92303752 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a: 15566 ms, 102760452 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 16449 ms,  87839996 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a: 16667 ms,  87839996 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 19754 ms, 117440512 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 18727 ms,  89937140 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a: 18431 ms, 109051900 bytes in 1 allocations
+                  std::unordered_map: 30378 ms, 103859548 bytes in 3999509 allocations
+                boost::unordered_map: 22659 ms,  92303752 bytes in 3999510 allocations
+           boost::unordered_flat_map: 15102 ms, 102760452 bytes in 1 allocations
+           boost::unordered_node_map: 16193 ms,  87839996 bytes in 3999509 allocations
+              poc_unordered_node_map: 16490 ms,  87839996 bytes in 3999509 allocations
+        ankerl::unordered_dense::map: 19645 ms, 117440512 bytes in 2 allocations
+                 absl::node_hash_map: 20335 ms,  89937140 bytes in 3999509 allocations
+                 absl::flat_hash_map: 19921 ms, 109051900 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 30340 ms, 103859548 bytes in 3999509 allocations
+        boost::unordered_map, FNV-1a: 22366 ms,  92303752 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a: 15473 ms, 102760452 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 16407 ms,  87839996 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a: 16658 ms,  87839996 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 19633 ms, 117440512 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 18787 ms,  89937140 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a: 18416 ms, 109051900 bytes in 1 allocations
 ```
 <!--clang-x86/string_view.cpp.txt-->
 
 <!--clang-x86/uint32.cpp.txt-->
 ```
 uint32.cpp
-          std::unordered_map: 10946 ms, 120430916 bytes in 5996681 allocations
-        boost::unordered_map:  9941 ms, 100271784 bytes in 5996682 allocations
-   boost::unordered_flat_map:  8714 ms,  71303176 bytes in 1 allocations
-   boost::unordered_node_map: 10756 ms,  87819340 bytes in 5996681 allocations
-      poc_unordered_node_map: 10811 ms,  87819340 bytes in 5996681 allocations
-ankerl::unordered_dense::map: 10719 ms, 134217728 bytes in 2 allocations
-         absl::node_hash_map: 13260 ms,  89916484 bytes in 5996681 allocations
-         absl::flat_hash_map: 11699 ms,  75497472 bytes in 1 allocations
+          std::unordered_map: 10914 ms, 120430916 bytes in 5996681 allocations
+        boost::unordered_map:  9946 ms, 100271784 bytes in 5996682 allocations
+   boost::unordered_flat_map:  8681 ms,  71303176 bytes in 1 allocations
+   boost::unordered_node_map: 10702 ms,  87819340 bytes in 5996681 allocations
+      poc_unordered_node_map: 10688 ms,  87819340 bytes in 5996681 allocations
+ankerl::unordered_dense::map: 10658 ms, 134217728 bytes in 2 allocations
+         absl::node_hash_map: 13073 ms,  89916484 bytes in 5996681 allocations
+         absl::flat_hash_map: 11641 ms,  75497472 bytes in 1 allocations
 ```
 <!--clang-x86/uint32.cpp.txt-->
 
 <!--clang-x86/uint64.cpp.txt-->
 ```
 uint64.cpp
-        boost::unordered_map: 15917 ms, 148311624 bytes in 6000002 allocations
-   boost::unordered_flat_map: 11282 ms, 134217728 bytes in 1 allocations
-   boost::unordered_node_map: 12880 ms, 135845900 bytes in 6000001 allocations
-      poc_unordered_node_map: 12814 ms, 135845900 bytes in 6000001 allocations
-ankerl::unordered_dense::map: 18869 ms, 201326592 bytes in 2 allocations
-         absl::node_hash_map: 14276 ms, 137943044 bytes in 6000001 allocations
-         absl::flat_hash_map: 12313 ms, 142606328 bytes in 1 allocations
+        boost::unordered_map: 15971 ms, 148311624 bytes in 6000002 allocations
+   boost::unordered_flat_map: 11274 ms, 134217728 bytes in 1 allocations
+   boost::unordered_node_map: 12895 ms, 135845900 bytes in 6000001 allocations
+      poc_unordered_node_map: 12837 ms, 135845900 bytes in 6000001 allocations
+ankerl::unordered_dense::map: 19004 ms, 201326592 bytes in 2 allocations
+         absl::node_hash_map: 14337 ms, 137943044 bytes in 6000001 allocations
+         absl::flat_hash_map: 12411 ms, 142606328 bytes in 1 allocations
 ```
 <!--clang-x86/uint64.cpp.txt-->
 
 <!--clang-x86/uuid.cpp.txt-->
 ```
 uuid.cpp
-          std::unordered_map: 40952 ms, 216470756 bytes in 6000001 allocations
-        boost::unordered_map: 34810 ms, 196311624 bytes in 6000002 allocations
-   boost::unordered_flat_map: 16868 ms, 197132280 bytes in 1 allocations
-   boost::unordered_node_map: 18598 ms, 183845900 bytes in 6000001 allocations
-      poc_unordered_node_map: 18517 ms, 183845900 bytes in 6000001 allocations
-ankerl::unordered_dense::map: 22225 ms, 268435456 bytes in 2 allocations
-         absl::node_hash_map: 23231 ms, 185943044 bytes in 6000001 allocations
-         absl::flat_hash_map: 22093 ms, 209715184 bytes in 1 allocations
+          std::unordered_map: 41051 ms, 216470756 bytes in 6000001 allocations
+        boost::unordered_map: 34746 ms, 196311624 bytes in 6000002 allocations
+   boost::unordered_flat_map: 16863 ms, 197132280 bytes in 1 allocations
+   boost::unordered_node_map: 18577 ms, 183845900 bytes in 6000001 allocations
+      poc_unordered_node_map: 18501 ms, 183845900 bytes in 6000001 allocations
+ankerl::unordered_dense::map: 22306 ms, 268435456 bytes in 2 allocations
+         absl::node_hash_map: 23263 ms, 185943044 bytes in 6000001 allocations
+         absl::flat_hash_map: 22220 ms, 209715184 bytes in 1 allocations
 ```
 <!--clang-x86/uuid.cpp.txt-->
 
 <!--clang-x86/word_count.cpp.txt-->
 ```
 word_count.cpp
-                  std::unordered_map:  2163 ms,   9931428 bytes in 354033 allocations
-                boost::unordered_map:  2035 ms,   7434104 bytes in 354034 allocations
-           boost::unordered_flat_map:  1350 ms,   6422532 bytes in 1 allocations
-           boost::unordered_node_map:  1441 ms,   6738764 bytes in 354033 allocations
-              poc_unordered_node_map:  1443 ms,   6738764 bytes in 354033 allocations
-        ankerl::unordered_dense::map:  2018 ms,  10485760 bytes in 2 allocations
-                 absl::node_hash_map:  1978 ms,   6869828 bytes in 354033 allocations
-                 absl::flat_hash_map:  1891 ms,   6815740 bytes in 1 allocations
-          std::unordered_map, FNV-1a:  1825 ms,   9931428 bytes in 354033 allocations
-        boost::unordered_map, FNV-1a:  1999 ms,   7434104 bytes in 354034 allocations
-   boost::unordered_flat_map, FNV-1a:  1287 ms,   6422532 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a:  1385 ms,   6738764 bytes in 354033 allocations
-      poc_unordered_node_map, FNV-1a:  1391 ms,   6738764 bytes in 354033 allocations
-ankerl::unordered_dense::map, FNV-1a:  1685 ms,  10485760 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a:  1655 ms,   6869828 bytes in 354033 allocations
-         absl::flat_hash_map, FNV-1a:  1583 ms,   6815740 bytes in 1 allocations
+                  std::unordered_map:  2120 ms,   9931428 bytes in 354033 allocations
+                boost::unordered_map:  2024 ms,   7434104 bytes in 354034 allocations
+           boost::unordered_flat_map:  1408 ms,   6422532 bytes in 1 allocations
+           boost::unordered_node_map:  1419 ms,   6738764 bytes in 354033 allocations
+              poc_unordered_node_map:  1418 ms,   6738764 bytes in 354033 allocations
+        ankerl::unordered_dense::map:  2012 ms,  10485760 bytes in 2 allocations
+                 absl::node_hash_map:  1939 ms,   6869828 bytes in 354033 allocations
+                 absl::flat_hash_map:  1883 ms,   6815740 bytes in 1 allocations
+          std::unordered_map, FNV-1a:  1798 ms,   9931428 bytes in 354033 allocations
+        boost::unordered_map, FNV-1a:  1972 ms,   7434104 bytes in 354034 allocations
+   boost::unordered_flat_map, FNV-1a:  1284 ms,   6422532 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a:  1370 ms,   6738764 bytes in 354033 allocations
+      poc_unordered_node_map, FNV-1a:  1376 ms,   6738764 bytes in 354033 allocations
+ankerl::unordered_dense::map, FNV-1a:  1675 ms,  10485760 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a:  1647 ms,   6869828 bytes in 354033 allocations
+         absl::flat_hash_map, FNV-1a:  1580 ms,   6815740 bytes in 1 allocations
 ```
 <!--clang-x86/word_count.cpp.txt-->
 
@@ -745,12 +745,12 @@ ankerl::unordered_dense::map, FNV-1a:  1685 ms,  10485760 bytes in 2 allocations
 ```
 word_size.cpp
           std::unordered_map:   106 ms,       932 bytes in 59 allocations
-        boost::unordered_map:   148 ms,      1152 bytes in 60 allocations
-   boost::unordered_flat_map:   128 ms,      1096 bytes in 1 allocations
-   boost::unordered_node_map:   128 ms,      1084 bytes in 59 allocations
+        boost::unordered_map:   147 ms,      1152 bytes in 60 allocations
+   boost::unordered_flat_map:   127 ms,      1096 bytes in 1 allocations
+   boost::unordered_node_map:   127 ms,      1084 bytes in 59 allocations
       poc_unordered_node_map:   127 ms,      1084 bytes in 59 allocations
 ankerl::unordered_dense::map:   182 ms,      1536 bytes in 2 allocations
-         absl::node_hash_map:   186 ms,      1108 bytes in 59 allocations
+         absl::node_hash_map:   185 ms,      1108 bytes in 59 allocations
          absl::flat_hash_map:   128 ms,      1152 bytes in 1 allocations
 ```
 <!--clang-x86/word_size.cpp.txt-->
@@ -759,121 +759,121 @@ ankerl::unordered_dense::map:   182 ms,      1536 bytes in 2 allocations
 <!--vs-x86/string.cpp.txt-->
 ```
 string.cpp
-                  std::unordered_map: 37126 ms, 177536756 bytes in 3999510 allocations
-                boost::unordered_map: 37354 ms, 156295880 bytes in 3999510 allocations
-           boost::unordered_flat_map: 23671 ms, 228589564 bytes in 1 allocations
-           boost::unordered_node_map: 22200 ms, 151832124 bytes in 3999509 allocations
-              poc_unordered_node_map: 22423 ms, 151832124 bytes in 3999509 allocations
-        ankerl::unordered_dense::map: 31668 ms, 215927716 bytes in 2 allocations
-                 absl::node_hash_map: 32360 ms, 153929276 bytes in 3999509 allocations
-                 absl::flat_hash_map: 33160 ms, 243269620 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 36017 ms, 177536756 bytes in 3999510 allocations
-        boost::unordered_map, FNV-1a: 35924 ms, 156295880 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a: 23341 ms, 228589564 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 22182 ms, 151832124 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a: 22190 ms, 151832124 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 24063 ms, 215927716 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 27786 ms, 153929276 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a: 29560 ms, 243269620 bytes in 1 allocations
+                  std::unordered_map: 37148 ms, 177536756 bytes in 3999510 allocations
+                boost::unordered_map: 36569 ms, 156295880 bytes in 3999510 allocations
+           boost::unordered_flat_map: 23367 ms, 228589564 bytes in 1 allocations
+           boost::unordered_node_map: 22562 ms, 151832124 bytes in 3999509 allocations
+              poc_unordered_node_map: 22207 ms, 151832124 bytes in 3999509 allocations
+        ankerl::unordered_dense::map: 31283 ms, 215927716 bytes in 2 allocations
+                 absl::node_hash_map: 32038 ms, 153929276 bytes in 3999509 allocations
+                 absl::flat_hash_map: 33173 ms, 243269620 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 35476 ms, 177536756 bytes in 3999510 allocations
+        boost::unordered_map, FNV-1a: 36079 ms, 156295880 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a: 23463 ms, 228589564 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 22343 ms, 151832124 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a: 22228 ms, 151832124 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 24347 ms, 215927716 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 27555 ms, 153929276 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a: 29290 ms, 243269620 bytes in 1 allocations
 ```
 <!--vs-x86/string.cpp.txt-->
 
 <!--vs-x86/string_view.cpp.txt-->
 ```
 string_view.cpp
-                  std::unordered_map: 32996 ms, 113544612 bytes in 3999510 allocations
-                boost::unordered_map: 33801 ms,  92303752 bytes in 3999510 allocations
-           boost::unordered_flat_map: 19447 ms, 102760452 bytes in 1 allocations
-           boost::unordered_node_map: 21171 ms,  87839996 bytes in 3999509 allocations
-              poc_unordered_node_map: 20882 ms,  87839996 bytes in 3999509 allocations
-        ankerl::unordered_dense::map: 29378 ms, 130888372 bytes in 2 allocations
-                 absl::node_hash_map: 30655 ms,  89937148 bytes in 3999509 allocations
-                 absl::flat_hash_map: 28391 ms, 109051908 bytes in 1 allocations
-          std::unordered_map, FNV-1a: 32694 ms, 113544612 bytes in 3999510 allocations
-        boost::unordered_map, FNV-1a: 34434 ms,  92303752 bytes in 3999510 allocations
-   boost::unordered_flat_map, FNV-1a: 19911 ms, 102760452 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a: 21302 ms,  87839996 bytes in 3999509 allocations
-      poc_unordered_node_map, FNV-1a: 21069 ms,  87839996 bytes in 3999509 allocations
-ankerl::unordered_dense::map, FNV-1a: 22666 ms, 130888372 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a: 26958 ms,  89937148 bytes in 3999509 allocations
-         absl::flat_hash_map, FNV-1a: 24813 ms, 109051908 bytes in 1 allocations
+                  std::unordered_map: 32895 ms, 113544612 bytes in 3999510 allocations
+                boost::unordered_map: 33727 ms,  92303752 bytes in 3999510 allocations
+           boost::unordered_flat_map: 19466 ms, 102760452 bytes in 1 allocations
+           boost::unordered_node_map: 21005 ms,  87839996 bytes in 3999509 allocations
+              poc_unordered_node_map: 20694 ms,  87839996 bytes in 3999509 allocations
+        ankerl::unordered_dense::map: 29350 ms, 130888372 bytes in 2 allocations
+                 absl::node_hash_map: 30329 ms,  89937148 bytes in 3999509 allocations
+                 absl::flat_hash_map: 28318 ms, 109051908 bytes in 1 allocations
+          std::unordered_map, FNV-1a: 33116 ms, 113544612 bytes in 3999510 allocations
+        boost::unordered_map, FNV-1a: 34064 ms,  92303752 bytes in 3999510 allocations
+   boost::unordered_flat_map, FNV-1a: 20066 ms, 102760452 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a: 21340 ms,  87839996 bytes in 3999509 allocations
+      poc_unordered_node_map, FNV-1a: 21270 ms,  87839996 bytes in 3999509 allocations
+ankerl::unordered_dense::map, FNV-1a: 22817 ms, 130888372 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a: 26972 ms,  89937148 bytes in 3999509 allocations
+         absl::flat_hash_map, FNV-1a: 25317 ms, 109051908 bytes in 1 allocations
 ```
 <!--vs-x86/string_view.cpp.txt-->
 
 <!--vs-x86/uint32.cpp.txt-->
 ```
 uint32.cpp
-          std::unordered_map: 19695 ms, 163055760 bytes in 5996682 allocations
-        boost::unordered_map: 13740 ms, 100271784 bytes in 5996682 allocations
-   boost::unordered_flat_map:  9793 ms,  71303176 bytes in 1 allocations
-   boost::unordered_node_map: 12545 ms,  87819340 bytes in 5996681 allocations
-      poc_unordered_node_map: 12540 ms,  87819340 bytes in 5996681 allocations
-ankerl::unordered_dense::map: 16816 ms, 130888368 bytes in 2 allocations
-         absl::node_hash_map: 17736 ms,  89916492 bytes in 5996681 allocations
-         absl::flat_hash_map: 13699 ms,  75497480 bytes in 1 allocations
+          std::unordered_map: 20507 ms, 163055760 bytes in 5996682 allocations
+        boost::unordered_map: 13639 ms, 100271784 bytes in 5996682 allocations
+   boost::unordered_flat_map:  9711 ms,  71303176 bytes in 1 allocations
+   boost::unordered_node_map: 12692 ms,  87819340 bytes in 5996681 allocations
+      poc_unordered_node_map: 12653 ms,  87819340 bytes in 5996681 allocations
+ankerl::unordered_dense::map: 17282 ms, 130888368 bytes in 2 allocations
+         absl::node_hash_map: 17889 ms,  89916492 bytes in 5996681 allocations
+         absl::flat_hash_map: 13690 ms,  75497480 bytes in 1 allocations
 ```
 <!--vs-x86/uint32.cpp.txt-->
 
 <!--vs-x86/uint64.cpp.txt-->
 ```
 uint64.cpp
-          std::unordered_map: 24877 ms, 211108888 bytes in 6000002 allocations
-        boost::unordered_map: 26671 ms, 172311624 bytes in 6000002 allocations
-   boost::unordered_flat_map: 13132 ms, 134217728 bytes in 1 allocations
-   boost::unordered_node_map: 14453 ms, 135845900 bytes in 6000001 allocations
-      poc_unordered_node_map: 14722 ms, 135845900 bytes in 6000001 allocations
-ankerl::unordered_dense::map: 21008 ms, 194667872 bytes in 2 allocations
-         absl::node_hash_map: 21197 ms, 137943052 bytes in 6000001 allocations
-         absl::flat_hash_map: 19191 ms, 142606336 bytes in 1 allocations
+          std::unordered_map: 24684 ms, 211108888 bytes in 6000002 allocations
+        boost::unordered_map: 26179 ms, 172311624 bytes in 6000002 allocations
+   boost::unordered_flat_map: 12695 ms, 134217728 bytes in 1 allocations
+   boost::unordered_node_map: 14271 ms, 135845900 bytes in 6000001 allocations
+      poc_unordered_node_map: 14374 ms, 135845900 bytes in 6000001 allocations
+ankerl::unordered_dense::map: 20667 ms, 194667872 bytes in 2 allocations
+         absl::node_hash_map: 21773 ms, 137943052 bytes in 6000001 allocations
+         absl::flat_hash_map: 18754 ms, 142606336 bytes in 1 allocations
 ```
 <!--vs-x86/uint64.cpp.txt-->
 
 <!--vs-x86/uuid.cpp.txt-->
 ```
 uuid.cpp
-          std::unordered_map: 35867 ms, 259108896 bytes in 6000002 allocations
-        boost::unordered_map: 43347 ms, 220311624 bytes in 6000002 allocations
-   boost::unordered_flat_map: 22018 ms, 197132280 bytes in 1 allocations
-   boost::unordered_node_map: 22312 ms, 183845900 bytes in 6000001 allocations
-      poc_unordered_node_map: 22263 ms, 183845900 bytes in 6000001 allocations
-ankerl::unordered_dense::map: 31724 ms, 258447376 bytes in 2 allocations
-         absl::node_hash_map: 40272 ms, 185943052 bytes in 6000001 allocations
-         absl::flat_hash_map: 40489 ms, 209715192 bytes in 1 allocations
+          std::unordered_map: 35642 ms, 259108896 bytes in 6000002 allocations
+        boost::unordered_map: 43499 ms, 220311624 bytes in 6000002 allocations
+   boost::unordered_flat_map: 21726 ms, 197132280 bytes in 1 allocations
+   boost::unordered_node_map: 22086 ms, 183845900 bytes in 6000001 allocations
+      poc_unordered_node_map: 21982 ms, 183845900 bytes in 6000001 allocations
+ankerl::unordered_dense::map: 31527 ms, 258447376 bytes in 2 allocations
+         absl::node_hash_map: 39944 ms, 185943052 bytes in 6000001 allocations
+         absl::flat_hash_map: 40579 ms, 209715192 bytes in 1 allocations
 ```
 <!--vs-x86/uuid.cpp.txt-->
 
 <!--vs-x86/word_count.cpp.txt-->
 ```
 word_count.cpp
-                  std::unordered_map:  2754 ms,  11274964 bytes in 354034 allocations
-                boost::unordered_map:  3070 ms,   7434104 bytes in 354034 allocations
-           boost::unordered_flat_map:  1648 ms,   6422532 bytes in 1 allocations
-           boost::unordered_node_map:  1912 ms,   6738764 bytes in 354033 allocations
-              poc_unordered_node_map:  2038 ms,   6738764 bytes in 354033 allocations
-        ankerl::unordered_dense::map:  3985 ms,   9793612 bytes in 2 allocations
-                 absl::node_hash_map:  2915 ms,   6869836 bytes in 354033 allocations
-                 absl::flat_hash_map:  2533 ms,   6815748 bytes in 1 allocations
-          std::unordered_map, FNV-1a:  2622 ms,  11274964 bytes in 354034 allocations
-        boost::unordered_map, FNV-1a:  2835 ms,   7434104 bytes in 354034 allocations
-   boost::unordered_flat_map, FNV-1a:  1396 ms,   6422532 bytes in 1 allocations
-   boost::unordered_node_map, FNV-1a:  1738 ms,   6738764 bytes in 354033 allocations
-      poc_unordered_node_map, FNV-1a:  1779 ms,   6738764 bytes in 354033 allocations
-ankerl::unordered_dense::map, FNV-1a:  2163 ms,   9793612 bytes in 2 allocations
-         absl::node_hash_map, FNV-1a:  2189 ms,   6869836 bytes in 354033 allocations
-         absl::flat_hash_map, FNV-1a:  1914 ms,   6815748 bytes in 1 allocations
+                  std::unordered_map:  2693 ms,  11274964 bytes in 354034 allocations
+                boost::unordered_map:  2990 ms,   7434104 bytes in 354034 allocations
+           boost::unordered_flat_map:  1628 ms,   6422532 bytes in 1 allocations
+           boost::unordered_node_map:  1911 ms,   6738764 bytes in 354033 allocations
+              poc_unordered_node_map:  1939 ms,   6738764 bytes in 354033 allocations
+        ankerl::unordered_dense::map:  3929 ms,   9793612 bytes in 2 allocations
+                 absl::node_hash_map:  2963 ms,   6869836 bytes in 354033 allocations
+                 absl::flat_hash_map:  2448 ms,   6815748 bytes in 1 allocations
+          std::unordered_map, FNV-1a:  2562 ms,  11274964 bytes in 354034 allocations
+        boost::unordered_map, FNV-1a:  2811 ms,   7434104 bytes in 354034 allocations
+   boost::unordered_flat_map, FNV-1a:  1363 ms,   6422532 bytes in 1 allocations
+   boost::unordered_node_map, FNV-1a:  1750 ms,   6738764 bytes in 354033 allocations
+      poc_unordered_node_map, FNV-1a:  1667 ms,   6738764 bytes in 354033 allocations
+ankerl::unordered_dense::map, FNV-1a:  2067 ms,   9793612 bytes in 2 allocations
+         absl::node_hash_map, FNV-1a:  2104 ms,   6869836 bytes in 354033 allocations
+         absl::flat_hash_map, FNV-1a:  1810 ms,   6815748 bytes in 1 allocations
 ```
 <!--vs-x86/word_count.cpp.txt-->
 
 <!--vs-x86/word_size.cpp.txt-->
 ```
 word_size.cpp
-          std::unordered_map:   160 ms,      1456 bytes in 60 allocations
-        boost::unordered_map:   229 ms,      1152 bytes in 60 allocations
-   boost::unordered_flat_map:   123 ms,      1096 bytes in 1 allocations
-   boost::unordered_node_map:   128 ms,      1084 bytes in 59 allocations
-      poc_unordered_node_map:   120 ms,      1084 bytes in 59 allocations
-ankerl::unordered_dense::map:   164 ms,      1528 bytes in 2 allocations
-         absl::node_hash_map:   159 ms,      1116 bytes in 59 allocations
-         absl::flat_hash_map:   155 ms,      1160 bytes in 1 allocations
+          std::unordered_map:   166 ms,      1456 bytes in 60 allocations
+        boost::unordered_map:   220 ms,      1152 bytes in 60 allocations
+   boost::unordered_flat_map:   114 ms,      1096 bytes in 1 allocations
+   boost::unordered_node_map:   122 ms,      1084 bytes in 59 allocations
+      poc_unordered_node_map:   125 ms,      1084 bytes in 59 allocations
+ankerl::unordered_dense::map:   152 ms,      1528 bytes in 2 allocations
+         absl::node_hash_map:   174 ms,      1116 bytes in 59 allocations
+         absl::flat_hash_map:   151 ms,      1160 bytes in 1 allocations
 ```
 <!--vs-x86/word_size.cpp.txt-->
