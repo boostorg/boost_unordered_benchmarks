@@ -1,152 +1,152 @@
 std::unordered_map:
 
-Consecutive insert: 574 ms (s=0, size=2000000)
-Random insert: 804 ms (s=0, size=3998552)
-Consecutive reversed insert: 1048 ms (s=0, size=5996680)
+Consecutive insert: 550 ms (s=0, size=2000000)
+Random insert: 787 ms (s=0, size=3998552)
+Consecutive reversed insert: 1002 ms (s=0, size=5996680)
 
 Memory: 163055760 bytes in 5996682 allocations
 
-Consecutive lookup: 2761 ms (s=3648378840, size=5996680)
-Random lookup: 3078 ms (s=1988180768, size=5996680)
-Consecutive reversed lookup: 2682 ms (s=296777404, size=5996680)
+Consecutive lookup: 2768 ms (s=3648378840, size=5996680)
+Random lookup: 3005 ms (s=1988180768, size=5996680)
+Consecutive reversed lookup: 2669 ms (s=296777404, size=5996680)
 
-Iterate and erase odd elements: 840 ms (s=0, size=2997842)
+Iterate and erase odd elements: 815 ms (s=0, size=2997842)
 
-Consecutive lookup: 2444 ms (s=1884552964, size=2997842)
-Random lookup: 2720 ms (s=1151491144, size=2997842)
-Consecutive reversed lookup: 2195 ms (s=2658048604, size=2997842)
+Consecutive lookup: 2390 ms (s=1884552964, size=2997842)
+Random lookup: 2729 ms (s=1151491144, size=2997842)
+Consecutive reversed lookup: 2168 ms (s=2658048604, size=2997842)
 
-Consecutive erase: 297 ms (s=0, size=1997842)
-Random erase: 285 ms (s=0, size=998593)
-Consecutive reversed erase: 202 ms (s=0, size=0)
+Consecutive erase: 303 ms (s=0, size=1997842)
+Random erase: 277 ms (s=0, size=998593)
+Consecutive reversed erase: 215 ms (s=0, size=0)
 
-Total: 19937 ms
+Total: 19684 ms
 
 boost::unordered_map:
 
-Consecutive insert: 201 ms (s=0, size=2000000)
-Random insert: 731 ms (s=0, size=3998552)
-Consecutive reversed insert: 403 ms (s=0, size=5996680)
+Consecutive insert: 199 ms (s=0, size=2000000)
+Random insert: 743 ms (s=0, size=3998552)
+Consecutive reversed insert: 434 ms (s=0, size=5996680)
 
 Memory: 100271784 bytes in 5996682 allocations
 
-Consecutive lookup: 1184 ms (s=3648378840, size=5996680)
-Random lookup: 3848 ms (s=1988180768, size=5996680)
-Consecutive reversed lookup: 1358 ms (s=296777404, size=5996680)
+Consecutive lookup: 1169 ms (s=3648378840, size=5996680)
+Random lookup: 3818 ms (s=1988180768, size=5996680)
+Consecutive reversed lookup: 1300 ms (s=296777404, size=5996680)
 
-Iterate and erase odd elements: 716 ms (s=0, size=2997842)
+Iterate and erase odd elements: 717 ms (s=0, size=2997842)
 
-Consecutive lookup: 917 ms (s=1884552964, size=2997842)
-Random lookup: 3126 ms (s=1151491144, size=2997842)
-Consecutive reversed lookup: 1331 ms (s=2658048604, size=2997842)
+Consecutive lookup: 896 ms (s=1884552964, size=2997842)
+Random lookup: 2880 ms (s=1151491144, size=2997842)
+Consecutive reversed lookup: 1348 ms (s=2658048604, size=2997842)
 
-Consecutive erase: 104 ms (s=0, size=1997842)
-Random erase: 261 ms (s=0, size=998593)
-Consecutive reversed erase: 95 ms (s=0, size=0)
+Consecutive erase: 105 ms (s=0, size=1997842)
+Random erase: 282 ms (s=0, size=998593)
+Consecutive reversed erase: 97 ms (s=0, size=0)
 
-Total: 14282 ms
+Total: 13995 ms
 
 boost::unordered_flat_map:
 
-Consecutive insert: 126 ms (s=0, size=2000000)
-Random insert: 251 ms (s=0, size=3998552)
-Consecutive reversed insert: 245 ms (s=0, size=5996680)
+Consecutive insert: 147 ms (s=0, size=2000000)
+Random insert: 257 ms (s=0, size=3998552)
+Consecutive reversed insert: 256 ms (s=0, size=5996680)
 
 Memory: 71303176 bytes in 1 allocations
 
-Consecutive lookup: 1060 ms (s=3648378840, size=5996680)
-Random lookup: 1770 ms (s=1988180768, size=5996680)
-Consecutive reversed lookup: 1952 ms (s=296777404, size=5996680)
+Consecutive lookup: 1625 ms (s=3648378840, size=5996680)
+Random lookup: 1769 ms (s=1988180768, size=5996680)
+Consecutive reversed lookup: 1924 ms (s=296777404, size=5996680)
 
-Iterate and erase odd elements: 81 ms (s=0, size=2997842)
+Iterate and erase odd elements: 83 ms (s=0, size=2997842)
 
-Consecutive lookup: 895 ms (s=1884552964, size=2997842)
-Random lookup: 1470 ms (s=1151491144, size=2997842)
-Consecutive reversed lookup: 1488 ms (s=2658048604, size=2997842)
+Consecutive lookup: 1316 ms (s=1884552964, size=2997842)
+Random lookup: 1418 ms (s=1151491144, size=2997842)
+Consecutive reversed lookup: 1499 ms (s=2658048604, size=2997842)
 
-Consecutive erase: 65 ms (s=0, size=1997842)
-Random erase: 185 ms (s=0, size=998593)
-Consecutive reversed erase: 223 ms (s=0, size=0)
+Consecutive erase: 130 ms (s=0, size=1997842)
+Random erase: 179 ms (s=0, size=998593)
+Consecutive reversed erase: 192 ms (s=0, size=0)
 
-Total: 9816 ms
+Total: 10800 ms
 
 ankerl::unordered_dense::map:
 
-Consecutive insert: 336 ms (s=0, size=2000000)
-Random insert: 424 ms (s=0, size=3998552)
-Consecutive reversed insert: 214 ms (s=0, size=5996680)
+Consecutive insert: 323 ms (s=0, size=2000000)
+Random insert: 413 ms (s=0, size=3998552)
+Consecutive reversed insert: 218 ms (s=0, size=5996680)
 
 Memory: 130888368 bytes in 2 allocations
 
-Consecutive lookup: 2914 ms (s=3648378840, size=5996680)
-Random lookup: 3370 ms (s=1988180768, size=5996680)
-Consecutive reversed lookup: 2078 ms (s=296777404, size=5996680)
+Consecutive lookup: 2973 ms (s=3648378840, size=5996680)
+Random lookup: 3194 ms (s=1988180768, size=5996680)
+Consecutive reversed lookup: 2127 ms (s=296777404, size=5996680)
 
-Iterate and erase odd elements: 454 ms (s=0, size=2997842)
+Iterate and erase odd elements: 466 ms (s=0, size=2997842)
 
-Consecutive lookup: 2447 ms (s=1884552964, size=2997842)
-Random lookup: 2516 ms (s=1151491144, size=2997842)
-Consecutive reversed lookup: 1760 ms (s=2658048604, size=2997842)
+Consecutive lookup: 2445 ms (s=1884552964, size=2997842)
+Random lookup: 2409 ms (s=1151491144, size=2997842)
+Consecutive reversed lookup: 1765 ms (s=2658048604, size=2997842)
 
-Consecutive erase: 242 ms (s=0, size=1997842)
-Random erase: 231 ms (s=0, size=998593)
-Consecutive reversed erase: 195 ms (s=0, size=0)
+Consecutive erase: 237 ms (s=0, size=1997842)
+Random erase: 222 ms (s=0, size=998593)
+Consecutive reversed erase: 180 ms (s=0, size=0)
 
-Total: 17186 ms
+Total: 16978 ms
 
 absl::node_hash_map:
 
-Consecutive insert: 486 ms (s=0, size=2000000)
-Random insert: 849 ms (s=0, size=3998552)
-Consecutive reversed insert: 448 ms (s=0, size=5996680)
+Consecutive insert: 505 ms (s=0, size=2000000)
+Random insert: 793 ms (s=0, size=3998552)
+Consecutive reversed insert: 405 ms (s=0, size=5996680)
 
 Memory: 89916492 bytes in 5996681 allocations
 
-Consecutive lookup: 2588 ms (s=3648378840, size=5996680)
-Random lookup: 2681 ms (s=1988180768, size=5996680)
-Consecutive reversed lookup: 2771 ms (s=296777404, size=5996680)
+Consecutive lookup: 2635 ms (s=3648378840, size=5996680)
+Random lookup: 2705 ms (s=1988180768, size=5996680)
+Consecutive reversed lookup: 2762 ms (s=296777404, size=5996680)
 
-Iterate and erase odd elements: 845 ms (s=0, size=2997842)
+Iterate and erase odd elements: 833 ms (s=0, size=2997842)
 
-Consecutive lookup: 2088 ms (s=1884552964, size=2997842)
-Random lookup: 2198 ms (s=1151491144, size=2997842)
-Consecutive reversed lookup: 2289 ms (s=2658048604, size=2997842)
+Consecutive lookup: 2080 ms (s=1884552964, size=2997842)
+Random lookup: 2262 ms (s=1151491144, size=2997842)
+Consecutive reversed lookup: 2288 ms (s=2658048604, size=2997842)
 
-Consecutive erase: 303 ms (s=0, size=1997842)
-Random erase: 297 ms (s=0, size=998593)
-Consecutive reversed erase: 292 ms (s=0, size=0)
+Consecutive erase: 296 ms (s=0, size=1997842)
+Random erase: 291 ms (s=0, size=998593)
+Consecutive reversed erase: 291 ms (s=0, size=0)
 
-Total: 18140 ms
+Total: 18153 ms
 
 absl::flat_hash_map:
 
-Consecutive insert: 170 ms (s=0, size=2000000)
-Random insert: 293 ms (s=0, size=3998552)
-Consecutive reversed insert: 245 ms (s=0, size=5996680)
+Consecutive insert: 171 ms (s=0, size=2000000)
+Random insert: 266 ms (s=0, size=3998552)
+Consecutive reversed insert: 242 ms (s=0, size=5996680)
 
 Memory: 75497480 bytes in 1 allocations
 
-Consecutive lookup: 2333 ms (s=3648378840, size=5996680)
-Random lookup: 2332 ms (s=1988180768, size=5996680)
-Consecutive reversed lookup: 2384 ms (s=296777404, size=5996680)
+Consecutive lookup: 2262 ms (s=3648378840, size=5996680)
+Random lookup: 2338 ms (s=1988180768, size=5996680)
+Consecutive reversed lookup: 2377 ms (s=296777404, size=5996680)
 
-Iterate and erase odd elements: 78 ms (s=0, size=2997842)
+Iterate and erase odd elements: 79 ms (s=0, size=2997842)
 
-Consecutive lookup: 1793 ms (s=1884552964, size=2997842)
-Random lookup: 1863 ms (s=1151491144, size=2997842)
-Consecutive reversed lookup: 1846 ms (s=2658048604, size=2997842)
+Consecutive lookup: 1753 ms (s=1884552964, size=2997842)
+Random lookup: 1875 ms (s=1151491144, size=2997842)
+Consecutive reversed lookup: 1884 ms (s=2658048604, size=2997842)
 
-Consecutive erase: 243 ms (s=0, size=1997842)
+Consecutive erase: 216 ms (s=0, size=1997842)
 Random erase: 215 ms (s=0, size=998593)
-Consecutive reversed erase: 227 ms (s=0, size=0)
+Consecutive reversed erase: 201 ms (s=0, size=0)
 
-Total: 14027 ms
+Total: 13883 ms
 
 ---
 
-          std::unordered_map: 19937 ms, 163055760 bytes in 5996682 allocations
-        boost::unordered_map: 14282 ms, 100271784 bytes in 5996682 allocations
-   boost::unordered_flat_map:  9816 ms,  71303176 bytes in 1 allocations
-ankerl::unordered_dense::map: 17186 ms, 130888368 bytes in 2 allocations
-         absl::node_hash_map: 18140 ms,  89916492 bytes in 5996681 allocations
-         absl::flat_hash_map: 14027 ms,  75497480 bytes in 1 allocations
+          std::unordered_map: 19684 ms, 163055760 bytes in 5996682 allocations
+        boost::unordered_map: 13995 ms, 100271784 bytes in 5996682 allocations
+   boost::unordered_flat_map: 10800 ms,  71303176 bytes in 1 allocations
+ankerl::unordered_dense::map: 16978 ms, 130888368 bytes in 2 allocations
+         absl::node_hash_map: 18153 ms,  89916492 bytes in 5996681 allocations
+         absl::flat_hash_map: 13883 ms,  75497480 bytes in 1 allocations
