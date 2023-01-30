@@ -397,7 +397,7 @@ jobs:
           cd boost-root
           git checkout develop
           git submodule update --init
-          git -C libs/unordered checkout feature/mulx
+          git -C libs/unordered checkout feature/mulx2
           ./bootstrap.sh
           ./b2 -d0 headers
       - name: Install Abseil
@@ -586,7 +586,7 @@ jobs:
           cd boost-root
           git checkout develop
           git submodule update --init
-          git -C libs/unordered checkout feature/mulx
+          git -C libs/unordered checkout feature/mulx2
           cmd /c bootstrap.bat
           .\b2.exe -d0 headers
       - name: Install Abseil
