@@ -1,104 +1,104 @@
-cset: --> last message, executed args into cpuset "/user", new pid is: 3538979
-enwik9: 141176630 words, 56850 ms
+cset: --> last message, executed args into cpuset "/user", new pid is: 3081951
+enwik9: 141176630 words, 56261 ms
 
 boost::hash:
 
-Word count: 4966 ms (s=141176630, size=1418655)
+Word count: 4535 ms (s=141176630, size=1418655)
 
-Contains: 3682 ms (s=97891799, size=1418655)
+Contains: 3249 ms (s=97891799, size=1418655)
 
-Count: 3593 ms (s=97891799, size=1418655)
+Count: 3250 ms (s=97891799, size=1418655)
 
-Total: 12242 ms
+Total: 11035 ms
 
 std::hash:
 
-Word count: 5296 ms (s=141176630, size=1418655)
+Word count: 5212 ms (s=141176630, size=1418655)
 
-Contains: 3721 ms (s=97891799, size=1418655)
+Contains: 3699 ms (s=97891799, size=1418655)
 
-Count: 3709 ms (s=97891799, size=1418655)
+Count: 3696 ms (s=97891799, size=1418655)
 
-Total: 12727 ms
+Total: 12609 ms
 
 fnv1a_hash:
 
-Word count: 4750 ms (s=141176630, size=1418655)
+Word count: 4687 ms (s=141176630, size=1418655)
 
-Contains: 3579 ms (s=97891799, size=1418655)
+Contains: 3490 ms (s=97891799, size=1418655)
 
-Count: 3487 ms (s=97891799, size=1418655)
+Count: 3493 ms (s=97891799, size=1418655)
 
-Total: 11817 ms
+Total: 11670 ms
 
 absl::Hash:
 
-Word count: 4441 ms (s=141176630, size=1418655)
+Word count: 4343 ms (s=141176630, size=1418655)
 
-Contains: 3215 ms (s=97891799, size=1418655)
+Contains: 3140 ms (s=97891799, size=1418655)
 
-Count: 3207 ms (s=97891799, size=1418655)
+Count: 3132 ms (s=97891799, size=1418655)
 
-Total: 10864 ms
+Total: 10615 ms
 
 ankerl::unordered_dense::hash:
 
-Word count: 4424 ms (s=141176630, size=1418655)
+Word count: 4333 ms (s=141176630, size=1418655)
 
-Contains: 3208 ms (s=97891799, size=1418655)
+Contains: 3248 ms (s=97891799, size=1418655)
 
-Count: 3239 ms (s=97891799, size=1418655)
+Count: 3206 ms (s=97891799, size=1418655)
 
-Total: 10872 ms
+Total: 10788 ms
 
 mulxp1_hash:
 
-Word count: 4598 ms (s=141176630, size=1418655)
+Word count: 4509 ms (s=141176630, size=1418655)
 
-Contains: 3267 ms (s=97891799, size=1418655)
+Contains: 3223 ms (s=97891799, size=1418655)
 
-Count: 3257 ms (s=97891799, size=1418655)
+Count: 3227 ms (s=97891799, size=1418655)
 
-Total: 11123 ms
+Total: 10960 ms
 
 mulxp3_hash:
 
-Word count: 4512 ms (s=141176630, size=1418655)
+Word count: 4443 ms (s=141176630, size=1418655)
 
-Contains: 3279 ms (s=97891799, size=1418655)
+Contains: 3286 ms (s=97891799, size=1418655)
 
-Count: 3292 ms (s=97891799, size=1418655)
+Count: 3359 ms (s=97891799, size=1418655)
 
-Total: 11084 ms
+Total: 11089 ms
 
 mulxp1_hash32:
 
-Word count: 5079 ms (s=141176630, size=1418655)
+Word count: 5039 ms (s=141176630, size=1418655)
 
-Contains: 3638 ms (s=97891799, size=1418655)
+Contains: 3573 ms (s=97891799, size=1418655)
 
-Count: 3639 ms (s=97891799, size=1418655)
+Count: 3599 ms (s=97891799, size=1418655)
 
-Total: 12357 ms
+Total: 12212 ms
 
 mulxp3_hash32:
 
-Word count: 4836 ms (s=141176630, size=1418655)
+Word count: 4817 ms (s=141176630, size=1418655)
 
-Contains: 3402 ms (s=97891799, size=1418655)
+Contains: 3433 ms (s=97891799, size=1418655)
 
-Count: 3396 ms (s=97891799, size=1418655)
+Count: 3429 ms (s=97891799, size=1418655)
 
-Total: 11634 ms
+Total: 11681 ms
 
 ---
 
-                   boost::hash: 12242 ms
-                     std::hash: 12727 ms
-                    fnv1a_hash: 11817 ms
-                    absl::Hash: 10864 ms
- ankerl::unordered_dense::hash: 10872 ms
-                   mulxp1_hash: 11123 ms
-                   mulxp3_hash: 11084 ms
-                 mulxp1_hash32: 12357 ms
-                 mulxp3_hash32: 11634 ms
+                   boost::hash: 11035 ms
+                     std::hash: 12609 ms
+                    fnv1a_hash: 11670 ms
+                    absl::Hash: 10615 ms
+ ankerl::unordered_dense::hash: 10788 ms
+                   mulxp1_hash: 10960 ms
+                   mulxp3_hash: 11089 ms
+                 mulxp1_hash32: 12212 ms
+                 mulxp3_hash32: 11681 ms
