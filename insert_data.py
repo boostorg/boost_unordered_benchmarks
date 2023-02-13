@@ -1,6 +1,6 @@
 # Feeds csv data into Excel file for graph generation
 #
-# Copyright 2022 Joaquin M Lopez Munoz.
+# Copyright 2022-2023 Joaquin M Lopez Munoz.
 # Distributed under the Boost Software License, Version 1.0.
 # (See accompanying file LICENSE_1_0.txt or copy at
 # http://www.boost.org/LICENSE_1_0.txt)
@@ -41,8 +41,9 @@ with io.open(args.input_file,"r",encoding=args.encoding) as filein:
     ws.cell(row=row,column=2).value=None
     ws.cell(row=row,column=3).value=None
     ws.cell(row=row,column=4).value=None
+    ws.cell(row=row,column=5).value=None
 
-  pattern=re.compile(r"([0-9]+);([0-9.]+);([0-9.]+);([0-9.]+)")
+  pattern=re.compile(r"([0-9]+);([0-9.]+);([0-9.]+);([0-9.]+);([0-9.]+)")
   for row,line in enumerate(lines[lines_read:],2):
     m=pattern.match(line)
     if not m: break
@@ -50,5 +51,6 @@ with io.open(args.input_file,"r",encoding=args.encoding) as filein:
     ws.cell(row=row,column=2).value=float(m.group(2))
     ws.cell(row=row,column=3).value=float(m.group(3))
     ws.cell(row=row,column=4).value=float(m.group(4))
+    ws.cell(row=row,column=5).value=float(m.group(5))
     
   wb.save(args.excel_file)

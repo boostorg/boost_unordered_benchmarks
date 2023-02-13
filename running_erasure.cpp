@@ -1,7 +1,7 @@
 /* Measuring running erasure times of unordered associative containers
  * without duplicate elements.
  *
- * Copyright 2013-2022 Joaquin M Lopez Munoz.
+ * Copyright 2013-2023 Joaquin M Lopez Munoz.
  * Distributed under the Boost Software License, Version 1.0.
  * (See accompanying file LICENSE_1_0.txt or copy at
  * http://www.boost.org/LICENSE_1_0.txt)
@@ -115,16 +115,17 @@ boost::reference_wrapper<const T> temp_cref(T&& x)
 
 template<
   template<typename> class Tester,
-  typename Container1,typename Container2,typename Container3>
+  typename Container1,typename Container2,
+  typename Container3,typename Container4>
 void test(
   const char* title,
-  const char* name1,const char* name2,const char* name3)
+  const char* name1,const char* name2,const char* name3,const char* name4)
 {
   unsigned int n0=10000,n1=10000000,dn=500;
   double       fdn=1.05;
 
   std::cout<<title<<":"<<std::endl;
-  std::cout<<name1<<";"<<name2<<";"<<name3<<std::endl;
+  std::cout<<name1<<";"<<name2<<";"<<name3<<";"<<name4<<std::endl;
 
   initialize_data(n1);
 
@@ -145,31 +146,39 @@ void test(
     t=measure(boost::bind(
       Tester<Container3>(),
       temp_cref(create<Container3>(n))));
+    std::cout<<";"<<(t/m)*10E6;
+
+    t=measure(boost::bind(
+      Tester<Container4>(),
+      temp_cref(create<Container4>(n))));
     std::cout<<";"<<(t/m)*10E6<<std::endl;
   }
 }
 
-#include "absl/container/node_hash_map.h"
 #include "absl/container/flat_hash_map.h"
 #include <boost/unordered/unordered_flat_map.hpp>
 #include <boost/unordered/unordered_map.hpp>
+#include <boost/unordered/unordered_node_map.hpp>
 
 int main()
 {
   using container_t1=absl::flat_hash_map<boost::uint64_t,boost::uint64_t>;
-  using container_t2=boost::unordered_flat_map<boost::uint64_t,boost::uint64_t>;
-  using container_t3=boost::unordered_map<boost::uint64_t,boost::uint64_t>;
+  using container_t2=boost::unordered_map<boost::uint64_t,boost::uint64_t>;
+  using container_t3=boost::unordered_flat_map<boost::uint64_t,boost::uint64_t>;
+  using container_t4=boost::unordered_node_map<boost::uint64_t,boost::uint64_t>;
 
   test<
     running_erasure,
     container_t1,
     container_t2,
-    container_t3>
+    container_t3,
+    container_t4>
   (
     "Running erasure",
     "absl::flat_hash_map",
+    "boost::unordered_map",
     "boost::unordered_flat_map",
-    "boost::unordered_map"
+    "boost::unordered_node_map"
   );
 }
 
