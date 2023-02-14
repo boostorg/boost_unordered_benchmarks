@@ -150,14 +150,14 @@ void test(
 }
 
 #include "absl/container/flat_hash_map.h"
-#include <boost/unordered/unordered_flat_map.hpp>
+#include "absl/container/node_hash_map.h"
 #include <boost/unordered/unordered_map.hpp>
 #include <boost/unordered/unordered_node_map.hpp>
 
 int main()
 {
   using container_t1=absl::flat_hash_map<boost::uint64_t,boost::uint64_t>;
-  using container_t2=boost::unordered_map<boost::uint64_t,boost::uint64_t>;
+  using container_t2=absl::node_hash_map<boost::uint64_t,boost::uint64_t>;
   using container_t3=boost::unordered_flat_map<boost::uint64_t,boost::uint64_t>;
   using container_t4=boost::unordered_node_map<boost::uint64_t,boost::uint64_t>;
 
@@ -171,7 +171,7 @@ int main()
     "Scattered successful lookup",
     data,
     "absl::flat_hash_map",
-    "boost::unordered_map",
+    "absl::node_hash_map",
     "boost::unordered_flat_map",
     "boost::unordered_node_map"
   );
@@ -186,7 +186,7 @@ int main()
     "Scattered unsuccessful lookup",
     unsuccessful_data,
     "absl::flat_hash_map",
-    "boost::unordered_map",
+    "absl::node_hash_map",
     "boost::unordered_flat_map",
     "boost::unordered_node_map"
   );
