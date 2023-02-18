@@ -1,4 +1,4 @@
-# `boost::unordered_[flat|node]_map` benchmarks
+# `boost::unordered_(flat|node)_map` benchmarks
 
 Automated benchmarks of `boost::unordered_flat_map` and `boost::unordered_node_map` against [`absl::flat_hash_map`](https://abseil.io/docs/cpp/guides/container) and `boost::unordered_map`.
 
