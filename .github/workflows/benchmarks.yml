@@ -198,10 +198,10 @@ jobs:
           git submodule update --init
           ./bootstrap.sh
           ./b2 -d0 headers
-      - name: Install Boost.Unordered branch feature/unordered_node_map_rc
+      - name: Install Boost.Unordered branch unordered_node_map_rc
         run: |
            cd $GITHUB_WORKSPACE
-           git clone -b feature/unordered_node_map_rc https://github.com/boostorg/unordered.git boost_unordered-root
+           git clone -b unordered_node_map_rc https://github.com/boostorg/unordered.git boost_unordered-root
       - name: Install Abseil
         run: |
           cd $GITHUB_WORKSPACE
@@ -317,7 +317,7 @@ jobs:
         shell: cmd
         run: |
           cd %GITHUB_WORKSPACE%
-          git clone -b feature/unordered_node_map_rc https://github.com/boostorg/unordered.git boost_unordered-root
+          git clone -b unordered_node_map_rc https://github.com/boostorg/unordered.git boost_unordered-root
       - name: Install Abseil
         shell: cmd
         run: |
