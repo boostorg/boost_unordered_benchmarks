@@ -120,11 +120,12 @@ struct norehash_running_insertion
 
 template<
   template<typename> class Tester,
-  typename Container1,typename Container2,
-  typename Container3,typename Container4>
+  typename Container1,typename Container2,typename Container3,
+  typename Container4,typename Container5>
 void test(
   const char* title,
-  const char* name1,const char* name2,const char* name3,const char* name4)
+  const char* name1,const char* name2,const char* name3,
+  const char* name4,const char* name5)
 {
   unsigned int n0=10000,n1=10000000,dn=500;
   double       fdn=1.05;
@@ -132,7 +133,7 @@ void test(
   initialize_data(n1);
 
   std::cout<<title<<":"<<std::endl;
-  std::cout<<name1<<";"<<name2<<";"<<name3<<";"<<name4<<std::endl;
+  std::cout<<name1<<";"<<name2<<";"<<name3<<";"<<name4<<";"<<name5<<std::endl;
 
   for(unsigned int n=n0;n<=n1;n+=dn,dn=(unsigned int)(dn*fdn)){
     double t;
@@ -148,11 +149,15 @@ void test(
     std::cout<<";"<<(t/m)*10E6;
 
     t=measure(boost::bind(Tester<Container4>(),n));
+    std::cout<<";"<<(t/m)*10E6;
+
+    t=measure(boost::bind(Tester<Container5>(),n));
     std::cout<<";"<<(t/m)*10E6<<std::endl;
   }
 }
 
 #include "absl/container/flat_hash_map.h"
+#include "absl/container/node_hash_map.h"
 #include <boost/unordered/unordered_flat_map.hpp>
 #include <boost/unordered/unordered_map.hpp>
 #include <boost/unordered/unordered_node_map.hpp>
@@ -160,19 +165,22 @@ void test(
 int main()
 {
   using container_t1=absl::flat_hash_map<boost::uint64_t,boost::uint64_t>;
-  using container_t2=boost::unordered_map<boost::uint64_t,boost::uint64_t>;
-  using container_t3=boost::unordered_flat_map<boost::uint64_t,boost::uint64_t>;
-  using container_t4=boost::unordered_node_map<boost::uint64_t,boost::uint64_t>;
+  using container_t2=absl::node_hash_map<boost::uint64_t,boost::uint64_t>;
+  using container_t3=boost::unordered_map<boost::uint64_t,boost::uint64_t>;
+  using container_t4=boost::unordered_flat_map<boost::uint64_t,boost::uint64_t>;
+  using container_t5=boost::unordered_node_map<boost::uint64_t,boost::uint64_t>;
 
   test<
     running_insertion,
     container_t1,
     container_t2,
     container_t3,
-    container_t4>
+    container_t4,
+    container_t5>
   (
     "Running insertion",
     "absl::flat_hash_map",
+    "absl::node_hash_map",
     "boost::unordered_map",
     "boost::unordered_flat_map",
     "boost::unordered_node_map"

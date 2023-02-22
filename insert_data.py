@@ -42,8 +42,9 @@ with io.open(args.input_file,"r",encoding=args.encoding) as filein:
     ws.cell(row=row,column=3).value=None
     ws.cell(row=row,column=4).value=None
     ws.cell(row=row,column=5).value=None
+    ws.cell(row=row,column=6).value=None
 
-  pattern=re.compile(r"([0-9]+);([0-9.]+);([0-9.]+);([0-9.]+);([0-9.]+)")
+  pattern=re.compile(r"([0-9]+);([0-9.]+);([0-9.]+);([0-9.]+);([0-9.]+);([0-9.]+)")
   for row,line in enumerate(lines[lines_read:],2):
     m=pattern.match(line)
     if not m: break
@@ -52,5 +53,6 @@ with io.open(args.input_file,"r",encoding=args.encoding) as filein:
     ws.cell(row=row,column=3).value=float(m.group(3))
     ws.cell(row=row,column=4).value=float(m.group(4))
     ws.cell(row=row,column=5).value=float(m.group(5))
+    ws.cell(row=row,column=6).value=float(m.group(6))
     
   wb.save(args.excel_file)
