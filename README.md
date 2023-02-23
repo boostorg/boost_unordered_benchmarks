@@ -1,6 +1,6 @@
 # `boost::unordered_(flat|node)_map` benchmarks
 
-Automated benchmarks of `boost::unordered_flat_map` and `boost::unordered_node_map` against [`absl::flat_hash_map`](https://abseil.io/docs/cpp/guides/container) and `boost::unordered_map`.
+Automated benchmarks of `boost::unordered_flat_map` and `boost::unordered_node_map` against [`absl::flat_hash_map`](https://abseil.io/docs/cpp/guides/container),  [`absl::node_hash_map`](https://abseil.io/docs/cpp/guides/container) and `boost::unordered_map`.
 
 ## Benchmarks
 * `running_insertion.cpp`: insertion of _n_ random entries into a map of (`uint64_t`, `uint64_t`) pairs, _n_ ranging from 10,000 to 10M.
