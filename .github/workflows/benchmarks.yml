@@ -313,11 +313,11 @@ jobs:
           git submodule update --init
           cmd /c bootstrap.bat
           .\b2.exe -d0 headers
-      - name: Install Boost.Unordered branch feature/fast_foa_iteration
+      - name: Install Boost.Unordered branch feature/foa_fast_iteration
         shell: cmd
         run: |
           cd %GITHUB_WORKSPACE%
-          git clone -b feature/fast_foa_iteration https://github.com/boostorg/unordered.git boost_unordered-root
+          git clone -b feature/foa_fast_iteration https://github.com/boostorg/unordered.git boost_unordered-root
       - name: Install Abseil
         shell: cmd
         run: |
