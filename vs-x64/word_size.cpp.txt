@@ -1,81 +1,81 @@
-enwik9: 141176630 words, 86192 ms
+enwik9: 141176630 words, 86022 ms
 
 std::unordered_map:
 
-Word size count: 1220 ms (s=0, size=113)
+Word size count: 1216 ms (s=0, size=113)
 
 Memory: 11840 bytes in 115 allocations
 
 Iterate and sum counts: 0 ms (s=141176630, size=113)
 
-Total: 1220 ms
+Total: 1216 ms
 
 boost::unordered_map:
 
-Word size count: 2459 ms (s=0, size=113)
+Word size count: 2573 ms (s=0, size=113)
 
 Memory: 4392 bytes in 115 allocations
 
 Iterate and sum counts: 0 ms (s=141176630, size=113)
 
-Total: 2459 ms
+Total: 2573 ms
 
 boost::unordered_node_map:
 
-Word size count: 1769 ms (s=0, size=113)
+Word size count: 2048 ms (s=0, size=113)
 
 Memory: 3992 bytes in 114 allocations
 
 Iterate and sum counts: 0 ms (s=141176630, size=113)
 
-Total: 1769 ms
+Total: 2048 ms
 
 boost::unordered_flat_map:
 
-Word size count: 1575 ms (s=0, size=113)
+Word size count: 1602 ms (s=0, size=113)
 
 Memory: 4096 bytes in 1 allocations
 
 Iterate and sum counts: 0 ms (s=141176630, size=113)
 
-Total: 1575 ms
+Total: 1602 ms
 
 ankerl::unordered_dense::map:
 
-Word size count: 1087 ms (s=0, size=113)
+Word size count: 1114 ms (s=0, size=113)
 
 Memory: 4304 bytes in 2 allocations
 
 Iterate and sum counts: 0 ms (s=141176630, size=113)
 
-Total: 1087 ms
+Total: 1114 ms
 
 absl::node_hash_map:
 
-Word size count: 2457 ms (s=0, size=113)
+Word size count: 2531 ms (s=0, size=113)
 
 Memory: 4120 bytes in 114 allocations
 
 Iterate and sum counts: 0 ms (s=141176630, size=113)
 
-Total: 2457 ms
+Total: 2531 ms
 
 absl::flat_hash_map:
 
-Word size count: 2180 ms (s=0, size=113)
+Word size count: 2169 ms (s=0, size=113)
 
 Memory: 4352 bytes in 1 allocations
 
 Iterate and sum counts: 0 ms (s=141176630, size=113)
 
-Total: 2180 ms
+Total: 2169 ms
 
 ---
 
-          std::unordered_map:  1220 ms,     11840 bytes in 115 allocations
-        boost::unordered_map:  2459 ms,      4392 bytes in 115 allocations
-   boost::unordered_node_map:  1769 ms,      3992 bytes in 114 allocations
-   boost::unordered_flat_map:  1575 ms,      4096 bytes in 1 allocations
-ankerl::unordered_dense::map:  1087 ms,      4304 bytes in 2 allocations
-         absl::node_hash_map:  2457 ms,      4120 bytes in 114 allocations
-         absl::flat_hash_map:  2180 ms,      4352 bytes in 1 allocations
+          std::unordered_map:  1216 ms,     11840 bytes in 115 allocations
+        boost::unordered_map:  2573 ms,      4392 bytes in 115 allocations
+   boost::unordered_node_map:  2048 ms,      3992 bytes in 114 allocations
+   boost::unordered_flat_map:  1602 ms,      4096 bytes in 1 allocations
+ankerl::unordered_dense::map:  1114 ms,      4304 bytes in 2 allocations
+         absl::node_hash_map:  2531 ms,      4120 bytes in 114 allocations
+         absl::flat_hash_map:  2169 ms,      4352 bytes in 1 allocations
