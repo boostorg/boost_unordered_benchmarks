@@ -1034,10 +1034,10 @@ int main()
     // test<single_threaded<ufm_map_type, std::mutex>>( "boost::unordered_flat_map, single threaded, mutex" );
     test<single_threaded<ufm_map_type, std::shared_mutex>>( "boost::unordered_flat_map, single threaded, shared_mutex" );
     test<single_threaded<ufm_map_type, rw_spinlock>>( "boost::unordered_flat_map, single threaded, rw_spinlock" );
-    test<single_threaded<cfoa_map_type>>( "concurrent_foa, single threaded" );
-    test<single_threaded<cfoa_tbb_map_type>>( "concurrent_foa, tbb::spin_rw_mutex, single threaded" );
-    test<single_threaded<cfoa_shm_map_type>>( "concurrent_foa, std::shared_mutex, single threaded" );
-    test<single_threaded<cfm_map_type>>( "concurrent foa::concurrent_table, single threaded" );
+    test<single_threaded<cfoa_map_type>>( "cfoa, single threaded" );
+    test<single_threaded<cfoa_tbb_map_type>>( "cfoa, tbb::spin_rw_mutex, single threaded" );
+    test<single_threaded<cfoa_shm_map_type>>( "cfoa, std::shared_mutex, single threaded" );
+    test<single_threaded<cfm_map_type>>( "foa::concurrent_table, single threaded" );
     // test<single_threaded<cuckoo_map_type>>( "libcuckoo::cuckoohash_map, single threaded" );
     test<single_threaded<tbb_map_type>>( "tbb::concurrent_hash_map, single threaded" );
     // test<single_threaded<gtl_map_type<rw_spinlock>>>( "gtl::parallel_flat_hash_map<rw_spinlock>, single threaded" );
@@ -1056,10 +1056,10 @@ int main()
     // test<ufm_sharded_isolated>( "boost::unordered_flat_map, sharded isolated" );
     test<ufm_sharded_isolated_prehashed>( "boost::unordered_flat_map, sharded isolated, prehashed" );
 
-    test<parallel<cfoa_map_type>>( "concurrent foa" );
-    test<parallel<cfoa_tbb_map_type>>( "concurrent foa, tbb::spin_rw_mutex" );
-    test<parallel<cfoa_shm_map_type>>( "concurrent foa, std::shared_mutex" );
-    test<parallel<cfm_map_type>>( "concurrent foa::concurrent_table" );
+    test<parallel<cfoa_map_type>>( "cfoa" );
+    test<parallel<cfoa_tbb_map_type>>( "cfoa, tbb::spin_rw_mutex" );
+    test<parallel<cfoa_shm_map_type>>( "cfoa, std::shared_mutex" );
+    test<parallel<cfm_map_type>>( "foa::concurrent_table" );
 
     // test<parallel<cuckoo_map_type>>( "libcuckoo::cuckoohash_map" );
     test<parallel<tbb_map_type>>( "tbb::concurrent_hash_map" );
