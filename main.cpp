@@ -7,6 +7,7 @@
 #define _SILENCE_CXX20_CISO646_REMOVED_WARNING
 
 #include <boost/unordered/unordered_flat_map.hpp>
+#include <boost/unordered/detail/foa/concurrent_table.hpp>
 #include <boost/regex.hpp>
 #include <vector>
 #include <memory>
@@ -131,6 +132,8 @@ using cfoa_map_type = boost::unordered::detail::cfoa::table<map_policy<std::stri
 using cfoa_tbb_map_type = boost::unordered::detail::cfoa::table<map_policy<std::string_view, std::size_t>, boost::hash<std::string_view>, std::equal_to<std::string_view>, std::allocator<std::pair<const std::string_view,int>>, tbb::spin_rw_mutex>;
 using cfoa_shm_map_type = boost::unordered::detail::cfoa::table<map_policy<std::string_view, std::size_t>, boost::hash<std::string_view>, std::equal_to<std::string_view>, std::allocator<std::pair<const std::string_view,int>>, std::shared_mutex>;
 
+using cfm_map_type = boost::unordered::detail::foa::concurrent_table<map_policy<std::string_view, std::size_t>, boost::hash<std::string_view>, std::equal_to<std::string_view>, std::allocator<std::pair<const std::string_view,int>>>;
+
 using cuckoo_map_type = libcuckoo::cuckoohash_map<std::string_view, std::size_t, boost::hash<std::string_view>, std::equal_to<std::string_view>, std::allocator<std::pair<const std::string_view,int>>>;
 
 struct tbb_hash_compare
@@ -196,6 +199,16 @@ inline void increment_element( cfoa_shm_map_type& map, std::string_view key )
 inline bool contains_element( cfoa_shm_map_type const& map, std::string_view key )
 {
     return map.find( key, [&]( auto& ){} );
+}
+
+inline void increment_element( cfm_map_type& map, std::string_view key )
+{
+    map.try_emplace_or_visit( key, []( auto& x ){ ++x.second; }, 0 );
+}
+
+inline bool contains_element( cfm_map_type const& map, std::string_view key )
+{
+    return map.contains( key );
 }
 
 inline void increment_element( cuckoo_map_type& map, std::string_view key )
@@ -1024,6 +1037,7 @@ int main()
     test<single_threaded<cfoa_map_type>>( "concurrent_foa, single threaded" );
     test<single_threaded<cfoa_tbb_map_type>>( "concurrent_foa, tbb::spin_rw_mutex, single threaded" );
     test<single_threaded<cfoa_shm_map_type>>( "concurrent_foa, std::shared_mutex, single threaded" );
+    test<single_threaded<cfm_map_type>>( "concurrent foa::concurrent_table, single threaded" );
     // test<single_threaded<cuckoo_map_type>>( "libcuckoo::cuckoohash_map, single threaded" );
     test<single_threaded<tbb_map_type>>( "tbb::concurrent_hash_map, single threaded" );
     // test<single_threaded<gtl_map_type<rw_spinlock>>>( "gtl::parallel_flat_hash_map<rw_spinlock>, single threaded" );
@@ -1045,6 +1059,8 @@ int main()
     test<parallel<cfoa_map_type>>( "concurrent foa" );
     test<parallel<cfoa_tbb_map_type>>( "concurrent foa, tbb::spin_rw_mutex" );
     test<parallel<cfoa_shm_map_type>>( "concurrent foa, std::shared_mutex" );
+    test<parallel<cfm_map_type>>( "concurrent foa::concurrent_table" );
+
     // test<parallel<cuckoo_map_type>>( "libcuckoo::cuckoohash_map" );
     test<parallel<tbb_map_type>>( "tbb::concurrent_hash_map" );
     test<parallel<gtl_map_type<std::mutex>>>( "gtl::parallel_flat_hash_map<std::mutex>" );
