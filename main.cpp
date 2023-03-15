@@ -82,45 +82,56 @@ static void init_words()
 template<typename Key,typename T>
 struct map_policy
 {
-  using key_type=Key;
-  using raw_key_type=typename std::remove_const<Key>::type;
-  using raw_mapped_type=typename std::remove_const<T>::type;
+  using key_type = Key;
+  using raw_key_type = typename std::remove_const<Key>::type;
+  using raw_mapped_type = typename std::remove_const<T>::type;
 
-  using init_type=std::pair<raw_key_type,raw_mapped_type>;
-  using moved_type=std::pair<raw_key_type&&,raw_mapped_type&&>;
-  using value_type=std::pair<const Key,T>;
-  using element_type=value_type;
+  using init_type = std::pair<raw_key_type, raw_mapped_type>;
+  using moved_type = std::pair<raw_key_type&&, raw_mapped_type&&>;
+  using value_type = std::pair<Key const, T>;
 
-  static value_type& value_from(element_type& x)
-  {
-    return x;
-  }
+  using element_type = value_type;
 
-  template <class K,class V>
-  static const raw_key_type& extract(const std::pair<K,V>& kv)
+  static value_type& value_from(element_type& x) { return x; }
+
+  template <class K, class V>
+  static raw_key_type const& extract(std::pair<K, V> const& kv)
   {
     return kv.first;
   }
 
-  static moved_type move(value_type& x)
+  static moved_type move(init_type& x)
   {
-    return{
-      std::move(const_cast<raw_key_type&>(x.first)),
-      std::move(const_cast<raw_mapped_type&>(x.second))
-    };
+    return {std::move(x.first), std::move(x.second)};
   }
 
-  template<typename Allocator,typename... Args>
-  static void construct(Allocator& al,element_type* p,Args&&... args)
+  static moved_type move(element_type& x)
   {
-    boost::allocator_traits<Allocator>::
-      construct(al,p,std::forward<Args>(args)...);
+    // TODO: we probably need to launder here
+    return {std::move(const_cast<raw_key_type&>(x.first)),
+      std::move(const_cast<raw_mapped_type&>(x.second))};
   }
 
-  template<typename Allocator>
-  static void destroy(Allocator& al,element_type* p)noexcept
+  template <class A, class... Args>
+  static void construct(A& al, init_type* p, Args&&... args)
   {
-    boost::allocator_traits<Allocator>::destroy(al,p);
+    boost::allocator_construct(al, p, std::forward<Args>(args)...);
+  }
+
+  template <class A, class... Args>
+  static void construct(A& al, value_type* p, Args&&... args)
+  {
+    boost::allocator_construct(al, p, std::forward<Args>(args)...);
+  }
+
+  template <class A> static void destroy(A& al, init_type* p) noexcept
+  {
+    boost::allocator_destroy(al, p);
+  }
+
+  template <class A> static void destroy(A& al, value_type* p) noexcept
+  {
+    boost::allocator_destroy(al, p);
   }
 };
 
