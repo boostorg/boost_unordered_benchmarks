@@ -1298,7 +1298,7 @@ public:
     const_iterator>::type;
 
   table(
-    std::size_t n=354000,const Hash& h_=Hash(),const Pred& pred_=Pred(),
+    std::size_t n=0,const Hash& h_=Hash(),const Pred& pred_=Pred(),
     const Allocator& al_=Allocator()):
     hash_base{empty_init,h_},pred_base{empty_init,pred_},
     allocator_base{empty_init,al_},size_{0},arrays(new_arrays(n)),
@@ -1498,7 +1498,6 @@ public:
         if(emplace_impl(
           f,try_emplace_args_t{},std::forward<Key>(x),std::forward<Args>(args)...))return;
       }
-
       auto lck=exclusive_access();
       if(capacity()<=n)rehash(n+1);
     }
