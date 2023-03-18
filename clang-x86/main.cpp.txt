@@ -1,9 +1,9 @@
-cset: --> last message, executed args into cpuset "/user", new pid is: 1502336
-enwik8: 14480868 words, 6902 ms
+cset: --> last message, executed args into cpuset "/user", new pid is: 1533556
+enwik8: 14480868 words, 7011 ms
 
 boost::unordered_flat_map, single threaded:
 
-Word count: 668 ms (s=14480868, size=354032)
+Word count: 669 ms (s=14480868, size=354032)
 
 Contains: 462 ms (s=7961072, size=354032)
 
@@ -11,23 +11,23 @@ Total: 1131 ms
 
 boost::unordered_flat_map, single threaded, shared_mutex:
 
-Word count: 905 ms (s=14480868, size=354032)
+Word count: 906 ms (s=14480868, size=354032)
 
-Contains: 646 ms (s=7961072, size=354032)
+Contains: 647 ms (s=7961072, size=354032)
 
-Total: 1552 ms
+Total: 1553 ms
 
 boost::unordered_flat_map, single threaded, rw_spinlock:
 
-Word count: 713 ms (s=14480868, size=354032)
+Word count: 714 ms (s=14480868, size=354032)
 
 Contains: 513 ms (s=7961072, size=354032)
 
-Total: 1227 ms
+Total: 1228 ms
 
 cfoa, single threaded:
 
-Word count: 903 ms (s=14480868, size=354032)
+Word count: 902 ms (s=14480868, size=354032)
 
 Contains: 569 ms (s=7961072, size=354032)
 
@@ -35,87 +35,152 @@ Total: 1472 ms
 
 cfoa, tbb::spin_rw_mutex, single threaded:
 
-Word count: 897 ms (s=14480868, size=354032)
+Word count: 898 ms (s=14480868, size=354032)
 
-Contains: 588 ms (s=7961072, size=354032)
+Contains: 589 ms (s=7961072, size=354032)
 
-Total: 1486 ms
+Total: 1487 ms
 
 cfoa, std::shared_mutex, single threaded:
 
-Word count: 1052 ms (s=14480868, size=354032)
+Word count: 1050 ms (s=14480868, size=354032)
 
 Contains: 738 ms (s=7961072, size=354032)
 
-Total: 1790 ms
+Total: 1788 ms
 
 foa::concurrent_table, single threaded:
 
-Word count: 896 ms (s=14480868, size=354032)
+Word count: 900 ms (s=14480868, size=354032)
 
 Contains: 567 ms (s=7961072, size=354032)
 
-Total: 1463 ms
+Total: 1468 ms
 
 tbb::concurrent_hash_map, single threaded:
 
-Word count: 1552 ms (s=14480868, size=354032)
+Word count: 1544 ms (s=14480868, size=354032)
 
-Contains: 843 ms (s=7961072, size=354032)
+Contains: 842 ms (s=7961072, size=354032)
 
-Total: 2396 ms
+Total: 2387 ms
 
 boost::unordered_flat_map, sharded_prehashed<mutex>:
 
-Word count: 487 ms (s=14480868, size=354032)
+Word count: 477 ms (s=14480868, size=354032)
 
-Contains: 284 ms (s=7961072, size=354032)
+Contains: 273 ms (s=7961072, size=354032)
 
-Total: 771 ms
+Total: 751 ms
 
 boost::unordered_flat_map, sharded_prehashed<shared_mutex>:
 
-Word count: 834 ms (s=14480868, size=354032)
+Word count: 1181 ms (s=14480868, size=354032)
 
-Contains: 270 ms (s=7961072, size=354032)
+Contains: 279 ms (s=7961072, size=354032)
 
-Total: 1104 ms
+Total: 1460 ms
 
 boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:
 
-Word count: 381 ms (s=14480868, size=354032)
+Word count: 505 ms (s=14480868, size=354032)
 
-Contains: 188 ms (s=7961072, size=354032)
+Contains: 190 ms (s=7961072, size=354032)
 
-Total: 569 ms
+Total: 695 ms
 
 boost::unordered_flat_map, sharded isolated, prehashed:
 
-Word count: 412 ms (s=14480868, size=354032)
+Word count: 385 ms (s=14480868, size=354032)
 
-Contains: 356 ms (s=7961072, size=354032)
+Contains: 372 ms (s=7961072, size=354032)
 
-Total: 768 ms
+Total: 757 ms
 
 cfoa:
 
-Word count: 557 ms (s=14480868, size=354032)
+Word count: 554 ms (s=14480868, size=354032)
 
-Contains: 196 ms (s=7961072, size=354032)
+Contains: 185 ms (s=7961072, size=354032)
 
-Total: 754 ms
+Total: 739 ms
 
 cfoa, tbb::spin_rw_mutex:
 
-Word count: 673 ms (s=14480868, size=354032)
+Word count: 719 ms (s=14480868, size=354032)
 
-Contains: 201 ms (s=7961072, size=354032)
+Contains: 187 ms (s=7961072, size=354032)
 
-Total: 874 ms
+Total: 907 ms
 
 cfoa, std::shared_mutex:
 
-Word count: 616 ms (s=14480868, size=354032)
+Word count: 602 ms (s=14480868, size=354032)
 
-Contains: 214 ms (s=7961072, size=354032)
+Contains: 225 ms (s=7961072, size=354032)
 
+Total: 828 ms
+
+foa::concurrent_table:
+
+Word count: 642 ms (s=14480868, size=354032)
+
+Contains: 183 ms (s=7961072, size=354032)
+
+Total: 826 ms
+
+tbb::concurrent_hash_map:
+
+Word count: 643 ms (s=14480868, size=354032)
+
+Contains: 234 ms (s=7961072, size=354032)
+
+Total: 877 ms
+
+gtl::parallel_flat_hash_map<std::mutex>:
+
+Word count: 642 ms (s=14480868, size=354032)
+
+Contains: 366 ms (s=7961072, size=354032)
+
+Total: 1008 ms
+
+gtl::parallel_flat_hash_map<std::shared_mutex>:
+
+Word count: 1390 ms (s=14480868, size=354032)
+
+Contains: 320 ms (s=7961072, size=354032)
+
+Total: 1711 ms
+
+gtl::parallel_flat_hash_map<rw_spinlock>:
+
+Word count: 609 ms (s=14480868, size=354032)
+
+Contains: 404 ms (s=7961072, size=354032)
+
+Total: 1013 ms
+
+---
+
+Number of threads: 16
+                boost::unordered_flat_map, single threaded:  1131 ms
+  boost::unordered_flat_map, single threaded, shared_mutex:  1553 ms
+   boost::unordered_flat_map, single threaded, rw_spinlock:  1228 ms
+                                     cfoa, single threaded:  1472 ms
+                 cfoa, tbb::spin_rw_mutex, single threaded:  1487 ms
+                  cfoa, std::shared_mutex, single threaded:  1788 ms
+                    foa::concurrent_table, single threaded:  1468 ms
+                 tbb::concurrent_hash_map, single threaded:  2387 ms
+       boost::unordered_flat_map, sharded_prehashed<mutex>:   751 ms
+boost::unordered_flat_map, sharded_prehashed<shared_mutex>:  1460 ms
+ boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:   695 ms
+    boost::unordered_flat_map, sharded isolated, prehashed:   757 ms
+                                                      cfoa:   739 ms
+                                  cfoa, tbb::spin_rw_mutex:   907 ms
+                                   cfoa, std::shared_mutex:   828 ms
+                                     foa::concurrent_table:   826 ms
+                                  tbb::concurrent_hash_map:   877 ms
+                   gtl::parallel_flat_hash_map<std::mutex>:  1008 ms
+            gtl::parallel_flat_hash_map<std::shared_mutex>:  1711 ms
+                  gtl::parallel_flat_hash_map<rw_spinlock>:  1013 ms
