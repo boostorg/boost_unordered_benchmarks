@@ -71,7 +71,7 @@ jobs:
             vcpkgtriplet: x86-linux 
             sourcefile: main.cpp
             download-datafiles: http://mattmahoney.net/dc/enwik8.zip
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_EMBEDDED_GROUP_ACCESS
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_EMBEDDED_GROUP_ACCESS -latomic
             outputfile: benchmark
             reportdir: clang-x86
             os: [self-hosted, linux, x64]
