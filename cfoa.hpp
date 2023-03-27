@@ -1950,7 +1950,7 @@ private:
       if(mask){
         auto p=arrays.elements+pos*N;
         prefetch_elements(p);
-        auto lck=shared_access(pos);
+        auto lck=exclusive_access(pos);
         do{
           auto n=unchecked_countr_zero(mask);
           if(BOOST_LIKELY(pg->occupied(n)&&bool(pred()(x,key_from(p[n]))))){
