@@ -19,7 +19,7 @@ jobs:
             vcpkgtriplet: x64-linux 
             sourcefile: main.cpp
             download-datafiles: http://mattmahoney.net/dc/enwik9.zip
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_EMBEDDED_GROUP_ACCESS
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_NO_EMBEDDED_GROUP_ACCESS
             outputfile: benchmark
             reportdir: gcc-x64
             os: [self-hosted, linux, x64]
@@ -32,7 +32,7 @@ jobs:
             vcpkgtriplet: x64-linux 
             sourcefile: main.cpp
             download-datafiles: http://mattmahoney.net/dc/enwik9.zip
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_EMBEDDED_GROUP_ACCESS
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_NO_EMBEDDED_GROUP_ACCESS
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
@@ -45,7 +45,7 @@ jobs:
             vcpkgtriplet: arm64-osx 
             sourcefile: main.cpp
             download-datafiles: http://mattmahoney.net/dc/enwik9.zip
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_EMBEDDED_GROUP_ACCESS -DNUM_THREADS=8
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_NO_EMBEDDED_GROUP_ACCESS -DNUM_THREADS=8
             outputfile: benchmark
             reportdir: clang-arm64
             os: [self-hosted, macOS, ARM64]
@@ -58,7 +58,7 @@ jobs:
             vcpkgtriplet: x86-linux 
             sourcefile: main.cpp
             download-datafiles: http://mattmahoney.net/dc/enwik8.zip
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_EMBEDDED_GROUP_ACCESS
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_NO_EMBEDDED_GROUP_ACCESS
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
@@ -71,7 +71,7 @@ jobs:
             vcpkgtriplet: x86-linux 
             sourcefile: main.cpp
             download-datafiles: http://mattmahoney.net/dc/enwik8.zip
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_EMBEDDED_GROUP_ACCESS -latomic
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DCFOA_NO_EMBEDDED_GROUP_ACCESS -latomic
             outputfile: benchmark
             reportdir: clang-x86
             os: [self-hosted, linux, x64]
@@ -182,7 +182,7 @@ jobs:
             vcpkgtriplet: x64-windows 
             sourcefile: main.cpp
             download-datafiles: http://mattmahoney.net/dc/enwik9.zip
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "CFOA_EMBEDDED_GROUP_ACCESS" /D "NUM_THREADS=4" /EHsc /MD /Fe:benchmark.exe
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "CFOA_NO_EMBEDDED_GROUP_ACCESS" /D "NUM_THREADS=4" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs-x64
             os: [self-hosted, Windows, X64]
@@ -193,7 +193,7 @@ jobs:
             vcpkgtriplet: x86-windows 
             sourcefile: main.cpp
             download-datafiles: http://mattmahoney.net/dc/enwik8.zip
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "CFOA_EMBEDDED_GROUP_ACCESS" /D "NUM_THREADS=4" /EHsc /MD /Fe:benchmark.exe
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "CFOA_NO_EMBEDDED_GROUP_ACCESS" /D "NUM_THREADS=4" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs-x86
             os: [self-hosted, Windows, X64]
