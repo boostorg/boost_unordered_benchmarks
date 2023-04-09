@@ -214,7 +214,7 @@ inline bool contains_element( cfoa_shm_map_type const& map, std::string_view key
 
 inline void increment_element( cfm_map_type& map, std::string_view key )
 {
-    map.try_emplace_or_visit( key, []( auto& x ){ ++x.second; }, 0 );
+    map.try_emplace_or_visit( key, 0, []( auto& x ){ ++x.second; } );
 }
 
 inline bool contains_element( cfm_map_type const& map, std::string_view key )
