@@ -6,6 +6,7 @@
 #define _SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING
 #define _SILENCE_CXX20_CISO646_REMOVED_WARNING
 
+#include <boost/unordered/concurrent_flat_map.hpp>
 #include <boost/unordered/unordered_flat_map.hpp>
 #include <boost/unordered/detail/foa/concurrent_table.hpp>
 #include <boost/regex.hpp>
@@ -143,7 +144,9 @@ using cfoa_map_type = boost::unordered::detail::cfoa::table<map_policy<std::stri
 using cfoa_tbb_map_type = boost::unordered::detail::cfoa::table<map_policy<std::string_view, std::size_t>, boost::hash<std::string_view>, std::equal_to<std::string_view>, std::allocator<std::pair<const std::string_view,int>>, tbb::spin_rw_mutex>;
 using cfoa_shm_map_type = boost::unordered::detail::cfoa::table<map_policy<std::string_view, std::size_t>, boost::hash<std::string_view>, std::equal_to<std::string_view>, std::allocator<std::pair<const std::string_view,int>>, std::shared_mutex>;
 
-using cfm_map_type = boost::unordered::detail::foa::concurrent_table<map_policy<std::string_view, std::size_t>, boost::hash<std::string_view>, std::equal_to<std::string_view>, std::allocator<std::pair<const std::string_view,int>>>;
+using fct_map_type = boost::unordered::detail::foa::concurrent_table<map_policy<std::string_view, std::size_t>, boost::hash<std::string_view>, std::equal_to<std::string_view>, std::allocator<std::pair<const std::string_view,int>>>;
+
+using concurrent_flat_map_type = boost::unordered::concurrent_flat_map<std::string_view, std::size_t>;
 
 using cuckoo_map_type = libcuckoo::cuckoohash_map<std::string_view, std::size_t, boost::hash<std::string_view>, std::equal_to<std::string_view>, std::allocator<std::pair<const std::string_view,int>>>;
 
@@ -212,14 +215,24 @@ inline bool contains_element( cfoa_shm_map_type const& map, std::string_view key
     return map.find( key, [&]( auto& ){} );
 }
 
-inline void increment_element( cfm_map_type& map, std::string_view key )
+inline void increment_element( fct_map_type& map, std::string_view key )
 {
     map.try_emplace_or_visit( key, 0, []( auto& x ){ ++x.second; } );
 }
 
-inline bool contains_element( cfm_map_type const& map, std::string_view key )
+inline bool contains_element( fct_map_type const& map, std::string_view key )
 {
     return map.contains( key );
+}
+
+inline void increment_element( concurrent_flat_map_type& map, std::string_view key )
+{
+    map.try_emplace_or_visit( key, 0, []( auto& x ){ ++x.second; } );
+}
+
+inline bool contains_element( concurrent_flat_map_type const& map, std::string_view key )
+{
+  return (bool) map.cvisit( key, [](const auto&){} );
 }
 
 inline void increment_element( cuckoo_map_type& map, std::string_view key )
@@ -1048,7 +1061,8 @@ int main()
     test<single_threaded<cfoa_map_type>>( "cfoa, single threaded" );
     test<single_threaded<cfoa_tbb_map_type>>( "cfoa, tbb::spin_rw_mutex, single threaded" );
     test<single_threaded<cfoa_shm_map_type>>( "cfoa, std::shared_mutex, single threaded" );
-    test<single_threaded<cfm_map_type>>( "foa::concurrent_table, single threaded" );
+    test<single_threaded<fct_map_type>>( "foa::concurrent_table, single threaded" );
+    test<single_threaded<concurrent_flat_map_type>>( "boost::concurrent_flat_map, single threaded" );
     // test<single_threaded<cuckoo_map_type>>( "libcuckoo::cuckoohash_map, single threaded" );
     test<single_threaded<tbb_map_type>>( "tbb::concurrent_hash_map, single threaded" );
     // test<single_threaded<gtl_map_type<rw_spinlock>>>( "gtl::parallel_flat_hash_map<rw_spinlock>, single threaded" );
@@ -1070,7 +1084,8 @@ int main()
     test<parallel<cfoa_map_type>>( "cfoa" );
     test<parallel<cfoa_tbb_map_type>>( "cfoa, tbb::spin_rw_mutex" );
     test<parallel<cfoa_shm_map_type>>( "cfoa, std::shared_mutex" );
-    test<parallel<cfm_map_type>>( "foa::concurrent_table" );
+    test<parallel<fct_map_type>>( "foa::concurrent_table" );
+    test<parallel<concurrent_flat_map_type>>( "boost::concurrent_flat_map" );
 
     // test<parallel<cuckoo_map_type>>( "libcuckoo::cuckoohash_map" );
     test<parallel<tbb_map_type>>( "tbb::concurrent_hash_map" );
