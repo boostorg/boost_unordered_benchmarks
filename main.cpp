@@ -232,7 +232,7 @@ inline void increment_element( concurrent_flat_map_type& map, std::string_view k
 
 inline bool contains_element( concurrent_flat_map_type const& map, std::string_view key )
 {
-  return (bool) map.cvisit( key, [](const auto&){} );
+  return map.contains( key );
 }
 
 inline void increment_element( cuckoo_map_type& map, std::string_view key )
