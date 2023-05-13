@@ -21,28 +21,28 @@ TBW
 ```
 main.cpp
 Number of threads: 16
-                boost::unordered_flat_map, single threaded:  7747 ms
-  boost::unordered_flat_map, single threaded, shared_mutex: 12207 ms
-   boost::unordered_flat_map, single threaded, rw_spinlock:  9246 ms
-                                     cfoa, single threaded: 12206 ms
-                 cfoa, tbb::spin_rw_mutex, single threaded: 12288 ms
-                  cfoa, std::shared_mutex, single threaded: 14113 ms
-                    foa::concurrent_table, single threaded: 11981 ms
-               boost::concurrent_flat_map, single threaded: 12015 ms
-                 tbb::concurrent_hash_map, single threaded: 21807 ms
-       boost::unordered_flat_map, sharded_prehashed<mutex>:  6324 ms
-boost::unordered_flat_map, sharded_prehashed<shared_mutex>: 16425 ms
- boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:  7480 ms
-    boost::unordered_flat_map, sharded isolated, prehashed:  6046 ms
-                                                      cfoa:  5631 ms
-                                  cfoa, tbb::spin_rw_mutex:  5653 ms
-                                   cfoa, std::shared_mutex:  5397 ms
-                                     foa::concurrent_table:  5353 ms
-                                boost::concurrent_flat_map:  5493 ms
-                                  tbb::concurrent_hash_map:  7516 ms
-                   gtl::parallel_flat_hash_map<std::mutex>:  8537 ms
-            gtl::parallel_flat_hash_map<std::shared_mutex>: 14451 ms
-                  gtl::parallel_flat_hash_map<rw_spinlock>: 10084 ms
+                boost::unordered_flat_map, single threaded:  7780 ms
+  boost::unordered_flat_map, single threaded, shared_mutex: 12203 ms
+   boost::unordered_flat_map, single threaded, rw_spinlock:  9265 ms
+                                     cfoa, single threaded: 12136 ms
+                 cfoa, tbb::spin_rw_mutex, single threaded: 12402 ms
+                  cfoa, std::shared_mutex, single threaded: 14169 ms
+                    foa::concurrent_table, single threaded: 12062 ms
+               boost::concurrent_flat_map, single threaded: 12070 ms
+                 tbb::concurrent_hash_map, single threaded: 21914 ms
+       boost::unordered_flat_map, sharded_prehashed<mutex>:  6360 ms
+boost::unordered_flat_map, sharded_prehashed<shared_mutex>: 17375 ms
+ boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:  6909 ms
+    boost::unordered_flat_map, sharded isolated, prehashed:  5943 ms
+                                                      cfoa:  5687 ms
+                                  cfoa, tbb::spin_rw_mutex:  6092 ms
+                                   cfoa, std::shared_mutex:  5216 ms
+                                     foa::concurrent_table:  5351 ms
+                                boost::concurrent_flat_map:  5561 ms
+                                  tbb::concurrent_hash_map:  7448 ms
+                   gtl::parallel_flat_hash_map<std::mutex>:  8573 ms
+            gtl::parallel_flat_hash_map<std::shared_mutex>: 19183 ms
+                  gtl::parallel_flat_hash_map<rw_spinlock>:  9937 ms
 ```
 <!--gcc-x64/main.cpp.txt-->
 
@@ -51,28 +51,28 @@ boost::unordered_flat_map, sharded_prehashed<shared_mutex>: 16425 ms
 ```
 main.cpp
 Number of threads: 16
-                boost::unordered_flat_map, single threaded:  9033 ms
-  boost::unordered_flat_map, single threaded, shared_mutex: 12733 ms
-   boost::unordered_flat_map, single threaded, rw_spinlock: 10188 ms
-                                     cfoa, single threaded: 12240 ms
-                 cfoa, tbb::spin_rw_mutex, single threaded: 12450 ms
-                  cfoa, std::shared_mutex, single threaded: 14517 ms
-                    foa::concurrent_table, single threaded: 12399 ms
+                boost::unordered_flat_map, single threaded:  9160 ms
+  boost::unordered_flat_map, single threaded, shared_mutex: 12777 ms
+   boost::unordered_flat_map, single threaded, rw_spinlock: 10186 ms
+                                     cfoa, single threaded: 12372 ms
+                 cfoa, tbb::spin_rw_mutex, single threaded: 12369 ms
+                  cfoa, std::shared_mutex, single threaded: 14497 ms
+                    foa::concurrent_table, single threaded: 12393 ms
                boost::concurrent_flat_map, single threaded: 12450 ms
-                 tbb::concurrent_hash_map, single threaded: 22944 ms
-       boost::unordered_flat_map, sharded_prehashed<mutex>:  6307 ms
-boost::unordered_flat_map, sharded_prehashed<shared_mutex>: 15947 ms
- boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:  7369 ms
-    boost::unordered_flat_map, sharded isolated, prehashed:  6593 ms
-                                                      cfoa:  6141 ms
-                                  cfoa, tbb::spin_rw_mutex:  6636 ms
-                                   cfoa, std::shared_mutex:  5854 ms
-                                     foa::concurrent_table:  5718 ms
-                                boost::concurrent_flat_map:  6012 ms
-                                  tbb::concurrent_hash_map:  7636 ms
-                   gtl::parallel_flat_hash_map<std::mutex>:  7994 ms
-            gtl::parallel_flat_hash_map<std::shared_mutex>: 22391 ms
-                  gtl::parallel_flat_hash_map<rw_spinlock>: 12222 ms
+                 tbb::concurrent_hash_map, single threaded: 22902 ms
+       boost::unordered_flat_map, sharded_prehashed<mutex>:  6286 ms
+boost::unordered_flat_map, sharded_prehashed<shared_mutex>: 17221 ms
+ boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:  6802 ms
+    boost::unordered_flat_map, sharded isolated, prehashed:  6769 ms
+                                                      cfoa:  6397 ms
+                                  cfoa, tbb::spin_rw_mutex:  6453 ms
+                                   cfoa, std::shared_mutex:  5938 ms
+                                     foa::concurrent_table:  5231 ms
+                                boost::concurrent_flat_map:  5536 ms
+                                  tbb::concurrent_hash_map:  7498 ms
+                   gtl::parallel_flat_hash_map<std::mutex>:  8028 ms
+            gtl::parallel_flat_hash_map<std::shared_mutex>: 20016 ms
+                  gtl::parallel_flat_hash_map<rw_spinlock>: 12028 ms
 ```
 <!--clang-x64/main.cpp.txt-->
 
@@ -81,28 +81,28 @@ boost::unordered_flat_map, sharded_prehashed<shared_mutex>: 15947 ms
 ```
 main.cpp
 Number of threads: 4
-                boost::unordered_flat_map, single threaded: 23481 ms
-  boost::unordered_flat_map, single threaded, shared_mutex: 27037 ms
-   boost::unordered_flat_map, single threaded, rw_spinlock: 25318 ms
-                                     cfoa, single threaded: 26802 ms
-                 cfoa, tbb::spin_rw_mutex, single threaded: 27009 ms
-                  cfoa, std::shared_mutex, single threaded: 27107 ms
-                    foa::concurrent_table, single threaded: 25948 ms
-               boost::concurrent_flat_map, single threaded: 26029 ms
-                 tbb::concurrent_hash_map, single threaded: 44056 ms
-       boost::unordered_flat_map, sharded_prehashed<mutex>: 10742 ms
-boost::unordered_flat_map, sharded_prehashed<shared_mutex>:  8968 ms
- boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:  9653 ms
-    boost::unordered_flat_map, sharded isolated, prehashed: 10708 ms
-                                                      cfoa:  9194 ms
-                                  cfoa, tbb::spin_rw_mutex:  9675 ms
-                                   cfoa, std::shared_mutex:  9515 ms
-                                     foa::concurrent_table:  9720 ms
-                                boost::concurrent_flat_map: 10156 ms
-                                  tbb::concurrent_hash_map: 14939 ms
-                   gtl::parallel_flat_hash_map<std::mutex>: 12578 ms
-            gtl::parallel_flat_hash_map<std::shared_mutex>: 10999 ms
-                  gtl::parallel_flat_hash_map<rw_spinlock>: 11772 ms
+                boost::unordered_flat_map, single threaded: 23123 ms
+  boost::unordered_flat_map, single threaded, shared_mutex: 26752 ms
+   boost::unordered_flat_map, single threaded, rw_spinlock: 25780 ms
+                                     cfoa, single threaded: 26721 ms
+                 cfoa, tbb::spin_rw_mutex, single threaded: 26858 ms
+                  cfoa, std::shared_mutex, single threaded: 26777 ms
+                    foa::concurrent_table, single threaded: 26308 ms
+               boost::concurrent_flat_map, single threaded: 26516 ms
+                 tbb::concurrent_hash_map, single threaded: 44207 ms
+       boost::unordered_flat_map, sharded_prehashed<mutex>: 11096 ms
+boost::unordered_flat_map, sharded_prehashed<shared_mutex>:  8374 ms
+ boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:  9676 ms
+    boost::unordered_flat_map, sharded isolated, prehashed: 10235 ms
+                                                      cfoa:  9374 ms
+                                  cfoa, tbb::spin_rw_mutex:  9703 ms
+                                   cfoa, std::shared_mutex: 10119 ms
+                                     foa::concurrent_table:  9106 ms
+                                boost::concurrent_flat_map:  9903 ms
+                                  tbb::concurrent_hash_map: 15347 ms
+                   gtl::parallel_flat_hash_map<std::mutex>: 12610 ms
+            gtl::parallel_flat_hash_map<std::shared_mutex>: 10502 ms
+                  gtl::parallel_flat_hash_map<rw_spinlock>: 12083 ms
 ```
 <!--vs-x64/main.cpp.txt-->
 
@@ -111,28 +111,28 @@ boost::unordered_flat_map, sharded_prehashed<shared_mutex>:  8968 ms
 ```
 main.cpp
 Number of threads: 8
-                boost::unordered_flat_map, single threaded:  6202 ms
-  boost::unordered_flat_map, single threaded, shared_mutex: 10180 ms
-   boost::unordered_flat_map, single threaded, rw_spinlock:  6075 ms
-                                     cfoa, single threaded:  7540 ms
-                 cfoa, tbb::spin_rw_mutex, single threaded:  7605 ms
-                  cfoa, std::shared_mutex, single threaded: 11834 ms
-                    foa::concurrent_table, single threaded:  7440 ms
-               boost::concurrent_flat_map, single threaded:  7646 ms
-                 tbb::concurrent_hash_map, single threaded: 17390 ms
-       boost::unordered_flat_map, sharded_prehashed<mutex>:  5310 ms
-boost::unordered_flat_map, sharded_prehashed<shared_mutex>: 13137 ms
- boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:  3599 ms
-    boost::unordered_flat_map, sharded isolated, prehashed:  4527 ms
-                                                      cfoa:  3997 ms
-                                  cfoa, tbb::spin_rw_mutex:  4001 ms
-                                   cfoa, std::shared_mutex:  4808 ms
-                                     foa::concurrent_table:  3942 ms
-                                boost::concurrent_flat_map:  4019 ms
-                                  tbb::concurrent_hash_map:  5501 ms
-                   gtl::parallel_flat_hash_map<std::mutex>:  6421 ms
-            gtl::parallel_flat_hash_map<std::shared_mutex>: 11334 ms
-                  gtl::parallel_flat_hash_map<rw_spinlock>:  3716 ms
+                boost::unordered_flat_map, single threaded:  5712 ms
+  boost::unordered_flat_map, single threaded, shared_mutex: 10185 ms
+   boost::unordered_flat_map, single threaded, rw_spinlock:  6066 ms
+                                     cfoa, single threaded:  7536 ms
+                 cfoa, tbb::spin_rw_mutex, single threaded:  7639 ms
+                  cfoa, std::shared_mutex, single threaded: 11854 ms
+                    foa::concurrent_table, single threaded:  7468 ms
+               boost::concurrent_flat_map, single threaded:  7620 ms
+                 tbb::concurrent_hash_map, single threaded: 17365 ms
+       boost::unordered_flat_map, sharded_prehashed<mutex>:  5386 ms
+boost::unordered_flat_map, sharded_prehashed<shared_mutex>: 11341 ms
+ boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:  3468 ms
+    boost::unordered_flat_map, sharded isolated, prehashed:  4503 ms
+                                                      cfoa:  3915 ms
+                                  cfoa, tbb::spin_rw_mutex:  4076 ms
+                                   cfoa, std::shared_mutex:  4740 ms
+                                     foa::concurrent_table:  3904 ms
+                                boost::concurrent_flat_map:  3983 ms
+                                  tbb::concurrent_hash_map:  5389 ms
+                   gtl::parallel_flat_hash_map<std::mutex>:  6328 ms
+            gtl::parallel_flat_hash_map<std::shared_mutex>: 11267 ms
+                  gtl::parallel_flat_hash_map<rw_spinlock>:  3756 ms
 ```
 <!--clang-arm64/main.cpp.txt-->
 
@@ -141,28 +141,28 @@ boost::unordered_flat_map, sharded_prehashed<shared_mutex>: 13137 ms
 ```
 main.cpp
 Number of threads: 16
-                boost::unordered_flat_map, single threaded:  1070 ms
-  boost::unordered_flat_map, single threaded, shared_mutex:  1514 ms
-   boost::unordered_flat_map, single threaded, rw_spinlock:  1159 ms
-                                     cfoa, single threaded:  1531 ms
-                 cfoa, tbb::spin_rw_mutex, single threaded:  1544 ms
-                  cfoa, std::shared_mutex, single threaded:  1827 ms
-                    foa::concurrent_table, single threaded:  1469 ms
-               boost::concurrent_flat_map, single threaded:  1470 ms
-                 tbb::concurrent_hash_map, single threaded:  2219 ms
-       boost::unordered_flat_map, sharded_prehashed<mutex>:   774 ms
-boost::unordered_flat_map, sharded_prehashed<shared_mutex>:  1114 ms
- boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:   776 ms
-    boost::unordered_flat_map, sharded isolated, prehashed:   779 ms
-                                                      cfoa:   769 ms
-                                  cfoa, tbb::spin_rw_mutex:   756 ms
-                                   cfoa, std::shared_mutex:   687 ms
-                                     foa::concurrent_table:   876 ms
-                                boost::concurrent_flat_map:   757 ms
-                                  tbb::concurrent_hash_map:   861 ms
-                   gtl::parallel_flat_hash_map<std::mutex>:  1093 ms
-            gtl::parallel_flat_hash_map<std::shared_mutex>:  2818 ms
-                  gtl::parallel_flat_hash_map<rw_spinlock>:   904 ms
+                boost::unordered_flat_map, single threaded:  1063 ms
+  boost::unordered_flat_map, single threaded, shared_mutex:  1516 ms
+   boost::unordered_flat_map, single threaded, rw_spinlock:  1160 ms
+                                     cfoa, single threaded:  1530 ms
+                 cfoa, tbb::spin_rw_mutex, single threaded:  1545 ms
+                  cfoa, std::shared_mutex, single threaded:  1850 ms
+                    foa::concurrent_table, single threaded:  1489 ms
+               boost::concurrent_flat_map, single threaded:  1489 ms
+                 tbb::concurrent_hash_map, single threaded:  2259 ms
+       boost::unordered_flat_map, sharded_prehashed<mutex>:   764 ms
+boost::unordered_flat_map, sharded_prehashed<shared_mutex>:  1164 ms
+ boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:   578 ms
+    boost::unordered_flat_map, sharded isolated, prehashed:   761 ms
+                                                      cfoa:   768 ms
+                                  cfoa, tbb::spin_rw_mutex:   815 ms
+                                   cfoa, std::shared_mutex:   736 ms
+                                     foa::concurrent_table:   769 ms
+                                boost::concurrent_flat_map:   843 ms
+                                  tbb::concurrent_hash_map:   881 ms
+                   gtl::parallel_flat_hash_map<std::mutex>:  1084 ms
+            gtl::parallel_flat_hash_map<std::shared_mutex>:  2714 ms
+                  gtl::parallel_flat_hash_map<rw_spinlock>:   898 ms
 ```
 <!--gcc-x86/main.cpp.txt-->
 
@@ -171,28 +171,28 @@ boost::unordered_flat_map, sharded_prehashed<shared_mutex>:  1114 ms
 ```
 main.cpp
 Number of threads: 16
-                boost::unordered_flat_map, single threaded:  1138 ms
-  boost::unordered_flat_map, single threaded, shared_mutex:  1606 ms
-   boost::unordered_flat_map, single threaded, rw_spinlock:  1240 ms
+                boost::unordered_flat_map, single threaded:  1137 ms
+  boost::unordered_flat_map, single threaded, shared_mutex:  1605 ms
+   boost::unordered_flat_map, single threaded, rw_spinlock:  1236 ms
                                      cfoa, single threaded:  1459 ms
                  cfoa, tbb::spin_rw_mutex, single threaded:  1449 ms
-                  cfoa, std::shared_mutex, single threaded:  1834 ms
-                    foa::concurrent_table, single threaded:  1469 ms
-               boost::concurrent_flat_map, single threaded:  1470 ms
-                 tbb::concurrent_hash_map, single threaded:  2376 ms
-       boost::unordered_flat_map, sharded_prehashed<mutex>:   757 ms
-boost::unordered_flat_map, sharded_prehashed<shared_mutex>:  1396 ms
- boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:   588 ms
-    boost::unordered_flat_map, sharded isolated, prehashed:   787 ms
-                                                      cfoa:   773 ms
-                                  cfoa, tbb::spin_rw_mutex:   893 ms
-                                   cfoa, std::shared_mutex:   707 ms
-                                     foa::concurrent_table:   960 ms
-                                boost::concurrent_flat_map:   926 ms
-                                  tbb::concurrent_hash_map:   869 ms
-                   gtl::parallel_flat_hash_map<std::mutex>:  1020 ms
-            gtl::parallel_flat_hash_map<std::shared_mutex>:  1534 ms
-                  gtl::parallel_flat_hash_map<rw_spinlock>:  1059 ms
+                  cfoa, std::shared_mutex, single threaded:  1828 ms
+                    foa::concurrent_table, single threaded:  1473 ms
+               boost::concurrent_flat_map, single threaded:  1471 ms
+                 tbb::concurrent_hash_map, single threaded:  2380 ms
+       boost::unordered_flat_map, sharded_prehashed<mutex>:   756 ms
+boost::unordered_flat_map, sharded_prehashed<shared_mutex>:  1662 ms
+ boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:   576 ms
+    boost::unordered_flat_map, sharded isolated, prehashed:   749 ms
+                                                      cfoa:   815 ms
+                                  cfoa, tbb::spin_rw_mutex:   869 ms
+                                   cfoa, std::shared_mutex:   737 ms
+                                     foa::concurrent_table:   877 ms
+                                boost::concurrent_flat_map:   918 ms
+                                  tbb::concurrent_hash_map:   866 ms
+                   gtl::parallel_flat_hash_map<std::mutex>:  1025 ms
+            gtl::parallel_flat_hash_map<std::shared_mutex>:  2341 ms
+                  gtl::parallel_flat_hash_map<rw_spinlock>:   883 ms
 ```
 <!--clang-x86/main.cpp.txt-->
 
@@ -201,27 +201,27 @@ boost::unordered_flat_map, sharded_prehashed<shared_mutex>:  1396 ms
 ```
 main.cpp
 Number of threads: 4
-                boost::unordered_flat_map, single threaded:  1335 ms
-  boost::unordered_flat_map, single threaded, shared_mutex:  1730 ms
-   boost::unordered_flat_map, single threaded, rw_spinlock:  1601 ms
-                                     cfoa, single threaded:  2102 ms
-                 cfoa, tbb::spin_rw_mutex, single threaded:  2141 ms
-                  cfoa, std::shared_mutex, single threaded:  2358 ms
-                    foa::concurrent_table, single threaded:  2071 ms
-               boost::concurrent_flat_map, single threaded:  2183 ms
-                 tbb::concurrent_hash_map, single threaded:  4099 ms
-       boost::unordered_flat_map, sharded_prehashed<mutex>:   889 ms
-boost::unordered_flat_map, sharded_prehashed<shared_mutex>:   733 ms
- boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:   735 ms
-    boost::unordered_flat_map, sharded isolated, prehashed:   889 ms
-                                                      cfoa:   943 ms
-                                  cfoa, tbb::spin_rw_mutex:   881 ms
-                                   cfoa, std::shared_mutex:  1021 ms
-                                     foa::concurrent_table:   860 ms
-                                boost::concurrent_flat_map:   900 ms
-                                  tbb::concurrent_hash_map:  1420 ms
-                   gtl::parallel_flat_hash_map<std::mutex>:  1037 ms
-            gtl::parallel_flat_hash_map<std::shared_mutex>:   871 ms
-                  gtl::parallel_flat_hash_map<rw_spinlock>:   891 ms
+                boost::unordered_flat_map, single threaded:  1408 ms
+  boost::unordered_flat_map, single threaded, shared_mutex:  1786 ms
+   boost::unordered_flat_map, single threaded, rw_spinlock:  1589 ms
+                                     cfoa, single threaded:  2150 ms
+                 cfoa, tbb::spin_rw_mutex, single threaded:  2229 ms
+                  cfoa, std::shared_mutex, single threaded:  2340 ms
+                    foa::concurrent_table, single threaded:  2110 ms
+               boost::concurrent_flat_map, single threaded:  2070 ms
+                 tbb::concurrent_hash_map, single threaded:  3965 ms
+       boost::unordered_flat_map, sharded_prehashed<mutex>:  1027 ms
+boost::unordered_flat_map, sharded_prehashed<shared_mutex>:   791 ms
+ boost::unordered_flat_map, sharded_prehashed<rw_spinlock>:   704 ms
+    boost::unordered_flat_map, sharded isolated, prehashed:   986 ms
+                                                      cfoa:   907 ms
+                                  cfoa, tbb::spin_rw_mutex:   834 ms
+                                   cfoa, std::shared_mutex:   954 ms
+                                     foa::concurrent_table:   835 ms
+                                boost::concurrent_flat_map:   928 ms
+                                  tbb::concurrent_hash_map:  1506 ms
+                   gtl::parallel_flat_hash_map<std::mutex>:  1157 ms
+            gtl::parallel_flat_hash_map<std::shared_mutex>:   894 ms
+                  gtl::parallel_flat_hash_map<rw_spinlock>:   979 ms
 ```
 <!--vs-x86/main.cpp.txt-->
