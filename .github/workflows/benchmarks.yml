@@ -601,8 +601,7 @@ jobs:
         shell: cmd
         run: |
           cd %GITHUB_WORKSPACE%
-          # call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
-          call "C:\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
           set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\abseil-root;%GITHUB_WORKSPACE%\ankerl-unordered_dense-root\include
           echo %INCLUDE%
           ${{matrix.compiler}} %GITHUB_WORKSPACE%\boost-root\libs\unordered\benchmark\${{matrix.sourcefile}} ${{matrix.compileroptions}}
