@@ -23,7 +23,7 @@ jobs:
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: g++-12
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: gcc-x64
             compiler: g++-12
             architecture: -m64
@@ -34,7 +34,7 @@ jobs:
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: g++-12
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: gcc-x64
             compiler: g++-12
             architecture: -m64
@@ -45,7 +45,7 @@ jobs:
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: g++-12
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
             
           - name: clang-x64
             compiler: clang++-15
@@ -56,7 +56,7 @@ jobs:
             reportdir: clang-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
             compiler: clang++-15
             architecture: -m64
@@ -66,7 +66,7 @@ jobs:
             reportdir: clang-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
             compiler: clang++-15
             architecture: -m64
@@ -76,7 +76,7 @@ jobs:
             reportdir: clang-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
           - name: clang-arm64
             compiler: clang++
@@ -122,7 +122,7 @@ jobs:
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: g++-12 gcc-12-multilib g++-12-multilib
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: gcc-x86
             compiler: g++-12
             architecture: -m32
@@ -133,7 +133,7 @@ jobs:
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: g++-12 gcc-12-multilib g++-12-multilib
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: gcc-x86
             compiler: g++-12
             architecture: -m32
@@ -144,7 +144,7 @@ jobs:
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: g++-12 gcc-12-multilib g++-12-multilib
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
           - name: clang-x86
             compiler: clang++-15
@@ -155,7 +155,7 @@ jobs:
             reportdir: clang-x86
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x86
             compiler: clang++-15
             architecture: -m32
@@ -165,7 +165,7 @@ jobs:
             reportdir: clang-x86
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x86
             compiler: clang++-15
             architecture: -m32
@@ -175,7 +175,7 @@ jobs:
             reportdir: clang-x86
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
                         
     runs-on: ${{matrix.os}}
