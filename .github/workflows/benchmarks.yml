@@ -235,7 +235,7 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
-            install: g++-12
+            install: g++-12 gcc-12-multilib g++-12-multilib
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: gcc-x86
             compiler: g++-12
@@ -245,7 +245,7 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
-            install: g++-12
+            install: g++-12 gcc-12-multilib g++-12-multilib
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: gcc-x86
             compiler: g++-12
@@ -255,7 +255,7 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
-            install: g++-12
+            install: g++-12 gcc-12-multilib g++-12-multilib
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: gcc-x86
             compiler: g++-12
@@ -265,7 +265,7 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
-            install: g++-12
+            install: g++-12 gcc-12-multilib g++-12-multilib
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: gcc-x86
             compiler: g++-12
@@ -275,7 +275,7 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
-            install: g++-12
+            install: g++-12 gcc-12-multilib g++-12-multilib
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: gcc-x86
             compiler: g++-12
@@ -286,7 +286,7 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
-            install: g++-12 unzip
+            install: g++-12 gcc-12-multilib g++-12-multilib unzip
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: gcc-x86
             compiler: g++-12
@@ -297,7 +297,7 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
-            install: g++-12 unzip
+            install: g++-12 gcc-12-multilib g++-12-multilib unzip
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
           - name: clang-x86
