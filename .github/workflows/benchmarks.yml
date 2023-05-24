@@ -14,7 +14,7 @@ jobs:
       matrix:
         include:
           - name: gcc-x64
-            compiler: g++-11
+            compiler: g++-12
             architecture: -m64
             sourcefile: running_insertion.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -22,10 +22,10 @@ jobs:
             reportdir: gcc-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: g++-11
+            install: g++-12
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
           - name: gcc-x64
-            compiler: g++-11
+            compiler: g++-12
             architecture: -m64
             sourcefile: running_erasure.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -33,10 +33,10 @@ jobs:
             reportdir: gcc-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: g++-11
+            install: g++-12
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
           - name: gcc-x64
-            compiler: g++-11
+            compiler: g++-12
             architecture: -m64
             sourcefile: scattered_lookup.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -44,11 +44,11 @@ jobs:
             reportdir: gcc-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: g++-11
+            install: g++-12
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
             
           - name: clang-x64
-            compiler: clang++-12
+            compiler: clang++-15
             architecture: -m64
             sourcefile: running_insertion.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -58,7 +58,7 @@ jobs:
             os: [self-hosted, linux, x64]
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
           - name: clang-x64
-            compiler: clang++-12
+            compiler: clang++-15
             architecture: -m64
             sourcefile: running_erasure.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -68,7 +68,7 @@ jobs:
             os: [self-hosted, linux, x64]
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
           - name: clang-x64
-            compiler: clang++-12
+            compiler: clang++-15
             architecture: -m64
             sourcefile: scattered_lookup.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -113,7 +113,7 @@ jobs:
             xcode_version: 13.4.1            
 
           - name: gcc-x86
-            compiler: g++-11
+            compiler: g++-12
             architecture: -m32
             sourcefile: running_insertion.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -121,10 +121,10 @@ jobs:
             reportdir: gcc-x86
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: g++-11
+            install: g++-12 gcc-12-multilib g++-12-multilib
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
           - name: gcc-x86
-            compiler: g++-11
+            compiler: g++-12
             architecture: -m32
             sourcefile: running_erasure.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -132,10 +132,10 @@ jobs:
             reportdir: gcc-x86
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: g++-11
+            install: g++-12 gcc-12-multilib g++-12-multilib
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
           - name: gcc-x86
-            compiler: g++-11
+            compiler: g++-12
             architecture: -m32
             sourcefile: scattered_lookup.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -143,11 +143,11 @@ jobs:
             reportdir: gcc-x86
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: g++-11
+            install: g++-12 gcc-12-multilib g++-12-multilib
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
 
           - name: clang-x86
-            compiler: clang++-12
+            compiler: clang++-15
             architecture: -m32
             sourcefile: running_insertion.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -157,7 +157,7 @@ jobs:
             os: [self-hosted, linux, x64]
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
           - name: clang-x86
-            compiler: clang++-12
+            compiler: clang++-15
             architecture: -m32
             sourcefile: running_erasure.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -167,7 +167,7 @@ jobs:
             os: [self-hosted, linux, x64]
             command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
           - name: clang-x86
-            compiler: clang++-12
+            compiler: clang++-15
             architecture: -m32
             sourcefile: scattered_lookup.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -318,8 +318,7 @@ jobs:
         shell: cmd
         run: |
           cd %GITHUB_WORKSPACE%
-          # call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
-          call "C:\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
           set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\abseil-root
           echo %INCLUDE%
           ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.compileroptions}}
