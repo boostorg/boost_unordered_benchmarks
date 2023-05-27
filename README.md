@@ -11,13 +11,13 @@ Automated benchmarks of `boost::unordered_flat_map` and `boost::unordered_node_m
 
 ## How to read the results
 ### Folder
-* `gcc-x64`: GCC 11, x64
-* `clang-x64`: Clang 12, x64
-* `vs-x64`: Visual Studio 2019, x64
+* `gcc-x64`: GCC 12, x64
+* `clang-x64`: Clang 15, x64
+* `vs-x64`: Visual Studio 2022, x64
 * `clang-arm64`: Clang 12 ARM64
-* `gcc-x86`: GCC 11, x86
-* `clang-x86`: Clang 12, x86
-* `vs-x86`: Visual Studio 2019, x86
+* `gcc-x86`: GCC 12, x86
+* `clang-x86`: Clang 15, x86
+* `vs-x86`: Visual Studio 2022, x86
 
 ### Excel file
 * `Running insertion.xlsx`: results of `running_insertion.cpp`
@@ -26,17 +26,17 @@ Automated benchmarks of `boost::unordered_flat_map` and `boost::unordered_node_m
 * `Scattered unsuccessful looukp.xlsx`: results of `scattered_lookup.cpp`, unsuccessful case
 
 ## Graphs
-### GCC 11, x64
+### GCC 12, x64
 |<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/gcc-x64/Running insertion.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/gcc-x64/Running erasure.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/gcc-x64/Scattered successful looukp.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/gcc-x64/Scattered unsuccessful looukp.xlsx.plot.png" width="250">|
 |:-:|:-:|:-:|:-:|
 |Running insertion|Running erasure|Successful lookup|Unsuccessful lookup|
 
-### Clang 12, x64
+### Clang 15, x64
 |<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/clang-x64/Running insertion.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/clang-x64/Running erasure.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/clang-x64/Scattered successful looukp.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/clang-x64/Scattered unsuccessful looukp.xlsx.plot.png" width="250">|
 |:-:|:-:|:-:|:-:|
 |Running insertion|Running erasure|Successful lookup|Unsuccessful lookup|
 
-### Visual Studio 2019, x64
+### Visual Studio 2022, x64
 |<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/vs-x64/Running insertion.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/vs-x64/Running erasure.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/vs-x64/Scattered successful looukp.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/vs-x64/Scattered unsuccessful looukp.xlsx.plot.png" width="250">|
 |:-:|:-:|:-:|:-:|
 |Running insertion|Running erasure|Successful lookup|Unsuccessful lookup|
@@ -46,17 +46,17 @@ Automated benchmarks of `boost::unordered_flat_map` and `boost::unordered_node_m
 |:-:|:-:|:-:|:-:|
 |Running insertion|Running erasure|Successful lookup|Unsuccessful lookup|
 
-### GCC 11, x86
+### GCC 12, x86
 |<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/gcc-x86/Running insertion.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/gcc-x86/Running erasure.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/gcc-x86/Scattered successful looukp.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/gcc-x86/Scattered unsuccessful looukp.xlsx.plot.png" width="250">|
 |:-:|:-:|:-:|:-:|
 |Running insertion|Running erasure|Successful lookup|Unsuccessful lookup|
 
-### Clang 12, x86
+### Clang 15, x86
 |<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/clang-x86/Running insertion.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/clang-x86/Running erasure.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/clang-x86/Scattered successful looukp.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/clang-x86/Scattered unsuccessful looukp.xlsx.plot.png" width="250">|
 |:-:|:-:|:-:|:-:|
 |Running insertion|Running erasure|Successful lookup|Unsuccessful lookup|
 
-### Visual Studio 2019, x86
+### Visual Studio 2022, x86
 |<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/vs-x86/Running insertion.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/vs-x86/Running erasure.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/vs-x86/Scattered successful looukp.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_cfoa/img/vs-x86/Scattered unsuccessful looukp.xlsx.plot.png" width="250">|
 |:-:|:-:|:-:|:-:|
 |Running insertion|Running erasure|Successful lookup|Unsuccessful lookup|
