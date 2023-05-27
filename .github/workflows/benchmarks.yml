@@ -336,11 +336,11 @@ jobs:
         run: |
           echo "REPORT_FILE=${{matrix.reportdir}}\${{matrix.sourcefile}}.csv" >> $env:GITHUB_ENV
       - name: Run benchmark
-        shell: cmd
+        shell: powershell
         run: |
-          REM echo "running benchmarks and saving to $env:REPORT_FILE"
-          REM ./${{matrix.outputfile}} | tee $env:REPORT_FILE
-          start "" /realtime /affinity 40 ./${{matrix.outputfile}} ^> %REPORT_FILE%
+          echo "running benchmarks and saving to $env:REPORT_FILE"
+          # ./${{matrix.outputfile}} | tee $env:REPORT_FILE
+          C:\Windows\System32\cmd.exe /c start "" /realtime /affinity 40 ./${{matrix.outputfile}} ^> %REPORT_FILE%
       - name: Push benchmark results to repo
         shell: powershell
         run: |
