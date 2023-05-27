@@ -338,8 +338,8 @@ jobs:
       - name: Run benchmark
         shell: cmd
         run: |
-          # echo "running benchmarks and saving to $env:REPORT_FILE"
-          # ./${{matrix.outputfile}} | tee $env:REPORT_FILE
+          REM echo "running benchmarks and saving to $env:REPORT_FILE"
+          REM ./${{matrix.outputfile}} | tee $env:REPORT_FILE
           start "" /realtime /affinity 40 ./${{matrix.outputfile}} ^> %REPORT_FILE%
       - name: Push benchmark results to repo
         shell: powershell
