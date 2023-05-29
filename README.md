@@ -7,17 +7,17 @@ of Boost.Unordered [source code](https://github.com/boostorg/unordered/tree/deve
 
 ## Detailed results
 ### Folder
-* `gcc-x64`: GCC 11, x64
-* `clang-x64`: Clang 12, x64
-* `vs-x64`: Visual Studio 2019, x64
+* `gcc-x64`: GCC 12, x64
+* `clang-x64`: Clang 15, x64
+* `vs-x64`: Visual Studio 2022, x64
 * `clang-arm64`: Clang 12 ARM64
-* `gcc-x86`: GCC 11, x86
-* `clang-x86`: Clang 12, x86
-* `vs-x86`: Visual Studio 2019, x86
+* `gcc-x86`: GCC 12, x86
+* `clang-x86`: Clang 15, x86
+* `vs-x86`: Visual Studio 2022, x86
 
 ## Summary results
 
-### GCC 11, x64
+### GCC 12, x64
 <!--gcc-x64/string.cpp.txt-->
 ```
 string.cpp
@@ -130,7 +130,7 @@ ankerl::unordered_dense::map:   584 ms,      4096 bytes in 2 allocations
 ```
 <!--gcc-x64/word_size.cpp.txt-->
 
-### Clang 12, x64
+### Clang 15, x64
 <!--clang-x64/string.cpp.txt-->
 ```
 string.cpp
@@ -243,7 +243,7 @@ ankerl::unordered_dense::map:   875 ms,      4096 bytes in 2 allocations
 ```
 <!--clang-x64/word_size.cpp.txt-->
 
-### Visual Studio 2019, x64
+### Visual Studio 2022, x64
 <!--vs-x64/string.cpp.txt-->
 ```
 string.cpp
@@ -471,7 +471,7 @@ ankerl::unordered_dense::map:   397 ms,      4096 bytes in 2 allocations
 <!--clang-arm64/word_size.cpp.txt-->
 
 
-### GCC 11, x86
+### GCC 12, x86
 <!--gcc-x86/string.cpp.txt-->
 ```
 string.cpp
@@ -583,7 +583,7 @@ ankerl::unordered_dense::map:   160 ms,      1536 bytes in 2 allocations
 ```
 <!--gcc-x86/word_size.cpp.txt-->
 
-### Clang 12, x86
+### Clang 15, x86
 <!--clang-x86/string.cpp.txt-->
 ```
 string.cpp
@@ -695,7 +695,7 @@ ankerl::unordered_dense::map:   184 ms,      1536 bytes in 2 allocations
 ```
 <!--clang-x86/word_size.cpp.txt-->
 
-### Visual Studio 2019, x86
+### Visual Studio 2022, x86
 <!--vs-x86/string.cpp.txt-->
 ```
 string.cpp
