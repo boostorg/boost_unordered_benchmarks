@@ -203,7 +203,7 @@ void test(
 #ifdef NUM_THREADS
   const int num_threads=NUM_THREADS;
 #else
-  const int num_threads=32;
+  const int num_threads=16;
 #endif
 
   std::cout<<title<<" (N="<<N<<", theta="<<theta<<"):"<<std::endl;
