@@ -16,6 +16,7 @@ jobs:
           - name: gcc-x64
             compiler: g++-12
             architecture: -m64
+            vcpkgtriplet: x64-linux
             sourcefile: parallel_load.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG 
             outputfile: benchmark
@@ -27,6 +28,7 @@ jobs:
           - name: clang-x64
             compiler: clang++-15
             architecture: -m64
+            vcpkgtriplet: x64-linux
             sourcefile: parallel_load.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG 
             outputfile: benchmark
@@ -37,6 +39,7 @@ jobs:
           - name: clang-arm64
             compiler: clang++
             architecture: -m64
+            vcpkgtriplet: arm64-osx
             sourcefile: parallel_load.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG 
             outputfile: benchmark
@@ -48,6 +51,7 @@ jobs:
           - name: gcc-x86
             compiler: g++-12
             architecture: -m32
+            vcpkgtriplet: x86-linux
             sourcefile: parallel_load.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG 
             outputfile: benchmark
@@ -59,6 +63,7 @@ jobs:
           - name: clang-x86
             compiler: clang++-15
             architecture: -m32
+            vcpkgtriplet: x86-linux
             sourcefile: parallel_load.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG 
             outputfile: benchmark
@@ -154,6 +159,7 @@ jobs:
           - name: vs-x64
             compiler: cl
             architecture: x64
+            vcpkgtriplet: x64-windows
             sourcefile: parallel_load.cpp
             compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
@@ -163,6 +169,7 @@ jobs:
           - name: vs-x86
             compiler: cl
             architecture: x86
+            vcpkgtriplet: x86-windows
             sourcefile: parallel_load.cpp
             compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
