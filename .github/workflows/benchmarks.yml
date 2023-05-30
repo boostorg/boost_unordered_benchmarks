@@ -180,10 +180,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Output number of processors
-        shell: cmd
-        run: |
-           echo %NUMBER_OF_PROCESSORS%
       - name: Install Boost
         shell: cmd
         run: |
@@ -230,8 +226,7 @@ jobs:
         shell: powershell
         run: |
           echo "running benchmarks and saving to $env:REPORT_FILE"
-          # C:\Windows\System32\cmd.exe /c start "" /b /wait /realtime /affinity 3C ./${{matrix.outputfile}} ^> $env:REPORT_FILE
-          ./${{matrix.outputfile}} | tee $env:REPORT_FILE
+          C:\Windows\System32\cmd.exe /c start "" /b /wait /realtime /affinity 3C ./${{matrix.outputfile}} ^> ${{env.REPORT_FILE}}
       - name: Push benchmark results to repo
         shell: powershell
         run: |
