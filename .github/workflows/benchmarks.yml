@@ -332,9 +332,9 @@ jobs:
           echo %INCLUDE%
           ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.compileroptions}}
       - name: Set reportfile name
-        shell: powershell
+        shell: cmd
         run: |
-          echo "REPORT_FILE=${{matrix.reportdir}}\${{matrix.sourcefile}}.csv" >> $env:GITHUB_ENV
+          echo "REPORT_FILE=${{matrix.reportdir}}\${{matrix.sourcefile}}.csv" >> %GITHUB_ENV%
       - name: Run benchmark
         shell: powershell
         run: |
