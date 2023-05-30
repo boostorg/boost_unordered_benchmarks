@@ -206,8 +206,8 @@ void test(
   const int num_threads=32;
 #endif
 
-  std::cout<<title<<" (N="<<N<<", theta="<<theta<<"):\n";
-  std::cout<<"#threads;"<<name1<<";"<<name2<<";"<<name3<<"\n";
+  std::cout<<title<<" (N="<<N<<", theta="<<theta<<"):"<<std::endl;
+  std::cout<<"#threads;"<<name1<<";"<<name2<<";"<<name3<<std::endl;
 
   for(int n=1;n<=num_threads;++n){
     std::cout<<n<<";";
@@ -216,7 +216,7 @@ void test(
     t=measure(boost::bind(Tester<Container2>(),N,theta,n));
     std::cout<<N/t/1E6<<";";
     t=measure(boost::bind(Tester<Container3>(),N,theta,n));
-    std::cout<<N/t/1E6<<"\n";
+    std::cout<<N/t/1E6<<std::endl;
   }
 }
 
