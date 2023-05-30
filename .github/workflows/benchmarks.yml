@@ -180,6 +180,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Output number of processors
+        shell: cmd
+        run: |
+           echo %NUMBER_OF_PROCESSORS%
       - name: Install Boost
         shell: cmd
         run: |
