@@ -226,7 +226,7 @@ jobs:
         shell: powershell
         run: |
           echo "running benchmarks and saving to $env:REPORT_FILE"
-          ./${{matrix.outputfile}} | tee $env:REPORT_FILE
+          ./${{matrix.outputfile}} | Set-Content $env:REPORT_FILE -Passthru          
       - name: Push benchmark results to repo
         shell: powershell
         run: |
