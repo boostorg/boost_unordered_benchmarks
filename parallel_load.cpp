@@ -222,6 +222,8 @@ void test(
 
 int main()
 {
+  std::cout<<"#logical cores: "<<std::thread::hardware_concurrency()<<std::endl;
+
   for(auto N:{500'000,5'000'000}){
     for(auto theta:{0.01,0.5,0.99}){
       test<
