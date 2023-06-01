@@ -69,7 +69,7 @@ using tbb_map=tbb::concurrent_hash_map<int,int>;
 using gtl_map=gtl::parallel_flat_hash_map<
   int,int,gtl::priv::hash_default_hash<int>,gtl::priv::hash_default_eq<int>,
   std::allocator<std::pair<const int,int>>,
-  4,std::mutex>;
+  8,std::mutex>;
 
 template<typename... Args>
 inline void map_update(boost_map& m,Args&&... args)
