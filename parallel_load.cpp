@@ -165,7 +165,7 @@ struct parallel_load
 
     for(int i=0;i<num_threads;++i)threads.emplace_back([&,i,zipf1,zipf2]{
       std::discrete_distribution<>  dist({10,45,45});
-      std::mt19937_64               gen(i);
+      std::mt19937_64               gen(std::size_t(282472+i*213731));
 
       updater  update{zipf1};
       finder   successful_find{zipf1},
