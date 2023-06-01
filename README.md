@@ -24,7 +24,7 @@ TBW
 |:-:|:-:|:-:|
 |500k ops, skew=0.01|500k ops, skew=0.5|500k ops, skew=0.99|
 
-|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/gcc-x64/Parallel workload.xlsx.500M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/gcc-x64/Parallel workload.xlsx.500M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/gcc-x64/Parallel workload.xlsx.500M, 0.99.png" width="250">|
+|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/gcc-x64/Parallel workload.xlsx.5M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/gcc-x64/Parallel workload.xlsx.5M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/gcc-x64/Parallel workload.xlsx.5M, 0.99.png" width="250">|
 |:-:|:-:|:-:|
 |5M ops, skew=0.01|5M ops, skew=0.5|5M ops, skew=0.99|
 
@@ -33,7 +33,7 @@ TBW
 |:-:|:-:|:-:|
 |500k ops, skew=0.01|500k ops, skew=0.5|500k ops, skew=0.99|
 
-|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-x64/Parallel workload.xlsx.500M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-x64/Parallel workload.xlsx.500M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-x64/Parallel workload.xlsx.500M, 0.99.png" width="250">|
+|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-x64/Parallel workload.xlsx.5M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-x64/Parallel workload.xlsx.5M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-x64/Parallel workload.xlsx.5M, 0.99.png" width="250">|
 |:-:|:-:|:-:|
 |5M ops, skew=0.01|5M ops, skew=0.5|5M ops, skew=0.99|
 
@@ -42,7 +42,7 @@ TBW
 |:-:|:-:|:-:|
 |500k ops, skew=0.01|500k ops, skew=0.5|500k ops, skew=0.99|
 
-|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/vs-x64/Parallel workload.xlsx.500M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/vs-x64/Parallel workload.xlsx.500M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/vs-x64/Parallel workload.xlsx.500M, 0.99.png" width="250">|
+|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/vs-x64/Parallel workload.xlsx.5M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/vs-x64/Parallel workload.xlsx.5M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/vs-x64/Parallel workload.xlsx.5M, 0.99.png" width="250">|
 |:-:|:-:|:-:|
 |5M ops, skew=0.01|5M ops, skew=0.5|5M ops, skew=0.99|
 
@@ -52,7 +52,7 @@ TBW
 |:-:|:-:|:-:|
 |500k ops, skew=0.01|500k ops, skew=0.5|500k ops, skew=0.99|
 
-|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-arm64/Parallel workload.xlsx.500M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-arm64/Parallel workload.xlsx.500M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-arm64/Parallel workload.xlsx.500M, 0.99.png" width="250">|
+|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-arm64/Parallel workload.xlsx.5M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-arm64/Parallel workload.xlsx.5M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-arm64/Parallel workload.xlsx.5M, 0.99.png" width="250">|
 |:-:|:-:|:-:|
 |5M ops, skew=0.01|5M ops, skew=0.5|5M ops, skew=0.99|
 
@@ -61,7 +61,7 @@ TBW
 |:-:|:-:|:-:|
 |500k ops, skew=0.01|500k ops, skew=0.5|500k ops, skew=0.99|
 
-|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/gcc-x86/Parallel workload.xlsx.500M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/gcc-x86/Parallel workload.xlsx.500M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/gcc-x86/Parallel workload.xlsx.500M, 0.99.png" width="250">|
+|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/gcc-x86/Parallel workload.xlsx.5M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/gcc-x86/Parallel workload.xlsx.5M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/gcc-x86/Parallel workload.xlsx.5M, 0.99.png" width="250">|
 |:-:|:-:|:-:|
 |5M ops, skew=0.01|5M ops, skew=0.5|5M ops, skew=0.99|
 
@@ -70,7 +70,7 @@ TBW
 |:-:|:-:|:-:|
 |500k ops, skew=0.01|500k ops, skew=0.5|500k ops, skew=0.99|
 
-|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-x86/Parallel workload.xlsx.500M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-x86/Parallel workload.xlsx.500M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-x86/Parallel workload.xlsx.500M, 0.99.png" width="250">|
+|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-x86/Parallel workload.xlsx.5M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-x86/Parallel workload.xlsx.5M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/clang-x86/Parallel workload.xlsx.5M, 0.99.png" width="250">|
 |:-:|:-:|:-:|
 |5M ops, skew=0.01|5M ops, skew=0.5|5M ops, skew=0.99|
 
@@ -80,6 +80,6 @@ TBW
 |:-:|:-:|:-:|
 |500k ops, skew=0.01|500k ops, skew=0.5|500k ops, skew=0.99|
 
-|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/vs-x86/Parallel workload.xlsx.500M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/vs-x86/Parallel workload.xlsx.500M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/vs-x86/Parallel workload.xlsx.500M, 0.99.png" width="250">|
+|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/vs-x86/Parallel workload.xlsx.5M, 0.01.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/vs-x86/Parallel workload.xlsx.5M, 0.5.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_concurrent_flat_map/img/vs-x86/Parallel workload.xlsx.5M, 0.99.png" width="250">|
 |:-:|:-:|:-:|
 |5M ops, skew=0.01|5M ops, skew=0.5|5M ops, skew=0.99|
