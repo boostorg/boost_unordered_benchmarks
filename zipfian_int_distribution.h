@@ -60,8 +60,10 @@
  * }
  */
 
-/* Joaquin M Lopez Munoz, May 2023: trivial changes to get rid of GCC specific
- * functions and some warnings.
+/* 
+ * Joaquin M Lopez Munoz, May-Jun 2023:
+ *   - Trivial changes to get rid of GCC specific functions and some warnings.
+ *   - Cached values to speed up zipfian_int_distribution::operator().
  */
 
 #include <cmath>
@@ -84,14 +86,18 @@ public:
 
     explicit param_type(_IntType __a = 0, _IntType __b = std::numeric_limits<_IntType>::max(), double __theta = 0.99)
     : _M_a(__a), _M_b(__b), _M_theta(__theta),
-      _M_zeta(zeta(_M_b - _M_a + 1, __theta)), _M_zeta2theta(zeta(2, __theta))
+      _M_zeta(zeta(_M_b - _M_a + 1, __theta)), _M_zeta2theta(zeta(2, __theta)),
+      _M_alpha(alpha(__theta)), _M_eta(eta(__a, __b, __theta, _M_zeta, _M_zeta2theta)),
+      _M_1_plus_05_to_theta(_1_plus_05_to_theta(__theta))
     {
       assert(_M_a <= _M_b && _M_theta > 0.0 && _M_theta < 1.0);
     }
     
     explicit param_type(_IntType __a, _IntType __b, double __theta, double __zeta)
     : _M_a(__a), _M_b(__b), _M_theta(__theta), _M_zeta(__zeta),
-    _M_zeta2theta(zeta(2, __theta))
+      _M_zeta2theta(zeta(2, __theta)),
+      _M_alpha(alpha(__theta)), _M_eta(eta(__a, __b, __theta, _M_zeta, _M_zeta2theta)),
+      _M_1_plus_05_to_theta(_1_plus_05_to_theta(__theta))
     {
       assert(_M_a <= _M_b && _M_theta > 0.0 && _M_theta < 1.0);
     }
@@ -105,6 +111,12 @@ public:
     double zeta() const { return _M_zeta; }
 
     double zeta2theta() const { return _M_zeta2theta; }
+
+    double alpha() const { return _M_alpha; }
+
+    double eta() const { return _M_eta; }
+
+    double _1_plus_05_to_theta() const { return _M_1_plus_05_to_theta; }
 
     friend bool	operator==(const param_type& __p1, const param_type& __p2)
     {
@@ -121,6 +133,9 @@ public:
     double _M_theta;
     double _M_zeta;
     double _M_zeta2theta;
+    double _M_alpha;
+    double _M_eta;
+    double _M_1_plus_05_to_theta;
 
     /**
      * @brief Calculates zeta.
@@ -134,6 +149,21 @@ public:
       for(unsigned long i=1; i<=__n; ++i)
         ans += std::pow(1.0/i, __theta);
       return ans;
+    }
+
+    double alpha(double __theta)
+    {
+      return 1 / (1 - __theta);
+    };
+
+    double eta(_IntType __a, _IntType __b, double __theta, double __zeta, double __zeta2theta)
+    {
+      return (1 - std::pow(2.0 / (__b - __a + 1), 1 - __theta)) / (1 - __zeta2theta / __zeta);
+    }
+
+    double _1_plus_05_to_theta(double __theta)
+    {
+      return 1.0 + std::pow(0.5, __theta);
     }
   };
 
@@ -196,16 +226,14 @@ public:
   template<typename _UniformRandomNumberGenerator>
   result_type operator()(_UniformRandomNumberGenerator& __urng, const param_type& __p)
   {
-    double alpha = 1 / (1 - __p.theta());
-    double eta = (1 - std::pow(2.0 / (__p.b() - __p.a() + 1), 1 - __p.theta())) / (1 - __p.zeta2theta() / __p.zeta());
-      
     double u = std::generate_canonical<double, std::numeric_limits<double>::digits, _UniformRandomNumberGenerator>(__urng);
       
     double uz = u * __p.zeta();
     if(uz < 1.0) return __p.a();
-    if(uz < 1.0 + std::pow(0.5, __p.theta())) return __p.a() + 1;
+    if(uz < __p._1_plus_05_to_theta()) return __p.a() + 1;
 
-    return (result_type)(__p.a() + ((__p.b() - __p.a() + 1) * std::pow(eta*u-eta+1, alpha)));
+    double ans = (result_type)(__p.a() + ((__p.b() - __p.a() + 1) * std::pow(__p.eta()*u-__p.eta()+1, __p.alpha())));
+    return ans;
   }
 
   /**
