@@ -177,10 +177,11 @@ struct parallel_load
         finder   successful_find{zipf1},
                  unsuccessful_find{zipf2};
 
-        ready.arrive_and_wait();
+        ready.count_down();
         start.wait();
 
         int n=i==0?(N+num_threads-1)/num_threads:N/num_threads;
+            n*=10; /* so that #updates = N */
 
         for(int j=0;j<n;++j){
           switch(dist(gen)){
@@ -231,11 +232,11 @@ BOOST_NOINLINE void test(
   for(int n=1;n<=num_threads;++n){
     std::cout<<n<<";";
     auto t=measure(boost::bind(Tester<Container1>(),N,theta,n));
-    std::cout<<N/t/1E6<<";";
+    std::cout<<10*N/t/1E6<<";";
     t=measure(boost::bind(Tester<Container2>(),N,theta,n));
-    std::cout<<N/t/1E6<<";";
+    std::cout<<10*N/t/1E6<<";";
     t=measure(boost::bind(Tester<Container3>(),N,theta,n));
-    std::cout<<N/t/1E6<<std::endl;
+    std::cout<<10*N/t/1E6<<std::endl;
   }
 }
 
