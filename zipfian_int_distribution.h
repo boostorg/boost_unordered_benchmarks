@@ -232,8 +232,7 @@ public:
     if(uz < 1.0) return __p.a();
     if(uz < __p._1_plus_05_to_theta()) return __p.a() + 1;
 
-    double ans = (result_type)(__p.a() + ((__p.b() - __p.a() + 1) * std::pow(__p.eta()*u-__p.eta()+1, __p.alpha())));
-    return ans;
+    return (result_type)(__p.a() + ((__p.b() - __p.a() + 1) * std::pow(__p.eta()*u-__p.eta()+1, __p.alpha())));
   }
 
   /**
