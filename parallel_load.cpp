@@ -165,7 +165,7 @@ struct parallel_load
       std::latch                    ready(num_threads),
                                     start(1),
                                     completed(num_threads),
-                                    die(1);
+                                    finish(1);
 
       if constexpr(std::is_same_v<Map,tbb_map>)m.rehash(N);
 
@@ -181,7 +181,7 @@ struct parallel_load
         start.wait();
 
         int n=i==0?(N+num_threads-1)/num_threads:N/num_threads;
-            n*=10; /* so that #updates = N */
+        n*=10; /* so that #updates = N */
 
         for(int j=0;j<n;++j){
           switch(dist(gen)){
@@ -193,7 +193,7 @@ struct parallel_load
         }
         results[i]=successful_find.res+unsuccessful_find.res;
         completed.count_down();
-        die.wait();
+        finish.wait();
       });
 
       ready.wait();
@@ -201,7 +201,7 @@ struct parallel_load
       start.count_down();
       completed.wait();
       pause_timing();
-      die.count_down();
+      finish.count_down();
       for(int i=0;i<num_threads;++i){
         threads[i].join();
         res+=results[i];
