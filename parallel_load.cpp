@@ -167,8 +167,6 @@ struct parallel_load
                                     completed(num_threads),
                                     finish(1);
 
-      if constexpr(std::is_same_v<Map,tbb_map>)m.rehash(N);
-
       for(int i=0;i<num_threads;++i)threads.emplace_back([&,i,zipf1,zipf2]{
         std::discrete_distribution<>  dist({10,45,45});
         std::mt19937_64               gen(std::size_t(282472+i*213731));
