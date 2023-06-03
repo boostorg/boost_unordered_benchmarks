@@ -177,11 +177,11 @@ struct parallel_load
         finder   successful_find{zipf1},
                  unsuccessful_find{zipf2};
 
+        int n=i==0?(N+num_threads-1)/num_threads:N/num_threads;
+        n*=10; /* so that sum(#updates(i)) = N */
+
         ready.count_down();
         start.wait();
-
-        int n=i==0?(N+num_threads-1)/num_threads:N/num_threads;
-        n*=10; /* so that #updates = N */
 
         for(int j=0;j<n;++j){
           switch(dist(gen)){
