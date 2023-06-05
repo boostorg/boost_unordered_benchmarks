@@ -4,11 +4,11 @@ Automated benchmarks of `boost::concurrent_flat_map` against [`oneapi::tbb::conc
 
 ## Benchmarks
 * `parallel_load`: _T_ threads concurrently perform _N_ operations **update**, **successful lookup**
-and **unsuccesful lookup**, randomly chosen with probabilities 10%, 45% and 45%, respectively,
+and **unsuccessful lookup**, randomly chosen with probabilities 10%, 45% and 45%, respectively,
 on a concurrent map of (`int`, `int`) pairs.
 The keys used by all operations are also random, where **update** and **successful lookup** follow a
 [Zipf distribution](https://en.wikipedia.org/wiki/Zipf%27s_law#Formal_definition) over [1, <i>N</i>/10]
-with skew exponent _s_, and **unsuccesful lookup** follows a Zip distribution
+with skew exponent _s_, and **unsuccessful lookup** follows a Zip distribution
 with the same skew _s_ over [1 + <i>N</i>/10, 2<i>N</i>/10] (so, not overlapping with the former interval).
 
 ## How to read the results
