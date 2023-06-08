@@ -92,10 +92,10 @@ jobs:
           git submodule update --init
           ./bootstrap.sh
           ./b2 -d0 headers
-      - name: Install Boost.Unordered branch feature/cfoa
+      - name: Install Boost.Unordered branch feature/cfoa-size-padding
         run: |
            cd $GITHUB_WORKSPACE
-           git clone -b feature/cfoa https://github.com/boostorg/unordered.git boost_unordered-root
+           git clone -b feature/cfoa-size-padding https://github.com/boostorg/unordered.git boost_unordered-root
       - name: Install oneTBB
         run: |
           if [ -n "${{matrix.xcode_version}}" ]; then
@@ -190,11 +190,11 @@ jobs:
           git submodule update --init
           cmd /c bootstrap.bat
           .\b2.exe -d0 headers
-      - name: Install Boost.Unordered branch feature/cfoa
+      - name: Install Boost.Unordered branch feature/cfoa-size-padding
         shell: cmd
         run: |
           cd %GITHUB_WORKSPACE%
-          git clone -b feature/cfoa https://github.com/boostorg/unordered.git boost_unordered-root
+          git clone -b feature/cfoa-size-padding https://github.com/boostorg/unordered.git boost_unordered-root
       - name: Install oneTBB
         shell: cmd
         run: |
