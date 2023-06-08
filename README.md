@@ -6,17 +6,17 @@ TBW
 
 ## Detailed results
 ### Folder
-* `gcc-x64`: GCC 11, x64
-* `clang-x64`: Clang 12, x64
-* `vs-x64`: Visual Studio 2019, x64
-* `clang-arm64`: Clang 12 ARM64
-* `gcc-x86`: GCC 11, x86
+* `gcc-x64`: GCC 12, x64
+* `clang-x64`: Clang 15, x64
+* `vs-x64`: Visual Studio 2022, x64
+* `clang-arm64`: Clang 12, ARM64
+* `gcc-x86`: GCC 12, x86
 * `clang-x86`: Clang 12, x86
-* `vs-x86`: Visual Studio 2019, x86
+* `vs-x86`: Visual Studio 2022, x86
 
 ## Summary results
 
-### GCC 11, x64
+### GCC 12, x64
 <!--gcc-x64/main.cpp.txt-->
 ```
 main.cpp
@@ -46,7 +46,7 @@ boost::unordered_flat_map, sharded_prehashed<shared_mutex>: 17375 ms
 ```
 <!--gcc-x64/main.cpp.txt-->
 
-### Clang 12, x64
+### Clang 15, x64
 <!--clang-x64/main.cpp.txt-->
 ```
 main.cpp
@@ -76,7 +76,7 @@ boost::unordered_flat_map, sharded_prehashed<shared_mutex>: 17221 ms
 ```
 <!--clang-x64/main.cpp.txt-->
 
-### Visual Studio 2019, x64
+### Visual Studio 2022, x64
 <!--vs-x64/main.cpp.txt-->
 ```
 main.cpp
@@ -136,7 +136,7 @@ boost::unordered_flat_map, sharded_prehashed<shared_mutex>: 11341 ms
 ```
 <!--clang-arm64/main.cpp.txt-->
 
-### GCC 11, x86
+### GCC 12, x86
 <!--gcc-x86/main.cpp.txt-->
 ```
 main.cpp
@@ -196,7 +196,7 @@ boost::unordered_flat_map, sharded_prehashed<shared_mutex>:  1662 ms
 ```
 <!--clang-x86/main.cpp.txt-->
 
-### Visual Studio 2019, x86
+### Visual Studio 2022, x86
 <!--vs-x86/main.cpp.txt-->
 ```
 main.cpp

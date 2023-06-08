@@ -14,7 +14,7 @@ jobs:
       matrix:
         include:
           - name: gcc-x64
-            compiler: g++-11
+            compiler: g++-12
             architecture: -m64
             vcpkgtriplet: x64-linux 
             sourcefile: main.cpp
@@ -23,11 +23,11 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x64
             os: [self-hosted, linux, x64]
-            install: g++-11 curl zip unzip tar pkg-config
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            install: g++-12 curl zip unzip tar pkg-config
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
             
           - name: clang-x64
-            compiler: clang++-12
+            compiler: clang++-15
             architecture: -m64
             vcpkgtriplet: x64-linux 
             sourcefile: main.cpp
@@ -37,7 +37,7 @@ jobs:
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
             install: curl zip unzip tar pkg-config
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
           - name: clang-arm64
             compiler: clang++
@@ -53,7 +53,7 @@ jobs:
             xcode_version: 13.4.1            
                                     
           - name: gcc-x86
-            compiler: g++-11
+            compiler: g++-12
             architecture: -m32
             vcpkgtriplet: x86-linux 
             sourcefile: main.cpp
@@ -62,11 +62,11 @@ jobs:
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
-            install: g++-11 curl zip unzip tar pkg-config
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            install: g++-12 curl zip unzip tar pkg-config
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
           - name: clang-x86
-            compiler: clang++-12
+            compiler: clang++-15
             architecture: -m32
             vcpkgtriplet: x86-linux 
             sourcefile: main.cpp
@@ -76,7 +76,7 @@ jobs:
             reportdir: clang-x86
             os: [self-hosted, linux, x64]
             install: curl zip unzip tar pkg-config
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
     runs-on: ${{matrix.os}}
 
@@ -254,8 +254,7 @@ jobs:
         shell: cmd
         run: |
           cd %GITHUB_WORKSPACE%
-          # call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
-          call "C:\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
           set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost_unordered-root\include;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\vcpkg\installed\${{matrix.vcpkgtriplet}}\include;%GITHUB_WORKSPACE%\libcuckoo-root\libcuckoo;%GITHUB_WORKSPACE%\gtl-root\include
           echo %INCLUDE%
           ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.compileroptions}}
