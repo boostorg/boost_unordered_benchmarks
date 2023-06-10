@@ -13,126 +13,114 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - compiler: g++-11
+          - compiler: g++-12
             architecture: -m64
             sourcefile: unique_running_insertion.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG
             outputfile: benchmark
             reportdir: gcc
-            # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: g++-11
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - compiler: g++-11
+            install: g++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: g++-12
             architecture: -m64
             sourcefile: unique_scattered_erasure.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG
             outputfile: benchmark
             reportdir: gcc
-            # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: g++-11
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - compiler: g++-11
+            install: g++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: g++-12
             architecture: -m64
             sourcefile: unique_scattered_lookup.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG
             outputfile: benchmark
             reportdir: gcc
-            # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: g++-11
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - compiler: g++-11
+            install: g++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: g++-12
             architecture: -m64
             sourcefile: non_unique_running_insertion.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG
             outputfile: benchmark
             reportdir: gcc
-            # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: g++-11
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - compiler: g++-11
+            install: g++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: g++-12
             architecture: -m64
             sourcefile: non_unique_scattered_erasure.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG
             outputfile: benchmark
             reportdir: gcc
-            # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: g++-11
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - compiler: g++-11
+            install: g++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: g++-12
             architecture: -m64
             sourcefile: non_unique_scattered_lookup.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG
             outputfile: benchmark
             reportdir: gcc
-            # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: g++-11
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - compiler: clang++-12
+            install: g++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: clang++-15
             architecture: -m64
             sourcefile: unique_running_insertion.cpp
             compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
             outputfile: benchmark
             reportdir: clang_libcpp
-            # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: libc++-12-dev libc++abi-12-dev
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - compiler: clang++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: clang++-15
             architecture: -m64
             sourcefile: unique_scattered_erasure.cpp
             compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
             outputfile: benchmark
             reportdir: clang_libcpp
-            # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: libc++-12-dev libc++abi-12-dev
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - compiler: clang++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: clang++-15
             architecture: -m64
             sourcefile: unique_scattered_lookup.cpp
             compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
             outputfile: benchmark
             reportdir: clang_libcpp
-            # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: libc++-12-dev libc++abi-12-dev
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - compiler: clang++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: clang++-15
             architecture: -m64
             sourcefile: non_unique_running_insertion.cpp
             compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
             outputfile: benchmark
             reportdir: clang_libcpp
-            # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: libc++-12-dev libc++abi-12-dev
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - compiler: clang++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: clang++-15
             architecture: -m64
             sourcefile: non_unique_scattered_erasure.cpp
             compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
             outputfile: benchmark
             reportdir: clang_libcpp
-            # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: libc++-12-dev libc++abi-12-dev
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
-          - compiler: clang++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: clang++-15
             architecture: -m64
             sourcefile: non_unique_scattered_lookup.cpp
             compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
             outputfile: benchmark
             reportdir: clang_libcpp
-            # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: libc++-12-dev libc++abi-12-dev
-            command: sudo cset shield --exec -- nice -n -20 sudo -u gha ./benchmark
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
             
     runs-on: ${{matrix.os}}
 
@@ -194,7 +182,6 @@ jobs:
             compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs
-            # os: windows-2019
             os: [self-hosted, Windows, X64]
           - compiler: cl
             architecture: x64
@@ -202,7 +189,6 @@ jobs:
             compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs
-            # os: windows-2019
             os: [self-hosted, Windows, X64]
           - compiler: cl
             architecture: x64
@@ -210,7 +196,6 @@ jobs:
             compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs
-            # os: windows-2019
             os: [self-hosted, Windows, X64]
           - compiler: cl
             architecture: x64
@@ -218,7 +203,6 @@ jobs:
             compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs
-            # os: windows-2019
             os: [self-hosted, Windows, X64]
           - compiler: cl
             architecture: x64
@@ -226,7 +210,6 @@ jobs:
             compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs
-            # os: windows-2019
             os: [self-hosted, Windows, X64]
           - compiler: cl
             architecture: x64
@@ -234,7 +217,6 @@ jobs:
             compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs
-            # os: windows-2019
             os: [self-hosted, Windows, X64]
 
     runs-on: ${{matrix.os}}
@@ -254,8 +236,7 @@ jobs:
         shell: cmd
         run: |
           cd %GITHUB_WORKSPACE%
-          # call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
-          call "C:\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
           set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root
           echo %INCLUDE%
           ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.compileroptions}}
@@ -267,7 +248,7 @@ jobs:
         shell: powershell
         run: |
           echo "running benchmarks and saving to $env:REPORT_FILE"
-          ./${{matrix.outputfile}} | tee $env:REPORT_FILE
+          ./${{matrix.outputfile}} | Set-Content $env:REPORT_FILE -Passthru
       - name: Push benchmark results to repo
         shell: powershell
         run: |

@@ -14,9 +14,9 @@ Automated benchmarks of `boost::unordered_[multi]set` against `std::unordered_[m
 
 ## How to read the results
 ### Folder
-* `gcc`: GCC 11 with libstdc++-v3, 64 bits
-* `clang_libcpp`: Clang 12 with libc++, 64 bits
-* `vs`: Visual Studio 2019 with (formerly known as) Dinkumware
+* `gcc`: GCC 12 with libstdc++-v3, 64 bits
+* `clang_libcpp`: Clang 15 with libc++, 64 bits
+* `vs`: Visual Studio 2022 with (formerly known as) Dinkumware
   stdlib implementation, 64 bits
 
 ### Excel file
@@ -35,7 +35,7 @@ Automated benchmarks of `boost::unordered_[multi]set` against `std::unordered_[m
 * `practice norehash non-unique 5`:  (Insertion only) same as `practice non-unique 5`, but `reserve` is called prior to insertion
 
 ## Graphs
-### GCC 11 + libstdc++-v3
+### GCC 12 + libstdc++-v3
 #### Insertion
 |<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_set/img/gcc/running%20insertion.xlsx.practice.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_set/img/gcc/running%20insertion.xlsx.practice non-unique.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_set/img/gcc/running%20insertion.xlsx.practice non-unique 5.png" width="250">|
 |:-:|:-:|:-:|
@@ -64,7 +64,7 @@ Automated benchmarks of `boost::unordered_[multi]set` against `std::unordered_[m
 |:-:|:-:|:-:|
 |non-duplicate elements|duplicate elements|duplicate elements,<br>max load factor 5|
 
-### Clang 12 + libc++
+### Clang 15 + libc++
 #### Insertion
 |<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_set/img/clang_libcpp/running%20insertion.xlsx.practice.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_set/img/clang_libcpp/running%20insertion.xlsx.practice non-unique.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_set/img/clang_libcpp/running%20insertion.xlsx.practice non-unique 5.png" width="250">|
 |:-:|:-:|:-:|
@@ -93,7 +93,7 @@ Automated benchmarks of `boost::unordered_[multi]set` against `std::unordered_[m
 |:-:|:-:|:-:|
 |non-duplicate elements|duplicate elements|duplicate elements,<br>max load factor 5|
 
-### Visual Studio 2019 + Dinkumware
+### Visual Studio 2022 + Dinkumware
 #### Insertion
 |<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_set/img/vs/running%20insertion.xlsx.practice.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_set/img/vs/running%20insertion.xlsx.practice non-unique.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_set/img/vs/running%20insertion.xlsx.practice non-unique 5.png" width="250">|
 |:-:|:-:|:-:|
