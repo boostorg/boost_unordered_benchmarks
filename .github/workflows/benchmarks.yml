@@ -74,7 +74,7 @@ jobs:
             outputfile: benchmark
             reportdir: clang_libcpp
             os: [self-hosted, linux, x64]
-            install: libc++-15-dev libc++abi-12-dev
+            install: libc++-15-dev libc++abi-15-dev
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - compiler: clang++-15
             architecture: -m64
@@ -83,7 +83,7 @@ jobs:
             outputfile: benchmark
             reportdir: clang_libcpp
             os: [self-hosted, linux, x64]
-            install: libc++-15-dev libc++abi-12-dev
+            install: libc++-15-dev libc++abi-15-dev
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - compiler: clang++-15
             architecture: -m64
@@ -92,7 +92,7 @@ jobs:
             outputfile: benchmark
             reportdir: clang_libcpp
             os: [self-hosted, linux, x64]
-            install: libc++-15-dev libc++abi-12-dev
+            install: libc++-15-dev libc++abi-15-dev
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - compiler: clang++-15
             architecture: -m64
@@ -101,7 +101,7 @@ jobs:
             outputfile: benchmark
             reportdir: clang_libcpp
             os: [self-hosted, linux, x64]
-            install: libc++-15-dev libc++abi-12-dev
+            install: libc++-15-dev libc++abi-15-dev
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - compiler: clang++-15
             architecture: -m64
@@ -110,7 +110,7 @@ jobs:
             outputfile: benchmark
             reportdir: clang_libcpp
             os: [self-hosted, linux, x64]
-            install: libc++-15-dev libc++abi-12-dev
+            install: libc++-15-dev libc++abi-15-dev
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - compiler: clang++-15
             architecture: -m64
@@ -119,7 +119,7 @@ jobs:
             outputfile: benchmark
             reportdir: clang_libcpp
             os: [self-hosted, linux, x64]
-            install: libc++-15-dev libc++abi-12-dev
+            install: libc++-15-dev libc++abi-15-dev
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
             
     runs-on: ${{matrix.os}}
