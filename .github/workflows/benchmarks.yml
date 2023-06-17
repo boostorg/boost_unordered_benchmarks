@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches:
-      - boost_unordered_flat_map_cfoa
+      - boost_unordered_flat_map_proxy_erase
 
 jobs:
   posix:
@@ -198,10 +198,10 @@ jobs:
           git submodule update --init
           ./bootstrap.sh
           ./b2 -d0 headers
-      - name: Install Boost.Unordered branch feature/cfoa
+      - name: Install Boost.Unordered branch feature/proxy-erase
         run: |
            cd $GITHUB_WORKSPACE
-           git clone -b feature/cfoa https://github.com/boostorg/unordered.git boost_unordered-root
+           git clone -b feature/proxy-erase https://github.com/boostorg/unordered.git boost_unordered-root
       - name: Install Abseil
         run: |
           cd $GITHUB_WORKSPACE
@@ -313,11 +313,11 @@ jobs:
           git submodule update --init
           cmd /c bootstrap.bat
           .\b2.exe -d0 headers
-      - name: Install Boost.Unordered branch feature/cfoa
+      - name: Install Boost.Unordered branch feature/proxy-erase
         shell: cmd
         run: |
           cd %GITHUB_WORKSPACE%
-          git clone -b feature/cfoa https://github.com/boostorg/unordered.git boost_unordered-root
+          git clone -b feature/proxy-erase https://github.com/boostorg/unordered.git boost_unordered-root
       - name: Install Abseil
         shell: cmd
         run: |
