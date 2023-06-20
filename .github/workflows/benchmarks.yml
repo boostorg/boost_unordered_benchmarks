@@ -631,13 +631,11 @@ jobs:
     needs: [posix,windows]
     
     runs-on: ubuntu-20.04
+      container:
+        image: python:2.7.18-buster
     
     steps:
       - uses: actions/checkout@v3
-      - name: Install Python2
-        uses: actions/setup-python@v2
-        with:
-          python-version: '2.7.18'
       - name: Fast-forward repo 
         run: |
           git pull
