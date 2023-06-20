@@ -72,6 +72,8 @@ using gtl_map=gtl::parallel_flat_hash_map<
   std::allocator<std::pair<const int,int>>,
   8,std::mutex>;
 
+struct bulk_map:boost::concurrent_flat_map<int,int>{};
+
 template<typename... Args>
 inline void map_update(boost_map& m,Args&&... args)
 {
@@ -147,6 +149,42 @@ private:
   Distribution dist;
 };
 
+template<typename Distribution>
+class bulk_finder
+{
+public:
+  bulk_finder(const Distribution& dist_):dist{dist_}{}
+
+  template<typename URNG>
+  void operator()(const bulk_map& m,URNG& gen)
+  {
+    keys[i++]=dist(gen);
+    if(i==N){
+      res+=(int)m.bulk_visit(keys,[](const auto&){});
+      i=0;
+    }
+  }
+
+  void flush(const bulk_map& m)
+  {
+    for(int j=0;j<i;++j)if(map_find(m,keys[j]))++res;
+  }
+
+  int res=0;
+
+private:
+#ifdef BULK_SIZE
+  static constexpr std::size_t N=BULK_SIZE;
+#else
+  static constexpr std::size_t N=16;
+#endif
+
+  Distribution      dist;
+  int               i=0;
+  std::array<int,N> keys;
+
+};
+
 template<typename Map>
 struct parallel_load
 {
@@ -168,12 +206,19 @@ struct parallel_load
                                     finish(1);
 
       for(int i=0;i<num_threads;++i)threads.emplace_back([&,i,zipf1,zipf2]{
+        static constexpr auto is_bulk=std::is_same<Map,bulk_map>::value;
+        using finder_type=typename std::conditional<
+          is_bulk,
+          bulk_finder<zipfian_int_distribution<int>>,
+          finder<zipfian_int_distribution<int>>
+        >::type;
+
         std::discrete_distribution<>  dist({10,45,45});
         std::mt19937_64               gen(std::size_t(282472+i*213731));
 
-        updater  update{zipf1};
-        finder   successful_find{zipf1},
-                 unsuccessful_find{zipf2};
+        updater     update{zipf1};
+        finder_type successful_find{zipf1},
+                    unsuccessful_find{zipf2};
 
         int n=i==0?(N+num_threads-1)/num_threads:N/num_threads;
         n*=10; /* so that sum(#updates(i)) = N */
@@ -188,6 +233,10 @@ struct parallel_load
             case 2:
             default: unsuccessful_find(m,gen); break;
           }
+        }
+        if constexpr(is_bulk){
+          successful_find.flush(m);
+          unsuccessful_find.flush(m);
         }
         results[i]=successful_find.res+unsuccessful_find.res;
         completed.count_down();
@@ -247,13 +296,13 @@ int main()
       test<
         parallel_load,
         tbb_map,
-        gtl_map,
-        boost_map>
+        boost_map,
+        bulk_map>
       (
         "Parallel load",N,theta,
         "tbb::concurrent_hash_map",
-        "gtl::parallel_flat_hash_map",
-        "boost::concurrent_flat_map"
+        "boost::concurrent_flat_map",
+        "boost::concurrent_flat_map bulk"
       );
     }
   }
