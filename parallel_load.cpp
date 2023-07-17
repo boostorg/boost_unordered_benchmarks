@@ -53,6 +53,7 @@ void resume_timing()
 }
 
 #include <boost/bind/bind.hpp>
+#include <boost/core/detail/splitmix64.hpp>
 #include <boost/unordered/concurrent_flat_map.hpp>
 #include <iostream>
 #include <latch>
@@ -147,6 +148,65 @@ private:
   Distribution dist;
 };
 
+/* contributed by Martin Leinter-Ankerl */
+
+template<size_t N>
+class simple_discrete_distribution {
+public:
+  /* N-1 because we don't store the last probability*/
+  std::array<uint64_t, N> m_cummulative{};
+
+public:
+  simple_discrete_distribution(std::initializer_list<double> l)
+  {
+    std::array<double, N> sums{};
+    double                sum=0.0;
+
+    auto i=0;
+    for(auto x:l){
+      sum+=x;
+      sums[i]=sum;
+      ++i;
+    }
+
+    /* normalize to 2^64 */
+    for(int i=0;i<N;++i){
+      m_cummulative[i]=static_cast<uint64_t>(
+        sums[i]/sum*(double)(std::numeric_limits<uint64_t>::max)());
+    }
+    m_cummulative.back()=(std::numeric_limits<uint64_t>::max)();
+  }
+
+  std::size_t operator()(uint64_t r01)const noexcept
+  {
+    for(size_t i=0;i<m_cummulative.size();++i)
+    {
+      if(r01<=m_cummulative[i])return i;
+    }
+    return m_cummulative.size()-1;
+  }
+
+  template<typename URNG>
+  std::size_t operator()(URNG& rng)const noexcept
+  {
+    static_assert((URNG::min)()==0,"URNG::min must be 0");
+    static_assert(
+      (URNG::max)()==(std::numeric_limits<uint64_t>::max)(),
+      "URNG::max must be max of uint64_t");
+    return operator()(rng());
+  }
+};
+
+struct splitmix64_urng:boost::detail::splitmix64
+{
+  using boost::detail::splitmix64::splitmix64;
+  using result_type=boost::uint64_t;
+
+  static constexpr result_type (min)(){return 0u;}
+  static constexpr result_type(max)()
+  {return (std::numeric_limits<result_type>::max)();}
+};
+
 template<typename Map>
 struct parallel_load
 {
@@ -168,8 +228,8 @@ struct parallel_load
                                     finish(1);
 
       for(int i=0;i<num_threads;++i)threads.emplace_back([&,i,zipf1,zipf2]{
-        std::discrete_distribution<>  dist({10,45,45});
-        std::mt19937_64               gen(std::size_t(282472+i*213731));
+        simple_discrete_distribution<3> dist({10,45,45});
+        splitmix64_urng                 gen(std::size_t(282472+i*213731));
 
         updater  update{zipf1};
         finder   successful_find{zipf1},
