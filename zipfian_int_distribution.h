@@ -65,7 +65,7 @@
  *   - Trivial changes to get rid of GCC specific functions and some warnings.
  *   - Cached values to speed up zipfian_int_distribution::operator().
  *   - Replaced std::generate_canonical with faster alternative (contributed
- *     by Martin Leitner-Ankerl).
+ *     by Martin Leitner-Ankerl from https://prng.di.unimi.it/).
  */
 
 #include <cmath>
