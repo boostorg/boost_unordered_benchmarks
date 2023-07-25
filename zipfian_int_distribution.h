@@ -61,15 +61,27 @@
  */
 
 /* 
- * Joaquin M Lopez Munoz, May-Jun 2023:
+ * Joaquin M Lopez Munoz, May-Jul 2023:
  *   - Trivial changes to get rid of GCC specific functions and some warnings.
  *   - Cached values to speed up zipfian_int_distribution::operator().
+ *   - Replaced std::generate_canonical with faster alternative (contributed
+ *     by Martin Leitner-Ankerl from https://prng.di.unimi.it/).
  */
 
 #include <cmath>
 #include <limits>
 #include <random>
 #include <cassert>
+#include <cstring>
+
+double uniform01(uint64_t r) {
+  auto i = (UINT64_C(0x3ff) << 52U) | (r >> 12U);
+  // can't use union in c++ here for type puning, it's undefined behavior.
+  // std::memcpy is optimized anyways.
+  double d{};
+  std::memcpy(&d, &i, sizeof(double));
+  return d - 1.0;    
+}
 
 template<typename _IntType = int>
 class zipfian_int_distribution
@@ -226,8 +238,8 @@ public:
   template<typename _UniformRandomNumberGenerator>
   result_type operator()(_UniformRandomNumberGenerator& __urng, const param_type& __p)
   {
-    double u = std::generate_canonical<double, std::numeric_limits<double>::digits, _UniformRandomNumberGenerator>(__urng);
-      
+    double u = uniform01(__urng());
+
     double uz = u * __p.zeta();
     if(uz < 1.0) return __p.a();
     if(uz < __p._1_plus_05_to_theta()) return __p.a() + 1;
