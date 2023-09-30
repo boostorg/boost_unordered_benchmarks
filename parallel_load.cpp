@@ -161,14 +161,14 @@ public:
   {
     keys[i++]=dist(gen);
     if(i==N){
-      res+=(int)m.bulk_visit(keys,[](const auto&){});
+      res+=(int)m.visit(keys.begin(),keys.end(),[](const auto&){});
       i=0;
     }
   }
 
   void flush(const bulk_map& m)
   {
-    for(int j=0;j<i;++j)if(map_find(m,keys[j]))++res;
+    res+=(int)m.visit(keys.begin(),keys.begin()+i,[](const auto&){});
   }
 
   int res=0;
