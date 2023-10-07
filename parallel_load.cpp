@@ -161,7 +161,7 @@ public:
   {
     keys[i++]=dist(gen);
     if(i==N){
-      res+=(int)m.visit(keys.begin(),keys.end(),[](const auto&){});
+      flush(m);
       i=0;
     }
   }
@@ -174,16 +174,11 @@ public:
   int res=0;
 
 private:
-#ifdef BULK_SIZE
-  static constexpr std::size_t N=BULK_SIZE;
-#else
-  static constexpr std::size_t N=16;
-#endif
+  static constexpr std::size_t N=bulk_map::bulk_visit_size;
 
   Distribution      dist;
   int               i=0;
   std::array<int,N> keys;
-
 };
 
 /* contributed by Martin Leinter-Ankerl */
