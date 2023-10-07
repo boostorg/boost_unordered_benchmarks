@@ -316,12 +316,11 @@ struct parallel_load
 
 template<
   template<typename> class Tester,
-  typename Container1,typename Container2,
-  typename Container3,typename Container4
+  typename Container1,typename Container2,typename Container3
 >
 BOOST_NOINLINE void test(
   const char* title,int N,double theta,
-  const char* name1,const char* name2,const char* name3,const char* name4)
+  const char* name1,const char* name2,const char* name3)
 {
 #ifdef NUM_THREADS
   const int num_threads=NUM_THREADS;
@@ -330,7 +329,7 @@ BOOST_NOINLINE void test(
 #endif
 
   std::cout<<title<<" (N="<<N<<", theta="<<theta<<"):"<<std::endl;
-  std::cout<<"#threads;"<<name1<<";"<<name2<<";"<<name3<<";"<<name4<<std::endl;
+  std::cout<<"#threads;"<<name1<<";"<<name2<<";"<<name3<<std::endl;
 
   for(int n=1;n<=num_threads;++n){
     std::cout<<n<<";";
@@ -339,8 +338,6 @@ BOOST_NOINLINE void test(
     t=measure(boost::bind(Tester<Container2>(),N,theta,n));
     std::cout<<10*N/t/1E6<<";";
     t=measure(boost::bind(Tester<Container3>(),N,theta,n));
-    std::cout<<10*N/t/1E6<<";";
-    t=measure(boost::bind(Tester<Container4>(),N,theta,n));
     std::cout<<10*N/t/1E6<<std::endl;
   }
 }
@@ -354,13 +351,11 @@ int main()
       test<
         parallel_load,
         tbb_map,
-        gtl_map,
         boost_map,
         bulk_map>
       (
         "Parallel load",N,theta,
         "tbb::concurrent_hash_map",
-        "gtl::parallel_flat_hash_map",
         "boost::concurrent_flat_map",
         "boost::concurrent_flat_map bulk"
       );
