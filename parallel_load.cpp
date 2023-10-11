@@ -73,6 +73,8 @@ using gtl_map=gtl::parallel_flat_hash_map<
   std::allocator<std::pair<const int,int>>,
   8,std::mutex>;
 
+struct bulk_map:boost::concurrent_flat_map<int,int>{};
+
 template<typename... Args>
 inline void map_update(boost_map& m,Args&&... args)
 {
@@ -146,6 +148,37 @@ public:
 
 private:
   Distribution dist;
+};
+
+template<typename Distribution>
+class bulk_finder
+{
+public:
+  bulk_finder(const Distribution& dist_):dist{dist_}{}
+
+  template<typename URNG>
+  void operator()(const bulk_map& m,URNG& gen)
+  {
+    keys[i++]=dist(gen);
+    if(i==N){
+      flush(m);
+      i=0;
+    }
+  }
+
+  void flush(const bulk_map& m)
+  {
+    res+=(int)m.visit(keys.begin(),keys.begin()+i,[](const auto&){});
+  }
+
+  int res=0;
+
+private:
+  static constexpr std::size_t N=bulk_map::bulk_visit_size;
+
+  Distribution      dist;
+  int               i=0;
+  std::array<int,N> keys;
 };
 
 /* contributed by Martin Leinter-Ankerl */
@@ -228,12 +261,19 @@ struct parallel_load
                                     finish(1);
 
       for(int i=0;i<num_threads;++i)threads.emplace_back([&,i,zipf1,zipf2]{
+        static constexpr auto is_bulk=std::is_same<Map,bulk_map>::value;
+        using finder_type=typename std::conditional<
+          is_bulk,
+          bulk_finder<zipfian_int_distribution<int>>,
+          finder<zipfian_int_distribution<int>>
+        >::type;
+
         simple_discrete_distribution<3> dist({10,45,45});
         splitmix64_urng                 gen(std::size_t(282472+i*213731));
 
-        updater  update{zipf1};
-        finder   successful_find{zipf1},
-                 unsuccessful_find{zipf2};
+        updater     update{zipf1};
+        finder_type successful_find{zipf1},
+                    unsuccessful_find{zipf2};
 
         int n=i==0?(N+num_threads-1)/num_threads:N/num_threads;
         n*=10; /* so that sum(#updates(i)) = N */
@@ -248,6 +288,10 @@ struct parallel_load
             case 2:
             default: unsuccessful_find(m,gen); break;
           }
+        }
+        if constexpr(is_bulk){
+          successful_find.flush(m);
+          unsuccessful_find.flush(m);
         }
         results[i]=successful_find.res+unsuccessful_find.res;
         completed.count_down();
@@ -272,11 +316,12 @@ struct parallel_load
 
 template<
   template<typename> class Tester,
-  typename Container1,typename Container2,typename Container3
+  typename Container1,typename Container2,
+  typename Container3,typename Container4
 >
 BOOST_NOINLINE void test(
   const char* title,int N,double theta,
-  const char* name1,const char* name2,const char* name3)
+  const char* name1,const char* name2,const char* name3,const char* name4)
 {
 #ifdef NUM_THREADS
   const int num_threads=NUM_THREADS;
@@ -285,7 +330,7 @@ BOOST_NOINLINE void test(
 #endif
 
   std::cout<<title<<" (N="<<N<<", theta="<<theta<<"):"<<std::endl;
-  std::cout<<"#threads;"<<name1<<";"<<name2<<";"<<name3<<std::endl;
+  std::cout<<"#threads;"<<name1<<";"<<name2<<";"<<name3<<";"<<name4<<std::endl;
 
   for(int n=1;n<=num_threads;++n){
     std::cout<<n<<";";
@@ -294,6 +339,8 @@ BOOST_NOINLINE void test(
     t=measure(boost::bind(Tester<Container2>(),N,theta,n));
     std::cout<<10*N/t/1E6<<";";
     t=measure(boost::bind(Tester<Container3>(),N,theta,n));
+    std::cout<<10*N/t/1E6<<";";
+    t=measure(boost::bind(Tester<Container4>(),N,theta,n));
     std::cout<<10*N/t/1E6<<std::endl;
   }
 }
@@ -308,12 +355,14 @@ int main()
         parallel_load,
         tbb_map,
         gtl_map,
-        boost_map>
+        boost_map,
+        bulk_map>
       (
         "Parallel load",N,theta,
         "tbb::concurrent_hash_map",
         "gtl::parallel_flat_hash_map",
-        "boost::concurrent_flat_map"
+        "boost::concurrent_flat_map",
+        "boost::concurrent_flat_map bulk"
       );
     }
   }
