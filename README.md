@@ -8,8 +8,11 @@ and **unsuccessful lookup**, randomly chosen with probabilities 10%, 45% and 45%
 on a concurrent map of (`int`, `int`) pairs.
 The keys used by all operations are also random, where **update** and **successful lookup** follow a
 [Zipf distribution](https://en.wikipedia.org/wiki/Zipf%27s_law#Formal_definition) over [1, <i>N</i>/10]
-with skew exponent _s_, and **unsuccessful lookup** follows a Zip distribution
-with the same skew _s_ over [1 + <i>N</i>/10, 2<i>N</i>/10] (so, not overlapping with the former interval).
+with skew exponent _s_, and **unsuccessful lookup** follows a Zipf distribution
+with the same skew _s_ over [1 + <i>N</i>/10, 2<i>N</i>/10] (so, not overlapping with the former interval).  
+`boost::concurrent_flat_map` is exercised using both regular and bulk visitation: in the latter case,
+lookup keys are buffered in a local array and then processed at once each time the buffer reaches
+`bulk_visit_size`.
 
 ## How to read the results
 ### Folder
