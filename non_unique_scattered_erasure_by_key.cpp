@@ -1,7 +1,7 @@
 /* Measuring erasure times of unordered associative containers
  * with duplicate elements.
  *
- * Copyright 2013-2022 Joaquin M Lopez Munoz.
+ * Copyright 2013-2023 Joaquin M Lopez Munoz.
  * Distributed under the Boost Software License, Version 1.0.
  * (See accompanying file LICENSE_1_0.txt or copy at
  * http://www.boost.org/LICENSE_1_0.txt)
@@ -192,13 +192,13 @@ void test(
     std::shuffle(vec.begin(), vec.end(), gen);
 
     t=measure(boost::bind(Tester<Container1>(),n,Fmax,G,boost::cref(vec)));
-    std::cout<<n<<";"<<(t/n)*10E6;
+    std::cout<<n<<";"<<(t/n)*1E9;
 
     t=measure(boost::bind(Tester<Container2>(),n,Fmax,G,boost::cref(vec)));
-    std::cout<<";"<<(t/n)*10E6;
+    std::cout<<";"<<(t/n)*1E9;
  
     t=measure(boost::bind(Tester<Container3>(),n,Fmax,G,boost::cref(vec)));
-    std::cout<<";"<<(t/n)*10E6<<std::endl;
+    std::cout<<";"<<(t/n)*1E9<<std::endl;
   }
 }
 
