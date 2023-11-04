@@ -60,6 +60,15 @@ jobs:
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - compiler: g++-12
             architecture: -m64
+            sourcefile: non_unique_scattered_erasure_by_key.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG
+            outputfile: benchmark
+            reportdir: gcc
+            os: [self-hosted, linux, x64]
+            install: g++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: g++-12
+            architecture: -m64
             sourcefile: non_unique_scattered_lookup.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG
             outputfile: benchmark
@@ -106,6 +115,15 @@ jobs:
           - compiler: clang++-15
             architecture: -m64
             sourcefile: non_unique_scattered_erasure.cpp
+            compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
+            outputfile: benchmark
+            reportdir: clang_libcpp
+            os: [self-hosted, linux, x64]
+            install: libc++-15-dev libc++abi-15-dev
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - compiler: clang++-15
+            architecture: -m64
+            sourcefile: non_unique_scattered_erasure_by_key.cpp
             compileroptions: -std=c++2a -O3 -stdlib=libc++ -DNDEBUG
             outputfile: benchmark
             reportdir: clang_libcpp
@@ -207,6 +225,13 @@ jobs:
           - compiler: cl
             architecture: x64
             sourcefile: non_unique_scattered_erasure.cpp
+            compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs
+            os: [self-hosted, Windows, X64]
+          - compiler: cl
+            architecture: x64
+            sourcefile: non_unique_scattered_erasure_by_key.cpp
             compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs
