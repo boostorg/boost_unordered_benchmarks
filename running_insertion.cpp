@@ -140,19 +140,19 @@ void test(
     unsigned int m=Tester<Container1>()(n);
 
     t=measure(boost::bind(Tester<Container1>(),n));
-    std::cout<<m<<";"<<(t/m)*10E6;
+    std::cout<<m<<";"<<(t/m)*1E9;
 
     t=measure(boost::bind(Tester<Container2>(),n));
-    std::cout<<";"<<(t/m)*10E6;
+    std::cout<<";"<<(t/m)*1E9;
  
     t=measure(boost::bind(Tester<Container3>(),n));
-    std::cout<<";"<<(t/m)*10E6;
+    std::cout<<";"<<(t/m)*1E9;
 
     t=measure(boost::bind(Tester<Container4>(),n));
-    std::cout<<";"<<(t/m)*10E6;
+    std::cout<<";"<<(t/m)*1E9;
 
     t=measure(boost::bind(Tester<Container5>(),n));
-    std::cout<<";"<<(t/m)*10E6<<std::endl;
+    std::cout<<";"<<(t/m)*1E9<<std::endl;
   }
 }
 

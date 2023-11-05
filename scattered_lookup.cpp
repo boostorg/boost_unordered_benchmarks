@@ -131,27 +131,27 @@ void test(
     t=measure(boost::bind(
       Tester<Container1>(),
       temp_cref(create<Container1>(n)),n,boost::cref(data)));
-    std::cout<<n<<";"<<(t/n)*10E6;
+    std::cout<<n<<";"<<(t/n)*1E9;
 
     t=measure(boost::bind(
       Tester<Container2>(),
       temp_cref(create<Container2>(n)),n,boost::cref(data)));
-    std::cout<<";"<<(t/n)*10E6;
+    std::cout<<";"<<(t/n)*1E9;
  
     t=measure(boost::bind(
       Tester<Container3>(),
       temp_cref(create<Container3>(n)),n,boost::cref(data)));
-    std::cout<<";"<<(t/n)*10E6;
+    std::cout<<";"<<(t/n)*1E9;
 
     t=measure(boost::bind(
       Tester<Container4>(),
       temp_cref(create<Container4>(n)),n,boost::cref(data)));
-    std::cout<<";"<<(t/n)*10E6;
+    std::cout<<";"<<(t/n)*1E9;
 
     t=measure(boost::bind(
       Tester<Container5>(),
       temp_cref(create<Container5>(n)),n,boost::cref(data)));
-    std::cout<<";"<<(t/n)*10E6<<std::endl;
+    std::cout<<";"<<(t/n)*1E9<<std::endl;
   }
 }
 
