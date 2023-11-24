@@ -42,6 +42,35 @@ jobs:
             command: ./benchmark
             xcode_version: 13.4.1            
                         
+          - name: gcc-x64
+            compiler: g++-12
+            architecture: -m64
+            sourcefile: frozen_vs_perfect.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG
+            os: [self-hosted, linux, x64]
+            install: g++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+            outputfile: benchmark
+            
+          - name: clang-x64
+            compiler: clang++-15
+            architecture: -m64
+            sourcefile: frozen_vs_perfect.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG
+            os: [self-hosted, linux, x64]
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+            outputfile: benchmark
+
+          - name: clang-arm64
+            compiler: clang++
+            architecture: -m64
+            sourcefile: frozen_vs_perfect.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG
+            outputfile: benchmark
+            os: [self-hosted, macOS, ARM64]
+            command: ./benchmark
+            xcode_version: 13.4.1            
+
     runs-on: ${{matrix.os}}
 
     steps:
@@ -66,11 +95,15 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           git clone https://github.com/joaquintides/perfect_set.git perfect_set-root
+      - name: Install frozen
+        run: |
+          cd $GITHUB_WORKSPACE
+          git clone https://github.com/serge-sans-paille/frozen.git frozen-root
       - name: Compile
         run: |
           cd $GITHUB_WORKSPACE
           ${{matrix.compiler}} --version
-          ${{matrix.compiler}} $GITHUB_WORKSPACE/perfect_set-root/${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root
+          ${{matrix.compiler}} $GITHUB_WORKSPACE/perfect_set-root/${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root -I$GITHUB_WORKSPACE/frozen-root/include
       - name: Run benchmarks
         run: |
           if [ -n "${{matrix.xcode_version}}" ]; then
@@ -97,6 +130,14 @@ jobs:
             outputfile: benchmark.exe            
             os: [self-hosted, Windows, X64]
             
+          - name: vs-x64
+            compiler: cl
+            architecture: x64
+            sourcefile: frozen_vs_perfect.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            os: [self-hosted, Windows, X64]
+
     runs-on: ${{matrix.os}}
 
     steps:
@@ -116,12 +157,17 @@ jobs:
         run: |
           cd %GITHUB_WORKSPACE%
           git clone https://github.com/joaquintides/perfect_set.git perfect_set-root
+      - name: Install frozen
+        shell: cmd
+        run: |
+          cd %GITHUB_WORKSPACE%
+          git clone https://github.com/serge-sans-paille/frozen.git frozen-root
       - name: Compile
         shell: cmd
         run: |
           cd %GITHUB_WORKSPACE%
           call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
-          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root
+          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\frozen-root\include
           echo %INCLUDE%
           ${{matrix.compiler}} %GITHUB_WORKSPACE%\perfect_set-root\${{matrix.sourcefile}} ${{matrix.compileroptions}}
       - name: Run benchmark
