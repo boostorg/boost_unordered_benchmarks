@@ -46,7 +46,7 @@ jobs:
             compiler: g++-12
             architecture: -m64
             sourcefile: frozen_vs_perfect.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG
+            compileroptions: -std=c++2a -O3 -DNDEBUG -fconstexpr-loop-limit=100000000
             os: [self-hosted, linux, x64]
             install: g++-12
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
@@ -55,7 +55,7 @@ jobs:
           - name: clang-x64
             compiler: clang++-15
             architecture: -m64
-            sourcefile: frozen_vs_perfect.cpp
+            sourcefile: frozen_vs_perfect.cpp -fconstexpr-steps=100000000
             compileroptions: -std=c++2a -O3 -DNDEBUG
             os: [self-hosted, linux, x64]
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
@@ -65,7 +65,7 @@ jobs:
             compiler: clang++
             architecture: -m64
             sourcefile: frozen_vs_perfect.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG
+            compileroptions: -std=c++2a -O3 -DNDEBUG -fconstexpr-steps=100000000
             outputfile: benchmark
             os: [self-hosted, macOS, ARM64]
             command: ./benchmark
@@ -134,7 +134,7 @@ jobs:
             compiler: cl
             architecture: x64
             sourcefile: frozen_vs_perfect.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /EHsc /MD /constexpr:steps100000000 /Fe:benchmark.exe
             outputfile: benchmark.exe            
             os: [self-hosted, Windows, X64]
 
