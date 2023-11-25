@@ -42,34 +42,34 @@ jobs:
             command: ./benchmark
             xcode_version: 13.4.1            
                         
-          - name: gcc-x64
-            compiler: g++-12
-            architecture: -m64
-            sourcefile: frozen_vs_perfect.cpp
-            compileroptions: -std=c++20 -O3 -DNDEBUG -fconstexpr-loop-limit=100000000
-            os: [self-hosted, linux, x64]
-            install: g++-12
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-            outputfile: benchmark
-            
-          - name: clang-x64
-            compiler: clang++-15
-            architecture: -m64
-            sourcefile: frozen_vs_perfect.cpp -fconstexpr-steps=100000000
-            compileroptions: -std=c++20 -O3 -DNDEBUG
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-            outputfile: benchmark
-
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            sourcefile: frozen_vs_perfect.cpp
-            compileroptions: -std=c++20 -O3 -DNDEBUG -fconstexpr-steps=100000000
-            outputfile: benchmark
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
+#          - name: gcc-x64
+#            compiler: g++-12
+#            architecture: -m64
+#            sourcefile: frozen_vs_perfect.cpp
+#            compileroptions: -std=c++20 -O3 -DNDEBUG -fconstexpr-loop-limit=100000000
+#            os: [self-hosted, linux, x64]
+#            install: g++-12
+#            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+#            outputfile: benchmark
+#            
+#          - name: clang-x64
+#            compiler: clang++-15
+#            architecture: -m64
+#            sourcefile: frozen_vs_perfect.cpp -fconstexpr-steps=100000000
+#            compileroptions: -std=c++20 -O3 -DNDEBUG
+#            os: [self-hosted, linux, x64]
+#            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+#            outputfile: benchmark
+#
+#          - name: clang-arm64
+#            compiler: clang++
+#            architecture: -m64
+#            sourcefile: frozen_vs_perfect.cpp
+#            compileroptions: -std=c++20 -O3 -DNDEBUG -fconstexpr-steps=100000000
+#            outputfile: benchmark
+#            os: [self-hosted, macOS, ARM64]
+#            command: ./benchmark
+#            xcode_version: 13.4.1            
 
     runs-on: ${{matrix.os}}
 
@@ -95,10 +95,10 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           git clone https://github.com/joaquintides/perfect_set.git perfect_set-root
-      - name: Install frozen
-        run: |
-          cd $GITHUB_WORKSPACE
-          git clone https://github.com/serge-sans-paille/frozen.git frozen-root
+ #     - name: Install frozen
+ #       run: |
+ #         cd $GITHUB_WORKSPACE
+ #         git clone https://github.com/serge-sans-paille/frozen.git frozen-root
       - name: Compile
         run: |
           cd $GITHUB_WORKSPACE
@@ -130,13 +130,13 @@ jobs:
             outputfile: benchmark.exe            
             os: [self-hosted, Windows, X64]
             
-          - name: vs-x64
-            compiler: cl
-            architecture: x64
-            sourcefile: frozen_vs_perfect.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /EHsc /MD /constexpr:steps100000000 /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            os: [self-hosted, Windows, X64]
+#          - name: vs-x64
+#            compiler: cl
+#            architecture: x64
+#            sourcefile: frozen_vs_perfect.cpp
+#            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /EHsc /MD /constexpr:steps100000000 /Fe:benchmark.exe
+#            outputfile: benchmark.exe            
+#            os: [self-hosted, Windows, X64]
 
     runs-on: ${{matrix.os}}
 
@@ -157,11 +157,11 @@ jobs:
         run: |
           cd %GITHUB_WORKSPACE%
           git clone https://github.com/joaquintides/perfect_set.git perfect_set-root
-      - name: Install frozen
-        shell: cmd
-        run: |
-          cd %GITHUB_WORKSPACE%
-          git clone https://github.com/serge-sans-paille/frozen.git frozen-root
+#      - name: Install frozen
+#        shell: cmd
+#        run: |
+#          cd %GITHUB_WORKSPACE%
+#          git clone https://github.com/serge-sans-paille/frozen.git frozen-root
       - name: Compile
         shell: cmd
         run: |
