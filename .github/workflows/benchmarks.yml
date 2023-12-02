@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches:
-      - boost_concurrent_flat_map
+      - boost_concurrent_flat_map_latch_free_group
 
 jobs:
   posix:
@@ -18,7 +18,7 @@ jobs:
             architecture: -m64
             vcpkgtriplet: x64-linux
             sourcefile: parallel_load.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG 
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DBOOST_UNORDERED_LATCH_FREE
             outputfile: benchmark
             reportdir: gcc-x64
             os: [self-hosted, linux, x64]
@@ -30,7 +30,7 @@ jobs:
             architecture: -m64
             vcpkgtriplet: x64-linux
             sourcefile: parallel_load.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG 
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DBOOST_UNORDERED_LATCH_FREE
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
@@ -41,35 +41,12 @@ jobs:
             architecture: -m64
             vcpkgtriplet: arm64-osx
             sourcefile: parallel_load.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG 
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DBOOST_UNORDERED_LATCH_FREE
             outputfile: benchmark
             reportdir: clang-arm64
             os: [self-hosted, macOS, ARM64]
             command: ./benchmark
             xcode_version: 13.4.1            
-
-          - name: gcc-x86
-            compiler: g++-12
-            architecture: -m32
-            vcpkgtriplet: x86-linux
-            sourcefile: parallel_load.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG 
-            outputfile: benchmark
-            reportdir: gcc-x86
-            os: [self-hosted, linux, x64]
-            install: g++-12 gcc-12-multilib g++-12-multilib
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-
-          - name: clang-x86
-            compiler: clang++-15
-            architecture: -m32
-            vcpkgtriplet: x86-linux
-            sourcefile: parallel_load.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG 
-            outputfile: benchmark
-            reportdir: clang-x86
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
                         
     runs-on: ${{matrix.os}}
@@ -92,6 +69,10 @@ jobs:
           git submodule update --init
           ./bootstrap.sh
           ./b2 -d0 headers
+      - name: Install Boost.Unordered branch poc/latch_free_group
+        run: |
+           cd $GITHUB_WORKSPACE
+           git clone -b poc/latch_free_group https://github.com/boostorg/unordered.git boost_unordered-root
       - name: Install oneTBB
         run: |
           if [ -n "${{matrix.xcode_version}}" ]; then
@@ -119,7 +100,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           ${{matrix.compiler}} --version
-          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root -I$GITHUB_WORKSPACE/vcpkg/installed/${{matrix.vcpkgtriplet}}/include -I$GITHUB_WORKSPACE/gtl-root/include -L$GITHUB_WORKSPACE/vcpkg/installed/${{matrix.vcpkgtriplet}}/lib -pthread -ltbb -ltbbmalloc
+          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost_unordered-root/include -I$GITHUB_WORKSPACE/boost-root -I$GITHUB_WORKSPACE/vcpkg/installed/${{matrix.vcpkgtriplet}}/include -I$GITHUB_WORKSPACE/gtl-root/include -L$GITHUB_WORKSPACE/vcpkg/installed/${{matrix.vcpkgtriplet}}/lib -pthread -ltbb -ltbbmalloc
       - name: Set reportfile name
         run: |
           echo "REPORT_FILE=${{matrix.reportdir}}/${{matrix.sourcefile}}.csv" >> $GITHUB_ENV
@@ -161,16 +142,6 @@ jobs:
             outputfile: benchmark.exe            
             reportdir: vs-x64
             os: [self-hosted, Windows, X64]
-
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            vcpkgtriplet: x86-windows
-            sourcefile: parallel_load.cpp
-            compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            os: [self-hosted, Windows, X64]
             
     runs-on: ${{matrix.os}}
 
@@ -186,6 +157,11 @@ jobs:
           git submodule update --init
           cmd /c bootstrap.bat
           .\b2.exe -d0 headers
+      - name: Install Boost.Unordered branch poc/latch_free_group
+        shell: cmd
+        run: |
+          cd %GITHUB_WORKSPACE%
+          git clone -b poc/latch_free_group https://github.com/boostorg/unordered.git boost_unordered-root
       - name: Install oneTBB
         shell: cmd
         run: |
@@ -206,7 +182,7 @@ jobs:
         run: |
           cd %GITHUB_WORKSPACE%
           call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
-          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\vcpkg\installed\${{matrix.vcpkgtriplet}}\include;%GITHUB_WORKSPACE%\gtl-root\include
+          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost_unordered-root\include;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\vcpkg\installed\${{matrix.vcpkgtriplet}}\include;%GITHUB_WORKSPACE%\gtl-root\include
           echo %INCLUDE%
           ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.compileroptions}}
       - name: Set reportfile name
