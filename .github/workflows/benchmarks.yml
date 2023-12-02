@@ -138,7 +138,7 @@ jobs:
             architecture: x64
             vcpkgtriplet: x64-windows
             sourcefile: parallel_load.cpp
-            compileroptions: /std:c++latest /O2 /D "NDEBUG" /EHsc /MD /Fe:benchmark.exe
+            compileroptions: /std:c++latest /O2 /D "NDEBUG" /D "BOOST_UNORDERED_LATCH_FREE" /EHsc /MD /Fe:benchmark.exe
             outputfile: benchmark.exe            
             reportdir: vs-x64
             os: [self-hosted, Windows, X64]
