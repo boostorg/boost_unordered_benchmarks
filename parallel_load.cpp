@@ -308,7 +308,6 @@ struct parallel_load
         threads[i].join();
         res+=results[i];
       }
-      std::cout<<"["<<m.size()<<"]";
     }
     resume_timing();
     return res;
