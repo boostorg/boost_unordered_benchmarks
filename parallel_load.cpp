@@ -64,21 +64,31 @@ void resume_timing()
 #include "oneapi/tbb/concurrent_hash_map.h"
 #include "zipfian_int_distribution.h"
 
-using boost_map=boost::concurrent_flat_map<int,int>;
+struct atomic_value
+{
+  atomic_value(int n_):n{n_}{}
+  atomic_value(const atomic_value& x):n{x.n.load()}{}
 
-using tbb_map=tbb::concurrent_hash_map<int,int>;
+  void operator++()const{++n;}
+
+  mutable std::atomic<int> n={};
+};
+
+using boost_map=boost::concurrent_flat_map<int,atomic_value>;
+
+using tbb_map=tbb::concurrent_hash_map<int,atomic_value>;
 
 using gtl_map=gtl::parallel_flat_hash_map<
   int,int,gtl::priv::hash_default_hash<int>,gtl::priv::hash_default_eq<int>,
-  std::allocator<std::pair<const int,int>>,
+  std::allocator<std::pair<const int,atomic_value>>,
   8,std::mutex>;
 
-struct bulk_map:boost::concurrent_flat_map<int,int>{};
+struct bulk_map:boost::concurrent_flat_map<int,atomic_value>{};
 
 template<typename... Args>
 inline void map_update(boost_map& m,Args&&... args)
 {
-  m.emplace_or_visit(std::forward<Args>(args)...,[](auto& x){++x.second;});
+  m.emplace_or_cvisit(std::forward<Args>(args)...,[](auto& x){++x.second;});
 }
 
 template<typename Key>
