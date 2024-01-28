@@ -1,7 +1,7 @@
 /* Measuring lookup times of unordered associative containers
  * without duplicate elements.
  *
- * Copyright 2013-2023 Joaquin M Lopez Munoz.
+ * Copyright 2013-2024 Joaquin M Lopez Munoz.
  * Distributed under the Boost Software License, Version 1.0.
  * (See accompanying file LICENSE_1_0.txt or copy at
  * http://www.boost.org/LICENSE_1_0.txt)
@@ -160,14 +160,18 @@ void test(
 #include <boost/unordered/unordered_flat_map.hpp>
 #include <boost/unordered/unordered_map.hpp>
 #include <boost/unordered/unordered_node_map.hpp>
+#include "pooled_hashmap.hpp"
 
 int main()
 {
   using container_t1=absl::flat_hash_map<boost::uint64_t,boost::uint64_t>;
-  using container_t2=absl::node_hash_map<boost::uint64_t,boost::uint64_t>;
-  using container_t3=boost::unordered_map<boost::uint64_t,boost::uint64_t>;
+  using container_t2=pooled<
+    absl::node_hash_map<boost::uint64_t,boost::uint64_t>>;
+  using container_t3=pooled<
+    boost::unordered_map<boost::uint64_t,boost::uint64_t>>;
   using container_t4=boost::unordered_flat_map<boost::uint64_t,boost::uint64_t>;
-  using container_t5=boost::unordered_node_map<boost::uint64_t,boost::uint64_t>;
+  using container_t5=pooled<
+    boost::unordered_node_map<boost::uint64_t,boost::uint64_t>>;
 
   test<
     scattered_lookup,
