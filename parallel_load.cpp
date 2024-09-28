@@ -1,7 +1,7 @@
 /* Measuring performance of concurrent hashmaps under several
  * workload configurations.
  *
- * Copyright 2023 Joaquin M Lopez Munoz.
+ * Copyright 2023-2024 Joaquin M Lopez Munoz.
  * Distributed under the Boost Software License, Version 1.0.
  * (See accompanying file LICENSE_1_0.txt or copy at
  * http://www.boost.org/LICENSE_1_0.txt)
@@ -55,6 +55,7 @@ void resume_timing()
 #include <boost/bind/bind.hpp>
 #include <boost/core/detail/splitmix64.hpp>
 #include <boost/unordered/concurrent_flat_map.hpp>
+#include <boost/unordered/concurrent_node_map.hpp>
 #include <iostream>
 #include <latch>
 #include <random>
@@ -64,7 +65,9 @@ void resume_timing()
 #include "oneapi/tbb/concurrent_hash_map.h"
 #include "zipfian_int_distribution.h"
 
-using boost_map=boost::concurrent_flat_map<int,int>;
+using boost_flat_map=boost::concurrent_flat_map<int,int>;
+
+using boost_node_map=boost::concurrent_node_map<int,int>;
 
 using tbb_map=tbb::concurrent_hash_map<int,int>;
 
@@ -73,16 +76,30 @@ using gtl_map=gtl::parallel_flat_hash_map<
   std::allocator<std::pair<const int,int>>,
   8,std::mutex>;
 
-struct bulk_map:boost::concurrent_flat_map<int,int>{};
+struct bulk_flat_map:boost::concurrent_flat_map<int,int>{};
+
+struct bulk_node_map:boost::concurrent_node_map<int,int>{};
 
 template<typename... Args>
-inline void map_update(boost_map& m,Args&&... args)
+inline void map_update(boost_flat_map& m,Args&&... args)
 {
   m.emplace_or_visit(std::forward<Args>(args)...,[](auto& x){++x.second;});
 }
 
 template<typename Key>
-inline bool map_find(const boost_map& m,const Key& x)
+inline bool map_find(const boost_flat_map& m,const Key& x)
+{
+  return m.contains(x);
+}
+
+template<typename... Args>
+inline void map_update(boost_node_map& m,Args&&... args)
+{
+  m.emplace_or_visit(std::forward<Args>(args)...,[](auto& x){++x.second;});
+}
+
+template<typename Key>
+inline bool map_find(const boost_node_map& m,const Key& x)
 {
   return m.contains(x);
 }
@@ -150,14 +167,14 @@ private:
   Distribution dist;
 };
 
-template<typename Distribution>
+template<typename BulkMap,typename Distribution>
 class bulk_finder
 {
 public:
   bulk_finder(const Distribution& dist_):dist{dist_}{}
 
   template<typename URNG>
-  void operator()(const bulk_map& m,URNG& gen)
+  void operator()(const BulkMap& m,URNG& gen)
   {
     keys[i++]=dist(gen);
     if(i==N){
@@ -166,7 +183,7 @@ public:
     }
   }
 
-  void flush(const bulk_map& m)
+  void flush(const BulkMap& m)
   {
     res+=(int)m.visit(keys.begin(),keys.begin()+i,[](const auto&){});
   }
@@ -174,7 +191,7 @@ public:
   int res=0;
 
 private:
-  static constexpr std::size_t N=bulk_map::bulk_visit_size;
+  static constexpr std::size_t N=BulkMap::bulk_visit_size;
 
   Distribution      dist;
   int               i=0;
@@ -261,10 +278,12 @@ struct parallel_load
                                     finish(1);
 
       for(int i=0;i<num_threads;++i)threads.emplace_back([&,i,zipf1,zipf2]{
-        static constexpr auto is_bulk=std::is_same<Map,bulk_map>::value;
+        static constexpr auto is_bulk=
+          std::is_same<Map,bulk_flat_map>::value||
+          std::is_same<Map,bulk_node_map>::value;
         using finder_type=typename std::conditional<
           is_bulk,
-          bulk_finder<zipfian_int_distribution<int>>,
+          bulk_finder<Map,zipfian_int_distribution<int>>,
           finder<zipfian_int_distribution<int>>
         >::type;
 
@@ -317,11 +336,13 @@ struct parallel_load
 template<
   template<typename> class Tester,
   typename Container1,typename Container2,
-  typename Container3,typename Container4
+  typename Container3,typename Container4,
+  typename Container5,typename Container6
 >
 BOOST_NOINLINE void test(
   const char* title,int N,double theta,
-  const char* name1,const char* name2,const char* name3,const char* name4)
+  const char* name1,const char* name2,const char* name3,const char* name4,
+  const char* name5,const char* name6)
 {
 #ifdef NUM_THREADS
   const int num_threads=NUM_THREADS;
@@ -330,7 +351,9 @@ BOOST_NOINLINE void test(
 #endif
 
   std::cout<<title<<" (N="<<N<<", theta="<<theta<<"):"<<std::endl;
-  std::cout<<"#threads;"<<name1<<";"<<name2<<";"<<name3<<";"<<name4<<std::endl;
+  std::cout
+    <<"#threads;"<<name1<<";"<<name2<<";"<<name3<<";"<<name4<<";"
+    <<name5<<";"<<name6<<std::endl;
 
   for(int n=1;n<=num_threads;++n){
     std::cout<<n<<";";
@@ -341,6 +364,10 @@ BOOST_NOINLINE void test(
     t=measure(boost::bind(Tester<Container3>(),N,theta,n));
     std::cout<<10*N/t/1E6<<";";
     t=measure(boost::bind(Tester<Container4>(),N,theta,n));
+    std::cout<<10*N/t/1E6<<";";
+    t=measure(boost::bind(Tester<Container5>(),N,theta,n));
+    std::cout<<10*N/t/1E6<<";";
+    t=measure(boost::bind(Tester<Container6>(),N,theta,n));
     std::cout<<10*N/t/1E6<<std::endl;
   }
 }
@@ -355,14 +382,18 @@ int main()
         parallel_load,
         tbb_map,
         gtl_map,
-        boost_map,
-        bulk_map>
+        boost_flat_map,
+        bulk_flat_map,
+        boost_node_map,
+        bulk_node_map>
       (
         "Parallel load",N,theta,
         "tbb::concurrent_hash_map",
         "gtl::parallel_flat_hash_map",
         "boost::concurrent_flat_map",
-        "boost::concurrent_flat_map bulk"
+        "boost::concurrent_flat_map bulk",
+        "boost::concurrent_node_map",
+        "boost::concurrent_node_map bulk"
       );
     }
   }
