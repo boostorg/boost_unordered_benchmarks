@@ -1,6 +1,6 @@
-# `boost::concurrent_flat_map` benchmarks
+# `boost::concurrent_(flat|node)_map` benchmarks
 
-Automated benchmarks of `boost::concurrent_flat_map` against [`oneapi::tbb::concurrent_hash_map`](https://spec.oneapi.io/versions/latest/elements/oneTBB/source/containers/concurrent_hash_map_cls.html) and [`gtl::parallel_flat_hash_map`](https://github.com/greg7mdp/gtl/blob/main/docs/phmap.md).
+Automated benchmarks of `boost::concurrent_flat_map` and `boost::concurrent_node_map` against [`oneapi::tbb::concurrent_hash_map`](https://spec.oneapi.io/versions/latest/elements/oneTBB/source/containers/concurrent_hash_map_cls.html) and [`gtl::parallel_flat_hash_map`](https://github.com/greg7mdp/gtl/blob/main/docs/phmap.md).
 
 ## Benchmarks
 * `parallel_load`: _T_ threads concurrently perform _N_ operations **update**, **successful lookup**
@@ -10,7 +10,7 @@ The keys used by all operations are also random, where **update** and **successf
 [Zipf distribution](https://en.wikipedia.org/wiki/Zipf%27s_law#Formal_definition) over [1, <i>N</i>/10]
 with skew exponent _s_, and **unsuccessful lookup** follows a Zipf distribution
 with the same skew _s_ over [1 + <i>N</i>/10, 2<i>N</i>/10] (so, not overlapping with the former interval).  
-`boost::concurrent_flat_map` is exercised using both regular and bulk visitation: in the latter case,
+`boost::concurrent_flat_map` and `boost::concurrent_node_map` are exercised using both regular and bulk visitation: in the latter case,
 lookup keys are buffered in a local array and then processed at once each time the buffer reaches
 `bulk_visit_size`.
 
