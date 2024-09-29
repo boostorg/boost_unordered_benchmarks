@@ -45,7 +45,7 @@ with io.open(args.input_file,"r",encoding=args.encoding) as filein:
     ws.cell(row=row,column=6).value=None
     ws.cell(row=row,column=7).value=None
 
-  pattern=re.compile(r"([0-9]+);([0-9.]+);([0-9.]+);([0-9.]+);([0-9.]+)")
+  pattern=re.compile(r"([0-9]+);([0-9.]+);([0-9.]+);([0-9.]+);([0-9.]+);([0-9.]+);([0-9.]+)")
   for row,line in enumerate(lines[lines_read:],2):
     m=pattern.match(line)
     if not m: break
