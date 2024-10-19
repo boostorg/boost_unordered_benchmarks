@@ -301,7 +301,7 @@ template<class K, class V> using ankerl_unordered_dense_map =
 
 #endif
 
-#ifdef HAVE_ANKERL_INDIVI
+#ifdef HAVE_INDIVI
 
 template<class K, class V> using indivi_flat_umap = indivi::flat_umap<K, V>;
 
