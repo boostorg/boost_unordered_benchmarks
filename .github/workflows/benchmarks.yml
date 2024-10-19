@@ -531,14 +531,14 @@ jobs:
             outputfile: benchmark.exe            
             reportdir: vs-x86
             os: [self-hosted, Windows, X64]
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: uint64.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            os: [self-hosted, Windows, X64]
+          #- name: vs-x86
+          #  compiler: cl
+          #  architecture: x86
+          #  sourcefile: uint64.cpp
+          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+          #  outputfile: benchmark.exe            
+          #  reportdir: vs-x86
+          #  os: [self-hosted, Windows, X64]
           - name: vs-x86
             compiler: cl
             architecture: x86
