@@ -18,8 +18,8 @@
 #ifdef HAVE_ANKERL_UNORDERED_DENSE
 # include "ankerl/unordered_dense.h"
 #endif
-#ifdef HAVE_INVIDI
-# include "invidi/flat_umap.h"
+#ifdef HAVE_INDIVI
+# include "indivi/flat_umap.h"
 #endif
 #include <unordered_map>
 #include <vector>
@@ -301,9 +301,9 @@ template<class K, class V> using ankerl_unordered_dense_map =
 
 #endif
 
-#ifdef HAVE_ANKERL_INVIDI
+#ifdef HAVE_ANKERL_INDIVI
 
-template<class K, class V> using invidi_flat_umap = invidi::flat_umap<K, V>;
+template<class K, class V> using indivi_flat_umap = indivi::flat_umap<K, V>;
 
 #endif
 
@@ -383,9 +383,9 @@ template<class K, class V> using ankerl_unordered_dense_map_fnv1a =
 
 #endif
 
-#ifdef HAVE_INVIDI
+#ifdef HAVE_INDIVI
 
-template<class K, class V> using invidi_flat_umap_fnv1a = invidi::flat_umap<K, V, fnv1a_hash>;
+template<class K, class V> using indivi_flat_umap_fnv1a = indivi::flat_umap<K, V, fnv1a_hash>;
 
 #endif
 
@@ -406,9 +406,9 @@ int main()
 
 #endif
 
-#ifdef HAVE_INVIDI
+#ifdef HAVE_INDIVI
 
-    test<invidi_flat_umap>( "invidi::flat_umap" );
+    test<indivi_flat_umap>( "indivi::flat_umap" );
 
 #endif
 
@@ -430,9 +430,9 @@ int main()
 
 #endif
 
-#ifdef HAVE_INVIDI
+#ifdef HAVE_INDIVI
 
-    test<invidi_flat_umap_fnv1a>( "invidi::flat_umap, FNV-1a" );
+    test<indivi_flat_umap_fnv1a>( "indivi::flat_umap, FNV-1a" );
 
 #endif
 

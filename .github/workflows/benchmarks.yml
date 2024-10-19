@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches:
-      - boost_unordered_aggregate_invidi
+      - boost_unordered_aggregate_indivi
 
 jobs:
   posix:
@@ -17,7 +17,7 @@ jobs:
             compiler: g++-12
             architecture: -m64
             sourcefile: string.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
             outputfile: benchmark
             reportdir: gcc-x64
             os: [self-hosted, linux, x64]
@@ -27,7 +27,7 @@ jobs:
           #  compiler: g++-12
           #  architecture: -m64
           #  sourcefile: string_view.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: gcc-x64
           #  os: [self-hosted, linux, x64]
@@ -37,7 +37,7 @@ jobs:
           #  compiler: g++-12
           #  architecture: -m64
           #  sourcefile: uint32.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: gcc-x64
           #  os: [self-hosted, linux, x64]
@@ -47,7 +47,7 @@ jobs:
           #  compiler: g++-12
           #  architecture: -m64
           #  sourcefile: uint64.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: gcc-x64
           #  os: [self-hosted, linux, x64]
@@ -57,7 +57,7 @@ jobs:
           #  compiler: g++-12
           #  architecture: -m64
           #  sourcefile: uuid.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: gcc-x64
           #  os: [self-hosted, linux, x64]
@@ -68,7 +68,7 @@ jobs:
           #  architecture: -m64
           #  sourcefile: word_count.cpp
           #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: gcc-x64
           #  os: [self-hosted, linux, x64]
@@ -79,7 +79,7 @@ jobs:
           #  architecture: -m64
           #  sourcefile: word_size.cpp
           #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: gcc-x64
           #  os: [self-hosted, linux, x64]
@@ -90,7 +90,7 @@ jobs:
             compiler: clang++-15
             architecture: -m64
             sourcefile: string.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
@@ -99,7 +99,7 @@ jobs:
           #  compiler: clang++-15
           #  architecture: -m64
           #  sourcefile: string_view.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x64
           #  os: [self-hosted, linux, x64]
@@ -108,7 +108,7 @@ jobs:
           #  compiler: clang++-15
           #  architecture: -m64
           #  sourcefile: uint32.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x64
           #  os: [self-hosted, linux, x64]
@@ -117,7 +117,7 @@ jobs:
           #  compiler: clang++-15
           #  architecture: -m64
           #  sourcefile: uint64.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x64
           #  os: [self-hosted, linux, x64]
@@ -126,7 +126,7 @@ jobs:
           #  compiler: clang++-15
           #  architecture: -m64
           #  sourcefile: uuid.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x64
           #  os: [self-hosted, linux, x64]
@@ -136,7 +136,7 @@ jobs:
           #  architecture: -m64
           #  sourcefile: word_count.cpp
           #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x64
           #  os: [self-hosted, linux, x64]
@@ -147,7 +147,7 @@ jobs:
           #  architecture: -m64
           #  sourcefile: word_size.cpp
           #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x64
           #  os: [self-hosted, linux, x64]
@@ -158,7 +158,7 @@ jobs:
             compiler: clang++
             architecture: -m64
             sourcefile: string.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
             outputfile: benchmark
             reportdir: clang-arm64
             os: [self-hosted, macOS, ARM64]
@@ -168,7 +168,7 @@ jobs:
           #  compiler: clang++
           #  architecture: -m64
           #  sourcefile: string_view.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-arm64
           #  os: [self-hosted, macOS, ARM64]
@@ -178,7 +178,7 @@ jobs:
           #  compiler: clang++
           #  architecture: -m64
           #  sourcefile: uint32.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-arm64
           #  os: [self-hosted, macOS, ARM64]
@@ -188,7 +188,7 @@ jobs:
           #  compiler: clang++
           #  architecture: -m64
           #  sourcefile: uint64.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-arm64
           #  os: [self-hosted, macOS, ARM64]
@@ -198,7 +198,7 @@ jobs:
           #  compiler: clang++
           #  architecture: -m64
           #  sourcefile: uuid.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-arm64
           #  os: [self-hosted, macOS, ARM64]
@@ -209,7 +209,7 @@ jobs:
           #  architecture: -m64
           #  sourcefile: word_count.cpp
           #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-arm64
           #  os: [self-hosted, macOS, ARM64]
@@ -220,7 +220,7 @@ jobs:
           #  architecture: -m64
           #  download-datafiles: true
           #  sourcefile: word_size.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-arm64
           #  os: [self-hosted, macOS, ARM64]
@@ -231,7 +231,7 @@ jobs:
             compiler: g++-12
             architecture: -m32
             sourcefile: string.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
             outputfile: benchmark
             reportdir: gcc-x86
             os: [self-hosted, linux, x64]
@@ -241,7 +241,7 @@ jobs:
           #  compiler: g++-12
           #  architecture: -m32
           #  sourcefile: string_view.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: gcc-x86
           #  os: [self-hosted, linux, x64]
@@ -251,7 +251,7 @@ jobs:
           #  compiler: g++-12
           #  architecture: -m32
           #  sourcefile: uint32.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: gcc-x86
           #  os: [self-hosted, linux, x64]
@@ -261,7 +261,7 @@ jobs:
           #  compiler: g++-12
           #  architecture: -m32
           #  sourcefile: uint64.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: gcc-x86
           #  os: [self-hosted, linux, x64]
@@ -271,7 +271,7 @@ jobs:
           #  compiler: g++-12
           #  architecture: -m32
           #  sourcefile: uuid.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: gcc-x86
           #  os: [self-hosted, linux, x64]
@@ -282,7 +282,7 @@ jobs:
           #  architecture: -m32
           #  sourcefile: word_count.cpp
           #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: gcc-x86
           #  os: [self-hosted, linux, x64]
@@ -293,7 +293,7 @@ jobs:
           #  architecture: -m32
           #  sourcefile: word_size.cpp
           #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: gcc-x86
           #  os: [self-hosted, linux, x64]
@@ -304,7 +304,7 @@ jobs:
             compiler: clang++-15
             architecture: -m32
             sourcefile: string.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
             outputfile: benchmark
             reportdir: clang-x86
             os: [self-hosted, linux, x64]
@@ -313,7 +313,7 @@ jobs:
           #  compiler: clang++-15
           #  architecture: -m32
           #  sourcefile: string_view.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
@@ -322,7 +322,7 @@ jobs:
           #  compiler: clang++-15
           #  architecture: -m32
           #  sourcefile: uint32.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
@@ -331,7 +331,7 @@ jobs:
           #  compiler: clang++-15
           #  architecture: -m32
           #  sourcefile: uint64.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
@@ -340,7 +340,7 @@ jobs:
           #  compiler: clang++-15
           #  architecture: -m32
           #  sourcefile: uuid.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
@@ -350,7 +350,7 @@ jobs:
           #  architecture: -m32
           #  sourcefile: word_count.cpp
           #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
@@ -361,7 +361,7 @@ jobs:
           #  architecture: -m32
           #  sourcefile: word_size.cpp
           #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
@@ -407,15 +407,15 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           git clone -b v1.3.1 https://github.com/martinus/unordered_dense.git ankerl-unordered_dense-root
-      - name: Install invidi_collection
+      - name: Install indivi_collection
         run: |
           cd $GITHUB_WORKSPACE
-          git clone https://github.com/gaujay/indivi_collection.git invidi_collection
+          git clone https://github.com/gaujay/indivi_collection.git indivi-root
       - name: Compile
         run: |
           cd $GITHUB_WORKSPACE
           ${{matrix.compiler}} --version
-          ${{matrix.compiler}} $GITHUB_WORKSPACE/${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root -I$GITHUB_WORKSPACE/abseil-root -I$GITHUB_WORKSPACE/ankerl-unordered_dense-root/include -I$GITHUB_WORKSPACE/invidi_collection/src
+          ${{matrix.compiler}} $GITHUB_WORKSPACE/${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/boost-root -I$GITHUB_WORKSPACE/abseil-root -I$GITHUB_WORKSPACE/ankerl-unordered_dense-root/include -I$GITHUB_WORKSPACE/indivi-root/src
       - name: Set reportfile name
         run: |
           echo "REPORT_FILE=${{matrix.reportdir}}/${{matrix.sourcefile}}.txt" >> $GITHUB_ENV
