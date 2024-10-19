@@ -23,68 +23,68 @@ jobs:
             os: [self-hosted, linux, x64]
             install: g++-12
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          #- name: gcc-x64
-          #  compiler: g++-12
-          #  architecture: -m64
-          #  sourcefile: string_view.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: gcc-x64
-          #  os: [self-hosted, linux, x64]
-          #  install: g++-12
-          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          #- name: gcc-x64
-          #  compiler: g++-12
-          #  architecture: -m64
-          #  sourcefile: uint32.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: gcc-x64
-          #  os: [self-hosted, linux, x64]
-          #  install: g++-12
-          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          #- name: gcc-x64
-          #  compiler: g++-12
-          #  architecture: -m64
-          #  sourcefile: uint64.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: gcc-x64
-          #  os: [self-hosted, linux, x64]
-          #  install: g++-12
-          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          #- name: gcc-x64
-          #  compiler: g++-12
-          #  architecture: -m64
-          #  sourcefile: uuid.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: gcc-x64
-          #  os: [self-hosted, linux, x64]
-          #  install: g++-12
-          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          #- name: gcc-x64
-          #  compiler: g++-12
-          #  architecture: -m64
-          #  sourcefile: word_count.cpp
-          #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: gcc-x64
-          #  os: [self-hosted, linux, x64]
-          #  install: g++-12 unzip
-          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          #- name: gcc-x64
-          #  compiler: g++-12
-          #  architecture: -m64
-          #  sourcefile: word_size.cpp
-          #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: gcc-x64
-          #  os: [self-hosted, linux, x64]
-          #  install: g++-12 unzip
-          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: gcc-x64
+            compiler: g++-12
+            architecture: -m64
+            sourcefile: string_view.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: gcc-x64
+            os: [self-hosted, linux, x64]
+            install: g++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: gcc-x64
+            compiler: g++-12
+            architecture: -m64
+            sourcefile: uint32.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: gcc-x64
+            os: [self-hosted, linux, x64]
+            install: g++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: gcc-x64
+            compiler: g++-12
+            architecture: -m64
+            sourcefile: uint64.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: gcc-x64
+            os: [self-hosted, linux, x64]
+            install: g++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: gcc-x64
+            compiler: g++-12
+            architecture: -m64
+            sourcefile: uuid.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: gcc-x64
+            os: [self-hosted, linux, x64]
+            install: g++-12
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: gcc-x64
+            compiler: g++-12
+            architecture: -m64
+            sourcefile: word_count.cpp
+            download-datafiles: true
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: gcc-x64
+            os: [self-hosted, linux, x64]
+            install: g++-12 unzip
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: gcc-x64
+            compiler: g++-12
+            architecture: -m64
+            sourcefile: word_size.cpp
+            download-datafiles: true
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: gcc-x64
+            os: [self-hosted, linux, x64]
+            install: g++-12 unzip
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
             
           - name: clang-x64
             compiler: clang++-15
@@ -95,64 +95,64 @@ jobs:
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          #- name: clang-x64
-          #  compiler: clang++-15
-          #  architecture: -m64
-          #  sourcefile: string_view.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-x64
-          #  os: [self-hosted, linux, x64]
-          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          #- name: clang-x64
-          #  compiler: clang++-15
-          #  architecture: -m64
-          #  sourcefile: uint32.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-x64
-          #  os: [self-hosted, linux, x64]
-          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          #- name: clang-x64
-          #  compiler: clang++-15
-          #  architecture: -m64
-          #  sourcefile: uint64.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-x64
-          #  os: [self-hosted, linux, x64]
-          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          #- name: clang-x64
-          #  compiler: clang++-15
-          #  architecture: -m64
-          #  sourcefile: uuid.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-x64
-          #  os: [self-hosted, linux, x64]
-          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          #- name: clang-x64
-          #  compiler: clang++-15
-          #  architecture: -m64
-          #  sourcefile: word_count.cpp
-          #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-x64
-          #  os: [self-hosted, linux, x64]
-          #  install: unzip
-          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          #- name: clang-x64
-          #  compiler: clang++-15
-          #  architecture: -m64
-          #  sourcefile: word_size.cpp
-          #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-x64
-          #  os: [self-hosted, linux, x64]
-          #  install: unzip
-          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: clang-x64
+            compiler: clang++-15
+            architecture: -m64
+            sourcefile: string_view.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-x64
+            os: [self-hosted, linux, x64]
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: clang-x64
+            compiler: clang++-15
+            architecture: -m64
+            sourcefile: uint32.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-x64
+            os: [self-hosted, linux, x64]
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: clang-x64
+            compiler: clang++-15
+            architecture: -m64
+            sourcefile: uint64.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-x64
+            os: [self-hosted, linux, x64]
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: clang-x64
+            compiler: clang++-15
+            architecture: -m64
+            sourcefile: uuid.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-x64
+            os: [self-hosted, linux, x64]
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: clang-x64
+            compiler: clang++-15
+            architecture: -m64
+            sourcefile: word_count.cpp
+            download-datafiles: true
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-x64
+            os: [self-hosted, linux, x64]
+            install: unzip
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: clang-x64
+            compiler: clang++-15
+            architecture: -m64
+            sourcefile: word_size.cpp
+            download-datafiles: true
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-x64
+            os: [self-hosted, linux, x64]
+            install: unzip
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
           #- name: clang-arm64
           #  compiler: clang++
@@ -456,56 +456,56 @@ jobs:
             outputfile: benchmark.exe            
             reportdir: vs-x64
             os: [self-hosted, Windows, X64]
-          #- name: vs-x64
-          #  compiler: cl
-          #  architecture: x64
-          #  sourcefile: string_view.cpp
-          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-          #  outputfile: benchmark.exe            
-          #  reportdir: vs-x64
-          #  os: [self-hosted, Windows, X64]
-          #- name: vs-x64
-          #  compiler: cl
-          #  architecture: x64
-          #  sourcefile: uint32.cpp
-          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-          #  outputfile: benchmark.exe            
-          #  reportdir: vs-x64
-          #  os: [self-hosted, Windows, X64]
-          #- name: vs-x64
-          #  compiler: cl
-          #  architecture: x64
-          #  sourcefile: uint64.cpp
-          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-          #  outputfile: benchmark.exe            
-          #  reportdir: vs-x64
-          #  os: [self-hosted, Windows, X64]
-          #- name: vs-x64
-          #  compiler: cl
-          #  architecture: x64
-          #  sourcefile: uuid.cpp
-          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-          #  outputfile: benchmark.exe            
-          #  reportdir: vs-x64
-          #  os: [self-hosted, Windows, X64]
-          #- name: vs-x64
-          #  compiler: cl
-          #  architecture: x64
-          #  sourcefile: word_count.cpp
-          #  download-datafiles: true
-          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-          #  outputfile: benchmark.exe            
-          #  reportdir: vs-x64
-          #  os: [self-hosted, Windows, X64]
-          #- name: vs-x64
-          #  compiler: cl
-          #  architecture: x64
-          #  sourcefile: word_size.cpp
-          #  download-datafiles: true
-          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-          #  outputfile: benchmark.exe            
-          #  reportdir: vs-x64
-          #  os: [self-hosted, Windows, X64]
+          - name: vs-x64
+            compiler: cl
+            architecture: x64
+            sourcefile: string_view.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x64
+            os: [self-hosted, Windows, X64]
+          - name: vs-x64
+            compiler: cl
+            architecture: x64
+            sourcefile: uint32.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x64
+            os: [self-hosted, Windows, X64]
+          - name: vs-x64
+            compiler: cl
+            architecture: x64
+            sourcefile: uint64.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x64
+            os: [self-hosted, Windows, X64]
+          - name: vs-x64
+            compiler: cl
+            architecture: x64
+            sourcefile: uuid.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x64
+            os: [self-hosted, Windows, X64]
+          - name: vs-x64
+            compiler: cl
+            architecture: x64
+            sourcefile: word_count.cpp
+            download-datafiles: true
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x64
+            os: [self-hosted, Windows, X64]
+          - name: vs-x64
+            compiler: cl
+            architecture: x64
+            sourcefile: word_size.cpp
+            download-datafiles: true
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x64
+            os: [self-hosted, Windows, X64]
 
           - name: vs-x86
             compiler: cl
@@ -515,56 +515,56 @@ jobs:
             outputfile: benchmark.exe            
             reportdir: vs-x86
             os: [self-hosted, Windows, X64]
-          #- name: vs-x86
-          #  compiler: cl
-          #  architecture: x86
-          #  sourcefile: string_view.cpp
-          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-          #  outputfile: benchmark.exe            
-          #  reportdir: vs-x86
-          #  os: [self-hosted, Windows, X64]
-          #- name: vs-x86
-          #  compiler: cl
-          #  architecture: x86
-          #  sourcefile: uint32.cpp
-          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-          #  outputfile: benchmark.exe            
-          #  reportdir: vs-x86
-          #  os: [self-hosted, Windows, X64]
-          #- name: vs-x86
-          #  compiler: cl
-          #  architecture: x86
-          #  sourcefile: uint64.cpp
-          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-          #  outputfile: benchmark.exe            
-          #  reportdir: vs-x86
-          #  os: [self-hosted, Windows, X64]
-          #- name: vs-x86
-          #  compiler: cl
-          #  architecture: x86
-          #  sourcefile: uuid.cpp
-          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-          #  outputfile: benchmark.exe            
-          #  reportdir: vs-x86
-          #  os: [self-hosted, Windows, X64]
-          #- name: vs-x86
-          #  compiler: cl
-          #  architecture: x86
-          #  sourcefile: word_count.cpp
-          #  download-datafiles: true
-          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-          #  outputfile: benchmark.exe            
-          #  reportdir: vs-x86
-          #  os: [self-hosted, Windows, X64]
-          #- name: vs-x86
-          #  compiler: cl
-          #  architecture: x86
-          #  sourcefile: word_size.cpp
-          #  download-datafiles: true
-          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-          #  outputfile: benchmark.exe            
-          #  reportdir: vs-x86
-          #  os: [self-hosted, Windows, X64]
+          - name: vs-x86
+            compiler: cl
+            architecture: x86
+            sourcefile: string_view.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x86
+            os: [self-hosted, Windows, X64]
+          - name: vs-x86
+            compiler: cl
+            architecture: x86
+            sourcefile: uint32.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x86
+            os: [self-hosted, Windows, X64]
+          - name: vs-x86
+            compiler: cl
+            architecture: x86
+            sourcefile: uint64.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x86
+            os: [self-hosted, Windows, X64]
+          - name: vs-x86
+            compiler: cl
+            architecture: x86
+            sourcefile: uuid.cpp
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x86
+            os: [self-hosted, Windows, X64]
+          - name: vs-x86
+            compiler: cl
+            architecture: x86
+            sourcefile: word_count.cpp
+            download-datafiles: true
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x86
+            os: [self-hosted, Windows, X64]
+          - name: vs-x86
+            compiler: cl
+            architecture: x86
+            sourcefile: word_size.cpp
+            download-datafiles: true
+            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+            outputfile: benchmark.exe            
+            reportdir: vs-x86
+            os: [self-hosted, Windows, X64]
             
     runs-on: ${{matrix.os}}
 
