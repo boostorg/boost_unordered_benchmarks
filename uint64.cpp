@@ -350,7 +350,7 @@ int main()
 
 #ifdef HAVE_INDIVI
 
-    test<indivi_flat_umap_fnv1a>( "indivi::flat_umap, FNV-1a" );
+    test<indivi_flat_umap>( "indivi::flat_umap" );
 
 #endif
 

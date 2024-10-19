@@ -384,6 +384,12 @@ template<class K, class V> using ankerl_unordered_dense_map_fnv1a =
 
 #endif
 
+#ifdef HAVE_INDIVI
+
+template<class K, class V> using indivi_flat_umap_fnv1a = indivi::flat_umap<K, V, fnv1a_hash>;
+
+#endif
+
 //
 
 int main()
