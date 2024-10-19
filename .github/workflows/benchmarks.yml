@@ -23,68 +23,68 @@ jobs:
             os: [self-hosted, linux, x64]
             install: g++-12
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x64
-            compiler: g++-12
-            architecture: -m64
-            sourcefile: string_view.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: gcc-x64
-            os: [self-hosted, linux, x64]
-            install: g++-12
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x64
-            compiler: g++-12
-            architecture: -m64
-            sourcefile: uint32.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: gcc-x64
-            os: [self-hosted, linux, x64]
-            install: g++-12
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x64
-            compiler: g++-12
-            architecture: -m64
-            sourcefile: uint64.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: gcc-x64
-            os: [self-hosted, linux, x64]
-            install: g++-12
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x64
-            compiler: g++-12
-            architecture: -m64
-            sourcefile: uuid.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: gcc-x64
-            os: [self-hosted, linux, x64]
-            install: g++-12
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x64
-            compiler: g++-12
-            architecture: -m64
-            sourcefile: word_count.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: gcc-x64
-            os: [self-hosted, linux, x64]
-            install: g++-12 unzip
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x64
-            compiler: g++-12
-            architecture: -m64
-            sourcefile: word_size.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: gcc-x64
-            os: [self-hosted, linux, x64]
-            install: g++-12 unzip
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: gcc-x64
+          #  compiler: g++-12
+          #  architecture: -m64
+          #  sourcefile: string_view.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: gcc-x64
+          #  os: [self-hosted, linux, x64]
+          #  install: g++-12
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: gcc-x64
+          #  compiler: g++-12
+          #  architecture: -m64
+          #  sourcefile: uint32.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: gcc-x64
+          #  os: [self-hosted, linux, x64]
+          #  install: g++-12
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: gcc-x64
+          #  compiler: g++-12
+          #  architecture: -m64
+          #  sourcefile: uint64.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: gcc-x64
+          #  os: [self-hosted, linux, x64]
+          #  install: g++-12
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: gcc-x64
+          #  compiler: g++-12
+          #  architecture: -m64
+          #  sourcefile: uuid.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: gcc-x64
+          #  os: [self-hosted, linux, x64]
+          #  install: g++-12
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: gcc-x64
+          #  compiler: g++-12
+          #  architecture: -m64
+          #  sourcefile: word_count.cpp
+          #  download-datafiles: true
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: gcc-x64
+          #  os: [self-hosted, linux, x64]
+          #  install: g++-12 unzip
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: gcc-x64
+          #  compiler: g++-12
+          #  architecture: -m64
+          #  sourcefile: word_size.cpp
+          #  download-datafiles: true
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: gcc-x64
+          #  os: [self-hosted, linux, x64]
+          #  install: g++-12 unzip
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
             
           - name: clang-x64
             compiler: clang++-15
@@ -95,64 +95,64 @@ jobs:
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x64
-            compiler: clang++-15
-            architecture: -m64
-            sourcefile: string_view.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-x64
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x64
-            compiler: clang++-15
-            architecture: -m64
-            sourcefile: uint32.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-x64
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x64
-            compiler: clang++-15
-            architecture: -m64
-            sourcefile: uint64.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-x64
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x64
-            compiler: clang++-15
-            architecture: -m64
-            sourcefile: uuid.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-x64
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x64
-            compiler: clang++-15
-            architecture: -m64
-            sourcefile: word_count.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-x64
-            os: [self-hosted, linux, x64]
-            install: unzip
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x64
-            compiler: clang++-15
-            architecture: -m64
-            sourcefile: word_size.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-x64
-            os: [self-hosted, linux, x64]
-            install: unzip
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: clang-x64
+          #  compiler: clang++-15
+          #  architecture: -m64
+          #  sourcefile: string_view.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-x64
+          #  os: [self-hosted, linux, x64]
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: clang-x64
+          #  compiler: clang++-15
+          #  architecture: -m64
+          #  sourcefile: uint32.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-x64
+          #  os: [self-hosted, linux, x64]
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: clang-x64
+          #  compiler: clang++-15
+          #  architecture: -m64
+          #  sourcefile: uint64.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-x64
+          #  os: [self-hosted, linux, x64]
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: clang-x64
+          #  compiler: clang++-15
+          #  architecture: -m64
+          #  sourcefile: uuid.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-x64
+          #  os: [self-hosted, linux, x64]
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: clang-x64
+          #  compiler: clang++-15
+          #  architecture: -m64
+          #  sourcefile: word_count.cpp
+          #  download-datafiles: true
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-x64
+          #  os: [self-hosted, linux, x64]
+          #  install: unzip
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: clang-x64
+          #  compiler: clang++-15
+          #  architecture: -m64
+          #  sourcefile: word_size.cpp
+          #  download-datafiles: true
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-x64
+          #  os: [self-hosted, linux, x64]
+          #  install: unzip
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
           - name: clang-arm64
             compiler: clang++
@@ -164,68 +164,68 @@ jobs:
             os: [self-hosted, macOS, ARM64]
             command: ./benchmark
             xcode_version: 13.4.1            
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            sourcefile: string_view.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-arm64
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            sourcefile: uint32.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-arm64
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            sourcefile: uint64.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-arm64
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            sourcefile: uuid.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-arm64
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            sourcefile: word_count.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-arm64
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            download-datafiles: true
-            sourcefile: word_size.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-arm64
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
+          #- name: clang-arm64
+          #  compiler: clang++
+          #  architecture: -m64
+          #  sourcefile: string_view.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-arm64
+          #  os: [self-hosted, macOS, ARM64]
+          #  command: ./benchmark
+          #  xcode_version: 13.4.1            
+          #- name: clang-arm64
+          #  compiler: clang++
+          #  architecture: -m64
+          #  sourcefile: uint32.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-arm64
+          #  os: [self-hosted, macOS, ARM64]
+          #  command: ./benchmark
+          #  xcode_version: 13.4.1            
+          #- name: clang-arm64
+          #  compiler: clang++
+          #  architecture: -m64
+          #  sourcefile: uint64.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-arm64
+          #  os: [self-hosted, macOS, ARM64]
+          #  command: ./benchmark
+          #  xcode_version: 13.4.1            
+          #- name: clang-arm64
+          #  compiler: clang++
+          #  architecture: -m64
+          #  sourcefile: uuid.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-arm64
+          #  os: [self-hosted, macOS, ARM64]
+          #  command: ./benchmark
+          #  xcode_version: 13.4.1            
+          #- name: clang-arm64
+          #  compiler: clang++
+          #  architecture: -m64
+          #  sourcefile: word_count.cpp
+          #  download-datafiles: true
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-arm64
+          #  os: [self-hosted, macOS, ARM64]
+          #  command: ./benchmark
+          #  xcode_version: 13.4.1            
+          #- name: clang-arm64
+          #  compiler: clang++
+          #  architecture: -m64
+          #  download-datafiles: true
+          #  sourcefile: word_size.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-arm64
+          #  os: [self-hosted, macOS, ARM64]
+          #  command: ./benchmark
+          #  xcode_version: 13.4.1            
 
           - name: gcc-x86
             compiler: g++-12
@@ -237,68 +237,68 @@ jobs:
             os: [self-hosted, linux, x64]
             install: g++-12 gcc-12-multilib g++-12-multilib
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x86
-            compiler: g++-12
-            architecture: -m32
-            sourcefile: string_view.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: gcc-x86
-            os: [self-hosted, linux, x64]
-            install: g++-12 gcc-12-multilib g++-12-multilib
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x86
-            compiler: g++-12
-            architecture: -m32
-            sourcefile: uint32.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: gcc-x86
-            os: [self-hosted, linux, x64]
-            install: g++-12 gcc-12-multilib g++-12-multilib
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x86
-            compiler: g++-12
-            architecture: -m32
-            sourcefile: uint64.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: gcc-x86
-            os: [self-hosted, linux, x64]
-            install: g++-12 gcc-12-multilib g++-12-multilib
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x86
-            compiler: g++-12
-            architecture: -m32
-            sourcefile: uuid.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: gcc-x86
-            os: [self-hosted, linux, x64]
-            install: g++-12 gcc-12-multilib g++-12-multilib
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x86
-            compiler: g++-12
-            architecture: -m32
-            sourcefile: word_count.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: gcc-x86
-            os: [self-hosted, linux, x64]
-            install: g++-12 gcc-12-multilib g++-12-multilib unzip
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x86
-            compiler: g++-12
-            architecture: -m32
-            sourcefile: word_size.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: gcc-x86
-            os: [self-hosted, linux, x64]
-            install: g++-12 gcc-12-multilib g++-12-multilib unzip
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: gcc-x86
+          #  compiler: g++-12
+          #  architecture: -m32
+          #  sourcefile: string_view.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: gcc-x86
+          #  os: [self-hosted, linux, x64]
+          #  install: g++-12 gcc-12-multilib g++-12-multilib
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: gcc-x86
+          #  compiler: g++-12
+          #  architecture: -m32
+          #  sourcefile: uint32.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: gcc-x86
+          #  os: [self-hosted, linux, x64]
+          #  install: g++-12 gcc-12-multilib g++-12-multilib
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: gcc-x86
+          #  compiler: g++-12
+          #  architecture: -m32
+          #  sourcefile: uint64.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: gcc-x86
+          #  os: [self-hosted, linux, x64]
+          #  install: g++-12 gcc-12-multilib g++-12-multilib
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: gcc-x86
+          #  compiler: g++-12
+          #  architecture: -m32
+          #  sourcefile: uuid.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: gcc-x86
+          #  os: [self-hosted, linux, x64]
+          #  install: g++-12 gcc-12-multilib g++-12-multilib
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: gcc-x86
+          #  compiler: g++-12
+          #  architecture: -m32
+          #  sourcefile: word_count.cpp
+          #  download-datafiles: true
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: gcc-x86
+          #  os: [self-hosted, linux, x64]
+          #  install: g++-12 gcc-12-multilib g++-12-multilib unzip
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: gcc-x86
+          #  compiler: g++-12
+          #  architecture: -m32
+          #  sourcefile: word_size.cpp
+          #  download-datafiles: true
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: gcc-x86
+          #  os: [self-hosted, linux, x64]
+          #  install: g++-12 gcc-12-multilib g++-12-multilib unzip
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
           - name: clang-x86
             compiler: clang++-15
@@ -309,64 +309,64 @@ jobs:
             reportdir: clang-x86
             os: [self-hosted, linux, x64]
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x86
-            compiler: clang++-15
-            architecture: -m32
-            sourcefile: string_view.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-x86
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x86
-            compiler: clang++-15
-            architecture: -m32
-            sourcefile: uint32.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-x86
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x86
-            compiler: clang++-15
-            architecture: -m32
-            sourcefile: uint64.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-x86
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x86
-            compiler: clang++-15
-            architecture: -m32
-            sourcefile: uuid.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-x86
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x86
-            compiler: clang++-15
-            architecture: -m32
-            sourcefile: word_count.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-x86
-            os: [self-hosted, linux, x64]
-            install: unzip
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x86
-            compiler: clang++-15
-            architecture: -m32
-            sourcefile: word_size.cpp
-            download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
-            outputfile: benchmark
-            reportdir: clang-x86
-            os: [self-hosted, linux, x64]
-            install: unzip
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: clang-x86
+          #  compiler: clang++-15
+          #  architecture: -m32
+          #  sourcefile: string_view.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-x86
+          #  os: [self-hosted, linux, x64]
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: clang-x86
+          #  compiler: clang++-15
+          #  architecture: -m32
+          #  sourcefile: uint32.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-x86
+          #  os: [self-hosted, linux, x64]
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: clang-x86
+          #  compiler: clang++-15
+          #  architecture: -m32
+          #  sourcefile: uint64.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-x86
+          #  os: [self-hosted, linux, x64]
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: clang-x86
+          #  compiler: clang++-15
+          #  architecture: -m32
+          #  sourcefile: uuid.cpp
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-x86
+          #  os: [self-hosted, linux, x64]
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: clang-x86
+          #  compiler: clang++-15
+          #  architecture: -m32
+          #  sourcefile: word_count.cpp
+          #  download-datafiles: true
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-x86
+          #  os: [self-hosted, linux, x64]
+          #  install: unzip
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          #- name: clang-x86
+          #  compiler: clang++-15
+          #  architecture: -m32
+          #  sourcefile: word_size.cpp
+          #  download-datafiles: true
+          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INVIDI
+          #  outputfile: benchmark
+          #  reportdir: clang-x86
+          #  os: [self-hosted, linux, x64]
+          #  install: unzip
+          #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
                         
     runs-on: ${{matrix.os}}
@@ -410,7 +410,7 @@ jobs:
       - name: Install invidi_collection
         run: |
           cd $GITHUB_WORKSPACE
-          git clone https://github.com/gaujay/indivi_collection.git
+          git clone https://github.com/gaujay/indivi_collection.git invidi_collection
       - name: Compile
         run: |
           cd $GITHUB_WORKSPACE
