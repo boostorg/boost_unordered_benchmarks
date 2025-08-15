@@ -22,6 +22,7 @@
 #endif
 #ifdef HAVE_INDIVI
 # include "indivi/flat_umap.h"
+# include "indivi/flat_wmap.h"
 #endif
 #include <unordered_map>
 #include <vector>
@@ -371,6 +372,7 @@ template<class K, class V> using ankerl_unordered_dense_map =
 #ifdef HAVE_INDIVI
 
 template<class K, class V> using indivi_flat_umap = indivi::flat_umap<K, V>;
+template<class K, class V> using indivi_flat_wmap = indivi::flat_wmap<K, V>;
 
 #endif
 
@@ -392,6 +394,7 @@ int main()
 #ifdef HAVE_INDIVI
 
     test<indivi_flat_umap>( "indivi::flat_umap" );
+    test<indivi_flat_wmap>( "indivi::flat_wmap" );
 
 #endif
 
