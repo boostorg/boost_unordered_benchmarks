@@ -87,67 +87,67 @@ jobs:
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
             
           - name: clang-x64
-            compiler: clang++-15
+            compiler: clang++-16
             architecture: -m64
             sourcefile: string.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
-            compiler: clang++-15
+            compiler: clang++-16
             architecture: -m64
             sourcefile: string_view.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
-            compiler: clang++-15
+            compiler: clang++-16
             architecture: -m64
             sourcefile: uint32.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
-            compiler: clang++-15
+            compiler: clang++-16
             architecture: -m64
             sourcefile: uint64.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
-            compiler: clang++-15
+            compiler: clang++-16
             architecture: -m64
             sourcefile: uuid.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
-            compiler: clang++-15
+            compiler: clang++-16
             architecture: -m64
             sourcefile: word_count.cpp
             download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
             install: unzip
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
-            compiler: clang++-15
+            compiler: clang++-16
             architecture: -m64
             sourcefile: word_size.cpp
             download-datafiles: true
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
             outputfile: benchmark
             reportdir: clang-x64
             os: [self-hosted, linux, x64]
@@ -301,67 +301,67 @@ jobs:
           #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
           #- name: clang-x86
-          #  compiler: clang++-15
+          #  compiler: clang++-16
           #  architecture: -m32
           #  sourcefile: string.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+          #  compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
           #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           #- name: clang-x86
-          #  compiler: clang++-15
+          #  compiler: clang++-16
           #  architecture: -m32
           #  sourcefile: string_view.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+          #  compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
           #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           #- name: clang-x86
-          #  compiler: clang++-15
+          #  compiler: clang++-16
           #  architecture: -m32
           #  sourcefile: uint32.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+          #  compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
           #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           #- name: clang-x86
-          #  compiler: clang++-15
+          #  compiler: clang++-16
           #  architecture: -m32
           #  sourcefile: uint64.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+          #  compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
           #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           #- name: clang-x86
-          #  compiler: clang++-15
+          #  compiler: clang++-16
           #  architecture: -m32
           #  sourcefile: uuid.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+          #  compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
           #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           #- name: clang-x86
-          #  compiler: clang++-15
+          #  compiler: clang++-16
           #  architecture: -m32
           #  sourcefile: word_count.cpp
           #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+          #  compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
           #  install: unzip
           #  command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           #- name: clang-x86
-          #  compiler: clang++-15
+          #  compiler: clang++-16
           #  architecture: -m32
           #  sourcefile: word_size.cpp
           #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+          #  compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
           #  outputfile: benchmark
           #  reportdir: clang-x86
           #  os: [self-hosted, linux, x64]
