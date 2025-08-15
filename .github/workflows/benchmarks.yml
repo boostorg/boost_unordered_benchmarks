@@ -159,78 +159,78 @@ jobs:
             install: clang-16 unzip
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
-          #- name: clang-arm64
-          #  compiler: clang++
-          #  architecture: -m64
-          #  sourcefile: string.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-arm64
-          #  os: [self-hosted, macOS, ARM64]
-          #  command: ./benchmark
-          #  xcode_version: 13.4.1            
-          #- name: clang-arm64
-          #  compiler: clang++
-          #  architecture: -m64
-          #  sourcefile: string_view.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-arm64
-          #  os: [self-hosted, macOS, ARM64]
-          #  command: ./benchmark
-          #  xcode_version: 13.4.1            
-          #- name: clang-arm64
-          #  compiler: clang++
-          #  architecture: -m64
-          #  sourcefile: uint32.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-arm64
-          #  os: [self-hosted, macOS, ARM64]
-          #  command: ./benchmark
-          #  xcode_version: 13.4.1            
-          #- name: clang-arm64
-          #  compiler: clang++
-          #  architecture: -m64
-          #  sourcefile: uint64.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-arm64
-          #  os: [self-hosted, macOS, ARM64]
-          #  command: ./benchmark
-          #  xcode_version: 13.4.1            
-          #- name: clang-arm64
-          #  compiler: clang++
-          #  architecture: -m64
-          #  sourcefile: uuid.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-arm64
-          #  os: [self-hosted, macOS, ARM64]
-          #  command: ./benchmark
-          #  xcode_version: 13.4.1            
-          #- name: clang-arm64
-          #  compiler: clang++
-          #  architecture: -m64
-          #  sourcefile: word_count.cpp
-          #  download-datafiles: true
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-arm64
-          #  os: [self-hosted, macOS, ARM64]
-          #  command: ./benchmark
-          #  xcode_version: 13.4.1            
-          #- name: clang-arm64
-          #  compiler: clang++
-          #  architecture: -m64
-          #  download-datafiles: true
-          #  sourcefile: word_size.cpp
-          #  compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
-          #  outputfile: benchmark
-          #  reportdir: clang-arm64
-          #  os: [self-hosted, macOS, ARM64]
-          #  command: ./benchmark
-          #  xcode_version: 13.4.1            
+          - name: clang-arm64
+            compiler: clang++
+            architecture: -m64
+            sourcefile: string.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-arm64
+            os: [self-hosted, macOS, ARM64]
+            command: ./benchmark
+            xcode_version: 13.4.1            
+          - name: clang-arm64
+            compiler: clang++
+            architecture: -m64
+            sourcefile: string_view.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-arm64
+            os: [self-hosted, macOS, ARM64]
+            command: ./benchmark
+            xcode_version: 13.4.1            
+          - name: clang-arm64
+            compiler: clang++
+            architecture: -m64
+            sourcefile: uint32.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-arm64
+            os: [self-hosted, macOS, ARM64]
+            command: ./benchmark
+            xcode_version: 13.4.1            
+          - name: clang-arm64
+            compiler: clang++
+            architecture: -m64
+            sourcefile: uint64.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-arm64
+            os: [self-hosted, macOS, ARM64]
+            command: ./benchmark
+            xcode_version: 13.4.1            
+          - name: clang-arm64
+            compiler: clang++
+            architecture: -m64
+            sourcefile: uuid.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-arm64
+            os: [self-hosted, macOS, ARM64]
+            command: ./benchmark
+            xcode_version: 13.4.1            
+          - name: clang-arm64
+            compiler: clang++
+            architecture: -m64
+            sourcefile: word_count.cpp
+            download-datafiles: true
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-arm64
+            os: [self-hosted, macOS, ARM64]
+            command: ./benchmark
+            xcode_version: 13.4.1            
+          - name: clang-arm64
+            compiler: clang++
+            architecture: -m64
+            download-datafiles: true
+            sourcefile: word_size.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DHAVE_ANKERL_UNORDERED_DENSE -DHAVE_INDIVI
+            outputfile: benchmark
+            reportdir: clang-arm64
+            os: [self-hosted, macOS, ARM64]
+            command: ./benchmark
+            xcode_version: 13.4.1            
 
           #- name: gcc-x86
           #  compiler: g++-12
@@ -516,30 +516,30 @@ jobs:
             reportdir: vs-x64
             os: [self-hosted, Windows, X64]
 
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: string.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            os: [self-hosted, Windows, X64]
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: string_view.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            os: [self-hosted, Windows, X64]
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: uint32.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            os: [self-hosted, Windows, X64]
+          #- name: vs-x86
+          #  compiler: cl
+          #  architecture: x86
+          #  sourcefile: string.cpp
+          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+          #  outputfile: benchmark.exe            
+          #  reportdir: vs-x86
+          #  os: [self-hosted, Windows, X64]
+          #- name: vs-x86
+          #  compiler: cl
+          #  architecture: x86
+          #  sourcefile: string_view.cpp
+          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+          #  outputfile: benchmark.exe            
+          #  reportdir: vs-x86
+          #  os: [self-hosted, Windows, X64]
+          #- name: vs-x86
+          #  compiler: cl
+          #  architecture: x86
+          #  sourcefile: uint32.cpp
+          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+          #  outputfile: benchmark.exe            
+          #  reportdir: vs-x86
+          #  os: [self-hosted, Windows, X64]
           #- name: vs-x86
           #  compiler: cl
           #  architecture: x86
@@ -548,32 +548,32 @@ jobs:
           #  outputfile: benchmark.exe            
           #  reportdir: vs-x86
           #  os: [self-hosted, Windows, X64]
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: uuid.cpp
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            os: [self-hosted, Windows, X64]
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: word_count.cpp
-            download-datafiles: true
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            os: [self-hosted, Windows, X64]
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: word_size.cpp
-            download-datafiles: true
-            compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            os: [self-hosted, Windows, X64]
+          #- name: vs-x86
+          #  compiler: cl
+          #  architecture: x86
+          #  sourcefile: uuid.cpp
+          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+          #  outputfile: benchmark.exe            
+          #  reportdir: vs-x86
+          #  os: [self-hosted, Windows, X64]
+          #- name: vs-x86
+          #  compiler: cl
+          #  architecture: x86
+          #  sourcefile: word_count.cpp
+          #  download-datafiles: true
+          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+          #  outputfile: benchmark.exe            
+          #  reportdir: vs-x86
+          #  os: [self-hosted, Windows, X64]
+          #- name: vs-x86
+          #  compiler: cl
+          #  architecture: x86
+          #  sourcefile: word_size.cpp
+          #  download-datafiles: true
+          #  compileroptions: /std:c++20 /O2 /GL /D "NDEBUG" /D "HAVE_ABSEIL" /D "HAVE_ANKERL_UNORDERED_DENSE" /D "HAVE_INDIVI" /EHsc /MD /Fe:benchmark.exe
+          #  outputfile: benchmark.exe            
+          #  reportdir: vs-x86
+          #  os: [self-hosted, Windows, X64]
             
     runs-on: ${{matrix.os}}
 

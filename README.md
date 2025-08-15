@@ -388,9 +388,8 @@ ankerl::unordered_dense::map:   716 ms,      4304 bytes in 2 allocations
 ```
 <!--vs-x64/word_size.cpp.txt-->
 
-<!---
 ### Clang 12, ARM64
-<!~~clang-arm64/string.cpp.txt~~>
+<!--clang-arm64/string.cpp.txt-->
 ```
 string.cpp
                   std::unordered_map: 15645 ms, 244656248 bytes in 3999509 allocations
@@ -408,9 +407,9 @@ ankerl::unordered_dense::map, FNV-1a: 10832 ms, 201326592 bytes in 2 allocations
          absl::node_hash_map, FNV-1a:  9932 ms, 203481728 bytes in 3999509 allocations
          absl::flat_hash_map, FNV-1a:  9219 ms, 276824040 bytes in 1 allocations
 ```
-<!~~clang-arm64/string.cpp.txt~~>
+<!--clang-arm64/string.cpp.txt-->
 
-<!~~clang-arm64/string_view.cpp.txt~~>
+<!--clang-arm64/string_view.cpp.txt-->
 ```
 string_view.cpp
                   std::unordered_map: 14175 ms, 212660184 bytes in 3999509 allocations
@@ -428,9 +427,9 @@ ankerl::unordered_dense::map, FNV-1a: 10474 ms, 167772160 bytes in 2 allocations
          absl::node_hash_map, FNV-1a:  9013 ms, 171485664 bytes in 3999509 allocations
          absl::flat_hash_map, FNV-1a:  8220 ms, 209715184 bytes in 1 allocations
 ```
-<!~~clang-arm64/string_view.cpp.txt~~>
+<!--clang-arm64/string_view.cpp.txt-->
 
-<!~~clang-arm64/uint32.cpp.txt~~>
+<!--clang-arm64/uint32.cpp.txt-->
 ```
 uint32.cpp
           std::unordered_map:  7794 ms, 196600184 bytes in 5996681 allocations
@@ -441,9 +440,9 @@ ankerl::unordered_dense::map:  4068 ms, 134217728 bytes in 2 allocations
          absl::node_hash_map:  3664 ms, 123470912 bytes in 5996681 allocations
          absl::flat_hash_map:  2578 ms,  75497472 bytes in 1 allocations
 ```
-<!~~clang-arm64/uint32.cpp.txt~~>
+<!--clang-arm64/uint32.cpp.txt-->
 
-<!~~clang-arm64/uint64.cpp.txt~~>
+<!--clang-arm64/uint64.cpp.txt-->
 ```
 uint64.cpp
           std::unordered_map:  7768 ms, 244679864 bytes in 6000001 allocations
@@ -454,9 +453,9 @@ ankerl::unordered_dense::map:  3766 ms, 201326592 bytes in 2 allocations
          absl::node_hash_map:  4100 ms, 171497472 bytes in 6000001 allocations
          absl::flat_hash_map:  3125 ms, 142606328 bytes in 1 allocations
 ```
-<!~~clang-arm64/uint64.cpp.txt~~>
+<!--clang-arm64/uint64.cpp.txt-->
 
-<!~~clang-arm64/uuid.cpp.txt~~>
+<!--clang-arm64/uuid.cpp.txt-->
 ```
 uuid.cpp
           std::unordered_map: 15123 ms, 292679864 bytes in 6000001 allocations
@@ -467,9 +466,9 @@ ankerl::unordered_dense::map:  7705 ms, 268435456 bytes in 2 allocations
          absl::node_hash_map:  6004 ms, 219497472 bytes in 6000001 allocations
          absl::flat_hash_map:  4885 ms, 209715184 bytes in 1 allocations
 ```
-<!~~clang-arm64/uuid.cpp.txt~~>
+<!--clang-arm64/uuid.cpp.txt-->
 
-<!~~clang-arm64/word_count.cpp.txt~~>
+<!--clang-arm64/word_count.cpp.txt-->
 ```
 word_count.cpp
                   std::unordered_map: 17858 ms,  69916096 bytes in 1418656 allocations
@@ -487,9 +486,9 @@ ankerl::unordered_dense::map, FNV-1a: 24269 ms,  67108864 bytes in 2 allocations
          absl::node_hash_map, FNV-1a:  8761 ms,  52922088 bytes in 1418656 allocations
          absl::flat_hash_map, FNV-1a:  7837 ms,  52428784 bytes in 1 allocations
 ```
-<!~~clang-arm64/word_count.cpp.txt~~>
+<!--clang-arm64/word_count.cpp.txt-->
 
-<!~~clang-arm64/word_size.cpp.txt~~>
+<!--clang-arm64/word_size.cpp.txt-->
 ```
 word_size.cpp
           std::unordered_map:   936 ms,      5192 bytes in 114 allocations
@@ -500,9 +499,9 @@ ankerl::unordered_dense::map:   394 ms,      4096 bytes in 2 allocations
          absl::node_hash_map:   270 ms,      4112 bytes in 114 allocations
          absl::flat_hash_map:   315 ms,      4344 bytes in 1 allocations
 ```
-<!~~clang-arm64/word_size.cpp.txt~~>
+<!--clang-arm64/word_size.cpp.txt-->
 
-
+<!---
 ### GCC 12, x86
 <!~~gcc-x86/string.cpp.txt~~>
 ```
@@ -726,10 +725,9 @@ ankerl::unordered_dense::map:   189 ms,      1536 bytes in 2 allocations
          absl::flat_hash_map:   116 ms,      1152 bytes in 1 allocations
 ```
 <!~~clang-x86/word_size.cpp.txt~~>
--->
 
 ### Visual Studio 2022, x86
-<!--vs-x86/string.cpp.txt-->
+<!~~vs-x86/string.cpp.txt~~>
 ```
 string.cpp
                   std::unordered_map: 24175 ms, 177536756 bytes in 3999510 allocations
@@ -749,9 +747,9 @@ ankerl::unordered_dense::map, FNV-1a: 16711 ms, 215927716 bytes in 2 allocations
          absl::node_hash_map, FNV-1a: 14941 ms, 153929276 bytes in 3999509 allocations
          absl::flat_hash_map, FNV-1a: 15213 ms, 243269620 bytes in 1 allocations
 ```
-<!--vs-x86/string.cpp.txt-->
+<!~~vs-x86/string.cpp.txt~~>
 
-<!--vs-x86/string_view.cpp.txt-->
+<!~~vs-x86/string_view.cpp.txt~~>
 ```
 string_view.cpp
                   std::unordered_map: 23457 ms, 113544612 bytes in 3999510 allocations
@@ -771,9 +769,9 @@ ankerl::unordered_dense::map, FNV-1a: 16068 ms, 130888372 bytes in 2 allocations
          absl::node_hash_map, FNV-1a: 13722 ms,  89937148 bytes in 3999509 allocations
          absl::flat_hash_map, FNV-1a: 12225 ms, 109051908 bytes in 1 allocations
 ```
-<!--vs-x86/string_view.cpp.txt-->
+<!~~vs-x86/string_view.cpp.txt~~>
 
-<!--vs-x86/uint32.cpp.txt-->
+<!~~vs-x86/uint32.cpp.txt~~>
 ```
 uint32.cpp
           std::unordered_map: 11628 ms, 163055760 bytes in 5996682 allocations
@@ -785,9 +783,8 @@ ankerl::unordered_dense::map: 10387 ms, 130888368 bytes in 2 allocations
          absl::node_hash_map:  9290 ms,  89916492 bytes in 5996681 allocations
          absl::flat_hash_map:  5745 ms,  75497480 bytes in 1 allocations
 ```
-<!--vs-x86/uint32.cpp.txt-->
+<!~~vs-x86/uint32.cpp.txt~~>
 
-<!--
 <!~~vs-x86/uint64.cpp.txt~~>
 ```
 uint64.cpp
@@ -800,9 +797,8 @@ ankerl::unordered_dense::map: 15616 ms, 194667872 bytes in 2 allocations
          absl::flat_hash_map:  7291 ms, 142606336 bytes in 1 allocations
 ```
 <!~~vs-x86/uint64.cpp.txt~~>
--->
 
-<!--vs-x86/uuid.cpp.txt-->
+<!~~vs-x86/uuid.cpp.txt~~>
 ```
 uuid.cpp
           std::unordered_map: 22632 ms, 259108896 bytes in 6000002 allocations
@@ -814,9 +810,9 @@ ankerl::unordered_dense::map: 17872 ms, 258447376 bytes in 2 allocations
          absl::node_hash_map: 16910 ms, 185943052 bytes in 6000001 allocations
          absl::flat_hash_map: 14312 ms, 209715192 bytes in 1 allocations
 ```
-<!--vs-x86/uuid.cpp.txt-->
+<!~~vs-x86/uuid.cpp.txt~~>
 
-<!--vs-x86/word_count.cpp.txt-->
+<!~~vs-x86/word_count.cpp.txt~~>
 ```
 word_count.cpp
                   std::unordered_map:  1418 ms,  11274964 bytes in 354034 allocations
@@ -836,9 +832,9 @@ ankerl::unordered_dense::map, FNV-1a:  1108 ms,   9793612 bytes in 2 allocations
          absl::node_hash_map, FNV-1a:  1059 ms,   6869836 bytes in 354033 allocations
          absl::flat_hash_map, FNV-1a:   925 ms,   6815748 bytes in 1 allocations
 ```
-<!--vs-x86/word_count.cpp.txt-->
+<!~~vs-x86/word_count.cpp.txt~~>
 
-<!--vs-x86/word_size.cpp.txt-->
+<!~~vs-x86/word_size.cpp.txt~~>
 ```
 word_size.cpp
           std::unordered_map:   103 ms,      1456 bytes in 60 allocations
@@ -850,4 +846,5 @@ ankerl::unordered_dense::map:    93 ms,      1528 bytes in 2 allocations
          absl::node_hash_map:    89 ms,      1116 bytes in 59 allocations
          absl::flat_hash_map:    85 ms,      1160 bytes in 1 allocations
 ```
-<!--vs-x86/word_size.cpp.txt-->
+<!~~vs-x86/word_size.cpp.txt~~>
+-->
