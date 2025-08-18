@@ -161,13 +161,18 @@ void test(
 #include <boost/unordered/unordered_node_map.hpp>
 #include "indivi/flat_wmap.h"
 
+struct common_hash:boost::hash<boost::uint64_t>
+{
+  using is_avalanching=std::true_type;
+};
+
 int main()
 {
-  using container_t1=absl::flat_hash_map<boost::uint64_t,boost::uint64_t>;
-  using container_t2=indivi::flat_wmap<boost::uint64_t,boost::uint64_t>;
-  using container_t3=boost::unordered_map<boost::uint64_t,boost::uint64_t>;
-  using container_t4=boost::unordered_flat_map<boost::uint64_t,boost::uint64_t>;
-  using container_t5=boost::unordered_node_map<boost::uint64_t,boost::uint64_t>;
+  using container_t1=absl::flat_hash_map<boost::uint64_t,boost::uint64_t,common_hash>;
+  using container_t2=indivi::flat_wmap<boost::uint64_t,boost::uint64_t,common_hash>;
+  using container_t3=boost::unordered_map<boost::uint64_t,boost::uint64_t,common_hash>;
+  using container_t4=boost::unordered_flat_map<boost::uint64_t,boost::uint64_t,common_hash>;
+  using container_t5=boost::unordered_node_map<boost::uint64_t,boost::uint64_t,common_hash>;
 
   test<
     scattered_lookup,
