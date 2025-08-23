@@ -217,7 +217,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           ${{matrix.compiler}} --version
-          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/unordered-root -I$GITHUB_WORKSPACE/boost-root -I$GITHUB_WORKSPACE/abseil-root -I$GITHUB_WORKSPACE/indivi-root/src
+          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.architecture}} ${{matrix.compileroptions}} -o ${{matrix.outputfile}} -I$GITHUB_WORKSPACE/unordered-root/include -I$GITHUB_WORKSPACE/boost-root -I$GITHUB_WORKSPACE/abseil-root -I$GITHUB_WORKSPACE/indivi-root/src
       - name: Set reportfile name
         run: |
           echo "REPORT_FILE=${{matrix.reportdir}}/${{matrix.sourcefile}}.csv" >> $GITHUB_ENV
@@ -340,7 +340,7 @@ jobs:
         run: |
           cd %GITHUB_WORKSPACE%
           call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
-          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\unordered-root;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\abseil-root;%GITHUB_WORKSPACE%\indivi-root\src
+          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\unordered-root\include;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\abseil-root;%GITHUB_WORKSPACE%\indivi-root\src
           echo %INCLUDE%
           ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.compileroptions}}
       - name: Set reportfile name
