@@ -163,7 +163,7 @@ void test(
 
 struct common_hash:boost::hash<boost::uint64_t>
 {
-  using is_avalanching=std::true_type;
+  //using is_avalanching=std::true_type;
 };
 
 int main()
