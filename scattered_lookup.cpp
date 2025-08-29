@@ -90,11 +90,11 @@ struct scattered_lookup
   boost::uint64_t operator()(
     const Container & s,unsigned int n,const Data& data)const
   {
-    boost::uint64_t res=0;
-    auto            end_=s.end();
+    volatile boost::uint64_t res=0;
+    auto                     end_=s.end();
     for(unsigned int i=0;i<n;++i){
       auto it=s.find(data[i]);
-      if(it!=end_)res+=it->second;
+      if(it!=end_)res=res+it->second;
     }
     return res;
   }
