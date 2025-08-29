@@ -163,7 +163,7 @@ void test(
 
 struct common_hash:boost::hash<boost::uint64_t>
 {
-  //using is_avalanching=std::true_type;
+  using is_avalanching=std::true_type;
 };
 
 int main()
@@ -202,7 +202,7 @@ int main()
     "Scattered unsuccessful lookup",
     unsuccessful_data,
     "absl::flat_hash_map",
-    "absl::node_hash_map",
+    "indivi::flat_wmap",
     "boost::unordered_map",
     "boost::unordered_flat_map",
     "boost::unordered_node_map"
