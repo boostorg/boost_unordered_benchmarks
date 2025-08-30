@@ -58,11 +58,12 @@ void resume_timing()
 #include <random>
 #include <vector>
 
-static std::vector<boost::uint64_t> data,unsuccessful_data;
+static std::vector<boost::uint64_t> data,unsuccessful_data,mixed_data;
 
 static inline void initialize_data(unsigned int n)
 {
   std::uniform_int_distribution<boost::uint64_t> dist;
+  std::bernoulli_distribution                    b(0.5);  
   std::mt19937_64                                gen(34862);
 
   data.clear();
@@ -70,6 +71,7 @@ static inline void initialize_data(unsigned int n)
   for(unsigned int i=0;i<n;++i){
     data.push_back(dist(gen));
     unsuccessful_data.push_back(dist(gen));
+    mixed_data.push_back(b(gen)?data.back():unsuccessful_data.back());    
   }
 }
 
@@ -182,8 +184,8 @@ int main()
     container_t4,
     container_t5>
   (
-    "Scattered successful lookup",
-    data,
+    "Scattered mixed lookup",
+    mixed_data,
     "absl::flat_hash_map",
     "indivi::flat_wmap",
     "boost::unordered_map",
