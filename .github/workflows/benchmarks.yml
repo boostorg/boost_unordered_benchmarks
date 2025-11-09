@@ -39,7 +39,7 @@ jobs:
         if: startsWith(matrix.compiler, 'fil++')
         run: |
           set -xe
-          mkdir -p /opt/downloads
+          sudo mkdir -p /opt/downloads
           cd /opt/downloads
           fil_c_version="0.674"
           wget "https://github.com/pizlonator/fil-c/releases/download/v${fil_c_version}/optfil-${fil_c_version}-linux-x86_64.tar.xz"
