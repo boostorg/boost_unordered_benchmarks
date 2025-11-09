@@ -93,7 +93,7 @@ jobs:
           git push
          
   final:
-    needs: [posix,windows]
+    needs: posix
     
     runs-on: ubuntu-latest
     container:
