@@ -22,7 +22,7 @@ jobs:
             reportdir: clang-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
-            install: clang
+            install: clang 
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
                        
     runs-on: ${{matrix.os}}
