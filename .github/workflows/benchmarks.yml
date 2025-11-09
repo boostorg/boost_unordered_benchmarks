@@ -5,50 +5,16 @@ on:
   pull_request:
   push:
     branches:
-      - boost_unordered_flat_map
+      - boost_unordered_flat_map_fil-c
 
 jobs:
   posix:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - name: gcc-x64
-            compiler: g++-12
-            architecture: -m64
-            sourcefile: running_insertion.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: gcc-x64
-            # os: ubuntu-20.04
-            os: [self-hosted, linux, x64]
-            install: g++-12
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x64
-            compiler: g++-12
-            architecture: -m64
-            sourcefile: running_erasure.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: gcc-x64
-            # os: ubuntu-20.04
-            os: [self-hosted, linux, x64]
-            install: g++-12
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x64
-            compiler: g++-12
-            architecture: -m64
-            sourcefile: scattered_lookup.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: gcc-x64
-            # os: ubuntu-20.04
-            os: [self-hosted, linux, x64]
-            install: g++-12
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-            
+        include:            
           - name: clang-x64
-            compiler: clang++-15
+            compiler: fil++
             architecture: -m64
             sourcefile: running_insertion.cpp
             compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
@@ -57,127 +23,7 @@ jobs:
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x64
-            compiler: clang++-15
-            architecture: -m64
-            sourcefile: running_erasure.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: clang-x64
-            # os: ubuntu-20.04
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x64
-            compiler: clang++-15
-            architecture: -m64
-            sourcefile: scattered_lookup.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: clang-x64
-            # os: ubuntu-20.04
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            sourcefile: running_insertion.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: clang-arm64
-            # os: ubuntu-20.04
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            sourcefile: running_erasure.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: clang-arm64
-            # os: ubuntu-20.04
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
-          - name: clang-arm64
-            compiler: clang++
-            architecture: -m64
-            sourcefile: scattered_lookup.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: clang-arm64
-            # os: ubuntu-20.04
-            os: [self-hosted, macOS, ARM64]
-            command: ./benchmark
-            xcode_version: 13.4.1            
-
-          - name: gcc-x86
-            compiler: g++-12
-            architecture: -m32
-            sourcefile: running_insertion.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: gcc-x86
-            # os: ubuntu-20.04
-            os: [self-hosted, linux, x64]
-            install: g++-12 gcc-12-multilib g++-12-multilib
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x86
-            compiler: g++-12
-            architecture: -m32
-            sourcefile: running_erasure.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: gcc-x86
-            # os: ubuntu-20.04
-            os: [self-hosted, linux, x64]
-            install: g++-12 gcc-12-multilib g++-12-multilib
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: gcc-x86
-            compiler: g++-12
-            architecture: -m32
-            sourcefile: scattered_lookup.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: gcc-x86
-            # os: ubuntu-20.04
-            os: [self-hosted, linux, x64]
-            install: g++-12 gcc-12-multilib g++-12-multilib
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-
-          - name: clang-x86
-            compiler: clang++-15
-            architecture: -m32
-            sourcefile: running_insertion.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: clang-x86
-            # os: ubuntu-20.04
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x86
-            compiler: clang++-15
-            architecture: -m32
-            sourcefile: running_erasure.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: clang-x86
-            # os: ubuntu-20.04
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-          - name: clang-x86
-            compiler: clang++-15
-            architecture: -m32
-            sourcefile: scattered_lookup.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
-            outputfile: benchmark
-            reportdir: clang-x86
-            # os: ubuntu-20.04
-            os: [self-hosted, linux, x64]
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
-
-                        
+                       
     runs-on: ${{matrix.os}}
 
     steps:
@@ -189,6 +35,18 @@ jobs:
           if uname -p | grep -q 'x86_64'; then sudo dpkg --add-architecture i386 ; fi
           sudo apt-get update
           sudo apt-get install -y ${{matrix.install}}
+      - name: Install Fil-C
+        if: startsWith(matrix.compiler, 'fil++')
+        run: |
+          set -xe
+          mkdir -p /opt/downloads
+          cd /opt/downloads
+          fil_c_version="0.674"
+          wget "https://github.com/pizlonator/fil-c/releases/download/v${fil_c_version}/optfil-${fil_c_version}-linux-x86_64.tar.xz"
+          tar -xvJf "optfil-${fil_c_version}-linux-x86_64.tar.xz"
+          cd "optfil-${fil_c_version}-linux-x86_64"
+          echo -e "YES\nYES" | ./setup.sh
+          echo "/opt/fil/bin" >> $GITHUB_PATH
       - name: Install Boost
         run: |
           cd $GITHUB_WORKSPACE
@@ -233,117 +91,7 @@ jobs:
           git add ${REPORT_FILE}
           git commit -m "updated benchmark results"
           git push
-
-  windows:
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - name: vs-x64
-            compiler: cl
-            architecture: x64
-            sourcefile: running_insertion.cpp
-            compileroptions: /std:c++latest /O2 /D "NDEBUG" /D "HAVE_ABSEIL" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x64
-            # os: windows-2019
-            os: [self-hosted, Windows, X64]
-          - name: vs-x64
-            compiler: cl
-            architecture: x64
-            sourcefile: running_erasure.cpp
-            compileroptions: /std:c++latest /O2 /D "NDEBUG" /D "HAVE_ABSEIL" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x64
-            # os: windows-2019
-            os: [self-hosted, Windows, X64]
-          - name: vs-x64
-            compiler: cl
-            architecture: x64
-            sourcefile: scattered_lookup.cpp
-            compileroptions: /std:c++latest /O2 /D "NDEBUG" /D "HAVE_ABSEIL" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x64
-            # os: windows-2019
-            os: [self-hosted, Windows, X64]
-
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: running_insertion.cpp
-            compileroptions: /std:c++latest /O2 /D "NDEBUG" /D "HAVE_ABSEIL" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            # os: windows-2019
-            os: [self-hosted, Windows, X64]
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: running_erasure.cpp
-            compileroptions: /std:c++latest /O2 /D "NDEBUG" /D "HAVE_ABSEIL" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            # os: windows-2019
-            os: [self-hosted, Windows, X64]
-          - name: vs-x86
-            compiler: cl
-            architecture: x86
-            sourcefile: scattered_lookup.cpp
-            compileroptions: /std:c++latest /O2 /D "NDEBUG" /D "HAVE_ABSEIL" /EHsc /MD /Fe:benchmark.exe
-            outputfile: benchmark.exe            
-            reportdir: vs-x86
-            # os: windows-2019
-            os: [self-hosted, Windows, X64]
-            
-    runs-on: ${{matrix.os}}
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install Boost
-        shell: cmd
-        run: |
-          cd %GITHUB_WORKSPACE%
-          git clone https://github.com/boostorg/boost.git boost-root
-          cd boost-root
-          git checkout develop
-          git submodule update --init
-          cmd /c bootstrap.bat
-          .\b2.exe -d0 headers
-      - name: Install Abseil
-        shell: cmd
-        run: |
-          cd %GITHUB_WORKSPACE%
-          git clone -b lts_2022_06_23 https://github.com/abseil/abseil-cpp.git abseil-root
-      - name: Compile
-        shell: cmd
-        run: |
-          cd %GITHUB_WORKSPACE%
-          call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" ${{matrix.architecture}}
-          set INCLUDE=%INCLUDE%;%GITHUB_WORKSPACE%\boost-root;%GITHUB_WORKSPACE%\abseil-root
-          echo %INCLUDE%
-          ${{matrix.compiler}} ${{matrix.sourcefile}} ${{matrix.compileroptions}}
-      - name: Set reportfile name
-        shell: powershell
-        run: |
-          echo "REPORT_FILE=${{matrix.reportdir}}\${{matrix.sourcefile}}.csv" >> $env:GITHUB_ENV
-      - name: Run benchmark
-        shell: powershell
-        run: |
-          echo "running benchmarks and saving to $env:REPORT_FILE"
-          ./${{matrix.outputfile}} | tee $env:REPORT_FILE
-      - name: Push benchmark results to repo
-        shell: powershell
-        run: |
-          git config --global user.name 'joaquintides'
-          git config --global user.email 'joaquintides@users.noreply.github.com'
-          git add $env:REPORT_FILE
-          git stash -- $env:REPORT_FILE
-          git pull
-          git stash pop
-          git add $env:REPORT_FILE
-          git commit -m "updated benchmark results"
-          git push
-          
+         
   final:
     needs: [posix,windows]
     
