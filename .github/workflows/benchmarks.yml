@@ -17,7 +17,7 @@ jobs:
             compiler: fil++
             architecture: -m64
             sourcefile: running_insertion.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DBOOST_ALL_NO_EMBEDDED_GDB_SCRIPTS
             outputfile: benchmark
             reportdir: clang-x64
             # os: ubuntu-20.04
