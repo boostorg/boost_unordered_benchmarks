@@ -41,6 +41,7 @@ jobs:
         run: |
           set -xe
           sudo mkdir -p /opt/downloads
+          sudo rm -rf /opt/fil
           cd /opt/downloads
           fil_c_version="0.674"
           sudo wget "https://github.com/pizlonator/fil-c/releases/download/v${fil_c_version}/optfil-${fil_c_version}-linux-x86_64.tar.xz"
