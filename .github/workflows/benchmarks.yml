@@ -24,6 +24,28 @@ jobs:
             os: [self-hosted, linux, x64]
             install: clang
             command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: clang-x64
+            compiler: fil++
+            architecture: -m64
+            sourcefile: running_erase.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DBOOST_ALL_NO_EMBEDDED_GDB_SCRIPTS
+            outputfile: benchmark
+            reportdir: clang-x64
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: clang
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: clang-x64
+            compiler: fil++
+            architecture: -m64
+            sourcefile: scattered_lookup.cpp
+            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DBOOST_ALL_NO_EMBEDDED_GDB_SCRIPTS
+            outputfile: benchmark
+            reportdir: clang-x64
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: clang
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
                        
     runs-on: ${{matrix.os}}
 
