@@ -45,7 +45,7 @@ jobs:
           sudo wget "https://github.com/pizlonator/fil-c/releases/download/v${fil_c_version}/optfil-${fil_c_version}-linux-x86_64.tar.xz"
           sudo tar -xvJf "optfil-${fil_c_version}-linux-x86_64.tar.xz"
           cd "optfil-${fil_c_version}-linux-x86_64"
-          echo -e "YES\nYES" | ./setup.sh
+          sudo echo -e "YES\nYES" | ./setup.sh
           echo "/opt/fil/bin" >> $GITHUB_PATH
       - name: Install Boost
         run: |
