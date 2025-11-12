@@ -14,12 +14,80 @@ jobs:
       matrix:
         include:            
           - name: clang-x64
+            compiler: clang++-18
+            architecture: -m64
+            sourcefile: running_insertion.cpp
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL
+            outputfile: benchmark
+            reportdir: clang-x64
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: clang
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: clang-x64
+            compiler: clang++-18
+            architecture: -m64
+            sourcefile: running_erasure.cpp
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL
+            outputfile: benchmark
+            reportdir: clang-x64
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: clang
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: clang-x64
+            compiler: clang++-18
+            architecture: -m64
+            sourcefile: scattered_lookup.cpp
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL
+            outputfile: benchmark
+            reportdir: clang-x64
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: clang
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+
+          - name: clang-x64
+            compiler: clang++-18
+            architecture: -m64
+            sourcefile: running_insertion.cpp
+            compileroptions: -fno-omit-frame-pointer -fsanitize=address -gline-tables-only -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL
+            outputfile: benchmark
+            reportdir: clang-asan-x64
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: clang
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: clang-x64
+            compiler: clang++-18
+            architecture: -m64
+            sourcefile: running_erasure.cpp
+            compileroptions: -fno-omit-frame-pointer -fsanitize=address -gline-tables-only -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL
+            outputfile: benchmark
+            reportdir: clang-asan-x64
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: clang
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+          - name: clang-x64
+            compiler: clang++-18
+            architecture: -m64
+            sourcefile: scattered_lookup.cpp
+            compileroptions: -fno-omit-frame-pointer -fsanitize=address -gline-tables-only -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL
+            outputfile: benchmark
+            reportdir: clang-asan-x64
+            # os: ubuntu-20.04
+            os: [self-hosted, linux, x64]
+            install: clang
+            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+
+          - name: clang-x64
             compiler: fil++
             architecture: -m64
             sourcefile: running_insertion.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DBOOST_ALL_NO_EMBEDDED_GDB_SCRIPTS
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DBOOST_ALL_NO_EMBEDDED_GDB_SCRIPTS
             outputfile: benchmark
-            reportdir: clang-x64
+            reportdir: fil-c-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: clang
@@ -28,9 +96,9 @@ jobs:
             compiler: fil++
             architecture: -m64
             sourcefile: running_erasure.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DBOOST_ALL_NO_EMBEDDED_GDB_SCRIPTS
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DBOOST_ALL_NO_EMBEDDED_GDB_SCRIPTS
             outputfile: benchmark
-            reportdir: clang-x64
+            reportdir: fil-c-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: clang
@@ -39,9 +107,9 @@ jobs:
             compiler: fil++
             architecture: -m64
             sourcefile: scattered_lookup.cpp
-            compileroptions: -std=c++2a -O3 -DNDEBUG -DHAVE_ABSEIL -DBOOST_ALL_NO_EMBEDDED_GDB_SCRIPTS
+            compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DBOOST_ALL_NO_EMBEDDED_GDB_SCRIPTS
             outputfile: benchmark
-            reportdir: clang-x64
+            reportdir: fil-c-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: clang
