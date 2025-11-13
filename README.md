@@ -11,7 +11,9 @@ Automated benchmarks of `boost::unordered_flat_map` and `boost::unordered_node_m
 
 ## How to read the results
 ### Folder
-* `clang-x64`: Fil-C 0.674, x64
+* `clang-x64`: Clang 18, x64
+* `clang-asan-x64`: Clang 18 with ASAN enabled, x64
+* `fil-c-x64`: Fil-C 0.674, x64
 
 ### Excel file
 * `Running insertion.xlsx`: results of `running_insertion.cpp`
@@ -20,7 +22,17 @@ Automated benchmarks of `boost::unordered_flat_map` and `boost::unordered_node_m
 * `Scattered unsuccessful looukp.xlsx`: results of `scattered_lookup.cpp`, unsuccessful case
 
 ## Graphs
-### Fil-C 0.674, x64 (`clang-x64 folder`)
+### Clang 18, x64
 |<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_fil-c/img/clang-x64/Running insertion.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_fil-c/img/clang-x64/Running erasure.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_fil-c/img/clang-x64/Scattered successful looukp.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_fil-c/img/clang-x64/Scattered unsuccessful looukp.xlsx.plot.png" width="250">|
+|:-:|:-:|:-:|:-:|
+|Running insertion|Running erasure|Successful lookup|Unsuccessful lookup|
+
+### Clang 18 with ASAN enabled, x64
+|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_fil-c/img/clang-asan-x64/Running insertion.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_fil-c/img/clang-asan-x64/Running erasure.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_fil-c/img/clang-asan-x64/Scattered successful looukp.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_fil-c/img/clang-asan-x64/Scattered unsuccessful looukp.xlsx.plot.png" width="250">|
+|:-:|:-:|:-:|:-:|
+|Running insertion|Running erasure|Successful lookup|Unsuccessful lookup|
+
+### Fil-C 0.674, x64
+|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_fil-c/img/fil-c-x64/Running insertion.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_fil-c/img/fil-c-x64/Running erasure.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_fil-c/img/fil-c-x64/Scattered successful looukp.xlsx.plot.png" width="250">|<img src="https://raw.githubusercontent.com/joaquintides/boost_unordered_benchmarks/boost_unordered_flat_map_fil-c/img/fil-c-x64/Scattered unsuccessful looukp.xlsx.plot.png" width="250">|
 |:-:|:-:|:-:|:-:|
 |Running insertion|Running erasure|Successful lookup|Unsuccessful lookup|
