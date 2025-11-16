@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches:
-      - boost_unordered_flat_map_fil-c
+      - boost_unordered_flat_map_fil-c_memory
 
 jobs:
   posix:
@@ -19,33 +19,30 @@ jobs:
             sourcefile: running_insertion.cpp
             compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL
             outputfile: benchmark
-            reportdir: clang-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: clang
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+            command: sudo /usr/bin/time -v cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
             compiler: clang++-18
             architecture: -m64
             sourcefile: running_erasure.cpp
             compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL
             outputfile: benchmark
-            reportdir: clang-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: clang
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+            command: sudo /usr/bin/time -v cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
             compiler: clang++-18
             architecture: -m64
             sourcefile: scattered_lookup.cpp
             compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL
             outputfile: benchmark
-            reportdir: clang-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: clang
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+            command: sudo /usr/bin/time -v cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
           - name: clang-x64
             compiler: clang++-18
@@ -53,33 +50,30 @@ jobs:
             sourcefile: running_insertion.cpp
             compileroptions: -fno-omit-frame-pointer -fsanitize=address -gline-tables-only -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL
             outputfile: benchmark
-            reportdir: clang-asan-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: clang
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+            command: sudo /usr/bin/time -v cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
             compiler: clang++-18
             architecture: -m64
             sourcefile: running_erasure.cpp
             compileroptions: -fno-omit-frame-pointer -fsanitize=address -gline-tables-only -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL
             outputfile: benchmark
-            reportdir: clang-asan-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: clang
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+            command: sudo /usr/bin/time -v cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
             compiler: clang++-18
             architecture: -m64
             sourcefile: scattered_lookup.cpp
             compileroptions: -fno-omit-frame-pointer -fsanitize=address -gline-tables-only -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL
             outputfile: benchmark
-            reportdir: clang-asan-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: clang
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+            command: sudo /usr/bin/time -v cgexec -g memory,cpu:shield sudo -u gha ./benchmark
 
           - name: clang-x64
             compiler: fil++
@@ -87,33 +81,30 @@ jobs:
             sourcefile: running_insertion.cpp
             compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DBOOST_ALL_NO_EMBEDDED_GDB_SCRIPTS
             outputfile: benchmark
-            reportdir: fil-c-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: clang
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+            command: sudo /usr/bin/time -v cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
             compiler: fil++
             architecture: -m64
             sourcefile: running_erasure.cpp
             compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DBOOST_ALL_NO_EMBEDDED_GDB_SCRIPTS
             outputfile: benchmark
-            reportdir: fil-c-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: clang
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+            command: sudo /usr/bin/time -v cgexec -g memory,cpu:shield sudo -u gha ./benchmark
           - name: clang-x64
             compiler: fil++
             architecture: -m64
             sourcefile: scattered_lookup.cpp
             compileroptions: -std=c++20 -O3 -DNDEBUG -DHAVE_ABSEIL -DBOOST_ALL_NO_EMBEDDED_GDB_SCRIPTS
             outputfile: benchmark
-            reportdir: fil-c-x64
             # os: ubuntu-20.04
             os: [self-hosted, linux, x64]
             install: clang
-            command: sudo cgexec -g memory,cpu:shield sudo -u gha ./benchmark
+            command: sudo /usr/bin/time -v cgexec -g memory,cpu:shield sudo -u gha ./benchmark
                        
     runs-on: ${{matrix.os}}
 
@@ -164,48 +155,4 @@ jobs:
         run: |
           if [ -n "${{matrix.xcode_version}}" ]; then
               DEVELOPER_DIR=/Applications/Xcode-${{matrix.xcode_version}}.app/Contents/Developer
-          fi        
-          if [ -n "${{matrix.command}}" ]; then
-            echo "running benchmarks and saving to "${REPORT_FILE}
-            ${{matrix.command}} | tee ${REPORT_FILE}
-          else
-            echo "running benchmarks and saving to "${REPORT_FILE}
-            ./${{matrix.outputfile}} | tee ${REPORT_FILE}
-          fi
-      - name: Push benchmark results to repo
-        run: |
-          git config --global user.name 'joaquintides'
-          git config --global user.email 'joaquintides@users.noreply.github.com'
-          git add ${REPORT_FILE}
-          git stash -- ${REPORT_FILE}
-          git pull
-          git stash pop
-          git add ${REPORT_FILE}
-          git commit -m "updated benchmark results"
-          git push
-         
-  final:
-    needs: posix
-    
-    runs-on: ubuntu-latest
-    container:
-      image: python:2.7.18-buster
-          
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install Python packages
-        run: |
-          python -m pip install --upgrade pip
-          pip install openpyxl
-      - name: Fast-forward repo 
-        run: |
-          git pull
-      - name: Run data feeding script
-        run: |
-          ./insert_data.sh
-      - name: Push modified Excel files to repo
-        run: |
-          git config --global user.name 'joaquintides'
-          git config --global user.email 'joaquintides@users.noreply.github.com'
-          git commit -am "updated Excel files"
-          git push          
+          ${{matrix.command}}

@@ -127,7 +127,7 @@ void test(
   const char* name1,const char* name2,const char* name3,
   const char* name4,const char* name5)
 {
-  unsigned int n0=10000,n1=10000000,dn=500;
+  unsigned int n0=10000000,n1=10000000,dn=500;
   double       fdn=1.05;
 
   initialize_data(n1);
